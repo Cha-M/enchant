@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(26.8% 0.007 34.298);
+  --foreground: #caa560;
 }
-
+/* 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+} */
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+@font-face {
+  font-family: "Pelagiad";
+  src: local("Pelagiad"), url("../fonts/Pelagiad.ttf") format("truetype");
+}
+
+/* select {
+  border: #DFC99F
+} */
+
+button:hover {
+  border-color: #dfc99f;
+  color: #dfc99f;
+}
+
+select:focus {
+  outline: 1px solid #dfc99f;
+  border-radius: 1px;
+  outline-offset: 2px;
+}
+
+input:focus {
+  outline: 1px solid #dfc99f;
+  border-radius: 1px;
+  outline-offset: 2px;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pelagiad", sans-serif;
 }

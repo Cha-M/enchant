@@ -1,6 +1,13 @@
-// const effects: Effect[] = [{effect: "Absorb Attribute", skill: "Mysticism", baseCost: 2, hasMagnitude: true}, {effect: "Absorb Fatigue", skill: "Mysticism", baseCost: 4, hasMagnitude: true}, {effect: "Absorb Health", skill: "Mysticism", baseCost: 8, hasMagnitude: true}, {effect: "Absorb Magicka", skill: "Mysticism", baseCost: 8, hasMagnitude: true}, {effect: "Absorb Skill", skill: "Mysticism", baseCost: 2, hasMagnitude: true}, {effect: "Almsivi Intervention", skill: "Mysticism", baseCost: 150, hasMagnitude: false}, {effect: "Blind", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Bound Battle Axe", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Boots", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Cuirass", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Dagger", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Gloves", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Helm", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Longbow", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Longsword", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Mace", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Shield", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Bound Spear", skill: "Conjuration", baseCost: 2, hasMagnitude: true}, {effect: "Burden", skill: "Alteration", baseCost: 1, hasMagnitude: true}, {effect: "Call Bear", skill: "Conjuration", baseCost: 30, hasMagnitude: true}, {effect: "Call Wolf", skill: "Conjuration", baseCost: 30, hasMagnitude: true}, {effect: "Calm Creature", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Calm Humanoid", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Chameleon", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Charm", skill: "Illusion", baseCost: 5, hasMagnitude: true}, {effect: "Command Creature", skill: "Conjuration", baseCost: 15, hasMagnitude: true}, {effect: "Command Humanoid", skill: "Conjuration", baseCost: 15, hasMagnitude: true}, {effect: "Corprus", skill: "Destruction", baseCost: 2500, hasMagnitude: false}, {effect: "Cure Blight Disease", skill: "Restoration", baseCost: 2000, hasMagnitude: false}, {effect: "Cure Common Disease", skill: "Restoration", baseCost: 300, hasMagnitude: false}, {effect: "Cure Corprus Disease", skill: "Restoration", baseCost: 2500, hasMagnitude: false}, {effect: "Cure Paralyzation", skill: "Restoration", baseCost: 100, hasMagnitude: false}, {effect: "Cure Poison", skill: "Restoration", baseCost: 100, hasMagnitude: false}, {effect: "Damage Attribute", skill: "Destruction", baseCost: 8, hasMagnitude: true}, {effect: "Damage Fatigue", skill: "Destruction", baseCost: 4, hasMagnitude: true}, {effect: "Damage Health", skill: "Destruction", baseCost: 8, hasMagnitude: true}, {effect: "Damage Magicka", skill: "Destruction", baseCost: 8, hasMagnitude: true}, {effect: "Damage Skill", skill: "Destruction", baseCost: 8, hasMagnitude: true}, {effect: "Demoralize Creature", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Demoralize Humanoid", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Detect Animal", skill: "Mysticism", baseCost: 0.75, hasMagnitude: true}, {effect: "Detect Enchantment", skill: "Mysticism", baseCost: 1, hasMagnitude: true}, {effect: "Detect Key", skill: "Mysticism", baseCost: 1, hasMagnitude: true}, {effect: "Disintegrate Armor", skill: "Destruction", baseCost: 6, hasMagnitude: true}, {effect: "Disintegrate Weapon", skill: "Destruction", baseCost: 6, hasMagnitude: true}, {effect: "Dispel", skill: "Mysticism", baseCost: 5, hasMagnitude: true}, {effect: "Divine Intervention", skill: "Mysticism", baseCost: 150, hasMagnitude: false}, {effect: "Drain Attribute", skill: "Destruction", baseCost: 1, hasMagnitude: true}, {effect: "Drain Fatigue", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Drain Health", skill: "Destruction", baseCost: 4, hasMagnitude: true}, {effect: "Drain Magicka", skill: "Destruction", baseCost: 4, hasMagnitude: true}, {effect: "Drain Skill", skill: "Destruction", baseCost: 1, hasMagnitude: true}, {effect: "Feather", skill: "Alteration", baseCost: 1, hasMagnitude: true}, {effect: "Fire Damage", skill: "Destruction", baseCost: 5, hasMagnitude: true}, {effect: "Fire Shield", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Fortify Attack", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Fortify Attribute", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Fortify Fatigue", skill: "Restoration", baseCost: 0.5, hasMagnitude: true}, {effect: "Fortify Health", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Fortify Magicka", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Fortify Maximum Magicka", skill: "Restoration", baseCost: 4, hasMagnitude: true}, {effect: "Fortify Skill", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Frenzy Creature", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Frenzy Humanoid", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Frost Damage", skill: "Destruction", baseCost: 5, hasMagnitude: true}, {effect: "Frost Shield", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Invisibility", skill: "Illusion", baseCost: 20, hasMagnitude: false}, {effect: "Jump", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Levitate", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Light", skill: "Illusion", baseCost: 0.2, hasMagnitude: true}, {effect: "Lightning Shield", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Lock", skill: "Alteration", baseCost: 2, hasMagnitude: true}, {effect: "Mark", skill: "Mysticism", baseCost: 350, hasMagnitude: false}, {effect: "Night Eye", skill: "Illusion", baseCost: 0.2, hasMagnitude: true}, {effect: "Open", skill: "Alteration", baseCost: 6, hasMagnitude: true}, {effect: "Paralyze", skill: "Illusion", baseCost: 40, hasMagnitude: false}, {effect: "Poison", skill: "Destruction", baseCost: 9, hasMagnitude: true}, {effect: "Rally Creature", skill: "Illusion", baseCost: 0.2, hasMagnitude: true}, {effect: "Rally Humanoid", skill: "Illusion", baseCost: 0.2, hasMagnitude: true}, {effect: "Recall", skill: "Mysticism", baseCost: 350, hasMagnitude: false}, {effect: "Reflect", skill: "Mysticism", baseCost: 10, hasMagnitude: true}, {effect: "Remove Curse", skill: "Restoration", baseCost: 15, hasMagnitude: true}, {effect: "Resist Blight Disease", skill: "Restoration", baseCost: 5, hasMagnitude: true}, {effect: "Resist Common Disease", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Resist Corprus Disease", skill: "Restoration", baseCost: 5, hasMagnitude: true}, {effect: "Resist Fire", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Resist Frost", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Resist Magicka", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Resist Normal Weapons", skill: "Restoration", baseCost: 5, hasMagnitude: true}, {effect: "Resist Paralysis", skill: "Restoration", baseCost: 0.2, hasMagnitude: true}, {effect: "Resist Poison", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Resist Shock", skill: "Restoration", baseCost: 2, hasMagnitude: true}, {effect: "Restore Attribute", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Restore Fatigue", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Restore Health", skill: "Restoration", baseCost: 5, hasMagnitude: true}, {effect: "Restore Magicka", skill: "Restoration", baseCost: 5, hasMagnitude: true}, {effect: "Restore Skill", skill: "Restoration", baseCost: 1, hasMagnitude: true}, {effect: "Sanctuary", skill: "Illusion", baseCost: 1, hasMagnitude: true}, {effect: "Shield", skill: "Alteration", baseCost: 2, hasMagnitude: true}, {effect: "Shock Damage", skill: "Destruction", baseCost: 7, hasMagnitude: true}, {effect: "Silence", skill: "Illusion", baseCost: 40, hasMagnitude: false}, {effect: "Slowfall", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Soultrap", skill: "Mysticism", baseCost: 2, hasMagnitude: false}, {effect: "Sound", skill: "Illusion", baseCost: 3, hasMagnitude: true}, {effect: "Spell Absorption", skill: "Mysticism", baseCost: 10, hasMagnitude: true}, {effect: "Stunted Magicka", skill: "Destruction", baseCost: 1, hasMagnitude: true}, {effect: "Summon Ancestral Ghost", skill: "Conjuration", baseCost: 7, hasMagnitude: true}, {effect: "Summon Bonelord", skill: "Conjuration", baseCost: 25, hasMagnitude: true}, {effect: "Summon Bonewalker", skill: "Conjuration", baseCost: 13, hasMagnitude: true}, {effect: "Summon Bonewolf", skill: "Conjuration", baseCost: 30, hasMagnitude: true}, {effect: "Summon Centurion Sphere", skill: "Conjuration", baseCost: 25, hasMagnitude: true}, {effect: "Summon Clannfear", skill: "Conjuration", baseCost: 22, hasMagnitude: true}, {effect: "Summon Daedroth", skill: "Conjuration", baseCost: 32, hasMagnitude: true}, {effect: "Summon Dremora", skill: "Conjuration", baseCost: 28, hasMagnitude: true}, {effect: "Summon Fabricant", skill: "Conjuration", baseCost: 10, hasMagnitude: true}, {effect: "Summon Flame Atronach", skill: "Conjuration", baseCost: 23, hasMagnitude: true}, {effect: "Summon Frost Atronach", skill: "Conjuration", baseCost: 27, hasMagnitude: true}, {effect: "Summon Golden Saint", skill: "Conjuration", baseCost: 55, hasMagnitude: true}, {effect: "Summon Greater Bonewalker", skill: "Conjuration", baseCost: 15, hasMagnitude: true}, {effect: "Summon Hunger", skill: "Conjuration", baseCost: 29, hasMagnitude: true}, {effect: "Summon Scamp", skill: "Conjuration", baseCost: 12, hasMagnitude: true}, {effect: "Summon Skeletal Minion", skill: "Conjuration", baseCost: 13, hasMagnitude: true}, {effect: "Summon Storm Atronach", skill: "Conjuration", baseCost: 38, hasMagnitude: true}, {effect: "Summon Winged Twilight", skill: "Conjuration", baseCost: 52, hasMagnitude: true}, {effect: "Sun Damage", skill: "Destruction", baseCost: 1, hasMagnitude: true}, {effect: "Swift Swim", skill: "Alteration", baseCost: 2, hasMagnitude: true}, {effect: "Telekinesis", skill: "Mysticism", baseCost: 1, hasMagnitude: true}, {effect: "Turn Undead", skill: "Conjuration", baseCost: 0.2, hasMagnitude: true}, {effect: "Vampirism", skill: "Destruction", baseCost: 5, hasMagnitude: true}, {effect: "Water Breathing", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Water Walking", skill: "Alteration", baseCost: 3, hasMagnitude: true}, {effect: "Weakness to Blight Disease", skill: "Destruction", baseCost: 4, hasMagnitude: true}, {effect: "Weakness to Common Disease", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Corprus Disease", skill: "Destruction", baseCost: 4, hasMagnitude: true}, {effect: "Weakness to Fire", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Frost", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Magicka", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Normal Weapons", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Poison", skill: "Destruction", baseCost: 2, hasMagnitude: true}, {effect: "Weakness to Shock", skill: "Destruction", baseCost: 2, hasMagnitude: true}];
-// some effects need to be on self only
-// some can't be cast on self, need to repopulate effects options with that info
+// some can't be cast on self, need to repopulate effects options with that info added to the effect record /
+// maybe move editing from a modal to the new row
+// editing existing enchantments
+// question whether multiple teleports should be allowed they are/
+// dashes not present in rows
+// make sure never can have min below max /
+// weird leading zero in min
+// fortify skill types
+// self never has area /
+// max should always be greater than min /
 
 export interface Effect {
   skill: string;
@@ -9,6 +16,9 @@ export interface Effect {
   hasDuration: boolean;
   hasArea: boolean;
   isSelfOnly?: boolean;
+  isSelfNever?: boolean;
+  affectsAttribute?: boolean;
+  affectsSkill?: boolean;
 }
 
 export const targetMultipliers: Record<string, number> = {
@@ -24,6 +34,8 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
+    affectsAttribute: true,
   },
   "Absorb Fatigue": {
     skill: "Mysticism",
@@ -31,6 +43,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Absorb Health": {
     skill: "Mysticism",
@@ -38,6 +51,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Absorb Magicka": {
     skill: "Mysticism",
@@ -45,6 +59,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Almsivi Intervention": {
     skill: "Mysticism",
@@ -67,6 +82,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Boots": {
     skill: "Conjuration",
@@ -74,6 +90,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Cuirass": {
     skill: "Conjuration",
@@ -81,6 +98,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Dagger": {
     skill: "Conjuration",
@@ -88,6 +106,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Gloves": {
     skill: "Conjuration",
@@ -95,6 +114,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Helm": {
     skill: "Conjuration",
@@ -102,6 +122,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Longbow": {
     skill: "Conjuration",
@@ -109,6 +130,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Longsword": {
     skill: "Conjuration",
@@ -116,6 +138,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Mace": {
     skill: "Conjuration",
@@ -123,6 +146,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Shield": {
     skill: "Conjuration",
@@ -130,6 +154,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Bound Spear": {
     skill: "Conjuration",
@@ -137,6 +162,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   Burden: {
     skill: "Alteration",
@@ -151,6 +177,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Call Wolf": {
     skill: "Conjuration",
@@ -158,6 +185,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Calm Creature": {
     skill: "Illusion",
@@ -165,6 +193,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Calm Humanoid": {
     skill: "Illusion",
@@ -172,6 +201,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   Chameleon: {
     skill: "Illusion",
@@ -186,6 +216,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Command Creature": {
     skill: "Conjuration",
@@ -193,6 +224,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Command Humanoid": {
     skill: "Conjuration",
@@ -200,34 +232,35 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Cure Blight Disease": {
     skill: "Restoration",
     baseCost: 2000,
     hasMagnitude: false,
     hasDuration: false,
-    hasArea: false,
+    hasArea: true,
   },
   "Cure Common Disease": {
     skill: "Restoration",
     baseCost: 300,
     hasMagnitude: false,
     hasDuration: false,
-    hasArea: false,
+    hasArea: true,
   },
   "Cure Paralyzation": {
     skill: "Restoration",
     baseCost: 100,
     hasMagnitude: false,
     hasDuration: false,
-    hasArea: false,
+    hasArea: true,
   },
   "Cure Poison": {
     skill: "Restoration",
     baseCost: 100,
     hasMagnitude: false,
     hasDuration: false,
-    hasArea: false,
+    hasArea: true,
   },
   "Damage Attribute": {
     skill: "Destruction",
@@ -235,6 +268,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsAttribute: true,
   },
   "Damage Fatigue": {
     skill: "Destruction",
@@ -263,6 +297,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsSkill: true,
   },
   "Demoralize Creature": {
     skill: "Illusion",
@@ -270,6 +305,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Demoralize Humanoid": {
     skill: "Illusion",
@@ -277,6 +313,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Detect Animal": {
     skill: "Mysticism",
@@ -284,6 +321,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Detect Enchantment": {
     skill: "Mysticism",
@@ -291,6 +329,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Detect Key": {
     skill: "Mysticism",
@@ -298,6 +337,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Disintegrate Armor": {
     skill: "Destruction",
@@ -334,6 +374,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsAttribute: true,
   },
   "Drain Fatigue": {
     skill: "Destruction",
@@ -362,6 +403,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsSkill: true,
   },
   Feather: {
     skill: "Alteration",
@@ -397,6 +439,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsAttribute: true,
   },
   "Fortify Fatigue": {
     skill: "Restoration",
@@ -425,6 +468,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsSkill: true,
   },
   "Frenzy Creature": {
     skill: "Illusion",
@@ -432,6 +476,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Frenzy Humanoid": {
     skill: "Illusion",
@@ -439,6 +484,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Frost Damage": {
     skill: "Destruction",
@@ -495,6 +541,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: false,
     hasArea: true,
+    isSelfNever: true,
   },
   Mark: {
     skill: "Mysticism",
@@ -502,6 +549,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Night Eye": {
     skill: "Illusion",
@@ -537,6 +585,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   "Rally Humanoid": {
     skill: "Illusion",
@@ -544,6 +593,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    isSelfNever: true,
   },
   Recall: {
     skill: "Mysticism",
@@ -551,6 +601,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: false,
+    isSelfOnly: true,
   },
   Reflect: {
     skill: "Mysticism",
@@ -594,13 +645,13 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
   },
-  "Resist Normal Weapons": {
-    skill: "Restoration",
-    baseCost: 5,
-    hasMagnitude: true,
-    hasDuration: true,
-    hasArea: true,
-  },
+  // "Resist Normal Weapons": {
+  //   skill: "Restoration",
+  //   baseCost: 5,
+  //   hasMagnitude: true,
+  //   hasDuration: true,
+  //   hasArea: true,
+  // },
   "Resist Paralysis": {
     skill: "Restoration",
     baseCost: 0.2,
@@ -628,6 +679,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsAttribute: true,
   },
   "Restore Fatigue": {
     skill: "Restoration",
@@ -643,19 +695,20 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
   },
-  "Restore Magicka": {
-    skill: "Restoration",
-    baseCost: 5,
-    hasMagnitude: true,
-    hasDuration: true,
-    hasArea: true,
-  },
+  // "Restore Magicka": {
+  //   skill: "Restoration",
+  //   baseCost: 5,
+  //   hasMagnitude: true,
+  //   hasDuration: true,
+  //   hasArea: true,
+  // },
   "Restore Skill": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    affectsSkill: true,
   },
   Sanctuary: {
     skill: "Illusion",
@@ -697,7 +750,7 @@ export const effects: Record<string, Effect> = {
     baseCost: 2,
     hasMagnitude: false,
     hasDuration: true,
-    hasArea: false,
+    hasArea: true,
   },
   Sound: {
     skill: "Illusion",
@@ -719,6 +772,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Bonelord": {
     skill: "Conjuration",
@@ -726,6 +780,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Bonewalker": {
     skill: "Conjuration",
@@ -733,6 +788,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Bonewolf": {
     skill: "Conjuration",
@@ -740,6 +796,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Centurion Sphere": {
     skill: "Conjuration",
@@ -747,6 +804,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Clannfear": {
     skill: "Conjuration",
@@ -754,6 +812,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Daedroth": {
     skill: "Conjuration",
@@ -761,6 +820,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Dremora": {
     skill: "Conjuration",
@@ -768,20 +828,23 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
-  "Summon Fabricant": {
-    skill: "Conjuration",
-    baseCost: 10,
-    hasMagnitude: false,
-    hasDuration: true,
-    hasArea: false,
-  },
+  // "Summon Fabricant": {
+  //   skill: "Conjuration",
+  //   baseCost: 10,
+  //   hasMagnitude: false,
+  //   hasDuration: true,
+  //   hasArea: false,
+  //   isSelfOnly: true,
+  // },
   "Summon Flame Atronach": {
     skill: "Conjuration",
     baseCost: 23,
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Frost Atronach": {
     skill: "Conjuration",
@@ -789,6 +852,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Golden Saint": {
     skill: "Conjuration",
@@ -796,6 +860,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Greater Bonewalker": {
     skill: "Conjuration",
@@ -803,6 +868,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Hunger": {
     skill: "Conjuration",
@@ -810,6 +876,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Scamp": {
     skill: "Conjuration",
@@ -817,6 +884,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Skeletal Minion": {
     skill: "Conjuration",
@@ -824,6 +892,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Storm Atronach": {
     skill: "Conjuration",
@@ -831,6 +900,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Summon Winged Twilight": {
     skill: "Conjuration",
@@ -838,6 +908,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: false,
+    isSelfOnly: true,
   },
   "Swift Swim": {
     skill: "Alteration",
