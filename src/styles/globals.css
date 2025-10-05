@@ -28,9 +28,10 @@ button {
   border-radius: 4px;
   border-color: var(--foreground);
   color: var(--foreground);
+  outline: 0px;
 }
 
-button:hover {
+button:hover, button:focus {
   border-color: #dfc99f;
   color: #dfc99f;
 }
@@ -40,8 +41,8 @@ button:disabled {
   color: oklch(44.4% 0.011 73.639);
 }
 
-input {
-  line-height: 1; /* You can adjust this value */
+input, select {
+  line-height: 1;
 }
 
 select:focus, input:focus {

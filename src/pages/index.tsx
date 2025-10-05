@@ -378,17 +378,17 @@ export default function Home() {
         calc: Math.floor(
           Math.min(
             100,
-            // Math.max(
-            //   0,
-            (0.75 + CharacterData.fatigueTerm / 2) *
-              //SHOULD BE FOR INDIVIDUAL? But they would all be
-              (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-              (CharacterData.enchant +
-                CharacterData.intelligence / 5 +
-                CharacterData.luck / 10 -
-                3 * totalCost)
-            //fix this
-            // )
+            Math.max(
+              0,
+              (0.75 + CharacterData.fatigueTerm / 2) *
+                //SHOULD BE FOR INDIVIDUAL? But they would all be
+                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+                (CharacterData.enchant +
+                  CharacterData.intelligence / 5 +
+                  CharacterData.luck / 10 -
+                  3 * totalCost)
+              //fix this
+            )
           )
         ),
         newAcc: Math.floor(
@@ -396,16 +396,16 @@ export default function Home() {
             Math.floor(
               Math.min(
                 100,
-                // Math.max(
-                //   0,
-                (0.75 + CharacterData.fatigueTerm / 2) *
-                  (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                  (CharacterData.enchant +
-                    CharacterData.intelligence / 5 +
-                    CharacterData.luck / 10 -
-                    3 * row.cost!)
-                //fix this
-                // )
+                Math.max(
+                  0,
+                  (0.75 + CharacterData.fatigueTerm / 2) *
+                    (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+                    (CharacterData.enchant +
+                      CharacterData.intelligence / 5 +
+                      CharacterData.luck / 10 -
+                      3 * totalCost)
+                  //fix this
+                )
               )
             )) /
             100
@@ -417,16 +417,16 @@ export default function Home() {
           Math.floor(
             Math.min(
               100,
-              // Math.max(
-              //   0,
-              (0.75 + CharacterData.fatigueTerm / 2) *
-                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                (CharacterData.enchant +
-                  CharacterData.intelligence / 5 +
-                  CharacterData.luck / 10 -
-                  3 * totalCost)
-              //fix this
-              // )
+              Math.max(
+                0,
+                (0.75 + CharacterData.fatigueTerm / 2) *
+                  (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+                  (CharacterData.enchant +
+                    CharacterData.intelligence / 5 +
+                    CharacterData.luck / 10 -
+                    3 * totalCost)
+                //fix this
+              )
             )
           )) /
           100
@@ -688,7 +688,6 @@ export default function Home() {
               <td className="pl-1 w-[92px]">
                 <input
                   type="number"
-                  className="py-0"
                   min={0}
                   max={10000}
                   value={CharacterData.enchant}
