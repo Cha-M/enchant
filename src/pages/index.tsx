@@ -169,7 +169,8 @@ export default function Home() {
 
         const newMultiplier = currentRows.length - index;
         const newCompoundedCost =
-          newCost !== null ? Math.floor(newCost) * newMultiplier : null;
+          newCost !== null ? Math.round(newCost) * newMultiplier : null;
+        // newCost !== null ? Math.floor(newCost) * newMultiplier : null;
         return {
           ...row,
           cost: newCost,
@@ -265,38 +266,22 @@ export default function Home() {
 
     return [
       !hasConstantEffect && !isSelfOnly ? (
-        <option
-          className="bg-stone-800"
-          key="TouchOption"
-          value="Touch"
-        >
+        <option key="TouchOption" value="Touch">
           Touch
         </option>
       ) : null,
       !hasConstantEffect && !isSelfOnly ? (
-        <option
-          className="bg-stone-800"
-          key="TargetOption"
-          value="Target"
-        >
+        <option key="TargetOption" value="Target">
           Target
         </option>
       ) : null,
       !hasConstantEffect && !isSelfNever ? (
-        <option
-          className="bg-stone-800"
-          key="SelfOption"
-          value="Self"
-        >
+        <option key="SelfOption" value="Self">
           Self
         </option>
       ) : null,
       hasDuration && !hasTouch && !hasTarget && !hasSelf && !isSelfNever ? (
-        <option
-          className="bg-stone-800"
-          key="ConstantEffectOption"
-          value="Constant Effect"
-        >
+        <option key="ConstantEffectOption" value="Constant Effect">
           Constant Effect
         </option>
       ) : null,
@@ -331,11 +316,7 @@ export default function Home() {
         return true;
       })
       .map((effectName) => (
-        <option
-          className="bg-stone-800"
-          key={effectName}
-          value={effectName}
-        >
+        <option key={effectName} value={effectName}>
           {effectName}
         </option>
       ));
@@ -379,54 +360,56 @@ export default function Home() {
     }
     // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
     const totalCost = rows.reduce((sum, row) => sum + row.compoundedCost!, 0);
+    const hasConstantEffect = rows.some(
+      (row) => row.target === "Constant Effect"
+    );
 
     if (totalCost === 0) {
       return null;
     }
 
     const originalSuccessChance = rows.reduce((acc, row) => {
+      // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+      // I don't know about this.
+      //
       console.log({
         acc,
-        cost: row.cost,
+        rowCost: row.cost,
         calc: Math.floor(
           Math.min(
             100,
-            Math.max(
-              0,
-              (0.75 + CharacterData.fatigueTerm / 2) *
-                (1 -
-                  0.5 *
-                    (rows.some((row) => row.target === "Constant Effect")
-                      ? 1
-                      : 0)) *
-                (CharacterData.enchant +
-                  CharacterData.intelligence / 5 +
-                  CharacterData.luck / 10 -
-                  3 * Math.floor(row.cost!))
-            )
+            // Math.max(
+            //   0,
+            (0.75 + CharacterData.fatigueTerm / 2) *
+              //SHOULD BE FOR INDIVIDUAL? But they would all be
+              (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+              (CharacterData.enchant +
+                CharacterData.intelligence / 5 +
+                CharacterData.luck / 10 -
+                3 * row.cost!)
+            //fix this
+            // )
           )
         ),
-        newAcc:
+        newAcc: Math.floor(
           (acc *
             Math.floor(
               Math.min(
                 100,
-                Math.max(
-                  0,
-                  (0.75 + CharacterData.fatigueTerm / 2) *
-                    (1 -
-                      0.5 *
-                        (rows.some((row) => row.target === "Constant Effect")
-                          ? 1
-                          : 0)) *
-                    (CharacterData.enchant +
-                      CharacterData.intelligence / 5 +
-                      CharacterData.luck / 10 -
-                      3 * Math.floor(row.cost!))
-                )
+                // Math.max(
+                //   0,
+                (0.75 + CharacterData.fatigueTerm / 2) *
+                  (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+                  (CharacterData.enchant +
+                    CharacterData.intelligence / 5 +
+                    CharacterData.luck / 10 -
+                    3 * row.cost!)
+                //fix this
+                // )
               )
             )) /
-          100,
+            100
+        ),
       });
 
       return Math.floor(
@@ -434,19 +417,16 @@ export default function Home() {
           Math.floor(
             Math.min(
               100,
-              Math.max(
-                0,
-                (0.75 + CharacterData.fatigueTerm / 2) *
-                  (1 -
-                    0.5 *
-                      (rows.some((row) => row.target === "Constant Effect")
-                        ? 1
-                        : 0)) *
-                  (CharacterData.enchant +
-                    CharacterData.intelligence / 5 +
-                    CharacterData.luck / 10 -
-                    3 * Math.floor(row.cost!))
-              )
+              // Math.max(
+              //   0,
+              (0.75 + CharacterData.fatigueTerm / 2) *
+                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+                (CharacterData.enchant +
+                  CharacterData.intelligence / 5 +
+                  CharacterData.luck / 10 -
+                  3 * row.cost!)
+              //fix this
+              // )
             )
           )) /
           100
@@ -461,11 +441,7 @@ export default function Home() {
             Math.max(
               0,
               (0.75 + CharacterData.fatigueTerm / 2) *
-                (1 -
-                  0.5 *
-                    (rows.some((row) => row.target === "Constant Effect")
-                      ? 1
-                      : 0)) *
+                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
                 (CharacterData.enchant +
                   CharacterData.intelligence / 5 +
                   CharacterData.luck / 10 -
@@ -686,13 +662,13 @@ export default function Home() {
                     setIsModalOpen(false);
                     updateCosts();
                   }}
-                  className="px-4 py-2 disabled:text-stone-600 disabled:border-stone-600 rounded border-1 self-end"
+                  className="px-4 py-2 self-end"
                 >
                   Add effect
                 </button>
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 rounded border-1 self-end"
+                  className="px-4 py-2 self-end"
                 >
                   Close
                 </button>
@@ -720,7 +696,7 @@ export default function Home() {
                       enchant: parseInt(e.target.value),
                     }));
                   }}
-                ></input>
+                />
               </td>
             </tr>
             <tr>
@@ -736,7 +712,7 @@ export default function Home() {
                       intelligence: parseInt(e.target.value),
                     }));
                   }}
-                ></input>
+                />
               </td>
             </tr>
             <tr>
@@ -752,14 +728,13 @@ export default function Home() {
                       luck: parseInt(e.target.value),
                     }));
                   }}
-                ></input>
+                />
               </td>
             </tr>
             <tr>
               <td className="text-[#DFC99F]">Fatigue</td>
               <td>
                 <select
-                  className="bg-stone-800"
                   value={CharacterData.fatigueTerm === 1 ? "Full" : "Not full"}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -777,7 +752,6 @@ export default function Home() {
               <td className="text-[#DFC99F]">Engine</td>
               <td>
                 <select
-                  className="bg-stone-800"
                   value={CharacterData.engine === 1 ? "OpenMW" : "Original"}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -802,23 +776,22 @@ export default function Home() {
         <table>
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-              <td />
-              <td>Effect</td>
-              <td>Target</td>
-              <td>Min</td>
-              <td>Max</td>
-              <td>Duration</td>
-              <td>Area</td>
-              <td>Cost</td>
-              <td>Multiplier</td>
-              <td className="whitespace-nowrap overflow-hidden text-ellipsis">
-                Compounded Cost
-              </td>
+              <td className="w-[24px]" />
+              <td className="w-[219px]">Effect</td>
+              <td className="w-[129px]">Target</td>
+              <td className="w-[44px]">Min</td>
+              <td className="w-[44px]">Max</td>
+              <td className="w-[64px]">Duration</td>
+              {/* <td className="w-[39px]">Area</td> */}
+              <td className="w-[39px]">Area</td>
+              <td className="w-[67px]">Cost</td>
+              <td className="w-[71px]">Multiplier</td>
+              <td className="w-[170px]">Compounded Cost</td>
               <td />
             </tr>
           </thead>
           <tbody>
-            {rows.length > 0 &&
+            {rows.length > 0 ? (
               rows.map(
                 (
                   {
@@ -838,7 +811,7 @@ export default function Home() {
                     <td className="flex flex-col [&>*]:-mb-2">
                       <button
                         disabled={index === 0}
-                        className="disabled:text-stone-600"
+                        className="border-none"
                         onClick={() => {
                           if (index === 0) return;
                           const newRows = [...rows];
@@ -852,7 +825,7 @@ export default function Home() {
                       <button
                         //not working
                         disabled={index === rows.length - 1}
-                        className="disabled:text-stone-600"
+                        className="border-none"
                         onClick={() => {
                           if (index === rows.length - 1) return;
                           const newRows = [...rows];
@@ -871,7 +844,6 @@ export default function Home() {
                     </td>
                     <td>
                       <select
-                        // className="focus:border-[#DFC99F]"
                         id={`effect-${index}`}
                         value={effect || ""}
                         onChange={(e) => {
@@ -1066,14 +1038,62 @@ export default function Home() {
                     <td>
                       <button
                         onClick={() => handleRemoveRow(index)}
-                        className="px-2 py-1 my-1 rounded border-1"
+                        className="px-2 py-1 my-1"
                       >
                         🗙
                       </button>
                     </td>
                   </tr>
                 )
-              )}
+              )
+            ) : (
+              <tr>
+                <td colSpan={11}>
+                  <div className="flex justify-center mt-4">
+                    <button
+                      className="px-4 py-2"
+                      disabled={
+                        rows.length >= 8 ||
+                        rows.some((row) => row.effect === "" || !row.target) ||
+                        isModalOpen
+                      }
+                      onClick={() => {
+                        // setIsModalOpen(true);
+                        setNewEffect({
+                          effect: "",
+                          min: null,
+                          max: null,
+                          duration: null,
+                          area: null,
+                          target: null,
+                          cost: null,
+                          multiplier: null,
+                          compoundedCost: null,
+                        });
+                        setRows((prevRows) =>
+                          recalculateMultipliersAndCosts([
+                            ...prevRows,
+                            {
+                              effect: "",
+                              min: null,
+                              max: null,
+                              duration: null,
+                              area: null,
+                              target: null,
+                              cost: null,
+                              multiplier: null,
+                              compoundedCost: null,
+                            } as RowData,
+                          ])
+                        );
+                      }}
+                    >
+                      New effect
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            )}
             {rows.length > 0 && (
               <tr>
                 <td />
@@ -1086,75 +1106,77 @@ export default function Home() {
                 <td />
                 <td className="text-[#DFC99F]">Total</td>
                 <td className="pl-1">{totalCost}</td>
-                <td></td>
+                <td />
               </tr>
             )}
           </tbody>
         </table>
 
-        <div className="flex flex-row space-x-2 ml-6">
-          <button
-            className="px-4 py-2 rounded border-1 disabled:text-stone-600 disabled:border-stone-600"
-            disabled={
-              rows.length >= 8 ||
-              rows.some((row) => row.effect === "" || !row.target) ||
-              isModalOpen
-            }
-            onClick={() => {
-              // setIsModalOpen(true);
-              setNewEffect({
-                effect: "",
-                min: null,
-                max: null,
-                duration: null,
-                area: null,
-                target: null,
-                cost: null,
-                multiplier: null,
-                compoundedCost: null,
-              });
-              setRows((prevRows) =>
-                recalculateMultipliersAndCosts([
-                  ...prevRows,
-                  {
-                    effect: "",
-                    min: null,
-                    max: null,
-                    duration: null,
-                    area: null,
-                    target: null,
-                    cost: null,
-                    multiplier: null,
-                    compoundedCost: null,
-                  },
-                ])
-              );
-            }}
-          >
-            New effect
-          </button>
-          <button
-            disabled={rows.length <= 1 || isRowsSorted}
-            className="px-4 py-2 rounded border-1 disabled:text-stone-600 disabled:border-stone-600"
-            onClick={() => {
-              setRows((prevRows) =>
-                recalculateMultipliersAndCosts(
-                  prevRows.sort((a, b) =>
-                    a.cost !== null && b.cost !== null && a.cost > b.cost
-                      ? 1
-                      : -1
+        {rows.length > 0 && (
+          <div className="flex flex-row space-x-2 ml-6">
+            <button
+              className="px-4 py-2"
+              disabled={
+                rows.length >= 8 ||
+                rows.some((row) => row.effect === "" || !row.target) ||
+                isModalOpen
+              }
+              onClick={() => {
+                // setIsModalOpen(true);
+                setNewEffect({
+                  effect: "",
+                  min: null,
+                  max: null,
+                  duration: null,
+                  area: null,
+                  target: null,
+                  cost: null,
+                  multiplier: null,
+                  compoundedCost: null,
+                });
+                setRows((prevRows) =>
+                  recalculateMultipliersAndCosts([
+                    ...prevRows,
+                    {
+                      effect: "",
+                      min: null,
+                      max: null,
+                      duration: null,
+                      area: null,
+                      target: null,
+                      cost: null,
+                      multiplier: null,
+                      compoundedCost: null,
+                    },
+                  ])
+                );
+              }}
+            >
+              New effect
+            </button>
+            <button
+              disabled={rows.length <= 1 || isRowsSorted}
+              className="px-4 py-2"
+              onClick={() => {
+                setRows((prevRows) =>
+                  recalculateMultipliersAndCosts(
+                    prevRows.sort((a, b) =>
+                      a.cost !== null && b.cost !== null && a.cost > b.cost
+                        ? 1
+                        : -1
+                    )
                   )
-                )
-              );
-            }}
-          >
-            Sort by cost
-          </button>
-        </div>
+                );
+              }}
+            >
+              Sort by cost
+            </button>
+          </div>
+        )}
 
         {/* <button
           onClick={updateCosts}
-          className="px-4 py-2 rounded border-1"
+          className="px-4 py-2"
         >
           Update costs
         </button> */}
