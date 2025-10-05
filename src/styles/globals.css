@@ -23,10 +23,6 @@
   src: local("Pelagiad"), url("../fonts/Pelagiad.ttf") format("truetype");
 }
 
-/* select {
-  border: #DFC99F
-} */
-
 button {
   border-width: 1px;
   border-radius: 4px;
@@ -44,13 +40,17 @@ button:disabled {
   color: oklch(44.4% 0.011 73.639);
 }
 
-select:focus {
+input {
+  line-height: 1; /* You can adjust this value */
+}
+
+select:focus, input:focus {
   outline: 1px solid #dfc99f;
   border-radius: 1px;
   outline-offset: 2px;
 }
 
-input:focus {
+select:hover, input:hover {
   outline: 1px solid #dfc99f;
   border-radius: 1px;
   outline-offset: 2px;

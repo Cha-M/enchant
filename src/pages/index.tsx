@@ -386,7 +386,7 @@ export default function Home() {
               (CharacterData.enchant +
                 CharacterData.intelligence / 5 +
                 CharacterData.luck / 10 -
-                3 * row.cost!)
+                3 * totalCost)
             //fix this
             // )
           )
@@ -424,7 +424,7 @@ export default function Home() {
                 (CharacterData.enchant +
                   CharacterData.intelligence / 5 +
                   CharacterData.luck / 10 -
-                  3 * row.cost!)
+                  3 * totalCost)
               //fix this
               // )
             )
@@ -681,14 +681,16 @@ export default function Home() {
           </div>
         )}
         <table className="ml-6">
-          <thead />
+          {/* <thead /> */}
           <tbody>
             <tr>
               <td className="text-[#DFC99F] w-30">Enchant</td>
-              <td className="pl-1">
+              <td className="pl-1 w-[92px]">
                 <input
                   type="number"
+                  className="py-0"
                   min={0}
+                  max={10000}
                   value={CharacterData.enchant}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -705,6 +707,7 @@ export default function Home() {
                 <input
                   type="number"
                   min={0}
+                  max={10000}
                   value={CharacterData.intelligence}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -721,6 +724,7 @@ export default function Home() {
                 <input
                   type="number"
                   min={0}
+                  max={10000}
                   value={CharacterData.luck}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -735,6 +739,7 @@ export default function Home() {
               <td className="text-[#DFC99F]">Fatigue</td>
               <td>
                 <select
+                  className="w-full"
                   value={CharacterData.fatigueTerm === 1 ? "Full" : "Not full"}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -752,6 +757,7 @@ export default function Home() {
               <td className="text-[#DFC99F]">Engine</td>
               <td>
                 <select
+                  className="w-full"
                   value={CharacterData.engine === 1 ? "OpenMW" : "Original"}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -777,16 +783,16 @@ export default function Home() {
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
               <td className="w-[24px]" />
-              <td className="w-[219px]">Effect</td>
-              <td className="w-[129px]">Target</td>
-              <td className="w-[44px]">Min</td>
-              <td className="w-[44px]">Max</td>
-              <td className="w-[64px]">Duration</td>
-              {/* <td className="w-[39px]">Area</td> */}
-              <td className="w-[39px]">Area</td>
-              <td className="w-[67px]">Cost</td>
-              <td className="w-[71px]">Multiplier</td>
-              <td className="w-[170px]">Compounded Cost</td>
+              <td>Effect</td>
+              <td>Target</td>
+              <td>Min</td>
+              <td>Max</td>
+              <td>Duration</td>
+              {/* <td >Area</td> */}
+              <td>Area</td>
+              <td>Cost</td>
+              <td>Multiplier</td>
+              <td className="whitespace-nowrap">Compounded Cost</td>
               <td />
             </tr>
           </thead>
@@ -914,7 +920,7 @@ export default function Home() {
                           {getPossibleTargets(index)}
                         </select>
                       ) : (
-                        "-"
+                        <div className="pl-1">-</div>
                       )}
                     </td>
                     <td className="pl-1">
@@ -1147,7 +1153,7 @@ export default function Home() {
                       cost: null,
                       multiplier: null,
                       compoundedCost: null,
-                    },
+                    } as RowData,
                   ])
                 );
               }}
