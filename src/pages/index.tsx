@@ -446,7 +446,7 @@ export default function Home() {
         <title>Morrowind Enchantment Explorer</title>
       </Head>
       <main className="flex flex-col row-start-2 sm:items-start space-y-3">
-        <table className="ml-6">
+        <table className="ml-12">
           <tbody>
             <tr>
               <td className="text-[#DFC99F] w-30">Enchant</td>
@@ -560,7 +560,7 @@ export default function Home() {
         <table className="ml-[24px]">
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-              {/* <td className="w-[24px]" /> */}
+              <td />
               <td>Effect</td>
               <td>Target</td>
               <td>Min</td>
@@ -592,12 +592,10 @@ export default function Home() {
                   index
                 ) => (
                   <tr key={index} className="[&>*]:pr-2">
-                    <td>
-                      <div className="flex items-center gap-x-1 pr-2">
-                        <div className="flex flex-col [&>*]:-my-1">
+                                            <td className="flex flex-col">
                           <button
+                            className="-mb-2 border-none"
                             disabled={index === 0}
-                            className="border-none"
                             onClick={() => {
                               if (index === 0) return;
                               const newRows = [...rows];
@@ -611,7 +609,7 @@ export default function Home() {
                           <button
                             //not working
                             disabled={index === rows.length - 1}
-                            className="border-none"
+                            className="mb-[2px] border-none"
                             onClick={() => {
                               if (index === rows.length - 1) return;
                               const newRows = [...rows];
@@ -622,7 +620,10 @@ export default function Home() {
                           >
                             ▼
                           </button>
-                        </div>
+                        </td>
+                    <td>
+                      <div className="flex items-center gap-x-1 pr-2">
+
                         <div className="flex items-center space-x-2 ml-1">
                           {effect !== "" ? (
                             <Image
@@ -890,6 +891,7 @@ export default function Home() {
             )}
             {rows.length > 0 && (
               <tr>
+                <td />
                 <td />
                 <td />
                 <td />
