@@ -569,6 +569,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Invisibility.jpg",
   },
   Jump: {
     skill: "Alteration",
@@ -576,6 +577,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Jump.jpg",
   },
   Levitate: {
     skill: "Alteration",
@@ -583,6 +585,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Levitate.jpg",
   },
   Light: {
     skill: "Illusion",
@@ -590,6 +593,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Light.jpg",
   },
   "Lightning Shield": {
     skill: "Alteration",
@@ -597,6 +601,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Lightning_Shield.jpg",
   },
   Lock: {
     skill: "Alteration",
@@ -605,6 +610,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Lock.jpg",
   },
   Mark: {
     skill: "Mysticism",
@@ -613,6 +619,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Mark.jpg",
   },
   "Night Eye": {
     skill: "Illusion",
@@ -620,6 +627,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Night_Eye.jpg",
   },
   Open: {
     skill: "Alteration",
@@ -627,6 +635,8 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: false,
     hasArea: true,
+    isSelfNever: true,
+    icon: "/icons/Open.jpg",
   },
   Paralyze: {
     skill: "Illusion",
@@ -634,6 +644,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Paralyze.jpg",
   },
   Poison: {
     skill: "Destruction",
@@ -641,6 +652,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Poison.jpg",
   },
   "Rally Creature": {
     skill: "Illusion",
@@ -649,6 +661,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Rally_Creature.jpg",
   },
   "Rally Humanoid": {
     skill: "Illusion",
@@ -657,6 +670,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Rally_Humanoid.jpg",
   },
   Recall: {
     skill: "Mysticism",
@@ -665,6 +679,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Recall.jpg",
   },
   Reflect: {
     skill: "Mysticism",
@@ -672,6 +687,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Reflect.jpg",
   },
   "Resist Blight Disease": {
     skill: "Restoration",
@@ -679,6 +695,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Blight_Disease.jpg",
   },
   "Resist Common Disease": {
     skill: "Restoration",
@@ -686,6 +703,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Common_Disease.jpg",
   },
   "Resist Fire": {
     skill: "Restoration",
@@ -693,6 +711,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Fire.jpg",
   },
   "Resist Frost": {
     skill: "Restoration",
@@ -700,6 +719,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Frost.jpg",
   },
   "Resist Magicka": {
     skill: "Restoration",
@@ -707,6 +727,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Magicka.jpg",
   },
   // "Resist Normal Weapons": {
   //   skill: "Restoration",
@@ -721,6 +742,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Paralysis.jpg",
   },
   "Resist Poison": {
     skill: "Restoration",
@@ -728,6 +750,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Poison.jpg",
   },
   "Resist Shock": {
     skill: "Restoration",
@@ -735,6 +758,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Resist_Shock.jpg",
   },
   "Restore Attribute": {
     skill: "Restoration",
@@ -743,6 +767,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
+    icon: "/icons/Restore_Attribute.jpg",
   },
   "Restore Fatigue": {
     skill: "Restoration",
@@ -750,6 +775,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Restore_Fatigue.jpg",
   },
   "Restore Health": {
     skill: "Restoration",
@@ -757,6 +783,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Restore_Health.jpg",
   },
   // "Restore Magicka": {
   //   skill: "Restoration",
@@ -772,6 +799,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
+    icon: "/icons/Restore_Skill.jpg",
   },
   Sanctuary: {
     skill: "Illusion",
