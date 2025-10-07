@@ -441,9 +441,7 @@ export default function Home() {
   }, [CharacterData, rows]);
 
   return (
-    <div
-      className={`grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <Head>
         <title>Morrowind Enchantment Explorer</title>
       </Head>
@@ -596,77 +594,83 @@ export default function Home() {
                   <tr key={index} className="[&>*]:pr-2">
                     <td>
                       <div className="flex items-center gap-x-1 pr-2">
-                      <div className="flex flex-col [&>*]:-my-1">
-                        <button
-                          disabled={index === 0}
-                          className="border-none"
-                          onClick={() => {
-                            if (index === 0) return;
-                            const newRows = [...rows];
-                            const [movedRow] = newRows.splice(index, 1);
-                            newRows.splice(index - 1, 0, movedRow);
-                            setRows(recalculateMultipliersAndCosts(newRows));
-                          }}
-                        >
-                          ▲
-                        </button>
-                        <button
-                          //not working
-                          disabled={index === rows.length - 1}
-                          className="border-none"
-                          onClick={() => {
-                            if (index === rows.length - 1) return;
-                            const newRows = [...rows];
-                            const [movedRow] = newRows.splice(index, 1);
-                            newRows.splice(index + 1, 0, movedRow);
-                            setRows(recalculateMultipliersAndCosts(newRows));
-                          }}
-                        >
-                          ▼
-                        </button>
-                      </div>
-                      <div className="flex items-center space-x-2 ml-1">
-                        <Image
-                          src={effects[effect].icon ? effects[effect].icon : ""}
-                          alt=""
-                          width={16}
-                          height={16}
-                        />
-                        <select
-                          id={`effect-${index}`}
-                          value={effect || ""}
-                          onChange={(e) => {
-                            const newEffectName = e.target.value;
-                            const effectDetails = effects[newEffectName];
-                            handleRowChange(index, {
-                              effect: newEffectName,
-                              min: effectDetails?.hasMagnitude ? 0 : null,
-                              max: effectDetails?.hasMagnitude ? 0 : null,
-                              duration: effectDetails?.hasDuration ? 1 : null,
-                              area: effectDetails?.hasArea ? 0 : null,
-                              target: rows.some(
-                                (row) => row.target === "Constant Effect"
-                              )
-                                ? "Constant Effect"
-                                : effectDetails?.isSelfOnly && rows.length > 1
-                                ? "Self"
-                                : null,
-                              cost: null,
-                              multiplier: null,
-                              compoundedCost: null,
-                            });
-                          }}
-                        >
-                          <option
-                            className="bg-stone-800 text-stone-600"
-                            value=""
-                            disabled
+                        <div className="flex flex-col [&>*]:-my-1">
+                          <button
+                            disabled={index === 0}
+                            className="border-none"
+                            onClick={() => {
+                              if (index === 0) return;
+                              const newRows = [...rows];
+                              const [movedRow] = newRows.splice(index, 1);
+                              newRows.splice(index - 1, 0, movedRow);
+                              setRows(recalculateMultipliersAndCosts(newRows));
+                            }}
                           >
-                            Select an effect
-                          </option>
-                          {getEffectOptions(index)}
-                        </select>
-                      </div>
+                            ▲
+                          </button>
+                          <button
+                            //not working
+                            disabled={index === rows.length - 1}
+                            className="border-none"
+                            onClick={() => {
+                              if (index === rows.length - 1) return;
+                              const newRows = [...rows];
+                              const [movedRow] = newRows.splice(index, 1);
+                              newRows.splice(index + 1, 0, movedRow);
+                              setRows(recalculateMultipliersAndCosts(newRows));
+                            }}
+                          >
+                            ▼
+                          </button>
+                        </div>
+                        <div className="flex items-center space-x-2 ml-1">
+                          {effect !== "" ? (
+                            <Image
+                              src={
+                                effects[effect].icon ? effects[effect].icon : ""
+                              }
+                              alt=""
+                              width={16}
+                              height={16}
+                            />
+                          ) : (
+                            <div className="w-4 h-4" />
+                          )}
+                          <select
+                            id={`effect-${index}`}
+                            value={effect || ""}
+                            onChange={(e) => {
+                              const newEffectName = e.target.value;
+                              const effectDetails = effects[newEffectName];
+                              handleRowChange(index, {
+                                effect: newEffectName,
+                                min: effectDetails?.hasMagnitude ? 0 : null,
+                                max: effectDetails?.hasMagnitude ? 0 : null,
+                                duration: effectDetails?.hasDuration ? 1 : null,
+                                area: effectDetails?.hasArea ? 0 : null,
+                                target: rows.some(
+                                  (row) => row.target === "Constant Effect"
+                                )
+                                  ? "Constant Effect"
+                                  : effectDetails?.isSelfOnly && rows.length > 1
+                                  ? "Self"
+                                  : null,
+                                cost: null,
+                                multiplier: null,
+                                compoundedCost: null,
+                              });
+                            }}
+                          >
+                            <option
+                              className="bg-stone-800 text-stone-600"
+                              value=""
+                              disabled
+                            >
+                              Select an effect
+                            </option>
+                            {getEffectOptions(index)}
+                          </select>
+                        </div>
                       </div>
                     </td>
                     <td>
