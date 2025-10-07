@@ -461,6 +461,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Feather.jpg",
   },
   "Fire Damage": {
     skill: "Destruction",
@@ -468,6 +469,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fire_Damage.jpg",
   },
   "Fire Shield": {
     skill: "Alteration",
@@ -475,6 +477,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fire_Shield.jpg",
   },
   "Fortify Attack": {
     skill: "Restoration",
@@ -482,6 +485,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fortify_Attack.jpg",
   },
   "Fortify Attribute": {
     skill: "Restoration",
@@ -490,6 +494,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
+    icon: "/icons/Fortify_Attribute.jpg",
   },
   "Fortify Fatigue": {
     skill: "Restoration",
@@ -497,6 +502,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fortify_Fatigue.jpg",
   },
   "Fortify Health": {
     skill: "Restoration",
@@ -504,6 +510,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fortify_Health.jpg",
   },
   "Fortify Magicka": {
     skill: "Restoration",
@@ -511,6 +518,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Fortify_Magicka.jpg",
   },
   "Fortify Skill": {
     skill: "Restoration",
@@ -519,6 +527,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
+    icon: "/icons/Fortify_Skill.jpg",
   },
   "Frenzy Creature": {
     skill: "Illusion",
@@ -527,6 +536,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Frenzy_Creature.jpg",
   },
   "Frenzy Humanoid": {
     skill: "Illusion",
@@ -535,6 +545,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Frenzy_Humanoid.jpg",
   },
   "Frost Damage": {
     skill: "Destruction",
@@ -542,6 +553,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Frost_Damage.jpg",
   },
   "Frost Shield": {
     skill: "Alteration",
@@ -549,6 +561,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Frost_Shield.jpg",
   },
   Invisibility: {
     skill: "Illusion",

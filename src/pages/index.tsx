@@ -628,7 +628,7 @@ export default function Home() {
                             src={
                               effects[effect].icon ? effects[effect].icon : ""
                             }
-                            alt=""
+                            alt={`${effect} icon`}
                             width={16}
                             height={16}
                           />
