@@ -342,6 +342,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Demoralize_Creature.jpg",
   },
   "Demoralize Humanoid": {
     skill: "Illusion",
@@ -350,6 +351,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Demoralize_Humanoid.jpg",
   },
   "Detect Animal": {
     skill: "Mysticism",
@@ -358,6 +360,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Detect_Animal.jpg",
   },
   "Detect Enchantment": {
     skill: "Mysticism",
@@ -366,6 +369,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Detect_Enchantment.jpg",
   },
   "Detect Key": {
     skill: "Mysticism",
@@ -374,6 +378,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Detect_Key.jpg",
   },
   "Disintegrate Armor": {
     skill: "Destruction",
@@ -381,6 +386,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Disintegrate_Armor.jpg",
   },
   "Disintegrate Weapon": {
     skill: "Destruction",
@@ -388,6 +394,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Disintegrate_Weapon.jpg",
   },
   Dispel: {
     skill: "Mysticism",
@@ -395,6 +402,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: false,
     hasArea: true,
+    icon: "/icons/Dispel.jpg",
   },
   "Divine Intervention": {
     skill: "Mysticism",
@@ -403,6 +411,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
+    icon: "/icons/Divine_Intervention.jpg",
   },
   "Drain Attribute": {
     skill: "Destruction",
@@ -411,6 +420,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
+    icon: "/icons/Drain_Attribute.jpg",
   },
   "Drain Fatigue": {
     skill: "Destruction",
@@ -418,6 +428,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Drain_Fatigue.jpg",
   },
   "Drain Health": {
     skill: "Destruction",
@@ -425,6 +436,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Drain_Health.jpg",
   },
   "Drain Magicka": {
     skill: "Destruction",
@@ -432,6 +444,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
+    icon: "/icons/Drain_Magicka.jpg",
   },
   "Drain Skill": {
     skill: "Destruction",
@@ -440,6 +453,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
+    icon: "/icons/Drain_Skill.jpg",
   },
   Feather: {
     skill: "Alteration",

@@ -592,86 +592,83 @@ export default function Home() {
                   index
                 ) => (
                   <tr key={index} className="[&>*]:pr-2">
-                                            <td className="flex flex-col">
-                          <button
-                            className="-mb-2 border-none"
-                            disabled={index === 0}
-                            onClick={() => {
-                              if (index === 0) return;
-                              const newRows = [...rows];
-                              const [movedRow] = newRows.splice(index, 1);
-                              newRows.splice(index - 1, 0, movedRow);
-                              setRows(recalculateMultipliersAndCosts(newRows));
-                            }}
-                          >
-                            ▲
-                          </button>
-                          <button
-                            //not working
-                            disabled={index === rows.length - 1}
-                            className="mb-[2px] border-none"
-                            onClick={() => {
-                              if (index === rows.length - 1) return;
-                              const newRows = [...rows];
-                              const [movedRow] = newRows.splice(index, 1);
-                              newRows.splice(index + 1, 0, movedRow);
-                              setRows(recalculateMultipliersAndCosts(newRows));
-                            }}
-                          >
-                            ▼
-                          </button>
-                        </td>
+                    <td className="flex flex-col">
+                      <button
+                        className="-mb-2 border-none"
+                        disabled={index === 0}
+                        onClick={() => {
+                          if (index === 0) return;
+                          const newRows = [...rows];
+                          const [movedRow] = newRows.splice(index, 1);
+                          newRows.splice(index - 1, 0, movedRow);
+                          setRows(recalculateMultipliersAndCosts(newRows));
+                        }}
+                      >
+                        ▲
+                      </button>
+                      <button
+                        //not working
+                        disabled={index === rows.length - 1}
+                        className="mb-[2px] border-none"
+                        onClick={() => {
+                          if (index === rows.length - 1) return;
+                          const newRows = [...rows];
+                          const [movedRow] = newRows.splice(index, 1);
+                          newRows.splice(index + 1, 0, movedRow);
+                          setRows(recalculateMultipliersAndCosts(newRows));
+                        }}
+                      >
+                        ▼
+                      </button>
+                    </td>
                     <td>
-                      <div className="flex items-center gap-x-1 pr-2">
-
-                        <div className="flex items-center space-x-2 ml-1">
-                          {effect !== "" ? (
-                            <Image
-                              src={
-                                effects[effect].icon ? effects[effect].icon : ""
-                              }
-                              alt=""
-                              width={16}
-                              height={16}
-                            />
-                          ) : (
-                            <div className="w-4 h-4" />
-                          )}
-                          <select
-                            id={`effect-${index}`}
-                            value={effect || ""}
-                            onChange={(e) => {
-                              const newEffectName = e.target.value;
-                              const effectDetails = effects[newEffectName];
-                              handleRowChange(index, {
-                                effect: newEffectName,
-                                min: effectDetails?.hasMagnitude ? 0 : null,
-                                max: effectDetails?.hasMagnitude ? 0 : null,
-                                duration: effectDetails?.hasDuration ? 1 : null,
-                                area: effectDetails?.hasArea ? 0 : null,
-                                target: rows.some(
-                                  (row) => row.target === "Constant Effect"
-                                )
-                                  ? "Constant Effect"
-                                  : effectDetails?.isSelfOnly && rows.length > 1
-                                  ? "Self"
-                                  : null,
-                                cost: null,
-                                multiplier: null,
-                                compoundedCost: null,
-                              });
-                            }}
+                      <div className="flex items-center space-x-2 mr-4 ml-1">
+                        {effect !== "" ? (
+                          <Image
+                            src={
+                              effects[effect].icon ? effects[effect].icon : ""
+                            }
+                            alt=""
+                            width={16}
+                            height={16}
+                          />
+                        ) : (
+                          <div className="w-4 h-4" />
+                        )}
+                        <select
+                          id={`effect-${index}`}
+                          value={effect || ""}
+                          onChange={(e) => {
+                            const newEffectName = e.target.value;
+                            const effectDetails = effects[newEffectName];
+                            handleRowChange(index, {
+                              effect: newEffectName,
+                              min: effectDetails?.hasMagnitude ? 0 : null,
+                              max: effectDetails?.hasMagnitude ? 0 : null,
+                              duration: effectDetails?.hasDuration ? 1 : null,
+                              area: effectDetails?.hasArea ? 0 : null,
+                              target: rows.some(
+                                (row) => row.target === "Constant Effect"
+                              )
+                                ? "Constant Effect"
+                                : effectDetails?.isSelfOnly && rows.length > 1
+                                ? "Self"
+                                : null,
+                              cost: null,
+                              multiplier: null,
+                              compoundedCost: null,
+                            });
+                          }}
+                        >
+                          <option
+                            className="bg-stone-800 text-stone-600"
+                            value=""
+                            disabled
                           >
-                            <option
-                              className="bg-stone-800 text-stone-600"
-                              value=""
-                              disabled
-                            >
-                              Select an effect
-                            </option>
-                            {getEffectOptions(index)}
-                          </select>
-                        </div>
+                            Select an effect
+                          </option>
+                          {getEffectOptions(index)}
+                        </select>
                       </div>
                     </td>
                     <td>
@@ -908,7 +905,7 @@ export default function Home() {
         </table>
 
         {rows.length > 0 && (
-          <div className="flex flex-row space-x-2 ml-6">
+          <div className="flex flex-row space-x-2 ml-12">
             <button
               className="px-4 py-2"
               disabled={
