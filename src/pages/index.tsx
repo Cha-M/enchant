@@ -633,7 +633,7 @@ export default function Home() {
                             height={16}
                           />
                         ) : (
-                          <div className="w-4 h-4" />
+                          <div className="w-4 h-4 border-1" />
                         )}
                         <select
                           id={`effect-${index}`}
