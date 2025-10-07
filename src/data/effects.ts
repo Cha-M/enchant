@@ -19,6 +19,7 @@ export interface Effect {
   isSelfNever?: boolean;
   affectsAttribute?: boolean;
   affectsSkill?: boolean;
+  icon?: string;
 }
 
 export const targetMultipliers: Record<string, number> = {
@@ -36,6 +37,7 @@ export const effects: Record<string, Effect> = {
     hasArea: true,
     isSelfNever: true,
     affectsAttribute: true,
+    icon: "/icons/Absorb_Attribute.jpg",
   },
   "Absorb Fatigue": {
     skill: "Mysticism",
@@ -44,6 +46,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Absorb_Fatigue.jpg",
   },
   "Absorb Health": {
     skill: "Mysticism",
@@ -52,15 +55,17 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
+    icon: "/icons/Absorb_Health.jpg",
   },
-  "Absorb Magicka": {
-    skill: "Mysticism",
-    baseCost: 8,
-    hasMagnitude: true,
-    hasDuration: true,
-    hasArea: true,
-    isSelfNever: true,
-  },
+  // "Absorb Magicka": {
+  //   skill: "Mysticism",
+  //   baseCost: 8,
+  //   hasMagnitude: true,
+  //   hasDuration: true,
+  //   hasArea: true,
+  //   isSelfNever: true,
+  //   icon: "/icons/Absorb_Magicka.jpg",
+  // },
   "Almsivi Intervention": {
     skill: "Mysticism",
     baseCost: 150,

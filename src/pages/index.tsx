@@ -2,6 +2,7 @@ import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
 import next from "next";
+import Head from "next/head";
 
 interface RowData {
   effect: string;
@@ -20,7 +21,7 @@ interface CharacterData {
   intelligence: number;
   luck: number;
   fatigueTerm: 0 | 1;
-  engine: 0 | 1;
+  engine: 0 | 1 | 2;
 }
 
 export default function Home() {
@@ -66,17 +67,17 @@ export default function Home() {
       multiplier: 1,
       compoundedCost: 0,
     },
-    {
-      min: 0,
-      max: 10,
-      duration: 2,
-      effect: "Absorb Magicka",
-      target: "Touch",
-      area: 1,
-      cost: 0,
-      multiplier: 1,
-      compoundedCost: 0,
-    },
+    // {
+    //   min: 0,
+    //   max: 10,
+    //   duration: 2,
+    //   effect: "Absorb Magicka",
+    //   target: "Touch",
+    //   area: 1,
+    //   cost: 0,
+    //   multiplier: 1,
+    //   compoundedCost: 0,
+    // },
   ]);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
@@ -169,8 +170,8 @@ export default function Home() {
 
         const newMultiplier = currentRows.length - index;
         const newCompoundedCost =
-          newCost !== null ? Math.round(newCost) * newMultiplier : null;
-        // newCost !== null ? Math.floor(newCost) * newMultiplier : null;
+          // newCost !== null ? Math.floor(newCost) * newMultiplier : null;
+          newCost !== null ? Math.floor(newCost * newMultiplier) : null;
         return {
           ...row,
           cost: newCost,
@@ -349,6 +350,24 @@ export default function Home() {
     // looking at openmw there is a floor on the costs involved
     [rows]
   );
+  const calculateEffectChance = (
+    { enchant, intelligence, luck, fatigueTerm }: CharacterData,
+    totalCost: number,
+    hasConstantEffect: boolean
+  ) =>
+    // Math.floor(
+    Math.round(
+      Math.min(
+        100,
+        Math.max(
+          0,
+          (0.75 + fatigueTerm / 2) *
+            (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+            (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
+        )
+      )
+    );
+  // );
 
   const successChance = useMemo<number | null>(() => {
     if (
@@ -368,320 +387,68 @@ export default function Home() {
       return null;
     }
 
-    const originalSuccessChance = rows.reduce((acc, row) => {
-      // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
-      // I don't know about this.
-      //
-      console.log({
-        acc,
-        rowCost: row.cost,
-        calc: Math.floor(
-          Math.min(
-            100,
-            Math.max(
-              0,
-              (0.75 + CharacterData.fatigueTerm / 2) *
-                //SHOULD BE FOR INDIVIDUAL? But they would all be
-                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                (CharacterData.enchant +
-                  CharacterData.intelligence / 5 +
-                  CharacterData.luck / 10 -
-                  3 * totalCost)
-              //fix this
-            )
-          )
-        ),
-        newAcc: Math.floor(
-          (acc *
-            Math.floor(
-              Math.min(
-                100,
-                Math.max(
-                  0,
-                  (0.75 + CharacterData.fatigueTerm / 2) *
-                    (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                    (CharacterData.enchant +
-                      CharacterData.intelligence / 5 +
-                      CharacterData.luck / 10 -
-                      3 * totalCost)
-                  //fix this
-                )
-              )
-            )) /
-            100
-        ),
-      });
-
-      return Math.floor(
-        (acc *
-          Math.floor(
-            Math.min(
-              100,
-              Math.max(
-                0,
-                (0.75 + CharacterData.fatigueTerm / 2) *
-                  (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                  (CharacterData.enchant +
-                    CharacterData.intelligence / 5 +
-                    CharacterData.luck / 10 -
-                    3 * totalCost)
-                //fix this
-              )
-            )
-          )) /
-          100
-      );
-    }, 100);
-
     return CharacterData.engine === 0
-      ? originalSuccessChance
-      : Math.floor(
-          Math.min(
-            100,
-            Math.max(
-              0,
-              (0.75 + CharacterData.fatigueTerm / 2) *
-                (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-                (CharacterData.enchant +
-                  CharacterData.intelligence / 5 +
-                  CharacterData.luck / 10 -
-                  3 * totalCost)
-            )
-          )
-        );
+      ? rows.reduce((acc, row) => {
+          // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+          // I don't know about this.
+          //
+          console.log({
+            acc,
+            rowCost: row.cost,
+            calc: calculateEffectChance(
+              CharacterData,
+              totalCost,
+              hasConstantEffect
+            ),
+            newAcc: Math.round(
+              (acc *
+                calculateEffectChance(
+                  CharacterData,
+                  totalCost,
+                  hasConstantEffect
+                )) /
+                100
+            ),
+          });
+
+          return Math.round(
+            (acc *
+              calculateEffectChance(
+                CharacterData,
+                row.compoundedCost!,
+                // totalCost,
+                hasConstantEffect
+              )) /
+              100
+          );
+        }, 100)
+      : CharacterData.engine === 2
+      ? rows.reduce((acc, row) => {
+          // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+          // I don't know about this.
+          // UESP
+          return Math.round(
+            (acc *
+              calculateEffectChance(
+                CharacterData,
+                row.cost!,
+                hasConstantEffect
+              )) /
+              100
+          );
+        }, 100)
+      : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
   }, [CharacterData, rows]);
 
   return (
     <div
       className={`grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
     >
+      <Head>
+        <title>Morrowind Enchantment Explorer</title>
+      </Head>
       <main className="flex flex-col row-start-2 sm:items-start space-y-3">
-        {isModalOpen && (
-          <div>
-            <div className="flex flex-col">
-              <h2 className="text-l font-bold mb-4">Create Effect</h2>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Effect</th>
-                    <th>Target</th>
-                    <th>Min</th>
-                    <th>Max</th>
-                    <th>Duration</th>
-                    <th>Area</th>
-                    {/* <th>Cost</th>
-                    <th>Multiplier</th>
-                    <th>Compounded Cost</th> */}
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <select
-                        // defaultValue={""}
-                        value={newEffect?.effect || ""}
-                        onChange={(e) =>
-                          setNewEffect((prev) => ({
-                            ...prev!,
-                            effect: e.target.value,
-                            min: effects[e.target.value]?.hasMagnitude
-                              ? 0
-                              : null,
-                            max: effects[e.target.value]?.hasMagnitude
-                              ? 0
-                              : null,
-                            duration: effects[e.target.value]?.hasDuration
-                              ? 1
-                              : null,
-                            area: effects[e.target.value]?.hasArea ? 0 : null,
-                            target:
-                              effects[e.target.value]?.isSelfOnly &&
-                              !rows.some(
-                                (row) => row.target === "Constant Effect"
-                              )
-                                ? "Self"
-                                : null,
-                            cost: 0,
-                            multiplier: 0,
-                            compoundedCost: 0,
-                          }))
-                        }
-                      >
-                        <option value="" disabled>
-                          Select an effect
-                        </option>
-                        {/* {getEffectOptions} */}
-                      </select>
-                    </td>
-                    <td>
-                      {newEffect?.effect !== "" ? (
-                        <select
-                          value={newEffect?.target || ""}
-                          onChange={(e) =>
-                            setNewEffect((prev) => ({
-                              ...prev!,
-                              target: e.target.value as RowData["target"],
-                              duration:
-                                e.target.value === "Constant Effect" ||
-                                !effects[prev!.effect]?.hasDuration
-                                  ? null
-                                  : prev?.duration || 1,
-                              area:
-                                e.target.value === "Constant Effect" ||
-                                e.target.value === "Self" ||
-                                !effects[prev!.effect]?.hasArea
-                                  ? null
-                                  : prev?.area || 0,
-                            }))
-                          }
-                        >
-                          <option value="" disabled>
-                            Select a target
-                          </option>
-                          {possibleTargets}
-                        </select>
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    <td>
-                      {effects[newEffect.effect]?.hasMagnitude ? (
-                        // min needs to be less than or equal to max
-                        <input
-                          type="number"
-                          min={0}
-                          max={100}
-                          value={newEffect?.min || 0}
-                          onChange={(e) => {
-                            const newMin =
-                              parseInt(e.target.value) > 100
-                                ? 100
-                                : parseInt(e.target.value) < 0
-                                ? 0
-                                : parseInt(e.target.value);
-                            setNewEffect((prev) => ({
-                              ...prev!,
-                              min: newMin,
-                              max:
-                                prev?.max !== null && newMin > (prev?.max || 0)
-                                  ? newMin
-                                  : prev?.max,
-                            }));
-                          }}
-                        />
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    <td>
-                      {effects[newEffect.effect]?.hasMagnitude ? (
-                        <input
-                          type="number"
-                          min={0}
-                          max={100}
-                          value={newEffect?.max || 0}
-                          onChange={(e) =>
-                            setNewEffect((prev) => ({
-                              ...prev!,
-                              max:
-                                parseInt(e.target.value) > 100
-                                  ? 100
-                                  : parseInt(e.target.value),
-                              min:
-                                prev?.min !== null &&
-                                parseInt(e.target.value) < prev?.min
-                                  ? parseInt(e.target.value)
-                                  : prev?.min,
-                            }))
-                          }
-                        />
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    <td>
-                      {newEffect.target !== "Constant Effect" &&
-                      effects[newEffect.effect]?.hasDuration ? (
-                        <input
-                          type="number"
-                          min={1}
-                          max={100}
-                          value={newEffect?.duration || 1}
-                          onChange={(e) =>
-                            setNewEffect((prev) => ({
-                              ...prev!,
-                              duration: parseInt(e.target.value),
-                            }))
-                          }
-                        />
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    <td>
-                      {effects[newEffect.effect]?.hasArea &&
-                      newEffect.target !== "Constant Effect" &&
-                      newEffect.target !== "Self" ? (
-                        <input
-                          type="number"
-                          min={0}
-                          max={50}
-                          value={newEffect?.area || 0}
-                          onChange={(e) =>
-                            setNewEffect((prev) => ({
-                              ...prev!,
-                              area: parseInt(e.target.value),
-                            }))
-                          }
-                        />
-                      ) : (
-                        "-"
-                      )}
-                    </td>
-                    {/* <td>{newEffect?.cost || 0}</td> */}
-                  </tr>
-                </tbody>
-              </table>
-              <div>
-                <button
-                  disabled={
-                    !newEffect?.effect ||
-                    !newEffect?.target ||
-                    (effects[newEffect.effect]?.hasMagnitude &&
-                      (newEffect.min === null || newEffect.max === null)) ||
-                    (effects[newEffect.effect]?.hasDuration &&
-                      newEffect.target !== "Constant Effect" &&
-                      newEffect.duration === null) ||
-                    (newEffect.min !== null &&
-                      newEffect.max !== null &&
-                      newEffect?.min > newEffect?.max)
-                  }
-                  onClick={() => {
-                    setRows((prevRows) => [...prevRows, { ...newEffect! }]);
-                    setNewEffect({} as RowData);
-                    setIsModalOpen(false);
-                    updateCosts();
-                  }}
-                  className="px-4 py-2 self-end"
-                >
-                  Add effect
-                </button>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 self-end"
-                >
-                  Close
-                </button>
-                {/* <div>
-                  New effect: {JSON.stringify(newEffect)}
-                  Effect details: {JSON.stringify(effects[newEffect.effect])}
-                </div> */}
-              </div>
-            </div>
-          </div>
-        )}
         <table className="ml-6">
-          {/* <thead /> */}
           <tbody>
             <tr>
               <td className="text-[#DFC99F] w-30">Enchant</td>
@@ -757,16 +524,30 @@ export default function Home() {
               <td>
                 <select
                   className="w-full"
-                  value={CharacterData.engine === 1 ? "OpenMW" : "Original"}
+                  // value={CharacterData.engine === 1 ? "OpenMW" : "Original"}
+                  value={
+                    CharacterData.engine === 1
+                      ? "OpenMW"
+                      : CharacterData.engine === 2
+                      ? "UESP"
+                      : "Original"
+                  }
                   onChange={(e) => {
                     setCharacterData((prev) => ({
                       ...prev,
-                      engine: e.target.value === "OpenMW" ? 1 : 0,
+                      // engine: e.target.value === "OpenMW" ? 1 : 0,
+                      engine:
+                        e.target.value === "OpenMW"
+                          ? 1
+                          : e.target.value === "UESP"
+                          ? 2
+                          : 0,
                     }));
                   }}
                 >
                   <option value="Original">Original</option>
                   <option value="OpenMW">OpenMW</option>
+                  <option value="UESP">UESP</option>
                 </select>
               </td>
             </tr>
@@ -778,10 +559,10 @@ export default function Home() {
             </tr>
           </tbody>
         </table>
-        <table>
+        <table className="ml-[24px]">
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-              <td className="w-[24px]" />
+              {/* <td className="w-[24px]" /> */}
               <td>Effect</td>
               <td>Target</td>
               <td>Min</td>
@@ -813,76 +594,80 @@ export default function Home() {
                   index
                 ) => (
                   <tr key={index} className="[&>*]:pr-2">
-                    <td className="flex flex-col [&>*]:-mb-2">
-                      <button
-                        disabled={index === 0}
-                        className="border-none"
-                        onClick={() => {
-                          if (index === 0) return;
-                          const newRows = [...rows];
-                          const [movedRow] = newRows.splice(index, 1);
-                          newRows.splice(index - 1, 0, movedRow);
-                          setRows(recalculateMultipliersAndCosts(newRows));
-                        }}
-                      >
-                        ▲
-                      </button>
-                      <button
-                        //not working
-                        disabled={index === rows.length - 1}
-                        className="border-none"
-                        onClick={() => {
-                          if (index === rows.length - 1) return;
-                          const newRows = [...rows];
-                          const [movedRow] = newRows.splice(index, 1);
-                          newRows.splice(index + 1, 0, movedRow);
-                          // return newRows.map((row, i) => ({
-                          //   ...row,
-                          //   index: i,
-                          // }));
-                          setRows(recalculateMultipliersAndCosts(newRows));
-                          // updateCosts();
-                        }}
-                      >
-                        ▼
-                      </button>
-                    </td>
                     <td>
-                      <select
-                        id={`effect-${index}`}
-                        value={effect || ""}
-                        onChange={(e) => {
-                          const newEffectName = e.target.value;
-                          const effectDetails = effects[newEffectName];
-                          handleRowChange(index, {
-                            effect: newEffectName,
-                            min: effectDetails?.hasMagnitude ? 0 : null,
-                            max: effectDetails?.hasMagnitude ? 0 : null,
-                            duration: effectDetails?.hasDuration ? 1 : null,
-                            area: effectDetails?.hasArea ? 0 : null,
-                            target: rows.some(
-                              (row) => row.target === "Constant Effect"
-                            )
-                              ? "Constant Effect"
-                              : effectDetails?.isSelfOnly && rows.length > 1
-                              ? "Self"
-                              : null,
-                            //
-                            cost: null,
-                            multiplier: null,
-                            compoundedCost: null,
-                          });
-                        }}
-                      >
-                        <option
-                          className="bg-stone-800 text-stone-600"
-                          value=""
-                          disabled
+                      <div className="flex items-center gap-x-1 pr-2">
+                      <div className="flex flex-col [&>*]:-my-1">
+                        <button
+                          disabled={index === 0}
+                          className="border-none"
+                          onClick={() => {
+                            if (index === 0) return;
+                            const newRows = [...rows];
+                            const [movedRow] = newRows.splice(index, 1);
+                            newRows.splice(index - 1, 0, movedRow);
+                            setRows(recalculateMultipliersAndCosts(newRows));
+                          }}
                         >
-                          Select an effect
-                        </option>
-                        {getEffectOptions(index)}
-                      </select>
+                          ▲
+                        </button>
+                        <button
+                          //not working
+                          disabled={index === rows.length - 1}
+                          className="border-none"
+                          onClick={() => {
+                            if (index === rows.length - 1) return;
+                            const newRows = [...rows];
+                            const [movedRow] = newRows.splice(index, 1);
+                            newRows.splice(index + 1, 0, movedRow);
+                            setRows(recalculateMultipliersAndCosts(newRows));
+                          }}
+                        >
+                          ▼
+                        </button>
+                      </div>
+                      <div className="flex items-center space-x-2 ml-1">
+                        <Image
+                          src={effects[effect].icon ? effects[effect].icon : ""}
+                          alt=""
+                          width={16}
+                          height={16}
+                        />
+                        <select
+                          id={`effect-${index}`}
+                          value={effect || ""}
+                          onChange={(e) => {
+                            const newEffectName = e.target.value;
+                            const effectDetails = effects[newEffectName];
+                            handleRowChange(index, {
+                              effect: newEffectName,
+                              min: effectDetails?.hasMagnitude ? 0 : null,
+                              max: effectDetails?.hasMagnitude ? 0 : null,
+                              duration: effectDetails?.hasDuration ? 1 : null,
+                              area: effectDetails?.hasArea ? 0 : null,
+                              target: rows.some(
+                                (row) => row.target === "Constant Effect"
+                              )
+                                ? "Constant Effect"
+                                : effectDetails?.isSelfOnly && rows.length > 1
+                                ? "Self"
+                                : null,
+                              cost: null,
+                              multiplier: null,
+                              compoundedCost: null,
+                            });
+                          }}
+                        >
+                          <option
+                            className="bg-stone-800 text-stone-600"
+                            value=""
+                            disabled
+                          >
+                            Select an effect
+                          </option>
+                          {getEffectOptions(index)}
+                        </select>
+                      </div>
+                      </div>
                     </td>
                     <td>
                       {effect !== "" ? (
@@ -1101,7 +886,6 @@ export default function Home() {
             )}
             {rows.length > 0 && (
               <tr>
-                <td />
                 <td />
                 <td />
                 <td />
