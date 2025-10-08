@@ -625,9 +625,7 @@ export default function Home() {
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         {effect !== "" ? (
                           <Image
-                            src={
-                              effects[effect].icon ? effects[effect].icon : ""
-                            }
+                            src={effects[effect].icon}
                             alt={`${effect} icon`}
                             width={16}
                             height={16}

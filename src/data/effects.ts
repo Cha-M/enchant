@@ -1,14 +1,3 @@
-// some can't be cast on self, need to repopulate effects options with that info added to the effect record /
-// maybe move editing from a modal to the new row
-// editing existing enchantments
-// question whether multiple teleports should be allowed they are/
-// dashes not present in rows
-// make sure never can have min below max /
-// weird leading zero in min
-// fortify skill types
-// self never has area /
-// max should always be greater than min /
-
 export interface Effect {
   skill: string;
   baseCost: number;
@@ -19,7 +8,7 @@ export interface Effect {
   isSelfNever?: boolean;
   affectsAttribute?: boolean;
   affectsSkill?: boolean;
-  icon?: string;
+  icon: string;
 }
 
 export const targetMultipliers: Record<string, number> = {
