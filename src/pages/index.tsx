@@ -441,7 +441,7 @@ export default function Home() {
   }, [CharacterData, rows]);
 
   return (
-    <div className="min-h-screen pl-35 pt-30">
+    <div className="min-h-screen pl-35 pt-10">
     {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
       <Head>
         <title>Morrowind Enchantment Explorer</title>
@@ -576,13 +576,13 @@ export default function Home() {
               <td className="w-65">Effect</td>
               <td className="w-33">Target</td>
               <td className="w-11">Min</td>
-              <td className="w-11 pl-1">Max</td>
-              <td className="w-16 pl-1">Duration</td>
-              <td className="w-11 pl-1">Area</td>
-              <td className="w-17 pl-1">Cost</td>
-              <td className="w-18 pl-1">Multiplier</td>
-              <td className="w-31 pl-1 whitespace-nowrap">Compounded Cost</td>
-              <td className="w-9 pl-1"/>
+              <td className="w-11">Max</td>
+              <td className="w-16">Duration</td>
+              <td className="w-11">Area</td>
+              <td className="w-17">Cost</td>
+              <td className="w-18">Multiplier</td>
+              <td className="w-31 whitespace-nowrap">Compounded Cost</td>
+              <td className="w-9"/>
             </tr>
           </thead>
           <tbody>
