@@ -272,7 +272,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Cure_Paralysis.jpg",
+    icon: "/icons/Cure_Paralyzation.jpg",
   },
   "Cure Poison": {
     skill: "Restoration",

@@ -503,7 +503,7 @@ export default function Home() {
               <td className="text-[#DFC99F]">Fatigue</td>
               <td>
                 <select
-                  className="w-30"
+                  className="w-full"
                   value={CharacterData.fatigueTerm === 1 ? "Full" : "Not full"}
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -521,7 +521,7 @@ export default function Home() {
               <td className="text-[#DFC99F]">Engine</td>
               <td>
                 <select
-                  className="w-30"
+                  className="w-full"
                   // value={CharacterData.engine === 1 ? "OpenMW" : "Original"}
                   value={
                     CharacterData.engine === 1
