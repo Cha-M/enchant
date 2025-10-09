@@ -441,7 +441,8 @@ export default function Home() {
   }, [CharacterData, rows]);
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="min-h-screen pl-35 pt-30">
+    {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
       <Head>
         <title>Morrowind Enchantment Explorer</title>
       </Head>
@@ -560,18 +561,28 @@ export default function Home() {
         <table className="ml-[24px]">
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-              <td />
+              {/* <td/>
               <td>Effect</td>
               <td>Target</td>
               <td>Min</td>
               <td>Max</td>
               <td>Duration</td>
-              {/* <td >Area</td> */}
               <td>Area</td>
               <td>Cost</td>
               <td>Multiplier</td>
               <td className="whitespace-nowrap">Compounded Cost</td>
-              <td />
+              <td /> */}
+              <td className="w-6" />
+              <td className="w-65">Effect</td>
+              <td className="w-33">Target</td>
+              <td className="w-11">Min</td>
+              <td className="w-11 pl-1">Max</td>
+              <td className="w-16 pl-1">Duration</td>
+              <td className="w-11 pl-1">Area</td>
+              <td className="w-17 pl-1">Cost</td>
+              <td className="w-18 pl-1">Multiplier</td>
+              <td className="w-31 pl-1 whitespace-nowrap">Compounded Cost</td>
+              <td className="w-9 pl-1"/>
             </tr>
           </thead>
           <tbody>
@@ -636,6 +647,7 @@ export default function Home() {
                           </div>
                         )}
                         <select
+                          className="w-52"
                           id={`effect-${index}`}
                           value={effect || ""}
                           onChange={(e) => {
