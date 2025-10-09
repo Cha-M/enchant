@@ -573,7 +573,7 @@ export default function Home() {
               <td className="whitespace-nowrap">Compounded Cost</td>
               <td /> */}
               <td className="w-6" />
-              <td className="w-52">Effect</td>
+              <td className="w-65">Effect</td>
               <td className="w-33">Target</td>
               <td className="w-11">Min</td>
               <td className="w-11">Max</td>
@@ -854,7 +854,7 @@ export default function Home() {
             ) : (
               <tr>
                 <td colSpan={11}>
-                  <div className="flex justify-center mt-6">
+                  <div className="flex justify-center">
                     <button
                       className="px-4 py-2"
                       disabled={
