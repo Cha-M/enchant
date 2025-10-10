@@ -442,7 +442,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen pl-35 pt-10">
-    {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
+      {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
       <Head>
         <title>Morrowind Enchantment Explorer</title>
       </Head>
@@ -582,7 +582,7 @@ export default function Home() {
               <td className="w-17">Cost</td>
               <td className="w-18">Multiplier</td>
               <td className="w-31 whitespace-nowrap">Compounded Cost</td>
-              <td className="w-9"/>
+              <td className="w-9" />
             </tr>
           </thead>
           <tbody>
@@ -637,7 +637,7 @@ export default function Home() {
                         {effect !== "" ? (
                           <Image
                             src={effects[effect].icon}
-                            alt={`${effect} icon`}
+                            alt={effect}
                             width={16}
                             height={16}
                           />
@@ -854,7 +854,7 @@ export default function Home() {
             ) : (
               <tr>
                 <td colSpan={11}>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mt-6">
                     <button
                       className="px-4 py-2"
                       disabled={
@@ -901,14 +901,7 @@ export default function Home() {
             )}
             {rows.length > 0 && (
               <tr>
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
-                <td />
+                <td colSpan={8} />
                 <td className="text-[#DFC99F]">Total</td>
                 <td className="pl-1">{totalCost}</td>
                 <td />
