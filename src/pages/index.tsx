@@ -607,6 +607,7 @@ export default function Home() {
                       <button
                         className="-mb-2 border-none"
                         disabled={index === 0}
+                        onMouseDown={(e) => e.preventDefault()}
                         onClick={() => {
                           if (index === 0) return;
                           const newRows = [...rows];
@@ -621,6 +622,7 @@ export default function Home() {
                         //not working
                         disabled={index === rows.length - 1}
                         className="mb-[2px] border-none"
+                        onMouseDown={(e) => e.preventDefault()}
                         onClick={() => {
                           if (index === rows.length - 1) return;
                           const newRows = [...rows];
