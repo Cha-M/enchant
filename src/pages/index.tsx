@@ -368,7 +368,7 @@ export default function Home() {
       )
     );
 
-  const calculateEffectChanceTest = (
+  const calculateEffectChanceUnbounded = (
     { enchant, intelligence, luck, fatigueTerm }: CharacterData,
     totalCost: number,
     hasConstantEffect: boolean
@@ -377,12 +377,12 @@ export default function Home() {
     Math.round(
       // Math.min(
       //   100,
-        Math.max(
-          0,
-          (0.75 + fatigueTerm / 2) *
-            (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-            (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
-        )
+      Math.max(
+        0,
+        (0.75 + fatigueTerm / 2) *
+          (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+          (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
+      )
       // )
     );
   // );
@@ -419,15 +419,15 @@ export default function Home() {
 
     return CharacterData.engine === 0
       ? rowsCopySorted.reduce((acc, row) => {
+          // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
           // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
           // I don't know about this.
           return Math.round(
             (acc *
-              //calculateEffectChanceTest can have chance over 100 for individual effects
-              calculateEffectChanceTest(
+              //calculateEffectChanceUnbounded can have chance over 100 for individual effects
+              calculateEffectChanceUnbounded(
                 CharacterData,
-                // this doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
-                // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
+                // original doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
                 // totalCost,
                 row.compoundedCost!,
                 // totalCostWithoutMultiplier,
@@ -454,7 +454,7 @@ export default function Home() {
           );
         }, 100)
       : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-  }, [CharacterData, rows]);
+  }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   return (
     <div className="min-h-screen pl-35 pt-10">
