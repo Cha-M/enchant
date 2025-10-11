@@ -860,6 +860,7 @@ export default function Home() {
                     <td className="pl-1">{compoundedCost ?? "-"}</td>
                     <td>
                       <button
+                        onMouseDown={(e) => e.preventDefault()}
                         onClick={() => handleRemoveRow(index)}
                         className="px-2 py-1 my-1"
                       >
