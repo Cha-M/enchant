@@ -82,7 +82,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
 
-  const calculateRowCost = (row: RowData): number | null => {
+  const calculateRowCost = useCallback((row: RowData): number | null => {
     const effectDetails = effects[row.effect];
     if (
       !row.effect ||
@@ -158,7 +158,7 @@ export default function Home() {
         : 1;
     //??
     return newCost;
-  };
+  }, []);
 
   const recalculateMultipliersAndCosts = useCallback(
     (currentRows: RowData[]) => {
@@ -367,6 +367,24 @@ export default function Home() {
         )
       )
     );
+
+  const calculateEffectChanceTest = (
+    { enchant, intelligence, luck, fatigueTerm }: CharacterData,
+    totalCost: number,
+    hasConstantEffect: boolean
+  ) =>
+    // Math.floor(
+    Math.round(
+      // Math.min(
+      //   100,
+        Math.max(
+          0,
+          (0.75 + fatigueTerm / 2) *
+            (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+            (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
+        )
+      // )
+    );
   // );
 
   const successChance = useMemo<number | null>(() => {
@@ -379,6 +397,18 @@ export default function Home() {
     }
     // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
     const totalCost = rows.reduce((sum, row) => sum + row.compoundedCost!, 0);
+    const rowsCopySorted = recalculateMultipliersAndCosts(
+      [...rows].sort((a, b) => a.cost! - b.cost!)
+    );
+    const totalCostRowsSorted = rowsCopySorted.reduce(
+      (sum, row) => sum + row.compoundedCost!,
+      0
+    );
+    const totalCostWithoutMultiplier = rows.reduce(
+      (sum, row) => sum + row.cost!,
+      0
+    );
+
     const hasConstantEffect = rows.some(
       (row) => row.target === "Constant Effect"
     );
@@ -388,35 +418,21 @@ export default function Home() {
     }
 
     return CharacterData.engine === 0
-      ? rows.reduce((acc, row) => {
+      ? rowsCopySorted.reduce((acc, row) => {
           // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
           // I don't know about this.
-          //
-          console.log({
-            acc,
-            rowCost: row.cost,
-            calc: calculateEffectChance(
-              CharacterData,
-              totalCost,
-              hasConstantEffect
-            ),
-            newAcc: Math.round(
-              (acc *
-                calculateEffectChance(
-                  CharacterData,
-                  totalCost,
-                  hasConstantEffect
-                )) /
-                100
-            ),
-          });
-
           return Math.round(
             (acc *
-              calculateEffectChance(
+              //calculateEffectChanceTest can have chance over 100 for individual effects
+              calculateEffectChanceTest(
                 CharacterData,
-                row.compoundedCost!,
+                // this doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
+                // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
                 // totalCost,
+                row.compoundedCost!,
+                // totalCostWithoutMultiplier,
+                // row.cost!,
+                // rows.reduce((sum, r) => sum + r.cost!, 0),// possible? 25% it says
                 hasConstantEffect
               )) /
               100
