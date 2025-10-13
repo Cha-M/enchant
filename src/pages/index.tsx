@@ -160,7 +160,9 @@ export default function Home() {
     return newCost;
   }, []);
 
-  const recalculateMultipliersAndCosts = useCallback(
+  const recalculateMultipliersAndCosts = useCallback<
+    (currentRows: RowData[]) => RowData[]
+  >(
     (currentRows: RowData[]) => {
       return currentRows.map((row, index) => {
         if (!row.effect || !row.target) {
@@ -180,7 +182,7 @@ export default function Home() {
         };
       });
     },
-    []
+    [calculateRowCost]
   );
 
   const handleRowChange = (index: number, newRowData: Partial<RowData>) => {
@@ -202,8 +204,6 @@ export default function Home() {
     },
     [recalculateMultipliersAndCosts]
   );
-
-  const updateCosts = () => setRows(recalculateMultipliersAndCosts);
 
   const possibleTargets = useMemo<JSX.Element[]>(() => {
     if (!newEffect.effect) {
@@ -289,39 +289,43 @@ export default function Home() {
     ].filter((option) => option !== null) as JSX.Element[];
   };
 
-  const getEffectOptions = (rowIndex: number): JSX.Element[] => {
-    const hasConstantEffect = rows.some(
-      (row, index) => index !== rowIndex && row.target === "Constant Effect"
-    );
+  const getEffectOptions = useCallback<(rowIndex: number) => JSX.Element[]>(
+    (rowIndex: number): JSX.Element[] => {
+      const hasConstantEffect = rows.some(
+        (row, index) => index !== rowIndex && row.target === "Constant Effect"
+      );
 
-    return Object.keys(effects)
-      .filter((effectName) => {
-        const effectInOtherRows = rows.some(
-          (row, index) =>
-            index !== rowIndex &&
-            row.effect === effectName &&
-            !effects[effectName].affectsAttribute &&
-            !effects[effectName].affectsSkill
-        );
-
-        if (effectInOtherRows) {
-          return false;
-        }
-
-        if (hasConstantEffect) {
-          return (
-            effects[effectName].hasDuration && !effects[effectName].isSelfNever
+      return Object.keys(effects)
+        .filter((effectName) => {
+          const effectInOtherRows = rows.some(
+            (row, index) =>
+              index !== rowIndex &&
+              row.effect === effectName &&
+              !effects[effectName].affectsAttribute &&
+              !effects[effectName].affectsSkill
           );
-        }
 
-        return true;
-      })
-      .map((effectName) => (
-        <option key={effectName} value={effectName}>
-          {effectName}
-        </option>
-      ));
-  };
+          if (effectInOtherRows) {
+            return false;
+          }
+
+          if (hasConstantEffect) {
+            return (
+              effects[effectName].hasDuration &&
+              !effects[effectName].isSelfNever
+            );
+          }
+
+          return true;
+        })
+        .map((effectName) => (
+          <option key={effectName} value={effectName}>
+            {effectName}
+          </option>
+        ));
+    },
+    [rows]
+  );
 
   const isRowsSorted = useMemo<boolean>(() => {
     return rows.every((row, index) => {
@@ -350,6 +354,7 @@ export default function Home() {
     // looking at openmw there is a floor on the costs involved
     [rows]
   );
+
   const calculateEffectChance = (
     { enchant, intelligence, luck, fatigueTerm }: CharacterData,
     totalCost: number,
@@ -368,24 +373,24 @@ export default function Home() {
       )
     );
 
-  const calculateEffectChanceUnbounded = (
-    { enchant, intelligence, luck, fatigueTerm }: CharacterData,
-    totalCost: number,
-    hasConstantEffect: boolean
-  ) =>
-    // Math.floor(
-    Math.round(
-      // Math.min(
-      //   100,
-      Math.max(
-        0,
-        (0.75 + fatigueTerm / 2) *
-          (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-          (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
-      )
-      // )
-    );
-  // );
+  // const calculateEffectChanceUnbounded = (
+  //   { enchant, intelligence, luck, fatigueTerm }: CharacterData,
+  //   totalCost: number,
+  //   hasConstantEffect: boolean
+  // ) =>
+  //   // Math.floor(
+  //   Math.round(
+  //     // Math.min(
+  //     //   100,
+  //     Math.max(
+  //       0,
+  //       (0.75 + fatigueTerm / 2) *
+  //         (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
+  //         (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
+  //     )
+  //     // )
+  //   );
+  // // );
 
   const successChance = useMemo<number | null>(() => {
     if (
@@ -400,10 +405,12 @@ export default function Home() {
     const rowsCopySorted = recalculateMultipliersAndCosts(
       [...rows].sort((a, b) => a.cost! - b.cost!)
     );
+
     const totalCostRowsSorted = rowsCopySorted.reduce(
       (sum, row) => sum + row.compoundedCost!,
       0
     );
+
     const totalCostWithoutMultiplier = rows.reduce(
       (sum, row) => sum + row.cost!,
       0
@@ -425,7 +432,9 @@ export default function Home() {
           return Math.round(
             (acc *
               //calculateEffectChanceUnbounded can have chance over 100 for individual effects
-              calculateEffectChanceUnbounded(
+              //               1/269 to see whether the over 100% affects
+              // Got one failure so looking like not being multiplied by easier than 100%
+              calculateEffectChance(
                 CharacterData,
                 // original doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
                 // totalCost,
