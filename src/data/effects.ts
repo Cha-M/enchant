@@ -334,7 +334,8 @@ export const effects: Record<string, Effect> = {
     icon: "/icons/Demoralize_Creature.jpg",
   },
   "Demoralize Humanoid": {
-    skill: "Illusion",
+    skill: "Mysticism",
+    // bug
     baseCost: 1,
     hasMagnitude: true,
     hasDuration: true,
