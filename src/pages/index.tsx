@@ -680,6 +680,7 @@ export default function Home() {
                           onChange={(e) => {
                             const newEffectName = e.target.value;
                             const effectDetails = effects[newEffectName];
+
                             handleRowChange(index, {
                               effect: newEffectName,
                               min: effectDetails?.hasMagnitude ? 0 : null,
@@ -690,7 +691,10 @@ export default function Home() {
                                 (row) => row.target === "Constant Effect"
                               )
                                 ? "Constant Effect"
-                                : effectDetails?.isSelfOnly && rows.length > 1
+                                : (effectDetails?.isSelfOnly &&
+                                    rows.length > 1) ||
+                                  (effectDetails?.isSelfOnly &&
+                                    !effectDetails?.hasDuration)
                                 ? "Self"
                                 : null,
                               cost: null,
@@ -711,7 +715,11 @@ export default function Home() {
                       </div>
                     </td>
                     <td>
-                      {effect !== "" ? (
+                      {effect !== "" &&
+                      !(
+                        effects[effect]?.isSelfOnly &&
+                        !effects[effect]?.hasDuration
+                      ) ? (
                         <select
                           className="w-full"
                           id={`target-${index}`}
@@ -719,7 +727,7 @@ export default function Home() {
                           onChange={(e) => {
                             const newTarget = e.target
                               .value as RowData["target"];
-                            const effectDetails = effects[rows[index].effect];
+                            const effectDetails = effects[effect];
                             handleRowChange(index, {
                               target: newTarget,
                               duration:
@@ -745,6 +753,9 @@ export default function Home() {
                           </option>
                           {getPossibleTargets(index)}
                         </select>
+                      ) : effects[effect]?.isSelfOnly &&
+                        !effects[effect]?.hasDuration ? (
+                        <div className="pl-1">Self</div>
                       ) : (
                         <div className="pl-1">-</div>
                       )}
