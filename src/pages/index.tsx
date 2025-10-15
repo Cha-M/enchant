@@ -146,16 +146,22 @@ export default function Home() {
     //       baseCost *
     //       (((min + max) * duration + area) / 40);
 
+    // finding that small (1) enchantments are not multiplied by position
+
     const nonConstantEffectCost =
       row.target !== "Constant Effect"
         ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
         : 0;
+    // const newCost =
+    //   row.target === "Constant Effect"
+    //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
+    //     : nonConstantEffectCost > 1
+    //     ? targetMultipliers[row.target!] * nonConstantEffectCost
+    //     : 1;
     const newCost =
       row.target === "Constant Effect"
         ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-        : nonConstantEffectCost > 1
-        ? targetMultipliers[row.target!] * nonConstantEffectCost
-        : 1;
+        : targetMultipliers[row.target!] * nonConstantEffectCost;
     //??
     return newCost;
   }, []);
@@ -173,7 +179,11 @@ export default function Home() {
         const newMultiplier = currentRows.length - index;
         const newCompoundedCost =
           // newCost !== null ? Math.floor(newCost) * newMultiplier : null;
-          newCost !== null ? Math.floor(newCost * newMultiplier) : null;
+          newCost !== null
+            ? Math.floor(newCost * newMultiplier) >= 1
+              ? Math.floor(newCost * newMultiplier)
+              : 1
+            : null;
         return {
           ...row,
           cost: newCost,
