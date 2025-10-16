@@ -146,18 +146,19 @@ export default function Home() {
     //       baseCost *
     //       (((min + max) * duration + area) / 40);
 
-    // finding that small (1) enchantments are not multiplied by position
-
+    
     const nonConstantEffectCost =
-      row.target !== "Constant Effect"
-        ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
-        : 0;
+    row.target !== "Constant Effect"
+    ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
+    : 0;
     // const newCost =
     //   row.target === "Constant Effect"
     //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
     //     : nonConstantEffectCost > 1
     //     ? targetMultipliers[row.target!] * nonConstantEffectCost
     //     : 1;
+
+    // finding that small (sub 1) enchantments are not multiplied by position. but they have a mimimum of 1 after multiplied
     const newCost =
       row.target === "Constant Effect"
         ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
@@ -473,6 +474,9 @@ export default function Home() {
           );
         }, 100)
       : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
+      //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
+      //this means the rows will be different for OpenMW, not just the chance
+      // - and plus buttons
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   return (
