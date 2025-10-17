@@ -146,11 +146,10 @@ export default function Home() {
     //       baseCost *
     //       (((min + max) * duration + area) / 40);
 
-    
     const nonConstantEffectCost =
-    row.target !== "Constant Effect"
-    ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
-    : 0;
+      row.target !== "Constant Effect"
+        ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
+        : 0;
     // const newCost =
     //   row.target === "Constant Effect"
     //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
@@ -474,9 +473,9 @@ export default function Home() {
           );
         }, 100)
       : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-      //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
-      //this means the rows will be different for OpenMW, not just the chance
-      // - and plus buttons
+    //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
+    //this means the rows will be different for OpenMW, not just the chance
+    // - and + buttons
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   return (
@@ -711,6 +710,7 @@ export default function Home() {
                                     !effectDetails?.hasDuration)
                                 ? "Self"
                                 : null,
+                                // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration 
                               cost: null,
                               multiplier: null,
                               compoundedCost: null,
