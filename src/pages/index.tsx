@@ -701,7 +701,7 @@ export default function Home() {
                               duration: effectDetails?.hasDuration ? 1 : null,
                               area: effectDetails?.hasArea ? 0 : null,
                               target: rows.some(
-                                (row) => row.target === "Constant Effect"
+                                (row) => row.target === "Constant Effect" && index !== rows.indexOf(row)
                               )
                                 ? "Constant Effect"
                                 : (effectDetails?.isSelfOnly &&
@@ -710,7 +710,7 @@ export default function Home() {
                                     !effectDetails?.hasDuration)
                                 ? "Self"
                                 : null,
-                                // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration 
+                                // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration. does statement after && fix it?
                               cost: null,
                               multiplier: null,
                               compoundedCost: null,
