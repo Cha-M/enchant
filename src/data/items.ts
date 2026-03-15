@@ -11,7 +11,14 @@ export interface Item {
     | "Right Gauntlet"
     | "Left Pauldron"
     | "Right Pauldron"
-    | "Amulet";
+    | "Amulet"
+    | "Ring"
+    | "Robe"
+    | "Shirt"
+    | "Pants"
+    | "Skirt"
+    | "Weapon"
+    | "None";
 }
 
 export const items: Record<string, Item> = {
@@ -64,21 +71,37 @@ export const items: Record<string, Item> = {
   "Heavy Leather Boots": { enchantPoints: 2.6, slot: "Boots" },
   "Netch Leather Boots": { enchantPoints: 2.6, slot: "Boots" },
   "Nordic Fur Boots": { enchantPoints: 2.6, slot: "Boots" },
-  "Chitin Left Gauntlet Chitin Right Gauntlet": {
+  "Chitin Left Gauntlet": {
     enchantPoints: 10,
     slot: "Left Gauntlet",
   },
-  "Cloth Left Bracer Cloth Right Bracer": {
+  "Chitin Right Gauntlet": {
+    enchantPoints: 10,
+    slot: "Right Gauntlet",
+  },
+  "Cloth Left Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
   },
-  "Left Glass Bracer Right Glass Bracer": {
+  "Cloth Right Bracer": {
+    enchantPoints: 6,
+    slot: "Right Gauntlet",
+  },
+  "Left Glass Bracer": {
     enchantPoints: 10,
     slot: "Left Gauntlet",
   },
-  "Left Leather Bracer Right Leather Bracer": {
+  "Right Glass Bracer": {
+    enchantPoints: 10,
+    slot: "Right Gauntlet",
+  },
+  "Left Leather Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+  },
+  "Right Leather Bracer": {
+    enchantPoints: 6,
+    slot: "Right Gauntlet",
   },
   "Nordic Fur Left Bracer Nordic Fur Right Bracer": {
     enchantPoints: 6,
