@@ -500,9 +500,12 @@ export const items: Record<string, Item> = {
   "Ebony Throwing Star": { enchantPoints: 3, slot: "Weapon" },
   "Daedric Dart": { enchantPoints: 4.5, slot: "Weapon" },
   // Clothing (Base)
-  "Common Amulet   ": { enchantPoints: 1 },
-  "Expensive Amulet ": { enchantPoints: 15 },
-  "Extravagant Sapphire Amulet Extravagant Ruby Amulet   ": {
+  "Common Amulet": { enchantPoints: 1 },
+  "Expensive Amulet": { enchantPoints: 15 },
+  "Extravagant Sapphire Amulet": {
+    enchantPoints: 60,
+  },
+  "Extravagant Ruby Amulet": {
     enchantPoints: 60,
   },
   "Exquisite Amulet": { enchantPoints: 120 },
@@ -513,9 +516,12 @@ export const items: Record<string, Item> = {
   "Imperial Belt": { enchantPoints: 0.5 },
   "Imperial Templar Belt": { enchantPoints: 10 },
   "Indoril Belt": { enchantPoints: 0.5 },
-  "Common Left Glove Common Right Glove": { enchantPoints: 1 },
-  "Expensive Left Glove Expensive Right Glove": { enchantPoints: 5 },
-  "Extravagant Left Glove Extravagant Right Glove": { enchantPoints: 20 },
+  "Common Left Glove": { enchantPoints: 1 },
+  "Common Right Glove": { enchantPoints: 1 },
+  "Expensive Left Glove": { enchantPoints: 5 },
+  "Expensive Right Glove": { enchantPoints: 5 },
+  "Extravagant Left Glove": { enchantPoints: 20 },
+  "Extravagant Right Glove": { enchantPoints: 20 },
   "Common Pants": { enchantPoints: 2 },
   "Expensive Pants": { enchantPoints: 7.5 },
   "Extravagant Pants": { enchantPoints: 30 },
