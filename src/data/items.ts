@@ -18,11 +18,12 @@ export interface Item {
     | "Pants"
     | "Skirt"
     | "Weapon"
+    | "Belt"
     | "None";
 }
 
 export const items: Record<string, Item> = {
-  // Armour
+  // Armour (Base)
   "Boiled Netch Leather Cuirass": { enchantPoints: 6, slot: "Cuirass" },
   "Chitin Cuirass": { enchantPoints: 10, slot: "Cuirass" },
   "Glass Cuirass": { enchantPoints: 12, slot: "Cuirass" },
@@ -381,7 +382,7 @@ export const items: Record<string, Item> = {
   "Iron Tower Shield": { enchantPoints: 75, slot: "Shield" },
   "Steel Tower Shield": { enchantPoints: 75, slot: "Shield" },
 
-  // Weapons
+  // Weapons (Base)
   "Chitin War Axe": { enchantPoints: 2.5, slot: "Weapon" },
   "Iron War Axe": { enchantPoints: 5, slot: "Weapon" },
   "Steel Axe": { enchantPoints: 4.5, slot: "Weapon" },
@@ -431,17 +432,17 @@ export const items: Record<string, Item> = {
   "Iron Wakizashi": { enchantPoints: 4.5, slot: "Weapon" },
   "Steel Tanto": { enchantPoints: 2.2, slot: "Weapon" },
   "Imperial Shortsword": { enchantPoints: 5, slot: "Weapon" },
-  "Silver Dagger ": { enchantPoints: 1.6, slot: "Weapon" },
+  "Silver Dagger": { enchantPoints: 1.6, slot: "Weapon" },
   "Steel Shortsword": { enchantPoints: 4, slot: "Weapon" },
   "Steel Wakizashi": { enchantPoints: 4.5, slot: "Weapon" },
   "Silver Shortsword": { enchantPoints: 3.6, slot: "Weapon" },
   "Dwarven Shortsword": { enchantPoints: 4, slot: "Weapon" },
-  "Glass Dagger ": { enchantPoints: 1.2, slot: "Weapon" },
+  "Glass Dagger": { enchantPoints: 1.2, slot: "Weapon" },
   "Daedric Dagger": { enchantPoints: 6, slot: "Weapon" },
   "Ebony Shortsword": { enchantPoints: 8, slot: "Weapon" },
   "Daedric Tanto": { enchantPoints: 6.6, slot: "Weapon" },
   "Daedric Shortsword": { enchantPoints: 12, slot: "Weapon" },
-  "Daedric Wakizashi ": { enchantPoints: 13.5, slot: "Weapon" },
+  "Daedric Wakizashi": { enchantPoints: 13.5, slot: "Weapon" },
   "Iron Saber": { enchantPoints: 5.5, slot: "Weapon" },
   "Iron Broadsword": { enchantPoints: 5, slot: "Weapon" },
   "Iron Longsword": { enchantPoints: 6, slot: "Weapon" },
@@ -463,7 +464,7 @@ export const items: Record<string, Item> = {
   "Steel Dai-katana": { enchantPoints: 7, slot: "Weapon" },
   "Silver Claymore": { enchantPoints: 5.6, slot: "Weapon" },
   "Dwarven Claymore": { enchantPoints: 7, slot: "Weapon" },
-  "Foeburner ": { enchantPoints: 4, slot: "Weapon" },
+  Foeburner: { enchantPoints: 4, slot: "Weapon" },
   "Glass Claymore": { enchantPoints: 4.2, slot: "Weapon" },
   "Daedric Claymore": { enchantPoints: 21, slot: "Weapon" },
   "Daedric Dai-katana": { enchantPoints: 21, slot: "Weapon" },
@@ -498,7 +499,7 @@ export const items: Record<string, Item> = {
   "Ebony Dart": { enchantPoints: 3, slot: "Weapon" },
   "Ebony Throwing Star": { enchantPoints: 3, slot: "Weapon" },
   "Daedric Dart": { enchantPoints: 4.5, slot: "Weapon" },
-  // Other
+  // Clothing (Base)
   "3": {
     enchantPoints: 50,
     icon: "/icons/3.jpg",
