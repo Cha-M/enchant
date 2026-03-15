@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
-import next from "next";
+// import next from "next";
 import Head from "next/head";
 
 interface RowData {
@@ -30,43 +30,43 @@ export default function Home() {
     intelligence: 100,
     luck: 100,
     fatigueTerm: 1,
-    engine: 0,
+    engine: 1,
   });
 
   const [rows, setRows] = useState<RowData[]>([
-    {
-      min: 0,
-      max: 10,
-      duration: 2,
-      effect: "Absorb Attribute",
-      target: "Touch",
-      area: 1,
-      cost: 0,
-      multiplier: 1,
-      compoundedCost: 0,
-    },
-    {
-      min: 0,
-      max: 10,
-      duration: 2,
-      effect: "Absorb Fatigue",
-      target: "Touch",
-      area: 1,
-      cost: 0,
-      multiplier: 1,
-      compoundedCost: 0,
-    },
-    {
-      min: 0,
-      max: 10,
-      duration: 2,
-      effect: "Absorb Health",
-      target: "Touch",
-      area: 1,
-      cost: 0,
-      multiplier: 1,
-      compoundedCost: 0,
-    },
+    // {
+    //   min: 0,
+    //   max: 10,
+    //   duration: 2,
+    //   effect: "Absorb Attribute",
+    //   target: "Touch",
+    //   area: 1,
+    //   cost: 0,
+    //   multiplier: 1,
+    //   compoundedCost: 0,
+    // },
+    // {
+    //   min: 0,
+    //   max: 10,
+    //   duration: 2,
+    //   effect: "Absorb Fatigue",
+    //   target: "Touch",
+    //   area: 1,
+    //   cost: 0,
+    //   multiplier: 1,
+    //   compoundedCost: 0,
+    // },
+    // {
+    //   min: 0,
+    //   max: 10,
+    //   duration: 2,
+    //   effect: "Absorb Health",
+    //   target: "Touch",
+    //   area: 1,
+    //   cost: 0,
+    //   multiplier: 1,
+    //   compoundedCost: 0,
+    // },
     // {
     //   min: 0,
     //   max: 10,
@@ -79,8 +79,7 @@ export default function Home() {
     //   compoundedCost: 0,
     // },
   ]);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
+  // const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
 
   const calculateRowCost = useCallback((row: RowData): number | null => {
     const effectDetails = effects[row.effect];
@@ -150,18 +149,18 @@ export default function Home() {
       row.target !== "Constant Effect"
         ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
         : 0;
-    // const newCost =
-    //   row.target === "Constant Effect"
-    //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-    //     : nonConstantEffectCost > 1
-    //     ? targetMultipliers[row.target!] * nonConstantEffectCost
-    //     : 1;
-
-    // finding that small (sub 1) enchantments are not multiplied by position. but they have a mimimum of 1 after multiplied
     const newCost =
       row.target === "Constant Effect"
         ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-        : targetMultipliers[row.target!] * nonConstantEffectCost;
+        : nonConstantEffectCost > 1
+          ? targetMultipliers[row.target!] * nonConstantEffectCost
+          : 1;
+
+    // finding that small (sub 1) enchantments are not multiplied by position. but they have a mimimum of 1 after multiplied... but this isn't true? idk
+    // const newCost =
+    //   row.target === "Constant Effect"
+    //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
+    //     : targetMultipliers[row.target!] * nonConstantEffectCost;
     //??
     return newCost;
   }, []);
@@ -178,7 +177,7 @@ export default function Home() {
 
         const newMultiplier = currentRows.length - index;
         const newCompoundedCost =
-          // newCost !== null ? Math.floor(newCost) * newMultiplier : null;
+          //newCost !== null ? Math.floor(newCost) * newMultiplier : null;
           newCost !== null
             ? Math.floor(newCost * newMultiplier) >= 1
               ? Math.floor(newCost * newMultiplier)
@@ -192,16 +191,16 @@ export default function Home() {
         };
       });
     },
-    [calculateRowCost]
+    [calculateRowCost],
   );
 
   const handleRowChange = (index: number, newRowData: Partial<RowData>) => {
     setRows((currentRows) =>
       recalculateMultipliersAndCosts(
         currentRows.map((row, i) =>
-          i === index ? { ...row, ...newRowData } : row
-        )
-      )
+          i === index ? { ...row, ...newRowData } : row,
+        ),
+      ),
     );
   };
 
@@ -212,63 +211,63 @@ export default function Home() {
         return recalculateMultipliersAndCosts(newRows);
       });
     },
-    [recalculateMultipliersAndCosts]
+    [recalculateMultipliersAndCosts],
   );
 
-  const possibleTargets = useMemo<JSX.Element[]>(() => {
-    if (!newEffect.effect) {
-      return [];
-    }
-    const hasTouch = rows.some((row) => row.target === "Touch");
-    const hasTarget = rows.some((row) => row.target === "Target");
-    const hasSelf = rows.some((row) => row.target === "Self");
-    const hasConstantEffect = rows.some(
-      (row) => row.target === "Constant Effect"
-    );
-    const isSelfOnly = effects[newEffect.effect]?.isSelfOnly;
-    const isSelfNever = effects[newEffect.effect]?.isSelfNever;
-    const hasDuration = effects[newEffect.effect]?.hasDuration;
-    //this needs to be fixed for not using newEffect, eg
+  // const possibleTargets = useMemo<JSX.Element[]>(() => {
+  //   if (!newEffect.effect) {
+  //     return [];
+  //   }
+  //   const hasTouch = rows.some((row) => row.target === "Touch");
+  //   const hasTarget = rows.some((row) => row.target === "Target");
+  //   const hasSelf = rows.some((row) => row.target === "Self");
+  //   const hasConstantEffect = rows.some(
+  //     (row) => row.target === "Constant Effect",
+  //   );
+  //   const isSelfOnly = effects[newEffect.effect]?.isSelfOnly;
+  //   const isSelfNever = effects[newEffect.effect]?.isSelfNever;
+  //   const hasDuration = effects[newEffect.effect]?.hasDuration;
+  //   //this needs to be fixed for not using newEffect, eg
 
-    return [
-      !hasConstantEffect && !isSelfOnly ? (
-        <option key="TouchOption" value="Touch">
-          Touch
-        </option>
-      ) : null,
-      !hasConstantEffect && !isSelfOnly ? (
-        <option key="TargetOption" value="Target">
-          Target
-        </option>
-      ) : null,
-      !hasConstantEffect && !isSelfNever ? (
-        <option key="SelfOption" value="Self">
-          Self
-        </option>
-      ) : null,
-      hasDuration && !hasTouch && !hasTarget && !hasSelf && !isSelfNever ? (
-        <option key="ConstantEffectOption" value="Constant Effect">
-          Constant Effect
-        </option>
-      ) : null,
-    ].filter((option) => option !== null) as JSX.Element[];
-  }, [rows, newEffect.effect]);
+  //   return [
+  //     !hasConstantEffect && !isSelfOnly ? (
+  //       <option key="TouchOption" value="Touch">
+  //         Touch
+  //       </option>
+  //     ) : null,
+  //     !hasConstantEffect && !isSelfOnly ? (
+  //       <option key="TargetOption" value="Target">
+  //         Target
+  //       </option>
+  //     ) : null,
+  //     !hasConstantEffect && !isSelfNever ? (
+  //       <option key="SelfOption" value="Self">
+  //         Self
+  //       </option>
+  //     ) : null,
+  //     hasDuration && !hasTouch && !hasTarget && !hasSelf && !isSelfNever ? (
+  //       <option key="ConstantEffectOption" value="Constant Effect">
+  //         Constant Effect
+  //       </option>
+  //     ) : null,
+  //   ].filter((option) => option !== null) as JSX.Element[];
+  // }, [rows, newEffect.effect]);
 
   const getPossibleTargets = (rowIndex: number): JSX.Element[] => {
     if (!rows[rowIndex].effect) {
       return [];
     }
     const hasTouch = rows.some(
-      (row, index) => row.target === "Touch" && index !== rowIndex
+      (row, index) => row.target === "Touch" && index !== rowIndex,
     );
     const hasTarget = rows.some(
-      (row, index) => row.target === "Target" && index !== rowIndex
+      (row, index) => row.target === "Target" && index !== rowIndex,
     );
     const hasSelf = rows.some(
-      (row, index) => row.target === "Self" && index !== rowIndex
+      (row, index) => row.target === "Self" && index !== rowIndex,
     );
     const hasConstantEffect = rows.some(
-      (row, index) => row.target === "Constant Effect" && index !== rowIndex
+      (row, index) => row.target === "Constant Effect" && index !== rowIndex,
     );
 
     const isSelfOnly = effects[rows[rowIndex].effect]?.isSelfOnly;
@@ -302,7 +301,7 @@ export default function Home() {
   const getEffectOptions = useCallback<(rowIndex: number) => JSX.Element[]>(
     (rowIndex: number): JSX.Element[] => {
       const hasConstantEffect = rows.some(
-        (row, index) => index !== rowIndex && row.target === "Constant Effect"
+        (row, index) => index !== rowIndex && row.target === "Constant Effect",
       );
 
       return Object.keys(effects)
@@ -312,7 +311,7 @@ export default function Home() {
               index !== rowIndex &&
               row.effect === effectName &&
               !effects[effectName].affectsAttribute &&
-              !effects[effectName].affectsSkill
+              !effects[effectName].affectsSkill,
           );
 
           if (effectInOtherRows) {
@@ -334,7 +333,7 @@ export default function Home() {
           </option>
         ));
     },
-    [rows]
+    [rows],
   );
 
   const isRowsSorted = useMemo<boolean>(() => {
@@ -362,13 +361,13 @@ export default function Home() {
     // or it could be rounded-need check .49 and .50
     // () => rows.reduce((sum, item) => sum + item.compoundedCost!, 0)).toFixed(2),
     // looking at openmw there is a floor on the costs involved
-    [rows]
+    [rows],
   );
 
   const calculateEffectChance = (
     { enchant, intelligence, luck, fatigueTerm }: CharacterData,
     totalCost: number,
-    hasConstantEffect: boolean
+    hasConstantEffect: boolean,
   ) =>
     // Math.floor(
     Math.round(
@@ -378,9 +377,9 @@ export default function Home() {
           0,
           (0.75 + fatigueTerm / 2) *
             (1 - 0.5 * (hasConstantEffect ? 1 : 0)) *
-            (enchant + intelligence / 5 + luck / 10 - 3 * totalCost)
-        )
-      )
+            (enchant + intelligence / 5 + luck / 10 - 3 * totalCost),
+        ),
+      ),
     );
 
   // const calculateEffectChanceUnbounded = (
@@ -413,21 +412,11 @@ export default function Home() {
     // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
     const totalCost = rows.reduce((sum, row) => sum + row.compoundedCost!, 0);
     const rowsCopySorted = recalculateMultipliersAndCosts(
-      [...rows].sort((a, b) => a.cost! - b.cost!)
-    );
-
-    const totalCostRowsSorted = rowsCopySorted.reduce(
-      (sum, row) => sum + row.compoundedCost!,
-      0
-    );
-
-    const totalCostWithoutMultiplier = rows.reduce(
-      (sum, row) => sum + row.cost!,
-      0
+      [...rows].sort((a, b) => a.cost! - b.cost!),
     );
 
     const hasConstantEffect = rows.some(
-      (row) => row.target === "Constant Effect"
+      (row) => row.target === "Constant Effect",
     );
 
     if (totalCost === 0) {
@@ -452,27 +441,27 @@ export default function Home() {
                 // totalCostWithoutMultiplier,
                 // row.cost!,
                 // rows.reduce((sum, r) => sum + r.cost!, 0),// possible? 25% it says
-                hasConstantEffect
+                hasConstantEffect,
               )) /
-              100
+              100,
           );
         }, 100)
       : CharacterData.engine === 2
-      ? rows.reduce((acc, row) => {
-          // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
-          // I don't know about this.
-          // UESP
-          return Math.round(
-            (acc *
-              calculateEffectChance(
-                CharacterData,
-                row.cost!,
-                hasConstantEffect
-              )) /
-              100
-          );
-        }, 100)
-      : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
+        ? rows.reduce((acc, row) => {
+            // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+            // I don't know about this.
+            // UESP
+            return Math.round(
+              (acc *
+                calculateEffectChance(
+                  CharacterData,
+                  row.cost!,
+                  hasConstantEffect,
+                )) /
+                100,
+            );
+          }, 100)
+        : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
     //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
     //this means the rows will be different for OpenMW, not just the chance
     // - and + buttons
@@ -485,6 +474,9 @@ export default function Home() {
         <title>Morrowind Enchantment Explorer</title>
       </Head>
       <main className="flex flex-col row-start-2 sm:items-start space-y-3">
+        <h1 className="text-2xl text-[#DFC99F] mb-4 ml-12">
+          Morrowind Enchantment Explorer
+        </h1>
         <table className="ml-12">
           <tbody>
             <tr>
@@ -556,7 +548,7 @@ export default function Home() {
                 </select>
               </td>
             </tr>
-            <tr>
+            {/* <tr>
               <td className="text-[#DFC99F]">Engine</td>
               <td>
                 <select
@@ -566,8 +558,8 @@ export default function Home() {
                     CharacterData.engine === 1
                       ? "OpenMW"
                       : CharacterData.engine === 2
-                      ? "UESP"
-                      : "Original"
+                        ? "UESP"
+                        : "Original"
                   }
                   onChange={(e) => {
                     setCharacterData((prev) => ({
@@ -577,8 +569,8 @@ export default function Home() {
                         e.target.value === "OpenMW"
                           ? 1
                           : e.target.value === "UESP"
-                          ? 2
-                          : 0,
+                            ? 2
+                            : 0,
                     }));
                   }}
                 >
@@ -587,7 +579,7 @@ export default function Home() {
                   <option value="UESP">UESP</option>
                 </select>
               </td>
-            </tr>
+            </tr> */}
             <tr>
               <td className="text-[#DFC99F]">Success chance</td>
               <td className="pl-1">
@@ -638,7 +630,7 @@ export default function Home() {
                     multiplier,
                     compoundedCost,
                   },
-                  index
+                  index,
                 ) => (
                   <tr key={index} className="[&>*]:pr-2">
                     <td className="flex flex-col">
@@ -701,16 +693,18 @@ export default function Home() {
                               duration: effectDetails?.hasDuration ? 1 : null,
                               area: effectDetails?.hasArea ? 0 : null,
                               target: rows.some(
-                                (row) => row.target === "Constant Effect" && index !== rows.indexOf(row)
+                                (row) =>
+                                  row.target === "Constant Effect" &&
+                                  index !== rows.indexOf(row),
                               )
                                 ? "Constant Effect"
                                 : (effectDetails?.isSelfOnly &&
-                                    rows.length > 1) ||
-                                  (effectDetails?.isSelfOnly &&
-                                    !effectDetails?.hasDuration)
-                                ? "Self"
-                                : null,
-                                // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration. does statement after && fix it?
+                                      rows.length > 1) ||
+                                    (effectDetails?.isSelfOnly &&
+                                      !effectDetails?.hasDuration)
+                                  ? "Self"
+                                  : null,
+                              // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration. does statement after && fix it?
                               cost: null,
                               multiplier: null,
                               compoundedCost: null,
@@ -748,13 +742,13 @@ export default function Home() {
                                 newTarget === "Constant Effect" ||
                                 !effectDetails?.hasDuration
                                   ? null
-                                  : rows[index].duration ?? 1,
+                                  : (rows[index].duration ?? 1),
                               area:
                                 newTarget === "Constant Effect" ||
                                 newTarget === "Self" ||
                                 !effectDetails?.hasArea
                                   ? null
-                                  : rows[index].area ?? 0,
+                                  : (rows[index].area ?? 0),
                             });
                           }}
                         >
@@ -902,7 +896,7 @@ export default function Home() {
                       </button>
                     </td>
                   </tr>
-                )
+                ),
               )
             ) : (
               <tr>
@@ -912,22 +906,21 @@ export default function Home() {
                       className="px-4 py-2"
                       disabled={
                         rows.length >= 8 ||
-                        rows.some((row) => row.effect === "" || !row.target) ||
-                        isModalOpen
+                        rows.some((row) => row.effect === "" || !row.target)
                       }
                       onClick={() => {
                         // setIsModalOpen(true);
-                        setNewEffect({
-                          effect: "",
-                          min: null,
-                          max: null,
-                          duration: null,
-                          area: null,
-                          target: null,
-                          cost: null,
-                          multiplier: null,
-                          compoundedCost: null,
-                        });
+                        // setNewEffect({
+                        //   effect: "",
+                        //   min: null,
+                        //   max: null,
+                        //   duration: null,
+                        //   area: null,
+                        //   target: null,
+                        //   cost: null,
+                        //   multiplier: null,
+                        //   compoundedCost: null,
+                        // });
                         setRows((prevRows) =>
                           recalculateMultipliersAndCosts([
                             ...prevRows,
@@ -942,7 +935,7 @@ export default function Home() {
                               multiplier: null,
                               compoundedCost: null,
                             } as RowData,
-                          ])
+                          ]),
                         );
                       }}
                     >
@@ -969,22 +962,21 @@ export default function Home() {
               className="px-4 py-2"
               disabled={
                 rows.length >= 8 ||
-                rows.some((row) => row.effect === "" || !row.target) ||
-                isModalOpen
+                rows.some((row) => row.effect === "" || !row.target)
               }
               onClick={() => {
                 // setIsModalOpen(true);
-                setNewEffect({
-                  effect: "",
-                  min: null,
-                  max: null,
-                  duration: null,
-                  area: null,
-                  target: null,
-                  cost: null,
-                  multiplier: null,
-                  compoundedCost: null,
-                });
+                // setNewEffect({
+                //   effect: "",
+                //   min: null,
+                //   max: null,
+                //   duration: null,
+                //   area: null,
+                //   target: null,
+                //   cost: null,
+                //   multiplier: null,
+                //   compoundedCost: null,
+                // });
                 setRows((prevRows) =>
                   recalculateMultipliersAndCosts([
                     ...prevRows,
@@ -999,7 +991,7 @@ export default function Home() {
                       multiplier: null,
                       compoundedCost: null,
                     } as RowData,
-                  ])
+                  ]),
                 );
               }}
             >
@@ -1014,9 +1006,9 @@ export default function Home() {
                     prevRows.sort((a, b) =>
                       a.cost !== null && b.cost !== null && a.cost > b.cost
                         ? 1
-                        : -1
-                    )
-                  )
+                        : -1,
+                    ),
+                  ),
                 );
               }}
             >
