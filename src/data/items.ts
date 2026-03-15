@@ -103,13 +103,21 @@ export const items: Record<string, Item> = {
     enchantPoints: 6,
     slot: "Right Gauntlet",
   },
-  "Nordic Fur Left Bracer Nordic Fur Right Bracer": {
+  "Nordic Fur Left Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
   },
-  "Netch Leather Left Gauntlet Netch Leather Right Gauntlet": {
+  "Nordic Fur Right Bracer": {
+    enchantPoints: 6,
+    slot: "Right Gauntlet",
+  },
+  "Netch Leather Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+  },
+  "Netch Leather Right Gauntlet": {
+    enchantPoints: 6,
+    slot: "Right Gauntlet",
   },
   "Nordic Fur Left Gauntlet Nordic Fur Right Gauntlet": {
     enchantPoints: 6,
@@ -169,17 +177,29 @@ export const items: Record<string, Item> = {
   "Bonemold Boots": { enchantPoints: 7, slot: "Boots" },
   "Indoril Boots": { enchantPoints: 2.6, slot: "Boots" },
   "Orcish Boots": { enchantPoints: 10.5, slot: "Boots" },
-  "Bonemold Left Bracer Bonemold Right Bracer": {
+  "Bonemold Left Bracer": {
     enchantPoints: 16,
     slot: "Left Gauntlet",
   },
-  "Indoril Left Gauntlet Indoril Right Gauntlet": {
+  "Bonemold Right Bracer": {
+    enchantPoints: 16,
+    slot: "Right Gauntlet",
+  },
+  "Indoril Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
   },
-  "Orcish Left Bracer Orcish Right Bracer": {
+  "Indoril Right Gauntlet": {
+    enchantPoints: 6,
+    slot: "Left Gauntlet",
+  },
+  "Orcish Left Bracer": {
     enchantPoints: 24,
     slot: "Left Gauntlet",
+  },
+  "Orcish Right Bracer": {
+    enchantPoints: 24,
+    slot: "Right Gauntlet",
   },
   "Bonemold Shield": { enchantPoints: 40, slot: "Shield" },
   "Dreugh Shield": { enchantPoints: 45, slot: "Shield" },
@@ -213,37 +233,69 @@ export const items: Record<string, Item> = {
   "Daedric Face of Terror": { enchantPoints: 75, slot: "Helm" },
   "Nordic Iron Helm": { enchantPoints: 25, slot: "Helm" },
   "Nordic Trollbone Helm": { enchantPoints: 20, slot: "Helm" },
-  "Dwemer Left Pauldron Dwemer Right Pauldron": {
+  "Dwemer Left Pauldron": {
     enchantPoints: 4,
     slot: "Left Pauldron",
   },
-  "Daedric Left Pauldron Daedric Right Pauldron": {
+  "Dwemer Right Pauldron": {
+    enchantPoints: 4,
+    slot: "Right Pauldron",
+  },
+  "Daedric Left Pauldron": {
     enchantPoints: 6,
     slot: "Left Pauldron",
   },
-  "Ebony Left Pauldron Ebony Right Pauldron": {
+  "Daedric Right Pauldron": {
+    enchantPoints: 6,
+    slot: "Right Pauldron",
+  },
+  "Ebony Left Pauldron": {
     enchantPoints: 4,
     slot: "Left Pauldron",
   },
-  "Imperial Chain Left Pauldron Imperial Chain Right Pauldron": {
+  "Ebony Right Pauldron": {
+    enchantPoints: 4,
+    slot: "Right Pauldron",
+  },
+  "Imperial Chain Left Pauldron": {
     enchantPoints: 7,
     slot: "Left Pauldron",
   },
-  "Imperial Steel Left Pauldron Imperial Steel Right Pauldron": {
+  "Imperial Chain Right Pauldron": {
+    enchantPoints: 7,
+    slot: "Right Pauldron",
+  },
+  "Imperial Steel Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
   },
-  "Imperial Templar Left Pauldron Imperial Templar Right Pauldron": {
+  "Imperial Steel Right Pauldron": {
+    enchantPoints: 2,
+    slot: "Right Pauldron",
+  },
+  "Imperial Templar Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
   },
-  "Iron Left Pauldron Iron Right Pauldron": {
+  "Imperial Templar Right Pauldron": {
+    enchantPoints: 2,
+    slot: "Right Pauldron",
+  },
+  "Iron Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
   },
-  "Steel Left Pauldron Steel Right Pauldron": {
+  "Iron Right Pauldron": {
+    enchantPoints: 2,
+    slot: "Right Pauldron",
+  },
+  "Steel Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
+  },
+  "Steel Right Pauldron": {
+    enchantPoints: 2,
+    slot: "Right Pauldron",
   },
   "Daedric Greaves": { enchantPoints: 7.5, slot: "Greaves" },
   "Dwemer Greaves": { enchantPoints: 2.5, slot: "Greaves" },
@@ -259,35 +311,63 @@ export const items: Record<string, Item> = {
   "Imperial Templar Boots": { enchantPoints: 8.8, slot: "Boots" },
   "Iron Boots": { enchantPoints: 2.6, slot: "Boots" },
   "Steel Boots": { enchantPoints: 8.8, slot: "Boots" },
-  "Dwemer Left Bracer Dwemer Right Bracer": {
+  "Dwemer Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
   },
-  "Ebony Left Bracer Ebony Right Bracer": {
+  "Dwemer Right Bracer": {
+    enchantPoints: 20,
+    slot: "Right Gauntlet",
+  },
+  "Ebony Left Bracer": {
     enchantPoints: 40,
     slot: "Left Gauntlet",
   },
-  "Iron Left Bracer Iron Right Bracer": {
+  "Ebony Right Bracer": {
+    enchantPoints: 40,
+    slot: "Right Gauntlet",
+  },
+  "Iron Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
   },
-  "Imperial Templar Left Bracer Imperial Templar Right Bracer": {
+  "Iron Right Bracer": {
+    enchantPoints: 20,
+    slot: "Right Gauntlet",
+  },
+  "Imperial Templar Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+  },
+  "Imperial Templar Right Bracer": {
+    enchantPoints: 20,
+    slot: "Right Gauntlet",
   },
   "Iron Left Gauntlet": { enchantPoints: 2.5, slot: "Left Gauntlet" },
   "Iron Right Gauntlet": { enchantPoints: 1, slot: "Right Gauntlet" },
-  "Daedric Left Gauntlet Daedric Right Gauntlet": {
+  "Daedric Left Gauntlet": {
     enchantPoints: 60,
     slot: "Left Gauntlet",
   },
-  "Imperial Steel Left Gauntlet Imperial Steel Right Gauntlet": {
+  "Daedric Right Gauntlet": {
+    enchantPoints: 60,
+    slot: "Right Gauntlet",
+  },
+  "Imperial Steel Left Gauntlet": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
   },
-  "Steel Left Gauntlet Steel Right Gauntlet": {
+  "Imperial Steel Right Gauntlet": {
+    enchantPoints: 20,
+    slot: "Right Gauntlet",
+  },
+  "Steel Left Gauntlet": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+  },
+  "Steel Right Gauntlet": {
+    enchantPoints: 20,
+    slot: "Right Gauntlet",
   },
   "Daedric Shield": { enchantPoints: 150, slot: "Shield" },
   "Dwemer Shield": { enchantPoints: 50, slot: "Shield" },
