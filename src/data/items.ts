@@ -571,4 +571,48 @@ export const items: Record<string, Item> = {
   "Gold Armor Helmet": { enchantPoints: 9, slot: "Helm" },
   "Gold Armor Left Pauldron": { enchantPoints: 5, slot: "Left Pauldron" },
   "Gold Armor Right Pauldron": { enchantPoints: 5, slot: "Right Pauldron" },
+  // Armour (Tribunal)
+  "Dark Brotherhood Helm": { enchantPoints: 17.5, slot: "Helm" },
+  "Dark Brotherhood Cuirass": { enchantPoints: 10, slot: "Cuirass" },
+  "Dark Brotherhood Left Pauldron": {
+    enchantPoints: 1.2,
+    slot: "Left Pauldron",
+  },
+  "Dark Brotherhood Right Pauldron": {
+    enchantPoints: 1.2,
+    slot: "Right Pauldron",
+  },
+  "Dark Brotherhood Greaves": { enchantPoints: 5, slot: "Greaves" },
+  "Dark Brotherhood Boots": { enchantPoints: 3, slot: "Boots" },
+  "Dark Brotherhood Left Gauntlet": {
+    enchantPoints: 10,
+    slot: "Left Gauntlet",
+  },
+  "Dark Brotherhood Right Gauntlet": {
+    enchantPoints: 10,
+    slot: "Right Gauntlet",
+  },
+  "Goblin Buckler": { enchantPoints: 10, slot: "Shield" },
+  "Adamantium Helm": { enchantPoints: 50, slot: "Helm" },
+  "Royal Guard Helm": { enchantPoints: 30, slot: "Helm" },
+  "Royal Guard Cuirass": { enchantPoints: 25, slot: "Cuirass" },
+  "Royal Guard Left Pauldron": {
+    enchantPoints: 3,
+    slot: "Left Pauldron",
+  },
+  "Royal Guard Right Pauldron": {
+    enchantPoints: 3,
+    slot: "Right Pauldron",
+  },
+  "Royal Guard Greaves": { enchantPoints: 4, slot: "Greaves" },
+  "Royal Guard Boots": { enchantPoints: 15, slot: "Boots" },
+  "Royal Guard Left Gauntlet": {
+    enchantPoints: 12,
+    slot: "Left Gauntlet",
+  },
+  "Royal Guard Right Gauntlet": {
+    enchantPoints: 12,
+    slot: "Right Gauntlet",
+  },
+  "Dwemer Battle Shield": { enchantPoints: 50, slot: "Shield" },
 };
