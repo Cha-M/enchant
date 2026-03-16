@@ -28,7 +28,7 @@ export const items: Record<string, Item> = {
   "Chitin Cuirass": { enchantPoints: 10, slot: "Cuirass" },
   "Glass Cuirass": { enchantPoints: 12, slot: "Cuirass" },
   "Imperial Newtscale Cuirass": { enchantPoints: 10, slot: "Cuirass" },
-  "Imperial Studded Leather Cuirass": { enchantPoints: 6, slot: "Cuirass" },
+  "Imperial Studded Leather Cuiras": { enchantPoints: 6, slot: "Cuirass" },
   "Netch Leather Cuirass": { enchantPoints: 6, slot: "Cuirass" },
   "Nordic Bearskin Cuirass": { enchantPoints: 6, slot: "Cuirass" },
   "Nordic Fur Cuirass": { enchantPoints: 6, slot: "Cuirass" },
@@ -137,7 +137,11 @@ export const items: Record<string, Item> = {
   "Netch Leather Tower Shield": { enchantPoints: 22.5, slot: "Shield" },
   "Nordic Ringmail Cuirass": { enchantPoints: 14, slot: "Cuirass" },
   "Imperial Chain Cuirass": { enchantPoints: 14, slot: "Cuirass" },
-  "Bonemold Cuirass Armun-An Bonemold Cuirass": {
+  "Bonemold Cuirass": {
+    enchantPoints: 16,
+    slot: "Cuirass",
+  },
+  "Armun-An Bonemold Cuirass": {
     enchantPoints: 16,
     slot: "Cuirass",
   },

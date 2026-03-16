@@ -1009,35 +1009,43 @@ export default function Home() {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
-              <h2 className="text-xl text-[#DFC99F] mb-4">Items</h2>
-
-              {rows.length > 0 && !rows.some((row) => row.effect === "") && (
-                <table className="w-full">
-                  <thead>
-                    <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-                      <td>Name</td>
-                      <td>Enchant Points</td>
-                    </tr>
-                  </thead>
-                  {Object.entries(items)
-                    .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
-                    .filter(
-                      ([, itemData]) => itemData.enchantPoints >= totalCost,
-                    )
-                    .map(([itemName, itemData]) => (
-                      <tr key={itemName} className="[&>*]:pr-2">
-                        <td>{itemName}</td>
-                        <td>{itemData.enchantPoints}</td>
+              <div className="flex justify-between items-start">
+                <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
+                <button
+                  className="px-2 py-1 my-1"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  🗙
+                </button>
+              </div>
+              {Object.entries(items).some(
+                ([, itemData]) => itemData.enchantPoints >= totalCost,
+              ) ? (
+                <div>
+                  <button className="px-4 py-2 mb-2">Filter</button>
+                  <table className="w-full">
+                    <thead>
+                      <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
+                        <td>Name</td>
+                        <td>Enchant Points</td>
                       </tr>
-                    ))}
-                </table>
+                    </thead>
+                    {Object.entries(items)
+                      .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
+                      .filter(
+                        ([, itemData]) => itemData.enchantPoints >= totalCost,
+                      )
+                      .map(([itemName, itemData]) => (
+                        <tr key={itemName} className="[&>*]:pr-2">
+                          <td>{itemName}</td>
+                          <td>{itemData.enchantPoints}</td>
+                        </tr>
+                      ))}
+                  </table>
+                </div>
+              ) : (
+                <div>No items have enough points for this enchantment.</div>
               )}
-              <button
-                className="px-4 py-2"
-                onClick={() => setIsModalOpen(false)}
-              >
-                Close
-              </button>
             </div>
           </div>
         )}
