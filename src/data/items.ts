@@ -615,4 +615,17 @@ export const items: Record<string, Item> = {
     slot: "Right Gauntlet",
   },
   "Dwemer Battle Shield": { enchantPoints: 50, slot: "Shield" },
+  // Weapons (Tribunal)
+  "Admantium Axe": { enchantPoints: 10, slot: "Weapon" },
+  "Adamantium Claymore": { enchantPoints: 15, slot: "Weapon" },
+  "Adamantium Mace": { enchantPoints: 10, slot: "Weapon" },
+  "Adamantium Shortsword": { enchantPoints: 6, slot: "Weapon" },
+  "Adamantium Spear": { enchantPoints: 8, slot: "Weapon" },
+  "A Carved Ebony Dart": { enchantPoints: 3, slot: "Weapon" },
+  "Dwarven Dart": { enchantPoints: 10, slot: "Weapon" },
+  "Spring Dart": { enchantPoints: 1.5, slot: "Weapon" },
+  "Fine Spring Dart": { enchantPoints: 1.5, slot: "Weapon" },
+  "Ebony Scimitar": { enchantPoints: 80, slot: "Weapon" },
+  "Goblin Sword": { enchantPoints: 5, slot: "Weapon" },
+  "Goblin Club": { enchantPoints: 10, slot: "Weapon" },
 };
