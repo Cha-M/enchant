@@ -76,98 +76,116 @@ export const items: Record<string, Item> = {
   "Telvanni Cephalopod Helm": { enchantPoints: 100, slot: "Helm", icon: "/icons/items/Telvanni_Cephalopod_Helm.png" },
   "Telvanni Dust Adept Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Telvanni_Dust_Adept_Helm.png" },
   "Telvanni Mole Crab Helm": { enchantPoints: 50, slot: "Helm", icon: "/icons/items/Telvanni_Mole_Crab_Helm.png" },
-  "Chitin Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron"},
+  "Chitin Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron", icon: "/icons/items/Chitin_Pauldron.png" },
   "Chitin Right Pauldron": {
     enchantPoints: 1,
     slot: "Right Pauldron",
+    icon: "/icons/items/Chitin_Pauldron.png",
   },
-  "Glass Left Pauldron": { enchantPoints: 1.5, slot: "Left Pauldron" },
+  "Glass Left Pauldron": { enchantPoints: 1.5, slot: "Left Pauldron", icon: "/icons/items/Glass_Pauldron.png" },
   "Glass Right Pauldron": {
     enchantPoints: 1.5,
     slot: "Right Pauldron",
+    icon: "/icons/items/Glass_Pauldron.png",
   },
-  "Netch Leather Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron" },
+  "Netch Leather Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron", icon: "/icons/items/Netch_Leather_Pauldron.png" },
   "Netch Leather Right Pauldron": {
     enchantPoints: 1,
     slot: "Right Pauldron",
+    icon: "/icons/items/Netch_Leather_Pauldron.png",
   },
-  "Nordic Fur Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron" },
+  "Nordic Fur Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron", icon: "/icons/items/Nordic_Fur_Pauldron.png" },
   "Nordic Fur Right Pauldron": {
     enchantPoints: 1,
     slot: "Right Pauldron",
+    icon: "/icons/items/Nordic_Fur_Pauldron.png",
   },
-  "Chitin Greaves": { enchantPoints: 1.3, slot: "Greaves" },
-  "Glass Greaves": { enchantPoints: 10, slot: "Greaves" },
-  "Netch Leather Greaves": { enchantPoints: 1, slot: "Greaves" },
-  "Nordic Fur Greaves": { enchantPoints: 1, slot: "Greaves" },
-  "Chitin Boots": { enchantPoints: 4.4, slot: "Boots" },
-  "Glass Boots": { enchantPoints: 10, slot: "Boots" },
-  "Heavy Leather Boots": { enchantPoints: 2.6, slot: "Boots" },
-  "Netch Leather Boots": { enchantPoints: 2.6, slot: "Boots" },
-  "Nordic Fur Boots": { enchantPoints: 2.6, slot: "Boots" },
+  "Chitin Greaves": { enchantPoints: 1.3, slot: "Greaves", icon: "/icons/items/Chitin_Greaves.png" },
+  "Glass Greaves": { enchantPoints: 10, slot: "Greaves", icon: "/icons/items/Glass_Greaves.png" },
+  "Netch Leather Greaves": { enchantPoints: 1, slot: "Greaves", icon: "/icons/items/Netch_Leather_Greaves.png" },
+  "Nordic Fur Greaves": { enchantPoints: 1, slot: "Greaves", icon: "/icons/items/Nordic_Fur_Greaves.png" },
+  "Chitin Boots": { enchantPoints: 4.4, slot: "Boots", icon: "/icons/items/Chitin_Boots.png" },
+  "Glass Boots": { enchantPoints: 10, slot: "Boots", icon: "/icons/items/Glass_Boots.png" },
+  "Heavy Leather Boots": { enchantPoints: 2.6, slot: "Boots", icon: "/icons/items/Heavy_Leather_Boots.png" },
+  "Netch Leather Boots": { enchantPoints: 2.6, slot: "Boots", icon: "/icons/items/Netch_Leather_Boots.png" },
+  "Nordic Fur Boots": { enchantPoints: 2.6, slot: "Boots", icon: "/icons/items/Nordic_Fur_Boots.png" },
   "Chitin Left Gauntlet": {
     enchantPoints: 10,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Chitin_Gauntlet.png"
   },
   "Chitin Right Gauntlet": {
     enchantPoints: 10,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Chitin_Gauntlet.png"
   },
   "Cloth Left Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Cloth_Bracer.png"
   },
   "Cloth Right Bracer": {
     enchantPoints: 6,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Cloth_Bracer.png"
   },
   "Left Glass Bracer": {
     enchantPoints: 10,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Glass_Bracer.png"
   },
   "Right Glass Bracer": {
     enchantPoints: 10,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Glass_Bracer.png"
   },
   "Left Leather Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Leather_Bracer.png"
   },
   "Right Leather Bracer": {
     enchantPoints: 6,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Leather_Bracer.png"
   },
   "Nordic Fur Left Bracer": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Nordic_Fur_Bracer.png"
   },
   "Nordic Fur Right Bracer": {
     enchantPoints: 6,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Nordic_Fur_Bracer.png"
   },
   "Netch Leather Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Netch_Leather_Gauntlet.png"
   },
   "Netch Leather Right Gauntlet": {
     enchantPoints: 6,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Netch_Leather_Gauntlet.png"
   },
   "Nordic Fur Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Nordic_Fur_Gauntlet.png"
   },
   "Nordic Fur Right Gauntlet": {
     enchantPoints: 6,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Nordic_Fur_Gauntlet.png"
   },
-  "Chitin Shield": { enchantPoints: 25, slot: "Shield" },
-  "Glass Shield": { enchantPoints: 30, slot: "Shield" },
-  "Netch Leather Shield": { enchantPoints: 15, slot: "Shield" },
-  "Nordic Leather Shield": { enchantPoints: 15, slot: "Shield" },
-  "Chitin Tower Shield": { enchantPoints: 37.5, slot: "Shield" },
-  "Glass Tower Shield": { enchantPoints: 45, slot: "Shield" },
-  "Netch Leather Tower Shield": { enchantPoints: 22.5, slot: "Shield" },
+  "Chitin Shield": { enchantPoints: 25, slot: "Shield", icon: "/icons/items/Chitin_Shield.png" },
+  "Glass Shield": { enchantPoints: 30, slot: "Shield", icon: "/icons/items/Glass_Shield.png" },
+  "Netch Leather Shield": { enchantPoints: 15, slot: "Shield", icon: "/icons/items/Netch_Leather_Shield.png" },
+  "Nordic Leather Shield": { enchantPoints: 15, slot: "Shield", icon: "/icons/items/Nordic_Leather_Shield.png" },
+  "Chitin Tower Shield": { enchantPoints: 37.5, slot: "Shield", icon: "/icons/items/Chitin_Tower_Shield.png" },
+  "Glass Tower Shield": { enchantPoints: 45, slot: "Shield", icon: "/icons/items/Glass_Tower_Shield.png" },
+  "Netch Leather Tower Shield": { enchantPoints: 22.5, slot: "Shield", icon: "/icons/items/Netch_Leather_Tower_Shield.png" },
   "Nordic Ringmail Cuirass": { enchantPoints: 14, slot: "Cuirass" },
   "Imperial Chain Cuirass": { enchantPoints: 14, slot: "Cuirass" },
   "Bonemold Cuirass": {
