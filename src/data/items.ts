@@ -120,9 +120,13 @@ export const items: Record<string, Item> = {
     enchantPoints: 6,
     slot: "Right Gauntlet",
   },
-  "Nordic Fur Left Gauntlet Nordic Fur Right Gauntlet": {
+  "Nordic Fur Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+  },
+  "Nordic Fur Right Gauntlet": {
+    enchantPoints: 6,
+    slot: "Right Gauntlet",
   },
   "Chitin Shield": { enchantPoints: 25, slot: "Shield" },
   "Glass Shield": { enchantPoints: 30, slot: "Shield" },
@@ -154,23 +158,39 @@ export const items: Record<string, Item> = {
   "Native Chuzei Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
   "Native Gah-Julan Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
   "Redoran Master Helm": { enchantPoints: 22.5, slot: "Helm" },
-  "Bonemold L Pauldron Bonemold R Pauldron": {
+  "Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
   },
-  "Armun-An Bonemold L Pauldron Armun-An Bonemold R Pauldron": {
+  "Bonemold R Pauldron": {
+    enchantPoints: 1.6,
+    slot: "Right Pauldron",
+  },
+  "Armun-An Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
   },
-  "Gah-Julan Bonemold L Pauldron Gah-Julan Bonemold R Pauldron": {
+  "Armun-An Bonemold R Pauldron": {
+    enchantPoints: 1.6,
+    slot: "Right Pauldron",
+  },
+  "Gah-Julan Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
+  },
+  "Gah-Julan Bonemold R Pauldron": {
+    enchantPoints: 1.6,
+    slot: "Right Pauldron",
   },
   "Indoril Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron" },
   "Indoril Right Pauldron": { enchantPoints: 1, slot: "Right Pauldron" },
-  "Orcish Left Pauldron Orcish Right Pauldron": {
+  "Orcish Left Pauldron": {
     enchantPoints: 2.4,
     slot: "Left Pauldron",
+  },
+  "Orcish Right Pauldron": {
+    enchantPoints: 2.4,
+    slot: "Right Pauldron",
   },
   "Bonemold Greaves": { enchantPoints: 2, slot: "Greaves" },
   "Imperial Chain Greaves": { enchantPoints: 7, slot: "Greaves" },
