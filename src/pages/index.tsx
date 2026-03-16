@@ -1007,7 +1007,7 @@ export default function Home() {
           </div>
         )}
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
