@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
+import { items } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
 
