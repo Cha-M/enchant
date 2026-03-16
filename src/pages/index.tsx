@@ -771,7 +771,6 @@ export default function Home() {
                     <td className="pl-1">
                       {effects[effect]?.hasMagnitude ? (
                         // min needs to be less than or equal to max
-                        // can still type > 100
                         <input
                           id={`min-${index}`}
                           type="number"
