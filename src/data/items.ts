@@ -381,7 +381,6 @@ export const items: Record<string, Item> = {
   "Imperial Shield": { enchantPoints: 50, slot: "Shield" },
   "Iron Tower Shield": { enchantPoints: 75, slot: "Shield" },
   "Steel Tower Shield": { enchantPoints: 75, slot: "Shield" },
-
   // Weapons (Base)
   "Chitin War Axe": { enchantPoints: 2.5, slot: "Weapon" },
   "Iron War Axe": { enchantPoints: 5, slot: "Weapon" },
@@ -504,11 +503,11 @@ export const items: Record<string, Item> = {
   "Expensive Amulet": { enchantPoints: 15, slot: "Amulet" },
   "Extravagant Sapphire Amulet": {
     enchantPoints: 60,
-    slot: "Amulet"
+    slot: "Amulet",
   },
   "Extravagant Ruby Amulet": {
     enchantPoints: 60,
-    slot: "Amulet"
+    slot: "Amulet",
   },
   "Exquisite Amulet": { enchantPoints: 120, slot: "Amulet" },
   "Common Belt": { enchantPoints: 1, slot: "Belt" },
@@ -551,4 +550,25 @@ export const items: Record<string, Item> = {
   "Exquisite Skirt": { enchantPoints: 60, slot: "Skirt" },
   "Imperial Skirt": { enchantPoints: 0.5, slot: "Skirt" },
   "Imperial Templar Skirt": { enchantPoints: 0.5, slot: "Skirt" },
+  // Armour (Plugins)
+  "Adamantium Cuirass": { enchantPoints: 30, slot: "Cuirass" },
+  "Adamantium Left Pauldron": { enchantPoints: 3, slot: "Left Pauldron" },
+  "Adamantium Right Pauldron": { enchantPoints: 10, slot: "Right Pauldron" },
+  "Adamantium Greaves": { enchantPoints: 3, slot: "Greaves" },
+  "Adamantium Boots": { enchantPoints: 10, slot: "Boots" },
+  "Adamantium Left Bracer": { enchantPoints: 10, slot: "Left Gauntlet" },
+  "Adamantium Right Bracer": { enchantPoints: 10, slot: "Right Gauntlet" },
+  "Adamantium Helm of Tohan": { enchantPoints: 150, slot: "Helm" },
+  "Domina Cuirass": { enchantPoints: 12, slot: "Cuirass" },
+  "Domina Helm": { enchantPoints: 4, slot: "Helm" },
+  "Domina Left Pauldron": { enchantPoints: 4, slot: "Left Pauldron" },
+  "Domina Right Pauldron": { enchantPoints: 4, slot: "Right Pauldron" },
+  "Domina Greaves": { enchantPoints: 4, slot: "Greaves" },
+  "Domina Boots": { enchantPoints: 6, slot: "Boots" },
+  "Domina Left Gauntlet": { enchantPoints: 8, slot: "Left Gauntlet" },
+  "Domina Right Gauntlet": { enchantPoints: 8, slot: "Right Gauntlet" },
+  "Gold Armor Cuirass": { enchantPoints: 14, slot: "Cuirass" },
+  "Gold Armor Helmet": { enchantPoints: 9, slot: "Helm" },
+  "Gold Armor Left Pauldron": { enchantPoints: 5, slot: "Left Pauldron" },
+  "Gold Armor Right Pauldron": { enchantPoints: 5, slot: "Right Pauldron" },
 };
