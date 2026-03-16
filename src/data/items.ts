@@ -695,4 +695,12 @@ export const items: Record<string, Item> = {
   "Nordic Silver Shortsword": { enchantPoints: 7, slot: "Weapon" },
   "Riekling Lance": { enchantPoints: 8, slot: "Weapon" },
   "Huntsman Spear": { enchantPoints: 8.5, slot: "Weapon" },
+  // Clothing (Bloodmoon)
+  "Left Glove Right Glove (Bloodmoon 1)": { enchantPoints: 2 },
+  "Left Glove Right Glove (Bloodmoon 2)": { enchantPoints: 1 },
+  // "Common Pants": { enchantPoints: 2 },
+  "Common Robe (Bloodmoon)": { enchantPoints: 5 },
+  "Glenmoril Witch Robe": { enchantPoints: 1 },
+  // "Common Shirt": { enchantPoints: 2 },
+  // "Common Shoes": { enchantPoints: 1 },
 };
