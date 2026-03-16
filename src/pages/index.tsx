@@ -1036,7 +1036,7 @@ export default function Home() {
                         ([, itemData]) => itemData.enchantPoints >= totalCost,
                       )
                       .map(([itemName, itemData]) => (
-                        <tr key={itemName} className="[&>*]:pr-2">
+                        <tr key={itemName} className="[&>*]:pl-1">
                           <td>{itemName}</td>
                           <td>{itemData.enchantPoints}</td>
                         </tr>

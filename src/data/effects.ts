@@ -26,7 +26,7 @@ export const effects: Record<string, Effect> = {
     hasArea: true,
     isSelfNever: true,
     affectsAttribute: true,
-    icon: "/icons/Absorb_Attribute.jpg",
+    icon: "/icons/effects/Absorb_Attribute.jpg",
   },
   "Absorb Fatigue": {
     skill: "Mysticism",
@@ -35,7 +35,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Absorb_Fatigue.jpg",
+    icon: "/icons/effects/Absorb_Fatigue.jpg",
   },
   "Absorb Health": {
     skill: "Mysticism",
@@ -44,7 +44,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Absorb_Health.jpg",
+    icon: "/icons/effects/Absorb_Health.jpg",
   },
   // "Absorb Magicka": {
   //   skill: "Mysticism",
@@ -53,7 +53,7 @@ export const effects: Record<string, Effect> = {
   //   hasDuration: true,
   //   hasArea: true,
   //   isSelfNever: true,
-  //   icon: "/icons/Absorb_Magicka.jpg",
+  //   icon: "/icons/effects/Absorb_Magicka.jpg",
   // },
   "Almsivi Intervention": {
     skill: "Mysticism",
@@ -62,7 +62,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Almsivi_Intervention.jpg",
+    icon: "/icons/effects/Almsivi_Intervention.jpg",
   },
   Blind: {
     skill: "Illusion",
@@ -70,7 +70,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Blind.jpg",
+    icon: "/icons/effects/Blind.jpg",
   },
   "Bound Battle Axe": {
     skill: "Conjuration",
@@ -79,7 +79,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Battle_Axe.jpg",
+    icon: "/icons/effects/Bound_Battle_Axe.jpg",
   },
   "Bound Boots": {
     skill: "Conjuration",
@@ -88,7 +88,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Boots.jpg",
+    icon: "/icons/effects/Bound_Boots.jpg",
   },
   "Bound Cuirass": {
     skill: "Conjuration",
@@ -97,7 +97,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Cuirass.jpg",
+    icon: "/icons/effects/Bound_Cuirass.jpg",
   },
   "Bound Dagger": {
     skill: "Conjuration",
@@ -106,7 +106,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Dagger.jpg",
+    icon: "/icons/effects/Bound_Dagger.jpg",
   },
   "Bound Gloves": {
     skill: "Conjuration",
@@ -115,7 +115,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Gloves.jpg",
+    icon: "/icons/effects/Bound_Gloves.jpg",
   },
   "Bound Helm": {
     skill: "Conjuration",
@@ -124,7 +124,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Helm.jpg",
+    icon: "/icons/effects/Bound_Helm.jpg",
   },
   "Bound Longbow": {
     skill: "Conjuration",
@@ -133,7 +133,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Longbow.jpg",
+    icon: "/icons/effects/Bound_Longbow.jpg",
   },
   "Bound Longsword": {
     skill: "Conjuration",
@@ -142,7 +142,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Longsword.jpg",
+    icon: "/icons/effects/Bound_Longsword.jpg",
   },
   "Bound Mace": {
     skill: "Conjuration",
@@ -151,7 +151,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Mace.jpg",
+    icon: "/icons/effects/Bound_Mace.jpg",
   },
   "Bound Shield": {
     skill: "Conjuration",
@@ -160,7 +160,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Shield.jpg",
+    icon: "/icons/effects/Bound_Shield.jpg",
   },
   "Bound Spear": {
     skill: "Conjuration",
@@ -169,7 +169,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Bound_Spear.jpg",
+    icon: "/icons/effects/Bound_Spear.jpg",
   },
   Burden: {
     skill: "Alteration",
@@ -177,7 +177,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Burden.jpg",
+    icon: "/icons/effects/Burden.jpg",
   },
   "Call Bear": {
     skill: "Conjuration",
@@ -186,7 +186,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Call_Bear.jpg",
+    icon: "/icons/effects/Call_Bear.jpg",
   },
   "Call Wolf": {
     skill: "Conjuration",
@@ -195,7 +195,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Call_Wolf.jpg",
+    icon: "/icons/effects/Call_Wolf.jpg",
   },
   "Calm Creature": {
     skill: "Illusion",
@@ -204,7 +204,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Calm_Creature.jpg",
+    icon: "/icons/effects/Calm_Creature.jpg",
   },
   "Calm Humanoid": {
     skill: "Illusion",
@@ -213,7 +213,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Calm_Humanoid.jpg",
+    icon: "/icons/effects/Calm_Humanoid.jpg",
   },
   Chameleon: {
     skill: "Illusion",
@@ -221,7 +221,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Chameleon.jpg",
+    icon: "/icons/effects/Chameleon.jpg",
   },
   Charm: {
     skill: "Illusion",
@@ -230,7 +230,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Charm.jpg",
+    icon: "/icons/effects/Charm.jpg",
   },
   "Command Creature": {
     skill: "Conjuration",
@@ -239,7 +239,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Command_Creature.jpg",
+    icon: "/icons/effects/Command_Creature.jpg",
   },
   "Command Humanoid": {
     skill: "Conjuration",
@@ -248,7 +248,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Command_Humanoid.jpg",
+    icon: "/icons/effects/Command_Humanoid.jpg",
   },
   "Cure Blight Disease": {
     skill: "Restoration",
@@ -256,7 +256,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Cure_Blight_Disease.jpg",
+    icon: "/icons/effects/Cure_Blight_Disease.jpg",
   },
   "Cure Common Disease": {
     skill: "Restoration",
@@ -264,7 +264,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Cure_Common_Disease.jpg",
+    icon: "/icons/effects/Cure_Common_Disease.jpg",
   },
   "Cure Paralyzation": {
     skill: "Restoration",
@@ -272,7 +272,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Cure_Paralyzation.jpg",
+    icon: "/icons/effects/Cure_Paralyzation.jpg",
   },
   "Cure Poison": {
     skill: "Restoration",
@@ -280,7 +280,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Cure_Poison.jpg",
+    icon: "/icons/effects/Cure_Poison.jpg",
   },
   "Damage Attribute": {
     skill: "Destruction",
@@ -289,7 +289,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
-    icon: "/icons/Damage_Attribute.jpg",
+    icon: "/icons/effects/Damage_Attribute.jpg",
   },
   "Damage Fatigue": {
     skill: "Destruction",
@@ -297,7 +297,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Damage_Fatigue.jpg",
+    icon: "/icons/effects/Damage_Fatigue.jpg",
   },
   "Damage Health": {
     skill: "Destruction",
@@ -305,7 +305,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Damage_Health.jpg",
+    icon: "/icons/effects/Damage_Health.jpg",
   },
   "Damage Magicka": {
     skill: "Destruction",
@@ -313,7 +313,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Damage_Magicka.jpg",
+    icon: "/icons/effects/Damage_Magicka.jpg",
   },
   "Damage Skill": {
     skill: "Destruction",
@@ -322,7 +322,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
-    icon: "/icons/Damage_Skill.jpg",
+    icon: "/icons/effects/Damage_Skill.jpg",
   },
   "Demoralize Creature": {
     skill: "Illusion",
@@ -331,7 +331,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Demoralize_Creature.jpg",
+    icon: "/icons/effects/Demoralize_Creature.jpg",
   },
   "Demoralize Humanoid": {
     skill: "Mysticism",
@@ -341,7 +341,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Demoralize_Humanoid.jpg",
+    icon: "/icons/effects/Demoralize_Humanoid.jpg",
   },
   "Detect Animal": {
     skill: "Mysticism",
@@ -350,7 +350,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Detect_Animal.jpg",
+    icon: "/icons/effects/Detect_Animal.jpg",
   },
   "Detect Enchantment": {
     skill: "Mysticism",
@@ -359,7 +359,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Detect_Enchantment.jpg",
+    icon: "/icons/effects/Detect_Enchantment.jpg",
   },
   "Detect Key": {
     skill: "Mysticism",
@@ -368,7 +368,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Detect_Key.jpg",
+    icon: "/icons/effects/Detect_Key.jpg",
   },
   "Disintegrate Armor": {
     skill: "Destruction",
@@ -376,7 +376,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Disintegrate_Armor.jpg",
+    icon: "/icons/effects/Disintegrate_Armor.jpg",
   },
   "Disintegrate Weapon": {
     skill: "Destruction",
@@ -384,7 +384,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Disintegrate_Weapon.jpg",
+    icon: "/icons/effects/Disintegrate_Weapon.jpg",
   },
   Dispel: {
     skill: "Mysticism",
@@ -392,7 +392,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: false,
     hasArea: true,
-    icon: "/icons/Dispel.jpg",
+    icon: "/icons/effects/Dispel.jpg",
   },
   "Divine Intervention": {
     skill: "Mysticism",
@@ -401,7 +401,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Divine_Intervention.jpg",
+    icon: "/icons/effects/Divine_Intervention.jpg",
   },
   "Drain Attribute": {
     skill: "Destruction",
@@ -410,7 +410,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
-    icon: "/icons/Drain_Attribute.jpg",
+    icon: "/icons/effects/Drain_Attribute.jpg",
   },
   "Drain Fatigue": {
     skill: "Destruction",
@@ -418,7 +418,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Drain_Fatigue.jpg",
+    icon: "/icons/effects/Drain_Fatigue.jpg",
   },
   "Drain Health": {
     skill: "Destruction",
@@ -426,7 +426,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Drain_Health.jpg",
+    icon: "/icons/effects/Drain_Health.jpg",
   },
   "Drain Magicka": {
     skill: "Destruction",
@@ -434,7 +434,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Drain_Magicka.jpg",
+    icon: "/icons/effects/Drain_Magicka.jpg",
   },
   "Drain Skill": {
     skill: "Destruction",
@@ -443,7 +443,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
-    icon: "/icons/Drain_Skill.jpg",
+    icon: "/icons/effects/Drain_Skill.jpg",
   },
   Feather: {
     skill: "Alteration",
@@ -451,7 +451,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Feather.jpg",
+    icon: "/icons/effects/Feather.jpg",
   },
   "Fire Damage": {
     skill: "Destruction",
@@ -459,7 +459,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fire_Damage.jpg",
+    icon: "/icons/effects/Fire_Damage.jpg",
   },
   "Fire Shield": {
     skill: "Alteration",
@@ -467,7 +467,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fire_Shield.jpg",
+    icon: "/icons/effects/Fire_Shield.jpg",
   },
   "Fortify Attack": {
     skill: "Restoration",
@@ -475,7 +475,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fortify_Attack.jpg",
+    icon: "/icons/effects/Fortify_Attack.jpg",
   },
   "Fortify Attribute": {
     skill: "Restoration",
@@ -484,7 +484,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
-    icon: "/icons/Fortify_Attribute.jpg",
+    icon: "/icons/effects/Fortify_Attribute.jpg",
   },
   "Fortify Fatigue": {
     skill: "Restoration",
@@ -492,7 +492,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fortify_Fatigue.jpg",
+    icon: "/icons/effects/Fortify_Fatigue.jpg",
   },
   "Fortify Health": {
     skill: "Restoration",
@@ -500,7 +500,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fortify_Health.jpg",
+    icon: "/icons/effects/Fortify_Health.jpg",
   },
   "Fortify Magicka": {
     skill: "Restoration",
@@ -508,7 +508,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Fortify_Magicka.jpg",
+    icon: "/icons/effects/Fortify_Magicka.jpg",
   },
   "Fortify Skill": {
     skill: "Restoration",
@@ -517,7 +517,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
-    icon: "/icons/Fortify_Skill.jpg",
+    icon: "/icons/effects/Fortify_Skill.jpg",
   },
   "Frenzy Creature": {
     skill: "Illusion",
@@ -526,7 +526,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Frenzy_Creature.jpg",
+    icon: "/icons/effects/Frenzy_Creature.jpg",
   },
   "Frenzy Humanoid": {
     skill: "Illusion",
@@ -535,7 +535,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Frenzy_Humanoid.jpg",
+    icon: "/icons/effects/Frenzy_Humanoid.jpg",
   },
   "Frost Damage": {
     skill: "Destruction",
@@ -543,7 +543,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Frost_Damage.jpg",
+    icon: "/icons/effects/Frost_Damage.jpg",
   },
   "Frost Shield": {
     skill: "Alteration",
@@ -551,7 +551,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Frost_Shield.jpg",
+    icon: "/icons/effects/Frost_Shield.jpg",
   },
   Invisibility: {
     skill: "Illusion",
@@ -559,7 +559,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Invisibility.jpg",
+    icon: "/icons/effects/Invisibility.jpg",
   },
   Jump: {
     skill: "Alteration",
@@ -567,7 +567,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Jump.jpg",
+    icon: "/icons/effects/Jump.jpg",
   },
   Levitate: {
     skill: "Alteration",
@@ -575,7 +575,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Levitate.jpg",
+    icon: "/icons/effects/Levitate.jpg",
   },
   Light: {
     skill: "Illusion",
@@ -583,7 +583,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Light.jpg",
+    icon: "/icons/effects/Light.jpg",
   },
   "Lightning Shield": {
     skill: "Alteration",
@@ -591,7 +591,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Lightning_Shield.jpg",
+    icon: "/icons/effects/Lightning_Shield.jpg",
   },
   Lock: {
     skill: "Alteration",
@@ -600,7 +600,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Lock.jpg",
+    icon: "/icons/effects/Lock.jpg",
   },
   Mark: {
     skill: "Mysticism",
@@ -609,7 +609,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Mark.jpg",
+    icon: "/icons/effects/Mark.jpg",
   },
   "Night Eye": {
     skill: "Illusion",
@@ -617,7 +617,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Night_Eye.jpg",
+    icon: "/icons/effects/Night_Eye.jpg",
   },
   Open: {
     skill: "Alteration",
@@ -626,7 +626,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Open.jpg",
+    icon: "/icons/effects/Open.jpg",
   },
   Paralyze: {
     skill: "Illusion",
@@ -634,7 +634,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Paralyze.jpg",
+    icon: "/icons/effects/Paralyze.jpg",
   },
   Poison: {
     skill: "Destruction",
@@ -642,7 +642,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Poison.jpg",
+    icon: "/icons/effects/Poison.jpg",
   },
   "Rally Creature": {
     skill: "Illusion",
@@ -651,7 +651,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Rally_Creature.jpg",
+    icon: "/icons/effects/Rally_Creature.jpg",
   },
   "Rally Humanoid": {
     skill: "Illusion",
@@ -660,7 +660,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Rally_Humanoid.jpg",
+    icon: "/icons/effects/Rally_Humanoid.jpg",
   },
   Recall: {
     skill: "Mysticism",
@@ -669,7 +669,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: false,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Recall.jpg",
+    icon: "/icons/effects/Recall.jpg",
   },
   Reflect: {
     skill: "Mysticism",
@@ -677,7 +677,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Reflect.jpg",
+    icon: "/icons/effects/Reflect.jpg",
   },
   "Resist Blight Disease": {
     skill: "Restoration",
@@ -685,7 +685,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Blight_Disease.jpg",
+    icon: "/icons/effects/Resist_Blight_Disease.jpg",
   },
   "Resist Common Disease": {
     skill: "Restoration",
@@ -693,7 +693,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Common_Disease.jpg",
+    icon: "/icons/effects/Resist_Common_Disease.jpg",
   },
   "Resist Fire": {
     skill: "Restoration",
@@ -701,7 +701,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Fire.jpg",
+    icon: "/icons/effects/Resist_Fire.jpg",
   },
   "Resist Frost": {
     skill: "Restoration",
@@ -709,7 +709,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Frost.jpg",
+    icon: "/icons/effects/Resist_Frost.jpg",
   },
   "Resist Magicka": {
     skill: "Restoration",
@@ -717,7 +717,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Magicka.jpg",
+    icon: "/icons/effects/Resist_Magicka.jpg",
   },
   // "Resist Normal Weapons": {
   //   skill: "Restoration",
@@ -732,7 +732,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Paralysis.jpg",
+    icon: "/icons/effects/Resist_Paralysis.jpg",
   },
   "Resist Poison": {
     skill: "Restoration",
@@ -740,7 +740,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Poison.jpg",
+    icon: "/icons/effects/Resist_Poison.jpg",
   },
   "Resist Shock": {
     skill: "Restoration",
@@ -748,7 +748,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Resist_Shock.jpg",
+    icon: "/icons/effects/Resist_Shock.jpg",
   },
   "Restore Attribute": {
     skill: "Restoration",
@@ -757,7 +757,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsAttribute: true,
-    icon: "/icons/Restore_Attribute.jpg",
+    icon: "/icons/effects/Restore_Attribute.jpg",
   },
   "Restore Fatigue": {
     skill: "Restoration",
@@ -765,7 +765,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Restore_Fatigue.jpg",
+    icon: "/icons/effects/Restore_Fatigue.jpg",
   },
   "Restore Health": {
     skill: "Restoration",
@@ -773,7 +773,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Restore_Health.jpg",
+    icon: "/icons/effects/Restore_Health.jpg",
   },
   // "Restore Magicka": {
   //   skill: "Restoration",
@@ -789,7 +789,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     affectsSkill: true,
-    icon: "/icons/Restore_Skill.jpg",
+    icon: "/icons/effects/Restore_Skill.jpg",
   },
   Sanctuary: {
     skill: "Illusion",
@@ -797,7 +797,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Sanctuary.jpg",
+    icon: "/icons/effects/Sanctuary.jpg",
   },
   Shield: {
     skill: "Alteration",
@@ -805,7 +805,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Shield.jpg",
+    icon: "/icons/effects/Shield.jpg",
   },
   "Shock Damage": {
     skill: "Destruction",
@@ -813,7 +813,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Shock_Damage.jpg",
+    icon: "/icons/effects/Shock_Damage.jpg",
   },
   Silence: {
     skill: "Illusion",
@@ -821,7 +821,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Silence.jpg",
+    icon: "/icons/effects/Silence.jpg",
   },
   Slowfall: {
     skill: "Alteration",
@@ -829,7 +829,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Slowfall.jpg",
+    icon: "/icons/effects/Slowfall.jpg",
   },
   Soultrap: {
     skill: "Mysticism",
@@ -837,7 +837,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Soultrap.jpg",
+    icon: "/icons/effects/Soultrap.jpg",
   },
   Sound: {
     skill: "Illusion",
@@ -845,7 +845,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Sound.jpg",
+    icon: "/icons/effects/Sound.jpg",
   },
   "Spell Absorption": {
     skill: "Mysticism",
@@ -853,7 +853,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Spell_Absorption.jpg",
+    icon: "/icons/effects/Spell_Absorption.jpg",
   },
   "Summon Ancestral Ghost": {
     skill: "Conjuration",
@@ -862,7 +862,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Ancestral_Ghost.jpg",
+    icon: "/icons/effects/Summon_Ancestral_Ghost.jpg",
   },
   "Summon Bonelord": {
     skill: "Conjuration",
@@ -871,7 +871,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Bonelord.jpg",
+    icon: "/icons/effects/Summon_Bonelord.jpg",
   },
   "Summon Bonewalker": {
     skill: "Conjuration",
@@ -880,7 +880,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Bonewalker.jpg",
+    icon: "/icons/effects/Summon_Bonewalker.jpg",
   },
   "Summon Bonewolf": {
     skill: "Conjuration",
@@ -889,7 +889,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Bonewolf.jpg",
+    icon: "/icons/effects/Summon_Bonewolf.jpg",
   },
   "Summon Centurion Sphere": {
     skill: "Conjuration",
@@ -898,7 +898,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Clannfear.jpg",
+    icon: "/icons/effects/Summon_Clannfear.jpg",
   },
   "Summon Clannfear": {
     skill: "Conjuration",
@@ -907,7 +907,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Clannfear.jpg",
+    icon: "/icons/effects/Summon_Clannfear.jpg",
   },
   "Summon Daedroth": {
     skill: "Conjuration",
@@ -916,7 +916,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Daedroth.jpg",
+    icon: "/icons/effects/Summon_Daedroth.jpg",
   },
   "Summon Dremora": {
     skill: "Conjuration",
@@ -925,7 +925,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Dremora.jpg",
+    icon: "/icons/effects/Summon_Dremora.jpg",
   },
   // "Summon Fabricant": {
   //   skill: "Conjuration",
@@ -942,7 +942,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Flame_Atronach.jpg",
+    icon: "/icons/effects/Summon_Flame_Atronach.jpg",
   },
   "Summon Frost Atronach": {
     skill: "Conjuration",
@@ -951,7 +951,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Frost_Atronach.jpg",
+    icon: "/icons/effects/Summon_Frost_Atronach.jpg",
   },
   "Summon Golden Saint": {
     skill: "Conjuration",
@@ -960,7 +960,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Golden_Saint.jpg",
+    icon: "/icons/effects/Summon_Golden_Saint.jpg",
   },
   "Summon Greater Bonewalker": {
     skill: "Conjuration",
@@ -969,7 +969,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Greater_Bonewalker.jpg",
+    icon: "/icons/effects/Summon_Greater_Bonewalker.jpg",
   },
   "Summon Hunger": {
     skill: "Conjuration",
@@ -978,7 +978,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Hunger.jpg",
+    icon: "/icons/effects/Summon_Hunger.jpg",
   },
   "Summon Scamp": {
     skill: "Conjuration",
@@ -987,7 +987,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Scamp.jpg",
+    icon: "/icons/effects/Summon_Scamp.jpg",
   },
   "Summon Skeletal Minion": {
     skill: "Conjuration",
@@ -996,7 +996,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Skeletal_Minion.jpg",
+    icon: "/icons/effects/Summon_Skeletal_Minion.jpg",
   },
   "Summon Storm Atronach": {
     skill: "Conjuration",
@@ -1005,7 +1005,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Storm_Atronach.jpg",
+    icon: "/icons/effects/Summon_Storm_Atronach.jpg",
   },
   "Summon Winged Twilight": {
     skill: "Conjuration",
@@ -1014,7 +1014,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: false,
     isSelfOnly: true,
-    icon: "/icons/Summon_Winged_Twilight.jpg",
+    icon: "/icons/effects/Summon_Winged_Twilight.jpg",
   },
   "Swift Swim": {
     skill: "Alteration",
@@ -1022,7 +1022,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Swift_Swim.jpg",
+    icon: "/icons/effects/Swift_Swim.jpg",
   },
   Telekinesis: {
     skill: "Mysticism",
@@ -1030,7 +1030,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Telekinesis.jpg",
+    icon: "/icons/effects/Telekinesis.jpg",
   },
   "Turn Undead": {
     skill: "Conjuration",
@@ -1039,7 +1039,7 @@ export const effects: Record<string, Effect> = {
     hasDuration: true,
     hasArea: true,
     isSelfNever: true,
-    icon: "/icons/Turn_Undead.jpg",    
+    icon: "/icons/effects/Turn_Undead.jpg",    
   },
   "Water Breathing": {
     skill: "Alteration",
@@ -1047,7 +1047,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Water_Breathing.jpg",
+    icon: "/icons/effects/Water_Breathing.jpg",
   },
   "Water Walking": {
     skill: "Alteration",
@@ -1055,7 +1055,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: false,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Water_Walking.jpg",
+    icon: "/icons/effects/Water_Walking.jpg",
   },
   // "Weakness to Blight Disease": {
   //   skill: "Destruction",
@@ -1070,7 +1070,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Common_Disease.jpg",
+    icon: "/icons/effects/Weakness_to_Common_Disease.jpg",
   },
   "Weakness to Fire": {
     skill: "Destruction",
@@ -1078,7 +1078,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Fire.jpg",
+    icon: "/icons/effects/Weakness_to_Fire.jpg",
   },
   "Weakness to Frost": {
     skill: "Destruction",
@@ -1086,7 +1086,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Frost.jpg",
+    icon: "/icons/effects/Weakness_to_Frost.jpg",
   },
   "Weakness to Magicka": {
     skill: "Destruction",
@@ -1094,7 +1094,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Magicka.jpg",
+    icon: "/icons/effects/Weakness_to_Magicka.jpg",
   },
   // "Weakness to Normal Weapons": {
   //   skill: "Destruction",
@@ -1109,7 +1109,7 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Poison.jpg",
+    icon: "/icons/effects/Weakness_to_Poison.jpg",
   },
   "Weakness to Shock": {
     skill: "Destruction",
@@ -1117,6 +1117,6 @@ export const effects: Record<string, Effect> = {
     hasMagnitude: true,
     hasDuration: true,
     hasArea: true,
-    icon: "/icons/Weakness_to_Shock.jpg",
+    icon: "/icons/effects/Weakness_to_Shock.jpg",
   },
 };
