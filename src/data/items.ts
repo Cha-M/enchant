@@ -628,4 +628,13 @@ export const items: Record<string, Item> = {
   "Ebony Scimitar": { enchantPoints: 80, slot: "Weapon" },
   "Goblin Sword": { enchantPoints: 5, slot: "Weapon" },
   "Goblin Club": { enchantPoints: 10, slot: "Weapon" },
+  // Clothing (Tribunal)
+  // "Common Pants (Tribunal)": { enchantPoints: 2 },
+  // "Expensive Pants (Tribunal)": { enchantPoints: 7.5 },
+  // "Common Shirt (Tribunal)": { enchantPoints: 2 },
+  "Expensive Shirt (Tribunal)": { enchantPoints: 10 },
+  // "Common Shoes (Tribunal)": { enchantPoints: 1 },
+  // "Expensive Shoes (Tribunal)": { enchantPoints: 5 },
+  // "Common Skirt (Tribunal)": { enchantPoints: 2 },
+  // "Expensive Skirt (Tribunal)": { enchantPoints: 7.5 },
 };
