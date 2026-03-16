@@ -1026,6 +1026,7 @@ export default function Home() {
                   <table className="w-full">
                     <thead>
                       <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
+                        <td/>
                         <td>Name</td>
                         <td>Enchant Points</td>
                       </tr>
@@ -1037,6 +1038,16 @@ export default function Home() {
                       )
                       .map(([itemName, itemData]) => (
                         <tr key={itemName} className="[&>*]:pl-1">
+                          <td>
+                            {itemData.icon && (
+                              <Image
+                                src={itemData.icon}
+                                alt={itemName}
+                                width={16}
+                                height={16}
+                              />
+                            )}
+                          </td>
                           <td>{itemName}</td>
                           <td>{itemData.enchantPoints}</td>
                         </tr>

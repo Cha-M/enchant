@@ -24,16 +24,49 @@ export interface Item {
 
 export const items: Record<string, Item> = {
   // Armour (Base)
-  "Boiled Netch Leather Cuirass": { enchantPoints: 6, slot: "Cuirass" },
-  "Chitin Cuirass": { enchantPoints: 10, slot: "Cuirass" },
-  "Glass Cuirass": { enchantPoints: 12, slot: "Cuirass" },
-  "Imperial Newtscale Cuirass": { enchantPoints: 10, slot: "Cuirass" },
-  "Imperial Studded Leather Cuiras": { enchantPoints: 6, slot: "Cuirass" },
-  "Netch Leather Cuirass": { enchantPoints: 6, slot: "Cuirass" },
-  "Nordic Bearskin Cuirass": { enchantPoints: 6, slot: "Cuirass" },
-  "Nordic Fur Cuirass": { enchantPoints: 6, slot: "Cuirass" },
+  "Boiled Netch Leather Cuirass": {
+    enchantPoints: 6,
+    slot: "Cuirass",
+    icon: "/icons/items/Boiled_Netch_Leather_Cuirass.png",
+  },
+  "Chitin Cuirass": {
+    enchantPoints: 10,
+    slot: "Cuirass",
+    icon: "/icons/items/Chitin_Cuirass.png",
+  },
+  "Glass Cuirass": {
+    enchantPoints: 12,
+    slot: "Cuirass",
+    icon: "/icons/items/Glass_Cuirass.png",
+  },
+  "Imperial Newtscale Cuirass": {
+    enchantPoints: 10,
+    slot: "Cuirass",
+    icon: "/icons/items/Imperial_Newtscale_Cuirass.png",
+  },
+  "Imperial Studded Leather Cuiras": {
+    enchantPoints: 6,
+    slot: "Cuirass",
+    icon: "/icons/items/Imperial_Studded_Leather_Cuirass.png",
+  },
+  "Netch Leather Cuirass": {
+    enchantPoints: 6,
+    slot: "Cuirass",
+    icon: "/icons/items/Netch_Leather_Cuirass.png",
+  },
+  "Nordic Bearskin Cuirass": {
+    enchantPoints: 6,
+    slot: "Cuirass",
+    icon: "/icons/items/Nordic_Bearskin_Cuirass.png",
+  },
+  "Nordic Fur Cuirass": {
+    enchantPoints: 6,
+    slot: "Cuirass",
+    icon: "/icons/items/Nordic_Fur_Cuirass.png",
+  },
   "Boiled Netch Leather Helm": { enchantPoints: 7.5, slot: "Helm" },
-  "Chitin Helm Chitin Mask Helm": { enchantPoints: 12.5, slot: "Helm" },
+  "Chitin Helm": { enchantPoints: 12.5, slot: "Helm" },
+  "Chitin Mask Helm": { enchantPoints: 12.5, slot: "Helm" },
   "Colovian Fur Helm": { enchantPoints: 7.5, slot: "Helm" },
   "Glass Helm": { enchantPoints: 15, slot: "Helm" },
   "Morag Tong Helm": { enchantPoints: 20, slot: "Helm" },
