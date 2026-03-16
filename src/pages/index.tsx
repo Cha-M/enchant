@@ -1037,8 +1037,8 @@ export default function Home() {
                         ([, itemData]) => itemData.enchantPoints >= totalCost,
                       )
                       .map(([itemName, itemData]) => (
-                        <tr key={itemName} className="[&>*]:pl-1">
-                          <td>
+                        <tr key={itemName}>
+                          <td className="pr-2">
                             {itemData.icon && (
                               <Image
                                 src={itemData.icon}
@@ -1048,8 +1048,8 @@ export default function Home() {
                               />
                             )}
                           </td>
-                          <td>{itemName}</td>
-                          <td>{itemData.enchantPoints}</td>
+                          <td className="pl-1">{itemName}</td>
+                          <td className="pl-1">{itemData.enchantPoints}</td>
                         </tr>
                       ))}
                   </table>
