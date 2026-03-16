@@ -993,10 +993,12 @@ export default function Home() {
               Sort by cost
             </button>
             <button
-              disabled={rows.length < 1}
+              disabled={
+                rows.length < 1 ||
+                rows.some((row) => row.effect === "" || !row.target)
+              }
               className="px-4 py-2"
               onClick={() => {
-                console.log("View items clicked");
                 setIsModalOpen(true);
               }}
             >
@@ -1017,12 +1019,17 @@ export default function Home() {
                       <td>Enchant Points</td>
                     </tr>
                   </thead>
-                  {Object.entries(items).map(([itemName, itemData]) => (
-                    <tr key={itemName} className="[&>*]:pr-2">
-                      <td>{itemName}</td>
-                      <td>{itemData.enchantPoints}</td>
-                    </tr>
-                  ))}
+                  {Object.entries(items)
+                    .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
+                    .filter(
+                      ([, itemData]) => itemData.enchantPoints >= totalCost,
+                    )
+                    .map(([itemName, itemData]) => (
+                      <tr key={itemName} className="[&>*]:pr-2">
+                        <td>{itemName}</td>
+                        <td>{itemData.enchantPoints}</td>
+                      </tr>
+                    ))}
                 </table>
               )}
               <button
