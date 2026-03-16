@@ -468,6 +468,8 @@ export default function Home() {
     // - and + buttons
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   return (
     <div className="min-h-screen pl-35 pt-10">
       {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
@@ -909,18 +911,6 @@ export default function Home() {
                         rows.some((row) => row.effect === "" || !row.target)
                       }
                       onClick={() => {
-                        // setIsModalOpen(true);
-                        // setNewEffect({
-                        //   effect: "",
-                        //   min: null,
-                        //   max: null,
-                        //   duration: null,
-                        //   area: null,
-                        //   target: null,
-                        //   cost: null,
-                        //   multiplier: null,
-                        //   compoundedCost: null,
-                        // });
                         setRows((prevRows) =>
                           recalculateMultipliersAndCosts([
                             ...prevRows,
@@ -965,18 +955,6 @@ export default function Home() {
                 rows.some((row) => row.effect === "" || !row.target)
               }
               onClick={() => {
-                // setIsModalOpen(true);
-                // setNewEffect({
-                //   effect: "",
-                //   min: null,
-                //   max: null,
-                //   duration: null,
-                //   area: null,
-                //   target: null,
-                //   cost: null,
-                //   multiplier: null,
-                //   compoundedCost: null,
-                // });
                 setRows((prevRows) =>
                   recalculateMultipliersAndCosts([
                     ...prevRows,
@@ -1014,15 +992,18 @@ export default function Home() {
             >
               Sort by cost
             </button>
+            <button
+              disabled={rows.length < 1}
+              className="px-4 py-2"
+              onClick={() => {
+                console.log("View items clicked");
+                setIsModalOpen(true);
+              }}
+            >
+              View items
+            </button>
           </div>
         )}
-
-        {/* <button
-          onClick={updateCosts}
-          className="px-4 py-2"
-        >
-          Update costs
-        </button> */}
       </main>
     </div>
   );
