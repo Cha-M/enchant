@@ -625,12 +625,12 @@ export const items: Record<string, Item> = {
   "Extravagant Sapphire Amulet": {
     enchantPoints: 60,
     slot: "Amulet",
-    icon: "/icons/items/Extravagant_Sapphire_Amulet.png"
+    icon: "/icons/items/Extravagant_Amulet.png"
   },
   "Extravagant Ruby Amulet": {
     enchantPoints: 60,
     slot: "Amulet",
-    icon: "/icons/items/Extravagant_Ruby_Amulet.png"
+    icon: "/icons/items/Extravagant_Amulet.png"
   },
   "Exquisite Amulet": { enchantPoints: 120, slot: "Amulet", icon: "/icons/items/Exquisite_Amulet.png" },
   "Common Belt": { enchantPoints: 1, slot: "Belt", icon: "/icons/items/Common_Belt.png" },
@@ -640,12 +640,12 @@ export const items: Record<string, Item> = {
   "Imperial Belt": { enchantPoints: 0.5, slot: "Belt", icon: "/icons/items/Common_Belt.png" },
   "Imperial Templar Belt": { enchantPoints: 10, slot: "Belt", icon: "/icons/items/Imperial_Templar_Belt.png" },
   "Indoril Belt": { enchantPoints: 0.5, slot: "Belt", icon: "/icons/items/Indoril_Belt.png" },
-  "Common Left Glove": { enchantPoints: 1, slot: "Left Gauntlet", icon: "/icons/items/Common_Left_Glove.png" },
-  "Common Right Glove": { enchantPoints: 1, slot: "Right Gauntlet", icon: "/icons/items/Common_Right_Glove.png" },
-  "Expensive Left Glove": { enchantPoints: 5, slot: "Left Gauntlet", icon: "/icons/items/Expensive_Left_Glove.png" },
-  "Expensive Right Glove": { enchantPoints: 5, slot: "Right Gauntlet", icon: "/icons/items/Expensive_Right_Glove.png" },
-  "Extravagant Left Glove": { enchantPoints: 20, slot: "Left Gauntlet", icon: "/icons/items/Extravagant_Left_Glove.png" },
-  "Extravagant Right Glove": { enchantPoints: 20, slot: "Right Gauntlet", icon: "/icons/items/Extravagant_Right_Glove.png" },
+  "Common Left Glove": { enchantPoints: 1, slot: "Left Gauntlet", icon: "/icons/items/Common_Glove.png" },
+  "Common Right Glove": { enchantPoints: 1, slot: "Right Gauntlet", icon: "/icons/items/Common_Glove.png" },
+  "Expensive Left Glove": { enchantPoints: 5, slot: "Left Gauntlet", icon: "/icons/items/Expensive_Glove.png" },
+  "Expensive Right Glove": { enchantPoints: 5, slot: "Right Gauntlet", icon: "/icons/items/Expensive_Glove.png" },
+  "Extravagant Left Glove": { enchantPoints: 20, slot: "Left Gauntlet", icon: "/icons/items/Extravagant_Glove.png" },
+  "Extravagant Right Glove": { enchantPoints: 20, slot: "Right Gauntlet", icon: "/icons/items/Extravagant_Glove.png" },
   "Common Pants": { enchantPoints: 2, slot: "Pants", icon: "/icons/items/Common_Pants.png" },
   "Expensive Pants": { enchantPoints: 7.5, slot: "Pants", icon: "/icons/items/Expensive_Pants.png" },
   "Extravagant Pants": { enchantPoints: 30, slot: "Pants", icon: "/icons/items/Extravagant_Pants.png" },
