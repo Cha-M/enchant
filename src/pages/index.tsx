@@ -545,6 +545,7 @@ export default function Home() {
       shortBlade: true,
       longBlade: true,
       marksman: true,
+      spear: true,
     } as ItemFilterWeaponSkills,
   });
 

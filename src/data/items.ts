@@ -19,7 +19,14 @@ export interface Item {
     | "skirt"
     | "weapon"
     | "belt";
-  // | "None";
+  weightClass?: "light" | "medium" | "heavy";
+  weaponSkill?:
+    | "axe"
+    | "blunt"
+    | "shortBlade"
+    | "longBlade"
+    | "marksman"
+    | "spear";
 }
 
 export const items: Record<string, Item> = {
