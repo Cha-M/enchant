@@ -179,6 +179,7 @@ export default function Home() {
         const newMultiplier = currentRows.length - index;
         const newCompoundedCost =
           //newCost !== null ? Math.floor(newCost) * newMultiplier : null;
+          //are these really floored?
           newCost !== null
             ? Math.floor(newCost * newMultiplier) >= 1
               ? Math.floor(newCost * newMultiplier)
@@ -1041,9 +1042,7 @@ export default function Home() {
                 <div>
                   <button
                     className="px-4 py-2 mb-2"
-                    onClick={() => {
-                      setIsFilterModalOpen(true);
-                    }}
+                    onClick={() => setIsFilterModalOpen(true)}
                   >
                     Filter
                   </button>
@@ -1056,6 +1055,7 @@ export default function Home() {
                         <td>Enchant Points</td>
                       </tr>
                     </thead>
+                    {/* this needs memoising */}
                     {Object.entries(items)
                       .sort()
                       .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
@@ -1087,7 +1087,7 @@ export default function Home() {
           </div>
         )}
         {isFilterModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
             <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
