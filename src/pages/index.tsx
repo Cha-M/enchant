@@ -671,6 +671,7 @@ export default function Home() {
                       {/* Need to fix the totalcost being 0 when there is an effect without a max, it should be invalid */}
                       {/* Need to fix so it's the table scrollable with the header staying in place and prob the the filter button at the bottom */}
                       {/* ...and make the table a minwidth */}
+                      {/* ...and alphabetic sort before enchant points so ordered */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         
                         {effect !== "" ? (
