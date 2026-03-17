@@ -472,16 +472,64 @@ export default function Home() {
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
 
+  interface ItemFilterSlots {
+    helm: boolean;
+    cuirass: boolean;
+    greaves: boolean;
+    boots: boolean;
+    shield: boolean;
+    leftGauntlet: boolean;
+    rightGauntlet: boolean;
+    leftPauldron: boolean;
+    rightPauldron: boolean;
+    amulet: boolean;
+    ring: boolean;
+    robe: boolean;
+    shirt: boolean;
+    pants: boolean;
+    skirt: boolean;
+    weapon: boolean;
+    belt: boolean;
+  }
+
+  interface ItemFilterArmourWeights {
+    light: boolean;
+    medium: boolean;
+    heavy: boolean;
+  }
+
   interface ItemFilter {
-    name: string;
-    slot: string;
-    armourWeight: string;
+    name: string | null;
+    slot: ItemFilterSlots;
+    armourWeight: ItemFilterArmourWeights;
   }
 
   const [itemFilter, setItemFilter] = useState<ItemFilter>({
-    name: "",
-    slot: "",
-    armourWeight: "",
+    name: null,
+    slot: {
+      helm: true,
+      cuirass: true,
+      greaves: true,
+      boots: true,
+      shield: true,
+      leftGauntlet: true,
+      rightGauntlet: true,
+      leftPauldron: true,
+      rightPauldron: true,
+      amulet: true,
+      ring: true,
+      robe: true,
+      shirt: true,
+      pants: true,
+      skirt: true,
+      weapon: true,
+      belt: true,
+    } as ItemFilterSlots,
+    armourWeight: {
+      light: true,
+      medium: true,
+      heavy: true,
+    } as ItemFilterArmourWeights,
   });
 
   return (
@@ -1062,6 +1110,12 @@ export default function Home() {
                       .filter(
                         ([, itemData]) => itemData.enchantPoints >= totalCost,
                       )
+                      .filter(
+                        ([, itemData]) =>
+                          itemData.slot === itemFilter.slot ||
+                          itemFilter.slot === null,
+                      )
+                      // this should not be run always to check null, should be a decision made before to filter or not based on slot
                       .map(([itemName, itemData]) => (
                         <tr key={itemName}>
                           <td className="pr-2">
@@ -1086,6 +1140,7 @@ export default function Home() {
             </div>
           </div>
         )}
+        {/* Not sure if I want two modals */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
             <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
@@ -1098,8 +1153,16 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              {/* Filter options would go here */}
-              <div>Filter options coming soon!</div>
+              <button
+                className="px-4 py-2 mb-2"
+                onClick={() => {
+                  setItemFilter({
+                    ...itemFilter,
+                  });
+                }}
+              >
+                Helm
+              </button>
             </div>
           </div>
         )}
