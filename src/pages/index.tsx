@@ -669,6 +669,8 @@ export default function Home() {
                     </td>
                     <td>
                       {/* Need to fix the totalcost being 0 when there is an effect without a max, it should be invalid */}
+                      {/* Need to fix so it's the table scrollable with the header staying in place and prob the the filter button at the bottom */}
+                      {/* ...and make the table a minwidth */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         
                         {effect !== "" ? (
