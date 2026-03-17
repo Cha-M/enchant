@@ -1027,6 +1027,7 @@ export default function Home() {
               ) ? (
                 <div>
                   <button className="px-4 py-2 mb-2">Filter</button>
+                  <div>{Object.entries(items).length} items in total.</div>
                   <table className="w-full">
                     <thead>
                       <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
