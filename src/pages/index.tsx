@@ -509,6 +509,7 @@ export default function Home() {
   interface ItemFilter {
     name: string | null;
     slots: ItemFilterSlots;
+    weaponSkills: ItemFilterWeaponSkills;
     armourWeight: ItemFilterArmourWeights;
   }
 
@@ -538,6 +539,13 @@ export default function Home() {
       medium: true,
       heavy: true,
     } as ItemFilterArmourWeights,
+    weaponSkills: {
+      axe: true,
+      blunt: true,
+      shortBlade: true,
+      longBlade: true,
+      marksman: true,
+    } as ItemFilterWeaponSkills,
   });
 
   return (
