@@ -1112,7 +1112,11 @@ export default function Home() {
                       )
                       .filter(
                         ([, itemData]) =>
-                          itemData.slot && itemData.slot in itemFilter.slots,
+                          itemData.slot &&
+                          itemFilter.slots[
+                            itemData.slot as keyof ItemFilterSlots
+                          ],
+                        //wrong now
                       )
                       // this should not be run always to check null, should be a decision made before to filter or not based on slot
                       .map(([itemName, itemData]) => (
@@ -1152,16 +1156,27 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <button
-                className="px-4 py-2 mb-2"
-                onClick={() => {
-                  setItemFilter({
-                    ...itemFilter,
-                  });
-                }}
-              >
-                Helm
-              </button>
+              <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                <div key={"helm"} className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id={`filter-slot-helm`}
+                    checked={itemFilter.slots["helm" as keyof ItemFilterSlots]}
+                    onChange={() => {
+                      setItemFilter((prev) => ({
+                        ...prev,
+                        slots: {
+                          ...prev.slots,
+                          ["helm" as keyof ItemFilterSlots]:
+                            !prev.slots["helm" as keyof ItemFilterSlots],
+                        },
+                      }));
+                    }}
+                    className="mr-2"
+                  />
+                  <label htmlFor={`filter-slot-helm`}>Helm</label>
+                </div>
+              </div>
             </div>
           </div>
         )}
