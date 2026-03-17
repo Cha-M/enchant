@@ -668,7 +668,9 @@ export default function Home() {
                       </button>
                     </td>
                     <td>
+                      {/* Need to fix the totalcost being 0 when there is an effect without a max, it should be invalid */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
+                        
                         {effect !== "" ? (
                           <Image
                             src={effects[effect].icon}
