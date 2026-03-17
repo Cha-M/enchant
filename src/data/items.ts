@@ -186,106 +186,122 @@ export const items: Record<string, Item> = {
   "Chitin Tower Shield": { enchantPoints: 37.5, slot: "Shield", icon: "/icons/items/Chitin_Tower_Shield.png" },
   "Glass Tower Shield": { enchantPoints: 45, slot: "Shield", icon: "/icons/items/Glass_Tower_Shield.png" },
   "Netch Leather Tower Shield": { enchantPoints: 22.5, slot: "Shield", icon: "/icons/items/Netch_Leather_Tower_Shield.png" },
-  "Nordic Ringmail Cuirass": { enchantPoints: 14, slot: "Cuirass" },
-  "Imperial Chain Cuirass": { enchantPoints: 14, slot: "Cuirass" },
+  "Nordic Ringmail Cuirass": { enchantPoints: 14, slot: "Cuirass", icon: "/icons/items/Nordic_Ringmail_Cuirass.png" },
+  "Imperial Chain Cuirass": { enchantPoints: 14, slot: "Cuirass", icon: "/icons/items/Imperial_Chain_Cuirass.png" },
   "Bonemold Cuirass": {
     enchantPoints: 16,
     slot: "Cuirass",
+    icon: "/icons/items/Bonemold_Cuirass.png"
   },
   "Armun-An Bonemold Cuirass": {
     enchantPoints: 16,
     slot: "Cuirass",
+    icon: "/icons/items/Bonemold_Cuirass.png"
   },
-  "Gah-Julan Bonemold Cuirass": { enchantPoints: 16, slot: "Cuirass" },
-  "Imperial Dragonscale Cuirass": { enchantPoints: 16, slot: "Cuirass" },
-  "Orcish Cuirass": { enchantPoints: 24, slot: "Cuirass" },
-  "Dreugh Cuirass": { enchantPoints: 18, slot: "Cuirass" },
-  "Indoril Cuirass": { enchantPoints: 18, slot: "Cuirass" },
-  "Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
-  "Redoran Founder's Helm": { enchantPoints: 20, slot: "Helm" },
-  "Dreugh Helm": { enchantPoints: 22.5, slot: "Helm" },
-  "Imperial Chain Coif": { enchantPoints: 17.5, slot: "Helm" },
-  "Imperial Dragonscale Helm": { enchantPoints: 20, slot: "Helm" },
-  "Indoril Helmet": { enchantPoints: 22.5, slot: "Helm" },
-  "Orcish Helm": { enchantPoints: 30, slot: "Helm" },
-  "Gondolier's Helm": { enchantPoints: 10, slot: "Helm" },
-  "Native Armun-An Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
-  "Native Chuzei Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
-  "Native Gah-Julan Bonemold Helm": { enchantPoints: 20, slot: "Helm" },
-  "Redoran Master Helm": { enchantPoints: 22.5, slot: "Helm" },
+  "Gah-Julan Bonemold Cuirass": { enchantPoints: 16, slot: "Cuirass", icon: "/icons/items/Gah-Julan_Bonemold_Cuirass.png" },
+  "Imperial Dragonscale Cuirass": { enchantPoints: 16, slot: "Cuirass", icon: "/icons/items/Imperial_Dragonscale_Cuirass.png" },
+  "Orcish Cuirass": { enchantPoints: 24, slot: "Cuirass", icon: "/icons/items/Orcish_Cuirass.png" },
+  "Dreugh Cuirass": { enchantPoints: 18, slot: "Cuirass", icon: "/icons/items/Dreugh_Cuirass.png" },
+  "Indoril Cuirass": { enchantPoints: 18, slot: "Cuirass", icon: "/icons/items/Indoril_Cuirass.png" },
+  "Bonemold Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Bonemold_Helm.png" },
+  "Redoran Founder's Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Bonemold_Helm.png" },
+  "Dreugh Helm": { enchantPoints: 22.5, slot: "Helm", icon: "/icons/items/Dreugh_Helm.png" },
+  "Imperial Chain Coif": { enchantPoints: 17.5, slot: "Helm", icon: "/icons/items/Imperial_Chain_Coif.png" },
+  "Imperial Dragonscale Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Imperial_Dragonscale_Helm.png" },
+  "Indoril Helmet": { enchantPoints: 22.5, slot: "Helm", icon: "/icons/items/Indoril_Helmet.png" },
+  "Orcish Helm": { enchantPoints: 30, slot: "Helm", icon: "/icons/items/Orcish_Helm.png" },
+  "Gondolier's Helm": { enchantPoints: 10, slot: "Helm", icon: "/icons/items/Gondolier's_Helm.png" },
+  "Native Armun-An Bonemold Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Native_Armun-An_Bonemold_Helm.png" },
+  "Native Chuzei Bonemold Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Native_Chuzei_Bonemold_Helm.png" },
+  "Native Gah-Julan Bonemold Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Native_Gah-Julan_Bonemold_Helm.png" },
+  "Redoran Master Helm": { enchantPoints: 22.5, slot: "Helm", icon: "/icons/items/Redoran_Master_Helm.png" },
   "Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
+    icon: "/icons/items/Bonemold_Pauldron.png"
   },
   "Bonemold R Pauldron": {
     enchantPoints: 1.6,
     slot: "Right Pauldron",
+    icon: "/icons/items/Bonemold_Pauldron.png"
   },
   "Armun-An Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
+    icon: "/icons/items/Armun-An_Bonemold_Pauldron.png"
   },
   "Armun-An Bonemold R Pauldron": {
     enchantPoints: 1.6,
     slot: "Right Pauldron",
+    icon: "/icons/items/Armun-An_Bonemold_Pauldron.png"
   },
   "Gah-Julan Bonemold L Pauldron": {
     enchantPoints: 1.6,
     slot: "Left Pauldron",
+    icon: "/icons/items/Gah-Julan_Bonemold_Pauldron.png"
   },
   "Gah-Julan Bonemold R Pauldron": {
     enchantPoints: 1.6,
     slot: "Right Pauldron",
+    icon: "/icons/items/Gah-Julan_Bonemold_Pauldron.png"
   },
-  "Indoril Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron" },
-  "Indoril Right Pauldron": { enchantPoints: 1, slot: "Right Pauldron" },
+  "Indoril Left Pauldron": { enchantPoints: 1, slot: "Left Pauldron", icon: "/icons/items/Indoril_Pauldron.png" },
+  "Indoril Right Pauldron": { enchantPoints: 1, slot: "Right Pauldron", icon: "/icons/items/Indoril_Pauldron.png" },
   "Orcish Left Pauldron": {
     enchantPoints: 2.4,
     slot: "Left Pauldron",
+    icon: "/icons/items/Orcish_Pauldron.png"
   },
   "Orcish Right Pauldron": {
     enchantPoints: 2.4,
     slot: "Right Pauldron",
+    icon: "/icons/items/Orcish_Pauldron.png"
   },
-  "Bonemold Greaves": { enchantPoints: 2, slot: "Greaves" },
-  "Imperial Chain Greaves": { enchantPoints: 7, slot: "Greaves" },
-  "Orcish Greaves": { enchantPoints: 3, slot: "Greaves" },
-  "Bonemold Boots": { enchantPoints: 7, slot: "Boots" },
-  "Indoril Boots": { enchantPoints: 2.6, slot: "Boots" },
-  "Orcish Boots": { enchantPoints: 10.5, slot: "Boots" },
+  "Bonemold Greaves": { enchantPoints: 2, slot: "Greaves", icon: "/icons/items/Bonemold_Greaves.png" },
+  "Imperial Chain Greaves": { enchantPoints: 7, slot: "Greaves", icon: "/icons/items/Imperial_Chain_Greaves.png" },
+  "Orcish Greaves": { enchantPoints: 3, slot: "Greaves", icon: "/icons/items/Orcish_Greaves.png" },
+  "Bonemold Boots": { enchantPoints: 7, slot: "Boots", icon: "/icons/items/Bonemold_Boots.png" },
+  "Indoril Boots": { enchantPoints: 2.6, slot: "Boots", icon: "/icons/items/Indoril_Boots.png" },
+  "Orcish Boots": { enchantPoints: 10.5, slot: "Boots", icon: "/icons/items/Orcish_Boots.png" },
   "Bonemold Left Bracer": {
     enchantPoints: 16,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Bonemold_Bracer.png"
   },
   "Bonemold Right Bracer": {
     enchantPoints: 16,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Bonemold_Bracer.png"
   },
   "Indoril Left Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Indoril_Gauntlet.png"
   },
   "Indoril Right Gauntlet": {
     enchantPoints: 6,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Indoril_Gauntlet.png"
   },
   "Orcish Left Bracer": {
     enchantPoints: 24,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Orcish_Bracer.png"
   },
   "Orcish Right Bracer": {
     enchantPoints: 24,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Orcish_Bracer.png"
   },
-  "Bonemold Shield": { enchantPoints: 40, slot: "Shield" },
-  "Dreugh Shield": { enchantPoints: 45, slot: "Shield" },
-  "Indoril Shield": { enchantPoints: 45, slot: "Shield" },
-  "Bonemold Tower Shield": { enchantPoints: 60, slot: "Shield" },
-  "Dragonscale Tower Shield": { enchantPoints: 60, slot: "Shield" },
-  "Orcish Tower Shield": { enchantPoints: 90, slot: "Shield" },
-  "Hlaalu Guard Shield": { enchantPoints: 60, slot: "Shield" },
-  "Redoran Guard Shield": { enchantPoints: 60, slot: "Shield" },
-  "Telvanni Guard Shield": { enchantPoints: 60, slot: "Shield" },
+  "Bonemold Shield": { enchantPoints: 40, slot: "Shield", icon: "/icons/items/Bonemold_Shield.png" },
+  "Dreugh Shield": { enchantPoints: 45, slot: "Shield", icon: "/icons/items/Dreugh_Shield.png" },
+  "Indoril Shield": { enchantPoints: 45, slot: "Shield", icon: "/icons/items/Indoril_Shield.png" },
+  "Bonemold Tower Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Bonemold_Tower_Shield.png" },
+  "Dragonscale Tower Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Dragonscale_Tower_Shield.png" },
+  "Orcish Tower Shield": { enchantPoints: 90, slot: "Shield", icon: "/icons/items/Orcish_Tower_Shield.png" },
+  "Hlaalu Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Hlaalu_Guard_Shield.png" },
+  "Redoran Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Redoran_Guard_Shield.png" },
+  "Telvanni Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Telvanni_Guard_Shield.png" },
   "Iron Cuirass": { enchantPoints: 20, slot: "Cuirass" },
   "Steel Cuirass": { enchantPoints: 20, slot: "Cuirass" },
   "Nordic Iron Cuirass": { enchantPoints: 20, slot: "Cuirass" },
