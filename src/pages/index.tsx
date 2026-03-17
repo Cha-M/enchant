@@ -1039,7 +1039,14 @@ export default function Home() {
                 ([, itemData]) => itemData.enchantPoints >= totalCost,
               ) ? (
                 <div>
-                  <button className="px-4 py-2 mb-2">Filter</button>
+                  <button
+                    className="px-4 py-2 mb-2"
+                    onClick={() => {
+                      setIsFilterModalOpen(true);
+                    }}
+                  >
+                    Filter
+                  </button>
                   {/* <div>{Object.entries(items).length} items in total.</div> */}
                   <table className="w-full">
                     <thead>
