@@ -302,176 +302,206 @@ export const items: Record<string, Item> = {
   "Hlaalu Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Hlaalu_Guard_Shield.png" },
   "Redoran Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Redoran_Guard_Shield.png" },
   "Telvanni Guard Shield": { enchantPoints: 60, slot: "Shield", icon: "/icons/items/Telvanni_Guard_Shield.png" },
-  "Iron Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Steel Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Nordic Iron Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Imperial Steel Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Nordic Trollbone Cuirass": { enchantPoints: 16, slot: "Cuirass" },
-  "Imperial Silver Cuirass": { enchantPoints: 16, slot: "Cuirass" },
-  "Imperial Templar Knight Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Duke's Guard Silver Cuirass": { enchantPoints: 16, slot: "Cuirass" },
-  "Dwemer Cuirass": { enchantPoints: 20, slot: "Cuirass" },
-  "Ebony Cuirass": { enchantPoints: 40, slot: "Cuirass" },
-  "Daedric Cuirass": { enchantPoints: 60, slot: "Cuirass" },
-  "Dwemer Helm": { enchantPoints: 25, slot: "Helm" },
-  "Ebony Closed Helm": { enchantPoints: 50, slot: "Helm" },
-  "Imperial Silver Helm": { enchantPoints: 20, slot: "Helm" },
-  "Imperial Steel Helmet": { enchantPoints: 25, slot: "Helm" },
-  "Iron Helmet": { enchantPoints: 2.5, slot: "Helm" },
-  "Steel Helm": { enchantPoints: 25, slot: "Helm" },
-  "Imperial Templar Helmet": { enchantPoints: 25, slot: "Helm" },
-  "Daedric Face of God": { enchantPoints: 75, slot: "Helm" },
-  "Daedric Face of Inspiration": { enchantPoints: 75, slot: "Helm" },
-  "Daedric Face of Terror": { enchantPoints: 75, slot: "Helm" },
-  "Nordic Iron Helm": { enchantPoints: 25, slot: "Helm" },
-  "Nordic Trollbone Helm": { enchantPoints: 20, slot: "Helm" },
+  "Iron Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Iron_Cuirass.png"},
+  "Steel Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Steel_Cuirass.png" },
+  "Nordic Iron Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Nordic_Iron_Cuirass.png" },
+  "Imperial Steel Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Imperial_Steel_Cuirass.png" },
+  "Nordic Trollbone Cuirass": { enchantPoints: 16, slot: "Cuirass", icon: "/icons/items/Nordic_Trollbone_Cuirass.png" },
+  "Imperial Silver Cuirass": { enchantPoints: 16, slot: "Cuirass", icon: "/icons/items/Imperial_Silver_Cuirass.png" },
+  "Imperial Templar Knight Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Imperial_Templar_Knight_Cuirass.png" },
+  "Duke's Guard Silver Cuirass": { enchantPoints: 16, slot: "Cuirass", icon: "/icons/items/Duke's_Guard_Silver_Cuirass.png" },
+  "Dwemer Cuirass": { enchantPoints: 20, slot: "Cuirass", icon: "/icons/items/Dwemer_Cuirass.png" },
+  "Ebony Cuirass": { enchantPoints: 40, slot: "Cuirass", icon: "/icons/items/Ebony_Cuirass.png" },
+  "Daedric Cuirass": { enchantPoints: 60, slot: "Cuirass", icon: "/icons/items/Daedric_Cuirass.png" },
+  "Dwemer Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Dwemer_Helm.png" },
+  "Ebony Closed Helm": { enchantPoints: 50, slot: "Helm", icon: "/icons/items/Ebony_Closed_Helm.png" },
+  "Imperial Silver Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Imperial_Silver_Helm.png" },
+  "Imperial Steel Helmet": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Imperial_Steel_Helmet.png" },
+  "Iron Helmet": { enchantPoints: 2.5, slot: "Helm", icon: "/icons/items/Iron_Helmet.png" },
+  "Steel Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Steel_Helm.png" },
+  "Imperial Templar Helmet": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Imperial_Templar_Helmet.png" },
+  "Daedric Face of God": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_God.png" },
+  "Daedric Face of Inspiration": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_Insperation.png" },
+  "Daedric Face of Terror": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_Terror.png" },
+  "Nordic Iron Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Nordic_Iron_Helm.png" },
+  "Nordic Trollbone Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Nordic_Trollbone_Helm.png" },
   "Dwemer Left Pauldron": {
     enchantPoints: 4,
     slot: "Left Pauldron",
+    icon: "/icons/items/Dwemer_Pauldron.png"
   },
   "Dwemer Right Pauldron": {
     enchantPoints: 4,
     slot: "Right Pauldron",
+    icon: "/icons/items/Dwemer_Pauldron.png"
   },
   "Daedric Left Pauldron": {
     enchantPoints: 6,
     slot: "Left Pauldron",
+    icon: "/icons/items/Daedric_Pauldron.png"
   },
   "Daedric Right Pauldron": {
     enchantPoints: 6,
     slot: "Right Pauldron",
+    icon: "/icons/items/Daedric_Pauldron.png"
   },
   "Ebony Left Pauldron": {
     enchantPoints: 4,
     slot: "Left Pauldron",
+    icon: "/icons/items/Ebony_Pauldron.png"
   },
   "Ebony Right Pauldron": {
     enchantPoints: 4,
     slot: "Right Pauldron",
+    icon: "/icons/items/Ebony_Pauldron.png"
   },
   "Imperial Chain Left Pauldron": {
     enchantPoints: 7,
     slot: "Left Pauldron",
+    icon: "/icons/items/Imperial_Chain_Pauldron.png"
   },
   "Imperial Chain Right Pauldron": {
     enchantPoints: 7,
     slot: "Right Pauldron",
+    icon: "/icons/items/Imperial_Chain_Pauldron.png"
   },
   "Imperial Steel Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
+    icon: "/icons/items/Imperial_Steel_Pauldron.png"
   },
   "Imperial Steel Right Pauldron": {
     enchantPoints: 2,
     slot: "Right Pauldron",
+    icon: "/icons/items/Imperial_Steel_Pauldron.png"
   },
   "Imperial Templar Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
+    icon: "/icons/items/Imperial_Templar_Pauldron.png"
   },
   "Imperial Templar Right Pauldron": {
     enchantPoints: 2,
     slot: "Right Pauldron",
+    icon: "/icons/items/Imperial_Templar_Pauldron.png"
   },
   "Iron Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
+    icon: "/icons/items/Iron_Pauldron.png"
   },
   "Iron Right Pauldron": {
     enchantPoints: 2,
     slot: "Right Pauldron",
+    icon: "/icons/items/Iron_Pauldron.png"
   },
   "Steel Left Pauldron": {
     enchantPoints: 2,
     slot: "Left Pauldron",
+    icon: "/icons/items/Steel_Pauldron.png"
   },
   "Steel Right Pauldron": {
     enchantPoints: 2,
     slot: "Right Pauldron",
+    icon: "/icons/items/Steel_Pauldron.png"
   },
-  "Daedric Greaves": { enchantPoints: 7.5, slot: "Greaves" },
-  "Dwemer Greaves": { enchantPoints: 2.5, slot: "Greaves" },
-  "Ebony Greaves": { enchantPoints: 5, slot: "Greaves" },
-  "Imperial Steel Greaves": { enchantPoints: 2.5, slot: "Greaves" },
-  "Imperial Templar Greaves": { enchantPoints: 2.5, slot: "Greaves" },
-  "Iron Greaves": { enchantPoints: 2.5, slot: "Greaves" },
-  "Steel Greaves": { enchantPoints: 2.5, slot: "Greaves" },
-  "Daedric Boots": { enchantPoints: 26.3, slot: "Boots" },
-  "Dwemer Boots": { enchantPoints: 8.8, slot: "Boots" },
-  "Ebony Boots": { enchantPoints: 17.5, slot: "Boots" },
-  "Imperial Steel Boots": { enchantPoints: 8.8, slot: "Boots" },
-  "Imperial Templar Boots": { enchantPoints: 8.8, slot: "Boots" },
-  "Iron Boots": { enchantPoints: 2.6, slot: "Boots" },
-  "Steel Boots": { enchantPoints: 8.8, slot: "Boots" },
+  "Daedric Greaves": { enchantPoints: 7.5, slot: "Greaves", icon: "/icons/items/Daedric_Greaves.png" },
+  "Dwemer Greaves": { enchantPoints: 2.5, slot: "Greaves", icon: "/icons/items/Dwemer_Greaves.png" },
+  "Ebony Greaves": { enchantPoints: 5, slot: "Greaves", icon: "/icons/items/Ebony_Greaves.png" },
+  "Imperial Steel Greaves": { enchantPoints: 2.5, slot: "Greaves", icon: "/icons/items/Imperial_Steel_Greaves.png" },
+  "Imperial Templar Greaves": { enchantPoints: 2.5, slot: "Greaves", icon: "/icons/items/Imperial_Templar_Greaves.png" },
+  "Iron Greaves": { enchantPoints: 2.5, slot: "Greaves", icon: "/icons/items/Iron_Greaves.png" },
+  "Steel Greaves": { enchantPoints: 2.5, slot: "Greaves", icon: "/icons/items/Steel_Greaves.png" },
+  "Daedric Boots": { enchantPoints: 26.3, slot: "Boots", icon: "/icons/items/Daedric_Boots.png" },
+  "Dwemer Boots": { enchantPoints: 8.8, slot: "Boots", icon: "/icons/items/Dwemer_Boots.png" },
+  "Ebony Boots": { enchantPoints: 17.5, slot: "Boots", icon: "/icons/items/Ebony_Boots.png" },
+  "Imperial Steel Boots": { enchantPoints: 8.8, slot: "Boots", icon: "/icons/items/Imperial_Steel_Boots.png" },
+  "Imperial Templar Boots": { enchantPoints: 8.8, slot: "Boots", icon: "/icons/items/Imperial_Templar_Boots.png" },
+  "Iron Boots": { enchantPoints: 2.6, slot: "Boots", icon: "/icons/items/Iron_Boots.png" },
+  "Steel Boots": { enchantPoints: 8.8, slot: "Boots", icon: "/icons/items/Steel_Boots.png" },
   "Dwemer Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Dwemer_Bracer.png"
   },
   "Dwemer Right Bracer": {
     enchantPoints: 20,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Dwemer_Bracer.png"
   },
   "Ebony Left Bracer": {
     enchantPoints: 40,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Ebony_Bracer.png"
   },
   "Ebony Right Bracer": {
     enchantPoints: 40,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Ebony_Bracer.png"
   },
   "Iron Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Iron_Bracer.png"
   },
   "Iron Right Bracer": {
     enchantPoints: 20,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Iron_Bracer.png"
   },
   "Imperial Templar Left Bracer": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Imperial_Templar_Bracer.png"
   },
   "Imperial Templar Right Bracer": {
     enchantPoints: 20,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Imperial_Templar_Bracer.png"
   },
-  "Iron Left Gauntlet": { enchantPoints: 2.5, slot: "Left Gauntlet" },
-  "Iron Right Gauntlet": { enchantPoints: 1, slot: "Right Gauntlet" },
+  "Iron Left Gauntlet": { enchantPoints: 2.5, slot: "Left Gauntlet", icon: "/icons/items/Iron_Gauntlet.png" },
+  "Iron Right Gauntlet": { enchantPoints: 1, slot: "Right Gauntlet", icon: "/icons/items/Iron_Gauntlet.png" },
   "Daedric Left Gauntlet": {
     enchantPoints: 60,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Daedric_Gauntlet.png"
   },
   "Daedric Right Gauntlet": {
     enchantPoints: 60,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Daedric_Gauntlet.png"
   },
   "Imperial Steel Left Gauntlet": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Imperial_Steel_Gauntlet.png"
   },
   "Imperial Steel Right Gauntlet": {
     enchantPoints: 20,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Imperial_Steel_Gauntlet.png"
   },
   "Steel Left Gauntlet": {
     enchantPoints: 20,
     slot: "Left Gauntlet",
+    icon: "/icons/items/Steel_Gauntlet.png"
   },
   "Steel Right Gauntlet": {
     enchantPoints: 20,
     slot: "Right Gauntlet",
+    icon: "/icons/items/Steel_Gauntlet.png"
   },
-  "Daedric Shield": { enchantPoints: 150, slot: "Shield" },
-  "Dwemer Shield": { enchantPoints: 50, slot: "Shield" },
-  "Ebony Shield": { enchantPoints: 100, slot: "Shield" },
-  "Iron Shield": { enchantPoints: 50, slot: "Shield" },
-  "Nordic Trollbone Shield": { enchantPoints: 40, slot: "Shield" },
-  "Steel Shield": { enchantPoints: 50, slot: "Shield" },
-  "Daedric Tower Shield": { enchantPoints: 225, slot: "Shield" },
-  "Ebony Tower Shield": { enchantPoints: 150, slot: "Shield" },
-  "Imperial Shield": { enchantPoints: 50, slot: "Shield" },
-  "Iron Tower Shield": { enchantPoints: 75, slot: "Shield" },
-  "Steel Tower Shield": { enchantPoints: 75, slot: "Shield" },
+  "Daedric Shield": { enchantPoints: 150, slot: "Shield", icon: "/icons/items/Daedric_Shield.png" },
+  "Dwemer Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Dwemer_Shield.png" },
+  "Ebony Shield": { enchantPoints: 100, slot: "Shield", icon: "/icons/items/Ebony_Shield.png" },
+  "Iron Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Iron_Shield.png" },
+  "Nordic Trollbone Shield": { enchantPoints: 40, slot: "Shield", icon: "/icons/items/Nordic_Trollbone_Shield.png" },
+  "Steel Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Steel_Shield.png" },
+  "Daedric Tower Shield": { enchantPoints: 225, slot: "Shield", icon: "/icons/items/Daedric_Tower_Shield.png" },
+  "Ebony Tower Shield": { enchantPoints: 150, slot: "Shield", icon: "/icons/items/Ebony_Tower_Shield.png" },
+  "Imperial Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Imperial_Shield.png" },
+  "Iron Tower Shield": { enchantPoints: 75, slot: "Shield", icon: "/icons/items/Iron_Tower_Shield.png" },
+  "Steel Tower Shield": { enchantPoints: 75, slot: "Shield", icon: "/icons/items/Steel_Tower_Shield.png" },
   // Weapons (Base)
   "Chitin War Axe": { enchantPoints: 2.5, slot: "Weapon" },
   "Iron War Axe": { enchantPoints: 5, slot: "Weapon" },
