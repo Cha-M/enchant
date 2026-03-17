@@ -474,10 +474,14 @@ export default function Home() {
   interface ItemFilter {
     name: string;
     slot: string;
-    armourType: string;
+    armourWeight: string;
   }
 
-  const [itemFilter, setItemFilter] = useState("");
+  const [itemFilter, setItemFilter] = useState<ItemFilter>({
+    name: "",
+    slot: "",
+    armourWeight: "",
+  });
 
   return (
     <div className="min-h-screen pl-35 pt-10">
