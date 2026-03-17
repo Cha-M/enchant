@@ -19,7 +19,7 @@ export interface Item {
     | "Skirt"
     | "Weapon"
     | "Belt"
-    | "None";
+    // | "None";
 }
 
 export const items: Record<string, Item> = {
@@ -2289,16 +2289,16 @@ export const items: Record<string, Item> = {
   "Stalhrim War Axe": { enchantPoints: 25, slot: "Weapon", icon: "/icons/items/Stalhrim_War_Axe.png" },
   "Nordic Silver Axe": { enchantPoints: 6.5, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Axe.png" },
   "Nordic Silver Battleaxe": { enchantPoints: 10, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Battleaxe.png" },
-  "Stalhrim Mace": { enchantPoints: 20, slot: "Weapon", icon: "/icons/items/Stalhrim_Mace.png" },
+  "Stalhrim Mace": { enchantPoints: 20, slot: "Weapon", icon: "/icons/items/Ice_Mace.png" },
   "Nordic Silver Mace": { enchantPoints: 7, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Mace.png" },
   "Huntsman Crossbow": { enchantPoints: 10, slot: "Weapon", icon: "/icons/items/Huntsman_Crossbow.png" },
   "Huntsman Longsword": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Huntsman_Longsword.png" },
-  "Stalhrim Longsword": { enchantPoints: 8, slot: "Weapon", icon: "/icons/items/Stalhrim_Longsword.png" },
+  "Stalhrim Longsword": { enchantPoints: 8, slot: "Weapon", icon: "/icons/items/Ice_Longsword.png" },
   "Nordic Silver Longsword": { enchantPoints: 8, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Longsword.png" },
   "Riekling Blade": { enchantPoints: 3.5, slot: "Weapon", icon: "/icons/items/Riekling_Blade.png" },
   "Rusted Riekling Blade": { enchantPoints: 3.5, slot: "Weapon", icon: "/icons/items/Riekling_Blade.png" },
   "Nordic Silver Claymore": { enchantPoints: 15, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Claymore.png" },
-  "Stalhrim Dagger": { enchantPoints: 6.5, slot: "Weapon", icon: "/icons/items/Stalhrim_Dagger.png" },
+  "Stalhrim Dagger": { enchantPoints: 6.5, slot: "Weapon", icon: "/icons/items/Ice_Dagger.png" },
   "Nordic Silver Dagger": { enchantPoints: 7, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Dagger.png" },
   "Nordic Silver Shortsword": { enchantPoints: 7, slot: "Weapon", icon: "/icons/items/Nordic_Silver_Shortsword.png" },
   "Riekling Lance": { enchantPoints: 8, slot: "Weapon", icon: "/icons/items/Riekling_Lance.png" },
