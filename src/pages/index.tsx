@@ -498,6 +498,14 @@ export default function Home() {
     heavy: boolean;
   }
 
+  interface ItemFilterWeaponSkills {
+    axe: boolean;
+    blunt: boolean;
+    shortBlade: boolean;
+    longBlade: boolean;
+    marksman: boolean;
+  }
+
   interface ItemFilter {
     name: string | null;
     slots: ItemFilterSlots;
