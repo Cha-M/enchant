@@ -321,7 +321,7 @@ export const items: Record<string, Item> = {
   "Steel Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Steel_Helm.png" },
   "Imperial Templar Helmet": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Imperial_Templar_Helmet.png" },
   "Daedric Face of God": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_God.png" },
-  "Daedric Face of Inspiration": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_Insperation.png" },
+  "Daedric Face of Inspiration": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_Inspiration.png" },
   "Daedric Face of Terror": { enchantPoints: 75, slot: "Helm", icon: "/icons/items/Daedric_Face_of_Terror.png" },
   "Nordic Iron Helm": { enchantPoints: 25, slot: "Helm", icon: "/icons/items/Nordic_Iron_Helm.png" },
   "Nordic Trollbone Helm": { enchantPoints: 20, slot: "Helm", icon: "/icons/items/Nordic_Trollbone_Helm.png" },
