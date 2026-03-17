@@ -1883,8 +1883,16 @@ export const items: Record<string, Item> = {
     icon: "/icons/items/Gold_Armor_Pauldron.png",
   },
   // Armour (Tribunal)
-  "Dark Brotherhood Helm": { enchantPoints: 17.5, slot: "Helm", icon: "/icons/items/Dark_Brotherhood_Helm.png" },
-  "Dark Brotherhood Cuirass": { enchantPoints: 10, slot: "Cuirass", icon: "/icons/items/Dark_Brotherhood_Cuirass.png" },
+  "Dark Brotherhood Helm": {
+    enchantPoints: 17.5,
+    slot: "Helm",
+    icon: "/icons/items/Dark_Brotherhood_Helm.png",
+  },
+  "Dark Brotherhood Cuirass": {
+    enchantPoints: 10,
+    slot: "Cuirass",
+    icon: "/icons/items/Dark_Brotherhood_Cuirass.png",
+  },
   "Dark Brotherhood Left Pauldron": {
     enchantPoints: 1.2,
     slot: "Left Pauldron",
@@ -1895,8 +1903,16 @@ export const items: Record<string, Item> = {
     slot: "Right Pauldron",
     icon: "/icons/items/Dark_Brotherhood_Pauldron.png",
   },
-  "Dark Brotherhood Greaves": { enchantPoints: 5, slot: "Greaves", icon: "/icons/items/Dark_Brotherhood_Greaves.png" },
-  "Dark Brotherhood Boots": { enchantPoints: 3, slot: "Boots", icon: "/icons/items/Dark_Brotherhood_Boots.png" },
+  "Dark Brotherhood Greaves": {
+    enchantPoints: 5,
+    slot: "Greaves",
+    icon: "/icons/items/Dark_Brotherhood_Greaves.png",
+  },
+  "Dark Brotherhood Boots": {
+    enchantPoints: 3,
+    slot: "Boots",
+    icon: "/icons/items/Dark_Brotherhood_Boots.png",
+  },
   "Dark Brotherhood Left Gauntlet": {
     enchantPoints: 10,
     slot: "Left Gauntlet",
@@ -1907,10 +1923,26 @@ export const items: Record<string, Item> = {
     slot: "Right Gauntlet",
     icon: "/icons/items/Dark_Brotherhood_Gauntlet.png",
   },
-  "Goblin Buckler": { enchantPoints: 10, slot: "Shield", icon: "/icons/items/Goblin_Buckler.png" },
-  "Adamantium Helm": { enchantPoints: 50, slot: "Helm", icon: "/icons/items/Adamantium_Helm.png" },
-  "Royal Guard Helm": { enchantPoints: 30, slot: "Helm", icon: "/icons/items/Royal_Guard_Helm.png" },
-  "Royal Guard Cuirass": { enchantPoints: 25, slot: "Cuirass", icon: "/icons/items/Royal_Guard_Cuirass.png" },
+  "Goblin Buckler": {
+    enchantPoints: 10,
+    slot: "Shield",
+    icon: "/icons/items/Goblin_Buckler.png",
+  },
+  "Adamantium Helm": {
+    enchantPoints: 50,
+    slot: "Helm",
+    icon: "/icons/items/Adamantium_Helm.png",
+  },
+  "Royal Guard Helm": {
+    enchantPoints: 30,
+    slot: "Helm",
+    icon: "/icons/items/Royal_Guard_Helm.png",
+  },
+  "Royal Guard Cuirass": {
+    enchantPoints: 25,
+    slot: "Cuirass",
+    icon: "/icons/items/Royal_Guard_Cuirass.png",
+  },
   "Royal Guard Left Pauldron": {
     enchantPoints: 3,
     slot: "Left Pauldron",
@@ -1920,10 +1952,17 @@ export const items: Record<string, Item> = {
     enchantPoints: 3,
     slot: "Right Pauldron",
     icon: "/icons/items/Royal_Guard_Pauldron.png",
-
   },
-  "Royal Guard Greaves": { enchantPoints: 4, slot: "Greaves", icon: "/icons/items/Royal_Guard_Greaves.png" },
-  "Royal Guard Boots": { enchantPoints: 15, slot: "Boots", icon: "/icons/items/Royal_Guard_Boots.png" },
+  "Royal Guard Greaves": {
+    enchantPoints: 4,
+    slot: "Greaves",
+    icon: "/icons/items/Royal_Guard_Greaves.png",
+  },
+  "Royal Guard Boots": {
+    enchantPoints: 15,
+    slot: "Boots",
+    icon: "/icons/items/Royal_Guard_Boots.png",
+  },
   "Royal Guard Left Gauntlet": {
     enchantPoints: 12,
     slot: "Left Gauntlet",
@@ -1933,18 +1972,57 @@ export const items: Record<string, Item> = {
     enchantPoints: 12,
     slot: "Right Gauntlet",
     icon: "/icons/items/Royal_Guard_Gauntlet.png",
-  
   },
-  "Dwemer Battle Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Dwemer_Battle_Shield.png" },
-  "Her Hand's Helmet": { enchantPoints: 65, slot: "Helm", icon: "/icons/items/Her_Hand's_Helmet.png" },
-  "Her Hand's Cuirass": { enchantPoints: 55, slot: "Cuirass", icon: "/icons/items/Her_Hand's_Cuirass.png" },
-  "Her Hand's Left Pauldron": { enchantPoints: 5, slot: "Left Pauldron", icon: "/icons/items/Her_Hand's_Pauldron.png" },
-  "Her Hand's Right Pauldron": { enchantPoints: 5, slot: "Right Pauldron", icon: "/icons/items/Her_Hand's_Pauldron.png" },
-  "Her Hand's Greaves": { enchantPoints: 6, slot: "Greaves", icon: "/icons/items/Her_Hand's_Greaves.png" },
-  "Her Hand's Boots": { enchantPoints: 20, slot: "Boots", icon: "/icons/items/Her_Hand's_Boots.png" },
-  "Her Hand's Left Gauntlet": { enchantPoints: 50, slot: "Left Gauntlet", icon: "/icons/items/Her_Hand's_Gauntlet.png" },
-  "Her Hand's Right Gauntlet": { enchantPoints: 50, slot: "Right Gauntlet", icon: "/icons/items/Her_Hand's_Gauntlet.png" },
-  "Her Hand's Shield": { enchantPoints: 50, slot: "Shield", icon: "/icons/items/Her_Hand's_Shield.png" },
+  "Dwemer Battle Shield": {
+    enchantPoints: 50,
+    slot: "Shield",
+    icon: "/icons/items/Dwemer_Battle_Shield.png",
+  },
+  "Her Hand's Helmet": {
+    enchantPoints: 65,
+    slot: "Helm",
+    icon: "/icons/items/Her_Hand's_Helmet.png",
+  },
+  "Her Hand's Cuirass": {
+    enchantPoints: 55,
+    slot: "Cuirass",
+    icon: "/icons/items/Her_Hand's_Cuirass.png",
+  },
+  "Her Hand's Left Pauldron": {
+    enchantPoints: 5,
+    slot: "Left Pauldron",
+    icon: "/icons/items/Her_Hand's_Pauldron.png",
+  },
+  "Her Hand's Right Pauldron": {
+    enchantPoints: 5,
+    slot: "Right Pauldron",
+    icon: "/icons/items/Her_Hand's_Pauldron.png",
+  },
+  "Her Hand's Greaves": {
+    enchantPoints: 6,
+    slot: "Greaves",
+    icon: "/icons/items/Her_Hand's_Greaves.png",
+  },
+  "Her Hand's Boots": {
+    enchantPoints: 20,
+    slot: "Boots",
+    icon: "/icons/items/Her_Hand's_Boots.png",
+  },
+  "Her Hand's Left Gauntlet": {
+    enchantPoints: 50,
+    slot: "Left Gauntlet",
+    icon: "/icons/items/Her_Hand's_Gauntlet.png",
+  },
+  "Her Hand's Right Gauntlet": {
+    enchantPoints: 50,
+    slot: "Right Gauntlet",
+    icon: "/icons/items/Her_Hand's_Gauntlet.png",
+  },
+  "Her Hand's Shield": {
+    enchantPoints: 50,
+    slot: "Shield",
+    icon: "/icons/items/Her_Hand's_Shield.png",
+  },
   // Weapons (Tribunal)
   "Admantium Axe": { enchantPoints: 10, slot: "Weapon" },
   "Adamantium Claymore": { enchantPoints: 15, slot: "Weapon" },
@@ -1962,7 +2040,11 @@ export const items: Record<string, Item> = {
   // "Common Pants (Tribunal)": { enchantPoints: 2 },
   // "Expensive Pants (Tribunal)": { enchantPoints: 7.5 },
   // "Common Shirt (Tribunal)": { enchantPoints: 2 },
-  "Expensive Shirt (Tribunal)": { enchantPoints: 10 },
+  "Expensive Shirt (Tribunal)": {
+    enchantPoints: 10,
+    slot: "Shirt",
+    icon: "/icons/items/Expensive_Shirt_Mournhold.png",
+  },
   // "Common Shoes (Tribunal)": { enchantPoints: 1 },
   // "Expensive Shoes (Tribunal)": { enchantPoints: 5 },
   // "Common Skirt (Tribunal)": { enchantPoints: 2 },
