@@ -468,7 +468,16 @@ export default function Home() {
     // - and + buttons
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
+  const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
+
+  interface ItemFilter {
+    name: string;
+    slot: string;
+    armourType: string;
+  }
+
+  const [itemFilter, setItemFilter] = useState("");
 
   return (
     <div className="min-h-screen pl-35 pt-10">
@@ -673,7 +682,6 @@ export default function Home() {
                       {/* ...and make the table a minwidth */}
                       {/* ...and alphabetic sort before enchant points so ordered */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
-                        
                         {effect !== "" ? (
                           <Image
                             src={effects[effect].icon}
@@ -1004,21 +1012,21 @@ export default function Home() {
               }
               className="px-4 py-2"
               onClick={() => {
-                setIsModalOpen(true);
+                setIsItemsModalOpen(true);
               }}
             >
               View items
             </button>
           </div>
         )}
-        {isModalOpen && (
+        {isItemsModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
                 <button
                   className="px-2 py-1 my-1"
-                  onClick={() => setIsModalOpen(false)}
+                  onClick={() => setIsItemsModalOpen(false)}
                 >
                   🗙
                 </button>
@@ -1028,16 +1036,17 @@ export default function Home() {
               ) ? (
                 <div>
                   <button className="px-4 py-2 mb-2">Filter</button>
-                  <div>{Object.entries(items).length} items in total.</div>
+                  {/* <div>{Object.entries(items).length} items in total.</div> */}
                   <table className="w-full">
                     <thead>
                       <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-                        <td/>
+                        <td />
                         <td>Name</td>
                         <td>Enchant Points</td>
                       </tr>
                     </thead>
                     {Object.entries(items)
+                      .sort()
                       .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
                       .filter(
                         ([, itemData]) => itemData.enchantPoints >= totalCost,
@@ -1063,6 +1072,23 @@ export default function Home() {
               ) : (
                 <div>No items have enough points for this enchantment.</div>
               )}
+            </div>
+          </div>
+        )}
+        {isFilterModalOpen && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
+              <div className="flex justify-between items-start">
+                <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
+                <button
+                  className="px-2 py-1 my-1"
+                  onClick={() => setIsFilterModalOpen(false)}
+                >
+                  🗙
+                </button>
+              </div>
+              {/* Filter options would go here */}
+              <div>Filter options coming soon!</div>
             </div>
           </div>
         )}
