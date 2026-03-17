@@ -505,7 +505,7 @@ export const items: Record<string, Item> = {
   // Weapons (Base)
   "Chitin War Axe": { enchantPoints: 2.5, slot: "Weapon", icon: "/icons/items/Chitin_War_Axe.png"},
   "Iron War Axe": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Iron_War_Axe.png" },
-  "Steel Axe": { enchantPoints: 4.5, slot: "Weapon", icon: "/icons/items/Steel_Axe.png" },
+  "Steel Axe": { enchantPoints: 4.5, slot: "Weapon", icon: "/icons/items/Steel_War_Axe.png" },
   "Steel War Axe": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Steel_War_Axe.png" },
   "Silver War Axe": { enchantPoints: 4, slot: "Weapon", icon: "/icons/items/Silver_War_Axe.png" },
   "Dwarven War Axe": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Dwarven_War_Axe.png" },
@@ -567,7 +567,7 @@ export const items: Record<string, Item> = {
   "Iron Broadsword": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Iron_Broadsword.png" },
   "Iron Longsword": { enchantPoints: 6, slot: "Weapon", icon: "/icons/items/Iron_Longsword.png" },
   "Steel Saber": { enchantPoints: 5.5, slot: "Weapon", icon: "/icons/items/Steel_Saber.png" },
-  "Steel Broadsword": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Steel_Broadsword.png" },
+  "Steel Broadsword": { enchantPoints: 5, slot: "Weapon", icon: "/icons/items/Imperial_Broadsword.png" },
   "Imperial Broadsword": { enchantPoints: 7, slot: "Weapon", icon: "/icons/items/Imperial_Broadsword.png" },
   "Steel Longsword": { enchantPoints: 6, slot: "Weapon", icon: "/icons/items/Steel_Longsword.png" },
   "Nordic Broadsword": { enchantPoints: 6, slot: "Weapon", icon: "/icons/items/Nordic_Broadsword.png" },
