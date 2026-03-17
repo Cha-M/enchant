@@ -2024,18 +2024,66 @@ export const items: Record<string, Item> = {
     icon: "/icons/items/Her_Hand's_Shield.png",
   },
   // Weapons (Tribunal)
-  "Admantium Axe": { enchantPoints: 10, slot: "Weapon" },
-  "Adamantium Claymore": { enchantPoints: 15, slot: "Weapon" },
-  "Adamantium Mace": { enchantPoints: 10, slot: "Weapon" },
-  "Adamantium Shortsword": { enchantPoints: 6, slot: "Weapon" },
-  "Adamantium Spear": { enchantPoints: 8, slot: "Weapon" },
-  "A Carved Ebony Dart": { enchantPoints: 3, slot: "Weapon" },
-  "Dwarven Dart": { enchantPoints: 10, slot: "Weapon" },
-  "Spring Dart": { enchantPoints: 1.5, slot: "Weapon" },
-  "Fine Spring Dart": { enchantPoints: 1.5, slot: "Weapon" },
-  "Ebony Scimitar": { enchantPoints: 80, slot: "Weapon" },
-  "Goblin Sword": { enchantPoints: 5, slot: "Weapon" },
-  "Goblin Club": { enchantPoints: 10, slot: "Weapon" },
+  "Admantium Axe": {
+    enchantPoints: 10,
+    slot: "Weapon",
+    icon: "/icons/items/Adamantium_Axe.png",
+  },
+  "Adamantium Claymore": {
+    enchantPoints: 15,
+    slot: "Weapon",
+    icon: "/icons/items/Adamantium_Claymore.png",
+  },
+  "Adamantium Mace": {
+    enchantPoints: 10,
+    slot: "Weapon",
+    icon: "/icons/items/Adamantium_Mace.png",
+  },
+  "Adamantium Shortsword": {
+    enchantPoints: 6,
+    slot: "Weapon",
+    icon: "/icons/items/Adamantium_Shortsword.png",
+  },
+  "Adamantium Spear": {
+    enchantPoints: 8,
+    slot: "Weapon",
+    icon: "/icons/items/Adamantium_Spear.png",
+  },
+  "A Carved Ebony Dart": {
+    enchantPoints: 3,
+    slot: "Weapon",
+    icon: "/icons/items/Ebony_Dart.png",
+  },
+  "Dwarven Dart": {
+    enchantPoints: 10,
+    slot: "Weapon",
+    icon: "/icons/items/Dwarven_Dart.png",
+  },
+  "Spring Dart": {
+    enchantPoints: 1.5,
+    slot: "Weapon",
+    icon: "/icons/items/Steel_Dart.png",
+  },
+  "Fine Spring Dart": {
+    enchantPoints: 1.5,
+    slot: "Weapon",
+    icon: "/icons/items/Steel_Dart.png",
+  },
+  "Ebony Scimitar": {
+    enchantPoints: 80,
+    slot: "Weapon",
+    icon: "/icons/items/Ebony_Scimitar.png",
+  },
+  "Goblin Sword": {
+    enchantPoints: 5,
+    slot: "Weapon",
+    icon: "/icons/items/Goblin_Sword.png",
+  },
+  "Goblin Club": {
+    enchantPoints: 10,
+    slot: "Weapon",
+    icon: "/icons/items/Goblin_Club.png",
+  },
   // Clothing (Tribunal)
   // "Common Pants (Tribunal)": { enchantPoints: 2 },
   // "Expensive Pants (Tribunal)": { enchantPoints: 7.5 },
