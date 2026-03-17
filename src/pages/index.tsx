@@ -500,13 +500,13 @@ export default function Home() {
 
   interface ItemFilter {
     name: string | null;
-    slot: ItemFilterSlots;
+    slots: ItemFilterSlots;
     armourWeight: ItemFilterArmourWeights;
   }
 
   const [itemFilter, setItemFilter] = useState<ItemFilter>({
     name: null,
-    slot: {
+    slots: {
       helm: true,
       cuirass: true,
       greaves: true,
@@ -1112,8 +1112,7 @@ export default function Home() {
                       )
                       .filter(
                         ([, itemData]) =>
-                          itemData.slot === itemFilter.slot ||
-                          itemFilter.slot === null,
+                          itemData.slot && itemData.slot in itemFilter.slots,
                       )
                       // this should not be run always to check null, should be a decision made before to filter or not based on slot
                       .map(([itemName, itemData]) => (
