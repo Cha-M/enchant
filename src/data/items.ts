@@ -1,3 +1,23 @@
+export const itemKeySlotPairs: [string, string][]= [
+  ["helm", "Helm"],
+  ["cuirass", "Cuirass"],
+  ["greaves", "Greaves"],
+  ["boots", "Boots"],
+  ["shield", "Shield"],
+  ["leftGauntlet", "Left Gauntlet"],
+  ["rightGauntlet", "Right Gauntlet"],
+  ["leftPauldron", "Left Pauldron"],
+  ["rightPauldron", "Right Pauldron"],
+  ["amulet", "Amulet"],
+  ["ring", "Ring"],
+  ["robe", "Robe"],
+  ["shirt", "Shirt"],
+  ["pants", "Pants"],
+  ["skirt", "Skirt"],
+  ["weapon", "Weapon"],
+  ["belt", "Belt"],
+];
+
 export interface Item {
   enchantPoints: number;
   icon?: string; // Will not be optional in future

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
-import { items } from "@/data/items";
+import { itemKeySlotPairs, items } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
 
@@ -1173,363 +1173,31 @@ export default function Home() {
                 </button>
               </div>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                <div key={"helm"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-helm`}
-                    checked={itemFilter.slots["helm" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["helm" as keyof ItemFilterSlots]:
-                            !prev.slots["helm" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-helm`}>Helm</label>
-                </div>
-                <div key={"cuirass"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-cuirass`}
-                    checked={
-                      itemFilter.slots["cuirass" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["cuirass" as keyof ItemFilterSlots]:
-                            !prev.slots["cuirass" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-cuirass`}>Cuirass</label>
-                </div>
-                <div key={"greaves"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-greaves`}
-                    checked={
-                      itemFilter.slots["greaves" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["greaves" as keyof ItemFilterSlots]:
-                            !prev.slots["greaves" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-greaves`}>Greaves</label>
-                </div>
-                <div key={"boots"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-boots`}
-                    checked={itemFilter.slots["boots" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["boots" as keyof ItemFilterSlots]:
-                            !prev.slots["boots" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-boots`}>Boots</label>
-                </div>
-                <div key={"shield"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-shield`}
-                    checked={
-                      itemFilter.slots["shield" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["shield" as keyof ItemFilterSlots]:
-                            !prev.slots["shield" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-shield`}>Shield</label>
-                </div>
-                <div key={"leftGauntlet"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-leftGauntlet`}
-                    checked={
-                      itemFilter.slots["leftGauntlet" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["leftGauntlet" as keyof ItemFilterSlots]:
-                            !prev.slots[
-                              "leftGauntlet" as keyof ItemFilterSlots
-                            ],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-leftGauntlet`}>
-                    Left Gauntlet
-                  </label>
-                </div>
-                <div key={"rightGauntlet"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-rightGauntlet`}
-                    checked={
-                      itemFilter.slots["rightGauntlet" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["rightGauntlet" as keyof ItemFilterSlots]:
-                            !prev.slots[
-                              "rightGauntlet" as keyof ItemFilterSlots
-                            ],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-rightGauntlet`}>
-                    Right Gauntlet
-                  </label>
-                </div>
-                <div key={"leftPauldron"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-leftPauldron`}
-                    checked={
-                      itemFilter.slots["leftPauldron" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["leftPauldron" as keyof ItemFilterSlots]:
-                            !prev.slots[
-                              "leftPauldron" as keyof ItemFilterSlots
-                            ],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-leftPauldron`}>
-                    Left Pauldron
-                  </label>
-                </div>
-                <div key={"rightPauldron"} className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-rightPauldron`}
-                    checked={
-                      itemFilter.slots["rightPauldron" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["rightPauldron" as keyof ItemFilterSlots]:
-                            !prev.slots[
-                              "rightPauldron" as keyof ItemFilterSlots
-                            ],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-rightPauldron`}>
-                    Right Pauldron
-                  </label>
-                </div>
-                <div key="amulet" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-amulet`}
-                    checked={
-                      itemFilter.slots["amulet" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["amulet" as keyof ItemFilterSlots]:
-                            !prev.slots["amulet" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-amulet`}>Amulet</label>
-                </div>
-                <div key="ring" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-ring`}
-                    checked={itemFilter.slots["ring" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["ring" as keyof ItemFilterSlots]:
-                            !prev.slots["ring" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-ring`}>Ring</label>
-                </div>
-                <div key="robe" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-robe`}
-                    checked={itemFilter.slots["robe" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["robe" as keyof ItemFilterSlots]:
-                            !prev.slots["robe" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-robe`}>Robe</label>
-                </div>
-                <div key="shirt" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-shirt`}
-                    checked={itemFilter.slots["shirt" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["shirt" as keyof ItemFilterSlots]:
-                            !prev.slots["shirt" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-shirt`}>Shirt</label>
-                </div>
-                <div key="pants" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-pants`}
-                    checked={itemFilter.slots["pants" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["pants" as keyof ItemFilterSlots]:
-                            !prev.slots["pants" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-pants`}>Pants</label>
-                </div>
-                <div key="skirt" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-skirt`}
-                    checked={itemFilter.slots["skirt" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["skirt" as keyof ItemFilterSlots]:
-                            !prev.slots["skirt" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-skirt`}>Skirt</label>
-                </div>
-                <div key="weapon" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-weapon`}
-                    checked={
-                      itemFilter.slots["weapon" as keyof ItemFilterSlots]
-                    }
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["weapon" as keyof ItemFilterSlots]:
-                            !prev.slots["weapon" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-weapon`}>Weapon</label>
-                </div>
-                <div key="belt" className="flex items-center">
-                  <input
-                    type="checkbox"
-                    id={`filter-slot-belt`}
-                    checked={itemFilter.slots["belt" as keyof ItemFilterSlots]}
-                    onChange={() => {
-                      setItemFilter((prev) => ({
-                        ...prev,
-                        slots: {
-                          ...prev.slots,
-                          ["belt" as keyof ItemFilterSlots]:
-                            !prev.slots["belt" as keyof ItemFilterSlots],
-                        },
-                      }));
-                    }}
-                    className="mr-2"
-                  />
-                  <label htmlFor={`filter-slot-belt`}>Belt</label>
-                </div>
+                {itemKeySlotPairs.map(([slotKey, slotLabel]) => (
+                  <div key={slotKey} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id={`filter-slot-${slotKey}`}
+                      checked={
+                        itemFilter.slots[slotKey as keyof ItemFilterSlots]
+                      }
+                      onChange={() => {
+                        setItemFilter((prev) => ({
+                          ...prev,
+                          slots: {
+                            ...prev.slots,
+                            [slotKey as keyof ItemFilterSlots]:
+                              !prev.slots[slotKey as keyof ItemFilterSlots],
+                          },
+                        }));
+                      }}
+                      className="mr-2"
+                    />
+                    <label htmlFor={`filter-slot-${slotKey}`}>
+                      {slotLabel}
+                    </label>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
