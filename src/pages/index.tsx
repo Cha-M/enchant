@@ -4,6 +4,7 @@ import { effects, targetMultipliers } from "@/data/effects";
 import {
   itemArmourWeightKeyLabelPairs,
   itemSlotKeyLabelPairs,
+  itemWeaponSkillKeyLabelPairs,
   items,
 } from "@/data/items";
 // import next from "next";
@@ -1078,6 +1079,20 @@ export default function Home() {
                             itemData.slot as keyof ItemFilterSlots
                           ],
                       )
+                      .filter(
+                        ([, itemData]) =>
+                          !itemData.armourWeight ||
+                          itemFilter.armourWeight[
+                            itemData.armourWeight as keyof ItemFilterArmourWeights
+                          ],
+                      )
+                      .filter(
+                        ([, itemData]) =>
+                          !itemData.weaponSkill ||
+                          itemFilter.weaponSkills[
+                            itemData.weaponSkill as keyof ItemFilterWeaponSkills
+                          ],
+                      )
                       .map(([itemName, itemData]) => (
                         <tr key={itemName}>
                           <td className="pr-2">
@@ -1168,6 +1183,37 @@ export default function Home() {
                       />
                       <label htmlFor={`filter-weight-${weightKey}`}>
                         {weightLabel}
+                      </label>
+                    </div>
+                  ),
+                )}
+                {itemWeaponSkillKeyLabelPairs.map(
+                  ([weaponSkillKey, weaponSkillLabel]) => (
+                    <div key={weaponSkillKey} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`filter-weapon-skill-${weaponSkillKey}`}
+                        checked={
+                          itemFilter.weaponSkills[
+                            weaponSkillKey as keyof ItemFilterWeaponSkills
+                          ]
+                        }
+                        onChange={() => {
+                          setItemFilter((prev) => ({
+                            ...prev,
+                            weaponSkills: {
+                              ...prev.weaponSkills,
+                              [weaponSkillKey as keyof ItemFilterWeaponSkills]:
+                                !prev.weaponSkills[
+                                  weaponSkillKey as keyof ItemFilterWeaponSkills
+                                ],
+                            },
+                          }));
+                        }}
+                        className="mr-2"
+                      />
+                      <label htmlFor={`filter-weapon-skill-${weaponSkillKey}`}>
+                        {weaponSkillLabel}
                       </label>
                     </div>
                   ),
