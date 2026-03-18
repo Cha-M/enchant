@@ -1,4 +1,4 @@
-export const itemKeySlotPairs: [string, string][]= [
+export const itemSlotKeyLabelPairs: [string, string][] = [
   ["helm", "Helm"],
   ["cuirass", "Cuirass"],
   ["greaves", "Greaves"],
@@ -16,6 +16,21 @@ export const itemKeySlotPairs: [string, string][]= [
   ["skirt", "Skirt"],
   ["weapon", "Weapon"],
   ["belt", "Belt"],
+];
+
+export const itemArmourWeightClassKeyLabelPairs: [string, string][] = [
+  ["light", "Light"],
+  ["medium", "Medium"],
+  ["heavy", "Heavy"],
+];
+
+export const itemWeaponSkillKeyLabelPairs: [string, string][] = [
+  ["axe", "Axe"],
+  ["blunt", "Blunt"],
+  ["shortBlade", "Short Blade"],
+  ["longBlade", "Long Blade"],
+  ["marksman", "Marksman"],
+  ["spear", "Spear"],
 ];
 
 export interface Item {
@@ -39,7 +54,7 @@ export interface Item {
     | "skirt"
     | "weapon"
     | "belt";
-  weightClass?: "light" | "medium" | "heavy";
+  armourWeightClass?: "light" | "medium" | "heavy";
   weaponSkill?:
     | "axe"
     | "blunt"
@@ -51,6 +66,7 @@ export interface Item {
 
 export const items: Record<string, Item> = {
   // Armour (Base)
+  // Light
   "Boiled Netch Leather Cuirass": {
     enchantPoints: 6,
     slot: "cuirass",
@@ -341,6 +357,7 @@ export const items: Record<string, Item> = {
     slot: "shield",
     icon: "/icons/items/Netch_Leather_Tower_Shield.png",
   },
+  // Medium
   "Nordic Ringmail Cuirass": {
     enchantPoints: 14,
     slot: "cuirass",
@@ -601,6 +618,7 @@ export const items: Record<string, Item> = {
     slot: "shield",
     icon: "/icons/items/Telvanni_Guard_Shield.png",
   },
+  // Heavy
   "Iron Cuirass": {
     enchantPoints: 20,
     slot: "cuirass",
@@ -1809,46 +1827,7 @@ export const items: Record<string, Item> = {
     icon: "/icons/items/Imperial_Templar_Skirt.png",
   },
   // Armour (Plugins)
-  "Adamantium Cuirass": {
-    enchantPoints: 30,
-    slot: "cuirass",
-    icon: "/icons/items/Adamantium_Cuirass.png",
-  },
-  "Adamantium Left Pauldron": {
-    enchantPoints: 3,
-    slot: "leftPauldron",
-    icon: "/icons/items/Adamantium_Pauldron.png",
-  },
-  "Adamantium Right Pauldron": {
-    enchantPoints: 10,
-    slot: "rightPauldron",
-    icon: "/icons/items/Adamantium_Pauldron.png",
-  },
-  "Adamantium Greaves": {
-    enchantPoints: 3,
-    slot: "greaves",
-    icon: "/icons/items/Adamantium_Greaves.png",
-  },
-  "Adamantium Boots": {
-    enchantPoints: 10,
-    slot: "boots",
-    icon: "/icons/items/Adamantium_Boots.png",
-  },
-  "Adamantium Left Bracer": {
-    enchantPoints: 10,
-    slot: "leftGauntlet",
-    icon: "/icons/items/Adamantium_Bracer.png",
-  },
-  "Adamantium Right Bracer": {
-    enchantPoints: 10,
-    slot: "rightGauntlet",
-    icon: "/icons/items/Adamantium_Bracer.png",
-  },
-  "Adamantium Helm of Tohan": {
-    enchantPoints: 150,
-    slot: "helm",
-    icon: "/icons/items/Adamantium_Helm.png",
-  },
+  // Light
   "Domina Cuirass": {
     enchantPoints: 12,
     slot: "cuirass",
@@ -1889,6 +1868,47 @@ export const items: Record<string, Item> = {
     slot: "rightGauntlet",
     icon: "/icons/items/Domina_Gauntlet.png",
   },
+  // Medium
+  "Adamantium Cuirass": {
+    enchantPoints: 30,
+    slot: "cuirass",
+    icon: "/icons/items/Adamantium_Cuirass.png",
+  },
+  "Adamantium Left Pauldron": {
+    enchantPoints: 3,
+    slot: "leftPauldron",
+    icon: "/icons/items/Adamantium_Pauldron.png",
+  },
+  "Adamantium Right Pauldron": {
+    enchantPoints: 10,
+    slot: "rightPauldron",
+    icon: "/icons/items/Adamantium_Pauldron.png",
+  },
+  "Adamantium Greaves": {
+    enchantPoints: 3,
+    slot: "greaves",
+    icon: "/icons/items/Adamantium_Greaves.png",
+  },
+  "Adamantium Boots": {
+    enchantPoints: 10,
+    slot: "boots",
+    icon: "/icons/items/Adamantium_Boots.png",
+  },
+  "Adamantium Left Bracer": {
+    enchantPoints: 10,
+    slot: "leftGauntlet",
+    icon: "/icons/items/Adamantium_Bracer.png",
+  },
+  "Adamantium Right Bracer": {
+    enchantPoints: 10,
+    slot: "rightGauntlet",
+    icon: "/icons/items/Adamantium_Bracer.png",
+  },
+  "Adamantium Helm of Tohan": {
+    enchantPoints: 150,
+    slot: "helm",
+    icon: "/icons/items/Adamantium_Helm.png",
+  },
   "Gold Armor Cuirass": {
     enchantPoints: 14,
     slot: "cuirass",
@@ -1910,6 +1930,7 @@ export const items: Record<string, Item> = {
     icon: "/icons/items/Gold_Armor_Pauldron.png",
   },
   // Armour (Tribunal)
+  // Light
   "Dark Brotherhood Helm": {
     enchantPoints: 17.5,
     slot: "helm",
@@ -1955,6 +1976,7 @@ export const items: Record<string, Item> = {
     slot: "shield",
     icon: "/icons/items/Goblin_Buckler.png",
   },
+  // Medium
   "Adamantium Helm": {
     enchantPoints: 50,
     slot: "helm",
@@ -2000,6 +2022,7 @@ export const items: Record<string, Item> = {
     slot: "rightGauntlet",
     icon: "/icons/items/Royal_Guard_Gauntlet.png",
   },
+  // Heavy
   "Dwemer Battle Shield": {
     enchantPoints: 50,
     slot: "shield",
@@ -2125,6 +2148,7 @@ export const items: Record<string, Item> = {
   // "Common Skirt (Tribunal)": { enchantPoints: 2 },
   // "Expensive Skirt (Tribunal)": { enchantPoints: 7.5 },
   // Armour (Bloodmoon)
+  // Light
   "Wolf Boots": {
     enchantPoints: 2,
     slot: "boots",
@@ -2175,6 +2199,7 @@ export const items: Record<string, Item> = {
     slot: "shield",
     icon: "/icons/items/Riekling_Shield.png",
   },
+  // Medium
   "Bear Boots": {
     enchantPoints: 2,
     slot: "boots",
@@ -2265,6 +2290,7 @@ export const items: Record<string, Item> = {
     slot: "shield",
     icon: "/icons/items/Ice_Shield.png",
   },
+  // Heavy
   "Nordic Mail Boots": {
     enchantPoints: 8.5,
     slot: "boots",
