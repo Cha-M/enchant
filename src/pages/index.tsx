@@ -1089,7 +1089,6 @@ export default function Home() {
                             itemData.slot as keyof ItemFilterSlots
                           ],
                       )
-                      // this should not be run always to check null, should be a decision made before to filter or not based on slot
                       .map(([itemName, itemData]) => (
                         <tr key={itemName}>
                           <td className="pr-2">
