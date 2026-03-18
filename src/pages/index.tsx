@@ -1128,7 +1128,7 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+              <div className="grid grid-cols-2 gap-x-8">
                 {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                   <div key={slotKey} className="flex items-center">
                     <input
@@ -1211,7 +1211,7 @@ export default function Home() {
                         className="mr-2"
                       /> */}
                       <button
-                        className="text-xl pt-[2px] border-none mr-2"
+                        className="text-xl mt-[2px] mr-1 border-none"
                         onMouseDown={(e) => e.preventDefault()}
                         id={`filter-weapon-skill-${weaponSkillKey}`}
                         onClick={() => {
