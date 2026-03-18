@@ -2,7 +2,7 @@ import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
 import {
-  itemArmourWeightClassKeyLabelPairs,
+  itemArmourWeightKeyLabelPairs,
   itemSlotKeyLabelPairs,
   items,
 } from "@/data/items";
@@ -1141,33 +1141,33 @@ export default function Home() {
                     </label>
                   </div>
                 ))}
-                {itemArmourWeightClassKeyLabelPairs.map(
-                  ([weightClassKey, weightClassLabel]) => (
-                    <div key={weightClassKey} className="flex items-center">
+                {itemArmourWeightKeyLabelPairs.map(
+                  ([weightKey, weightLabel]) => (
+                    <div key={weightKey} className="flex items-center">
                       <input
                         type="checkbox"
-                        id={`filter-weight-${weightClassKey}`}
+                        id={`filter-weight-${weightKey}`}
                         checked={
-                          itemFilter.slots[
-                            weightClassKey as keyof ItemFilterSlots
+                          itemFilter.armourWeight[
+                            weightKey as keyof ItemFilterArmourWeights
                           ]
                         }
                         onChange={() => {
                           setItemFilter((prev) => ({
                             ...prev,
-                            slots: {
-                              ...prev.slots,
-                              [weightClassKey as keyof ItemFilterSlots]:
-                                !prev.slots[
-                                  weightClassKey as keyof ItemFilterSlots
+                            armourWeight: {
+                              ...prev.armourWeight,
+                              [weightKey as keyof ItemFilterArmourWeights]:
+                                !prev.armourWeight[
+                                  weightKey as keyof ItemFilterArmourWeights
                                 ],
                             },
                           }));
                         }}
                         className="mr-2"
                       />
-                      <label htmlFor={`filter-weight-${weightClassKey}`}>
-                        {weightClassLabel}
+                      <label htmlFor={`filter-weight-${weightKey}`}>
+                        {weightLabel}
                       </label>
                     </div>
                   ),
