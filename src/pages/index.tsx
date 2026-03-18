@@ -1036,11 +1036,11 @@ export default function Home() {
         )}
         {isItemsModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
+            <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] min-w-[33vw] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
                 <button
-                  className="px-2 py-1 my-1"
+                  className="px-2 py-1"
                   onClick={() => setIsItemsModalOpen(false)}
                 >
                   🗙
@@ -1095,7 +1095,7 @@ export default function Home() {
                       )
                       .map(([itemName, itemData]) => (
                         <tr key={itemName}>
-                          <td className="pr-2">
+                          <td className="pr-1">
                             {itemData.icon && (
                               <Image
                                 src={itemData.icon}
@@ -1124,7 +1124,7 @@ export default function Home() {
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
-                  className="px-2 py-1 my-1"
+                  className="px-2 py-1"
                   onClick={() => setIsFilterModalOpen(false)}
                 >
                   🗙
