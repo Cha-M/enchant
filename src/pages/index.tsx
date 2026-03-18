@@ -1021,10 +1021,7 @@ export default function Home() {
               Sort by cost
             </button>
             <button
-              disabled={
-                rows.length < 1 ||
-                rows.some((row) => row.effect === "" || !row.target)
-              }
+              // disabled={rows.some((row) => row.effect === "" || !row.target)}
               className="px-4 py-2"
               onClick={() => {
                 setIsItemsModalOpen(true);
@@ -1036,7 +1033,7 @@ export default function Home() {
         )}
         {isItemsModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] min-w-[33vw] overflow-y-auto">
+            <div className="bg-stone-800 py-3 pl-4 pr-3 rounded-lg max-h-[80vh] min-w-[33vw] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
                 <button
@@ -1046,6 +1043,7 @@ export default function Home() {
                   🗙
                 </button>
               </div>
+              {/* need sorting controls for alphabetical and points */}
               {Object.entries(items).some(
                 ([, itemData]) => itemData.enchantPoints >= totalCost,
               ) ? (
@@ -1120,7 +1118,7 @@ export default function Home() {
         {/* Not sure if I want two modals */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
-            <div className="bg-stone-800 p-6 rounded-lg max-h-[80vh] overflow-y-auto">
+            <div className="bg-stone-800 py-3 pl-4 pr-3 rounded-lg max-h-[80vh] overflow-y-auto">
               <div className="flex justify-between items-start">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
@@ -1212,6 +1210,11 @@ export default function Home() {
                         }}
                         className="mr-2"
                       />
+                      <div className="text-xl pt-[2px]">
+                        {itemFilter.weaponSkills[
+                            weaponSkillKey as keyof ItemFilterWeaponSkills
+                          ] ? "☑" : "☐"}
+                      </div>
                       <label htmlFor={`filter-weapon-skill-${weaponSkillKey}`}>
                         {weaponSkillLabel}
                       </label>
