@@ -34,52 +34,7 @@ export default function Home() {
     engine: 1,
   });
 
-  const [rows, setRows] = useState<RowData[]>([
-    // {
-    //   min: 0,
-    //   max: 10,
-    //   duration: 2,
-    //   effect: "Absorb Attribute",
-    //   target: "Touch",
-    //   area: 1,
-    //   cost: 0,
-    //   multiplier: 1,
-    //   compoundedCost: 0,
-    // },
-    // {
-    //   min: 0,
-    //   max: 10,
-    //   duration: 2,
-    //   effect: "Absorb Fatigue",
-    //   target: "Touch",
-    //   area: 1,
-    //   cost: 0,
-    //   multiplier: 1,
-    //   compoundedCost: 0,
-    // },
-    // {
-    //   min: 0,
-    //   max: 10,
-    //   duration: 2,
-    //   effect: "Absorb Health",
-    //   target: "Touch",
-    //   area: 1,
-    //   cost: 0,
-    //   multiplier: 1,
-    //   compoundedCost: 0,
-    // },
-    // {
-    //   min: 0,
-    //   max: 10,
-    //   duration: 2,
-    //   effect: "Absorb Magicka",
-    //   target: "Touch",
-    //   area: 1,
-    //   cost: 0,
-    //   multiplier: 1,
-    //   compoundedCost: 0,
-    // },
-  ]);
+  const [rows, setRows] = useState<RowData[]>([] as RowData[]);
   // const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
 
   const calculateRowCost = useCallback((row: RowData): number | null => {
