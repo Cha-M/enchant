@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
-import { itemSlotKeyLabelPairs, items } from "@/data/items";
+import { itemArmourWeightClassKeyLabelPairs, itemSlotKeyLabelPairs, items } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
 
@@ -506,7 +506,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen pl-35 pt-10">
-      {/* <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20"> */}
       <Head>
         <title>Morrowind Enchantment Explorer</title>
       </Head>
@@ -628,17 +627,6 @@ export default function Home() {
         <table className="ml-[24px]">
           <thead>
             <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
-              {/* <td/>
-              <td>Effect</td>
-              <td>Target</td>
-              <td>Min</td>
-              <td>Max</td>
-              <td>Duration</td>
-              <td>Area</td>
-              <td>Cost</td>
-              <td>Multiplier</td>
-              <td className="whitespace-nowrap">Compounded Cost</td>
-              <td /> */}
               <td className="w-6" />
               <td className="w-65">Effect</td>
               <td className="w-33">Target</td>
@@ -686,7 +674,6 @@ export default function Home() {
                         ▲
                       </button>
                       <button
-                        //not working
                         disabled={index === rows.length - 1}
                         className="mb-[2px] border-none"
                         onMouseDown={(e) => e.preventDefault()}
@@ -705,7 +692,6 @@ export default function Home() {
                       {/* Need to fix the totalcost being 0 when there is an effect without a max, it should be invalid */}
                       {/* Need to fix so it's the table scrollable with the header staying in place and prob the the filter button at the bottom */}
                       {/* ...and make the table a minwidth */}
-                      {/* ...and alphabetic sort before enchant points so ordered */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         {effect !== "" ? (
                           <Image
@@ -811,7 +797,6 @@ export default function Home() {
                     </td>
                     <td className="pl-1">
                       {effects[effect]?.hasMagnitude ? (
-                        // min needs to be less than or equal to max
                         <input
                           id={`min-${index}`}
                           type="number"
@@ -1149,6 +1134,31 @@ export default function Home() {
                     />
                     <label htmlFor={`filter-slot-${slotKey}`}>
                       {slotLabel}
+                    </label>
+                  </div>
+                ))}
+                {itemArmourWeightClassKeyLabelPairs.map(([weightClassKey, weightClassLabel]) => (
+                  <div key={weightClassKey} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      id={`filter-weight-${weightClassKey}`}
+                      checked={
+                        itemFilter.slots[weightClassKey as keyof ItemFilterSlots]
+                      }
+                      onChange={() => {
+                        setItemFilter((prev) => ({
+                          ...prev,
+                          slots: {
+                            ...prev.slots,
+                            [weightClassKey as keyof ItemFilterSlots]:
+                              !prev.slots[weightClassKey as keyof ItemFilterSlots],
+                          },
+                        }));
+                      }}
+                      className="mr-2"
+                    />
+                    <label htmlFor={`filter-weight-${weightClassKey}`}>
+                      {weightClassLabel}
                     </label>
                   </div>
                 ))}
