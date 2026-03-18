@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
-import { itemArmourWeightClassKeyLabelPairs, itemSlotKeyLabelPairs, items } from "@/data/items";
+import {
+  itemArmourWeightClassKeyLabelPairs,
+  itemSlotKeyLabelPairs,
+  items,
+} from "@/data/items";
 // import next from "next";
 import Head from "next/head";
 
@@ -1137,31 +1141,37 @@ export default function Home() {
                     </label>
                   </div>
                 ))}
-                {itemArmourWeightClassKeyLabelPairs.map(([weightClassKey, weightClassLabel]) => (
-                  <div key={weightClassKey} className="flex items-center">
-                    <input
-                      type="checkbox"
-                      id={`filter-weight-${weightClassKey}`}
-                      checked={
-                        itemFilter.slots[weightClassKey as keyof ItemFilterSlots]
-                      }
-                      onChange={() => {
-                        setItemFilter((prev) => ({
-                          ...prev,
-                          slots: {
-                            ...prev.slots,
-                            [weightClassKey as keyof ItemFilterSlots]:
-                              !prev.slots[weightClassKey as keyof ItemFilterSlots],
-                          },
-                        }));
-                      }}
-                      className="mr-2"
-                    />
-                    <label htmlFor={`filter-weight-${weightClassKey}`}>
-                      {weightClassLabel}
-                    </label>
-                  </div>
-                ))}
+                {itemArmourWeightClassKeyLabelPairs.map(
+                  ([weightClassKey, weightClassLabel]) => (
+                    <div key={weightClassKey} className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id={`filter-weight-${weightClassKey}`}
+                        checked={
+                          itemFilter.slots[
+                            weightClassKey as keyof ItemFilterSlots
+                          ]
+                        }
+                        onChange={() => {
+                          setItemFilter((prev) => ({
+                            ...prev,
+                            slots: {
+                              ...prev.slots,
+                              [weightClassKey as keyof ItemFilterSlots]:
+                                !prev.slots[
+                                  weightClassKey as keyof ItemFilterSlots
+                                ],
+                            },
+                          }));
+                        }}
+                        className="mr-2"
+                      />
+                      <label htmlFor={`filter-weight-${weightClassKey}`}>
+                        {weightClassLabel}
+                      </label>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </div>
