@@ -1210,11 +1210,29 @@ export default function Home() {
                         }}
                         className="mr-2"
                       />
-                      <div className="text-xl pt-[2px]">
+                      <button
+                        className="text-xl pt-[2px] border-none mr-2"
+                        onMouseDown={(e) => e.preventDefault()}
+                        id={`filter-weapon-skill-${weaponSkillKey}`}
+                        onClick={() => {
+                          setItemFilter((prev) => ({
+                            ...prev,
+                            weaponSkills: {
+                              ...prev.weaponSkills,
+                              [weaponSkillKey as keyof ItemFilterWeaponSkills]:
+                                !prev.weaponSkills[
+                                  weaponSkillKey as keyof ItemFilterWeaponSkills
+                                ],
+                            },
+                          }));
+                        }}
+                      >
                         {itemFilter.weaponSkills[
-                            weaponSkillKey as keyof ItemFilterWeaponSkills
-                          ] ? "☑" : "☐"}
-                      </div>
+                          weaponSkillKey as keyof ItemFilterWeaponSkills
+                        ]
+                          ? "☑"
+                          : "☐"}
+                      </button>
                       <label htmlFor={`filter-weapon-skill-${weaponSkillKey}`}>
                         {weaponSkillLabel}
                       </label>
