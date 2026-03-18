@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { JSX, useCallback, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
-import { itemKeySlotPairs, items } from "@/data/items";
+import { itemSlotKeyLabelPairs, items } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
 
@@ -1128,7 +1128,7 @@ export default function Home() {
                 </button>
               </div>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                {itemKeySlotPairs.map(([slotKey, slotLabel]) => (
+                {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                   <div key={slotKey} className="flex items-center">
                     <input
                       type="checkbox"
