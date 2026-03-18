@@ -1188,7 +1188,7 @@ export default function Home() {
                 {itemWeaponSkillKeyLabelPairs.map(
                   ([weaponSkillKey, weaponSkillLabel]) => (
                     <div key={weaponSkillKey} className="flex items-center">
-                      <input
+                      {/* <input
                         type="checkbox"
                         id={`filter-weapon-skill-${weaponSkillKey}`}
                         checked={
@@ -1209,7 +1209,7 @@ export default function Home() {
                           }));
                         }}
                         className="mr-2"
-                      />
+                      /> */}
                       <button
                         className="text-xl pt-[2px] border-none mr-2"
                         onMouseDown={(e) => e.preventDefault()}
