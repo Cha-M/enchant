@@ -926,7 +926,9 @@ export default function Home() {
                       )}
                     </td>
                     <td className="pl-1">
-                      {cost !== null ? cost?.toFixed(2) : "-"}
+                      {cost !== null
+                        ? cost?.toFixed(2).replace(/\.?0+$/, "")
+                        : "-"}
                     </td>
                     <td className="pl-1">{multiplier ? multiplier : "-"}</td>
                     <td className="pl-1">
