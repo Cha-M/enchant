@@ -140,6 +140,7 @@ export default function Home() {
         const newCompoundedCost =
           //newCost !== null ? Math.floor(newCost) * newMultiplier : null;
           //are these really floored?
+          //at some point...
           newCost !== null
             ? Math.floor(newCost * newMultiplier) >= 1
               ? Math.floor(newCost * newMultiplier)
@@ -1034,8 +1035,8 @@ export default function Home() {
         )}
         {isItemsModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-stone-800 py-3 pl-4 pr-3 rounded-lg max-h-[80vh] min-w-[33vw] overflow-y-auto">
-              <div className="flex justify-between items-start">
+            <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
+              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                 <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
                 <button
                   className="px-2 py-1"
@@ -1044,6 +1045,7 @@ export default function Home() {
                   🗙
                 </button>
               </div>
+              <div className="overflow-y-auto px-4 pb-3">
               {/* need sorting controls for alphabetical and points */}
               {Object.entries(items).some(
                 ([, itemData]) => itemData.enchantPoints >= totalCost,
@@ -1058,7 +1060,7 @@ export default function Home() {
                   {/* <div>{Object.entries(items).length} items in total.</div> */}
                   <table className="w-full">
                     <thead>
-                      <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
+                      <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
                         <td />
                         <td>Name</td>
                         <td>Enchant Points</td>
@@ -1113,14 +1115,15 @@ export default function Home() {
               ) : (
                 <div>No items have enough points for this enchantment.</div>
               )}
+              </div>
             </div>
           </div>
         )}
         {/* Not sure if I want two modals */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
-            <div className="bg-stone-800 py-3 pl-4 pr-3 rounded-lg max-h-[80vh] overflow-y-auto">
-              <div className="flex justify-between items-start">
+            <div className="bg-stone-800 rounded-lg max-h-[80vh] flex flex-col">
+              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
                   className="px-2 py-1"
@@ -1129,7 +1132,8 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-x-8">
+              <div className="overflow-y-auto pl-4 pr-3 pb-3">
+                <div className="grid grid-cols-2 gap-x-8">
                 {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                   <div key={slotKey} className="flex items-center">
                     <button
@@ -1230,6 +1234,7 @@ export default function Home() {
                     </div>
                   ),
                 )}
+                </div>
               </div>
             </div>
           </div>
