@@ -328,6 +328,8 @@ export default function Home() {
     // or it could be rounded-need check .49 and .50
     // () => rows.reduce((sum, item) => sum + item.compoundedCost!, 0)).toFixed(2),
     // looking at openmw there is a floor on the costs involved
+
+    //floor here instead?
     [rows],
   );
 
