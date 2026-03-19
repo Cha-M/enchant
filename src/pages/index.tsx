@@ -1205,6 +1205,16 @@ export default function Home() {
                                   weaponSkillKey as keyof ItemFilterWeaponSkills
                                 ],
                             },
+                            slots: {
+                              ...prev.slots,
+                              weapon:
+                                !prev.slots.weapon &&
+                                !prev.weaponSkills[
+                                  weaponSkillKey as keyof ItemFilterWeaponSkills
+                                ]
+                                  ? true
+                                  : prev.slots.weapon,
+                            },
                           }));
                         }}
                       >
