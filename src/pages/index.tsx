@@ -142,6 +142,8 @@ export default function Home() {
           //are these really floored?
           //at some point...
           //need to check whether it is floored differently cos with 84/55 have an issue it being 22 and not 21
+
+          //could try rounding? idk
           newCost !== null
             ? Math.floor(newCost * newMultiplier) >= 1
               ? Math.floor(newCost * newMultiplier)
