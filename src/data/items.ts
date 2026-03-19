@@ -2130,7 +2130,7 @@ export const items: Record<string, Item> = {
   "Imperial Templar Skirt": {
     enchantPoints: 0.5,
     slot: "skirt",
-    icon: "/icons/items/Imperial_Templar_Skirt.png",
+    icon: "/icons/items/Templar_Skirt.png",
   },
   // Armour (Plugins)
   // Light

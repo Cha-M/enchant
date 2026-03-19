@@ -464,6 +464,7 @@ export default function Home() {
     shortBlade: boolean;
     longBlade: boolean;
     marksman: boolean;
+    spear: boolean;
   }
 
   interface ItemFilter {
@@ -1131,13 +1132,11 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-x-8">
                 {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                   <div key={slotKey} className="flex items-center">
-                    <input
-                      type="checkbox"
+                    <button
+                      className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                      onMouseDown={(e) => e.preventDefault()}
                       id={`filter-slot-${slotKey}`}
-                      checked={
-                        itemFilter.slots[slotKey as keyof ItemFilterSlots]
-                      }
-                      onChange={() => {
+                      onClick={() => {
                         setItemFilter((prev) => ({
                           ...prev,
                           slots: {
@@ -1147,8 +1146,11 @@ export default function Home() {
                           },
                         }));
                       }}
-                      className="mr-2"
-                    />
+                    >
+                      {itemFilter.slots[slotKey as keyof ItemFilterSlots]
+                        ? "☑"
+                        : "☐"}
+                    </button>
                     <label htmlFor={`filter-slot-${slotKey}`}>
                       {slotLabel}
                     </label>
@@ -1157,15 +1159,11 @@ export default function Home() {
                 {itemArmourWeightKeyLabelPairs.map(
                   ([weightKey, weightLabel]) => (
                     <div key={weightKey} className="flex items-center">
-                      <input
-                        type="checkbox"
+                      <button
+                        className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                        onMouseDown={(e) => e.preventDefault()}
                         id={`filter-weight-${weightKey}`}
-                        checked={
-                          itemFilter.armourWeight[
-                            weightKey as keyof ItemFilterArmourWeights
-                          ]
-                        }
-                        onChange={() => {
+                        onClick={() => {
                           setItemFilter((prev) => ({
                             ...prev,
                             armourWeight: {
@@ -1177,8 +1175,13 @@ export default function Home() {
                             },
                           }));
                         }}
-                        className="mr-2"
-                      />
+                      >
+                        {itemFilter.armourWeight[
+                          weightKey as keyof ItemFilterArmourWeights
+                        ]
+                          ? "☑"
+                          : "☐"}
+                      </button>
                       <label htmlFor={`filter-weight-${weightKey}`}>
                         {weightLabel}
                       </label>
@@ -1188,30 +1191,8 @@ export default function Home() {
                 {itemWeaponSkillKeyLabelPairs.map(
                   ([weaponSkillKey, weaponSkillLabel]) => (
                     <div key={weaponSkillKey} className="flex items-center">
-                      {/* <input
-                        type="checkbox"
-                        id={`filter-weapon-skill-${weaponSkillKey}`}
-                        checked={
-                          itemFilter.weaponSkills[
-                            weaponSkillKey as keyof ItemFilterWeaponSkills
-                          ]
-                        }
-                        onChange={() => {
-                          setItemFilter((prev) => ({
-                            ...prev,
-                            weaponSkills: {
-                              ...prev.weaponSkills,
-                              [weaponSkillKey as keyof ItemFilterWeaponSkills]:
-                                !prev.weaponSkills[
-                                  weaponSkillKey as keyof ItemFilterWeaponSkills
-                                ],
-                            },
-                          }));
-                        }}
-                        className="mr-2"
-                      /> */}
                       <button
-                        className="text-xl mt-[2px] mr-1 border-none"
+                        className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
                         onMouseDown={(e) => e.preventDefault()}
                         id={`filter-weapon-skill-${weaponSkillKey}`}
                         onClick={() => {
