@@ -330,6 +330,7 @@ export default function Home() {
     // looking at openmw there is a floor on the costs involved
 
     //floor here instead?
+    //check source
     [rows],
   );
 
