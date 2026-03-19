@@ -146,10 +146,15 @@ export default function Home() {
           //could try rounding? idk
           //maybe it is floored "after" in the total cost?
           newCost !== null
-            ? Math.floor(newCost * newMultiplier) >= 1
-              ? Math.floor(newCost * newMultiplier)
+            ? newCost * newMultiplier >= 1
+              ? newCost * newMultiplier
               : 1
             : null;
+        // newCost !== null
+        //   ? Math.floor(newCost * newMultiplier) >= 1
+        //     ? Math.floor(newCost * newMultiplier)
+        //     : 1
+        //   : null;
         return {
           ...row,
           cost: newCost,
@@ -323,7 +328,7 @@ export default function Home() {
   }, [rows]);
 
   const totalCost = useMemo<number>(
-    () => rows.reduce((sum, row) => sum + row.compoundedCost!, 0),
+    () => Math.floor(rows.reduce((sum, row) => sum + row.compoundedCost!, 0)),
     // I don't think this is a ceiling because you can go above it, eg daedric dai-katana has 21 points. it's like any fraction of what you add gets dropped. or the multiplication by base cost makes it too high?
     // or it could be rounded-need check .49 and .50
     // () => rows.reduce((sum, item) => sum + item.compoundedCost!, 0)).toFixed(2),
@@ -1053,75 +1058,77 @@ export default function Home() {
                 </button>
               </div>
               <div className="overflow-y-auto px-4 pb-3">
-              {/* need sorting controls for alphabetical and points */}
-              {Object.entries(items).some(
-                ([, itemData]) => itemData.enchantPoints >= totalCost,
-              ) ? (
-                <div>
-                  <button
-                    className="px-4 py-2 mb-2"
-                    onClick={() => setIsFilterModalOpen(true)}
-                  >
-                    Filter
-                  </button>
-                  {/* <div>{Object.entries(items).length} items in total.</div> */}
-                  <table className="w-full">
-                    <thead>
-                      <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
-                        <td />
-                        <td>Name</td>
-                        <td>Enchant Points</td>
-                      </tr>
-                    </thead>
-                    {/* this needs memoising */}
-                    {Object.entries(items)
-                      .sort()
-                      .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
-                      .filter(
-                        ([, itemData]) => itemData.enchantPoints >= totalCost,
-                      )
-                      .filter(
-                        ([, itemData]) =>
-                          itemData.slot &&
-                          itemFilter.slots[
-                            itemData.slot as keyof ItemFilterSlots
-                          ],
-                      )
-                      .filter(
-                        ([, itemData]) =>
-                          !itemData.armourWeight ||
-                          itemFilter.armourWeight[
-                            itemData.armourWeight as keyof ItemFilterArmourWeights
-                          ],
-                      )
-                      .filter(
-                        ([, itemData]) =>
-                          !itemData.weaponSkill ||
-                          itemFilter.weaponSkills[
-                            itemData.weaponSkill as keyof ItemFilterWeaponSkills
-                          ],
-                      )
-                      .map(([itemName, itemData]) => (
-                        <tr key={itemName}>
-                          <td className="pr-1">
-                            {itemData.icon && (
-                              <Image
-                                src={itemData.icon}
-                                alt={itemName}
-                                width={16}
-                                height={16}
-                              />
-                            )}
-                          </td>
-                          <td className="pl-1">{itemName}</td>
-                          <td className="pl-1">{itemData.enchantPoints}</td>
+                {/* need sorting controls for alphabetical and points */}
+                {Object.entries(items).some(
+                  ([, itemData]) => itemData.enchantPoints >= totalCost,
+                ) ? (
+                  <div>
+                    <button
+                      className="px-4 py-2 mb-2"
+                      onClick={() => setIsFilterModalOpen(true)}
+                    >
+                      Filter
+                    </button>
+                    {/* <div>{Object.entries(items).length} items in total.</div> */}
+                    <table className="w-full">
+                      <thead>
+                        <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
+                          <td />
+                          <td>Name</td>
+                          <td>Enchant Points</td>
                         </tr>
-                      ))}
-                  </table>
-                </div>
-              ) : (
-                <div>No items have enough points for this enchantment.</div>
-              )}
+                      </thead>
+                      {/* this needs memoising */}
+                      {Object.entries(items)
+                        .sort()
+                        .sort(
+                          ([, a], [, b]) => b.enchantPoints - a.enchantPoints,
+                        )
+                        .filter(
+                          ([, itemData]) => itemData.enchantPoints >= totalCost,
+                        )
+                        .filter(
+                          ([, itemData]) =>
+                            itemData.slot &&
+                            itemFilter.slots[
+                              itemData.slot as keyof ItemFilterSlots
+                            ],
+                        )
+                        .filter(
+                          ([, itemData]) =>
+                            !itemData.armourWeight ||
+                            itemFilter.armourWeight[
+                              itemData.armourWeight as keyof ItemFilterArmourWeights
+                            ],
+                        )
+                        .filter(
+                          ([, itemData]) =>
+                            !itemData.weaponSkill ||
+                            itemFilter.weaponSkills[
+                              itemData.weaponSkill as keyof ItemFilterWeaponSkills
+                            ],
+                        )
+                        .map(([itemName, itemData]) => (
+                          <tr key={itemName}>
+                            <td className="pr-1">
+                              {itemData.icon && (
+                                <Image
+                                  src={itemData.icon}
+                                  alt={itemName}
+                                  width={16}
+                                  height={16}
+                                />
+                              )}
+                            </td>
+                            <td className="pl-1">{itemName}</td>
+                            <td className="pl-1">{itemData.enchantPoints}</td>
+                          </tr>
+                        ))}
+                    </table>
+                  </div>
+                ) : (
+                  <div>No items have enough points for this enchantment.</div>
+                )}
               </div>
             </div>
           </div>
@@ -1141,106 +1148,108 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto pl-4 pr-3 pb-3">
                 <div className="grid grid-cols-2 gap-x-8">
-                {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
-                  <div key={slotKey} className="flex items-center">
-                    <button
-                      className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
-                      onMouseDown={(e) => e.preventDefault()}
-                      id={`filter-slot-${slotKey}`}
-                      onClick={() => {
-                        setItemFilter((prev) => ({
-                          ...prev,
-                          slots: {
-                            ...prev.slots,
-                            [slotKey as keyof ItemFilterSlots]:
-                              !prev.slots[slotKey as keyof ItemFilterSlots],
-                          },
-                        }));
-                      }}
-                    >
-                      {itemFilter.slots[slotKey as keyof ItemFilterSlots]
-                        ? "☑"
-                        : "☐"}
-                    </button>
-                    <label htmlFor={`filter-slot-${slotKey}`}>
-                      {slotLabel}
-                    </label>
-                  </div>
-                ))}
-                {itemArmourWeightKeyLabelPairs.map(
-                  ([weightKey, weightLabel]) => (
-                    <div key={weightKey} className="flex items-center">
+                  {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
+                    <div key={slotKey} className="flex items-center">
                       <button
                         className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
                         onMouseDown={(e) => e.preventDefault()}
-                        id={`filter-weight-${weightKey}`}
+                        id={`filter-slot-${slotKey}`}
                         onClick={() => {
                           setItemFilter((prev) => ({
                             ...prev,
-                            armourWeight: {
-                              ...prev.armourWeight,
-                              [weightKey as keyof ItemFilterArmourWeights]:
-                                !prev.armourWeight[
-                                  weightKey as keyof ItemFilterArmourWeights
-                                ],
-                            },
-                          }));
-                        }}
-                      >
-                        {itemFilter.armourWeight[
-                          weightKey as keyof ItemFilterArmourWeights
-                        ]
-                          ? "☑"
-                          : "☐"}
-                      </button>
-                      <label htmlFor={`filter-weight-${weightKey}`}>
-                        {weightLabel}
-                      </label>
-                    </div>
-                  ),
-                )}
-                {itemWeaponSkillKeyLabelPairs.map(
-                  ([weaponSkillKey, weaponSkillLabel]) => (
-                    <div key={weaponSkillKey} className="flex items-center">
-                      <button
-                        className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
-                        onMouseDown={(e) => e.preventDefault()}
-                        id={`filter-weapon-skill-${weaponSkillKey}`}
-                        onClick={() => {
-                          setItemFilter((prev) => ({
-                            ...prev,
-                            weaponSkills: {
-                              ...prev.weaponSkills,
-                              [weaponSkillKey as keyof ItemFilterWeaponSkills]:
-                                !prev.weaponSkills[
-                                  weaponSkillKey as keyof ItemFilterWeaponSkills
-                                ],
-                            },
                             slots: {
                               ...prev.slots,
-                              weapon:
-                                !prev.slots.weapon &&
-                                !prev.weaponSkills[
-                                  weaponSkillKey as keyof ItemFilterWeaponSkills
-                                ]
-                                  ? true
-                                  : prev.slots.weapon,
+                              [slotKey as keyof ItemFilterSlots]:
+                                !prev.slots[slotKey as keyof ItemFilterSlots],
                             },
                           }));
                         }}
                       >
-                        {itemFilter.weaponSkills[
-                          weaponSkillKey as keyof ItemFilterWeaponSkills
-                        ]
+                        {itemFilter.slots[slotKey as keyof ItemFilterSlots]
                           ? "☑"
                           : "☐"}
                       </button>
-                      <label htmlFor={`filter-weapon-skill-${weaponSkillKey}`}>
-                        {weaponSkillLabel}
+                      <label htmlFor={`filter-slot-${slotKey}`}>
+                        {slotLabel}
                       </label>
                     </div>
-                  ),
-                )}
+                  ))}
+                  {itemArmourWeightKeyLabelPairs.map(
+                    ([weightKey, weightLabel]) => (
+                      <div key={weightKey} className="flex items-center">
+                        <button
+                          className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                          onMouseDown={(e) => e.preventDefault()}
+                          id={`filter-weight-${weightKey}`}
+                          onClick={() => {
+                            setItemFilter((prev) => ({
+                              ...prev,
+                              armourWeight: {
+                                ...prev.armourWeight,
+                                [weightKey as keyof ItemFilterArmourWeights]:
+                                  !prev.armourWeight[
+                                    weightKey as keyof ItemFilterArmourWeights
+                                  ],
+                              },
+                            }));
+                          }}
+                        >
+                          {itemFilter.armourWeight[
+                            weightKey as keyof ItemFilterArmourWeights
+                          ]
+                            ? "☑"
+                            : "☐"}
+                        </button>
+                        <label htmlFor={`filter-weight-${weightKey}`}>
+                          {weightLabel}
+                        </label>
+                      </div>
+                    ),
+                  )}
+                  {itemWeaponSkillKeyLabelPairs.map(
+                    ([weaponSkillKey, weaponSkillLabel]) => (
+                      <div key={weaponSkillKey} className="flex items-center">
+                        <button
+                          className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                          onMouseDown={(e) => e.preventDefault()}
+                          id={`filter-weapon-skill-${weaponSkillKey}`}
+                          onClick={() => {
+                            setItemFilter((prev) => ({
+                              ...prev,
+                              weaponSkills: {
+                                ...prev.weaponSkills,
+                                [weaponSkillKey as keyof ItemFilterWeaponSkills]:
+                                  !prev.weaponSkills[
+                                    weaponSkillKey as keyof ItemFilterWeaponSkills
+                                  ],
+                              },
+                              slots: {
+                                ...prev.slots,
+                                weapon:
+                                  !prev.slots.weapon &&
+                                  !prev.weaponSkills[
+                                    weaponSkillKey as keyof ItemFilterWeaponSkills
+                                  ]
+                                    ? true
+                                    : prev.slots.weapon,
+                              },
+                            }));
+                          }}
+                        >
+                          {itemFilter.weaponSkills[
+                            weaponSkillKey as keyof ItemFilterWeaponSkills
+                          ]
+                            ? "☑"
+                            : "☐"}
+                        </button>
+                        <label
+                          htmlFor={`filter-weapon-skill-${weaponSkillKey}`}
+                        >
+                          {weaponSkillLabel}
+                        </label>
+                      </div>
+                    ),
+                  )}
                 </div>
               </div>
             </div>
