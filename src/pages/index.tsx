@@ -929,7 +929,11 @@ export default function Home() {
                       {cost !== null ? cost?.toFixed(2) : "-"}
                     </td>
                     <td className="pl-1">{multiplier ? multiplier : "-"}</td>
-                    <td className="pl-1">{compoundedCost ?? "-"}</td>
+                    <td className="pl-1">
+                      {compoundedCost
+                        ? compoundedCost?.toFixed(2).replace(/\.?0+$/, "")
+                        : "-"}
+                    </td>
                     <td>
                       <button
                         onMouseDown={(e) => e.preventDefault()}
