@@ -439,7 +439,6 @@ export default function Home() {
         : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
     //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
     //this means the rows will be different for OpenMW, not just the chance
-    // - and + buttons
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
@@ -522,6 +521,34 @@ export default function Home() {
       spear: true,
     } as ItemFilterWeaponSkills,
   });
+
+  const itemList = useMemo(
+    () =>
+      Object.entries(items)
+        .sort()
+        .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
+        .filter(([, itemData]) => itemData.enchantPoints >= totalCost)
+        .filter(
+          ([, itemData]) =>
+            itemData.slot &&
+            itemFilter.slots[itemData.slot as keyof ItemFilterSlots],
+        )
+        .filter(
+          ([, itemData]) =>
+            !itemData.armourWeight ||
+            itemFilter.armourWeight[
+              itemData.armourWeight as keyof ItemFilterArmourWeights
+            ],
+        )
+        .filter(
+          ([, itemData]) =>
+            !itemData.weaponSkill ||
+            itemFilter.weaponSkills[
+              itemData.weaponSkill as keyof ItemFilterWeaponSkills
+            ],
+        ),
+    [totalCost, itemFilter],
+  );
 
   return (
     <div className="min-h-screen pl-35 pt-10">
@@ -1063,18 +1090,18 @@ export default function Home() {
                   🗙
                 </button>
               </div>
+              <button
+                className="px-4 py-2 mb-2 w-fit ml-4"
+                onClick={() => setIsFilterModalOpen(true)}
+              >
+                Filter
+              </button>
               <div className="overflow-y-auto px-4 pb-3">
                 {/* need sorting controls for alphabetical and points */}
                 {Object.entries(items).some(
                   ([, itemData]) => itemData.enchantPoints >= totalCost,
                 ) ? (
                   <div>
-                    <button
-                      className="px-4 py-2 mb-2"
-                      onClick={() => setIsFilterModalOpen(true)}
-                    >
-                      Filter
-                    </button>
                     {/* <div>{Object.entries(items).length} items in total.</div> */}
                     <table className="w-full">
                       <thead>
@@ -1084,52 +1111,22 @@ export default function Home() {
                           <td>Enchant Points</td>
                         </tr>
                       </thead>
-                      {/* this needs memoising */}
-                      {Object.entries(items)
-                        .sort()
-                        .sort(
-                          ([, a], [, b]) => b.enchantPoints - a.enchantPoints,
-                        )
-                        .filter(
-                          ([, itemData]) => itemData.enchantPoints >= totalCost,
-                        )
-                        .filter(
-                          ([, itemData]) =>
-                            itemData.slot &&
-                            itemFilter.slots[
-                              itemData.slot as keyof ItemFilterSlots
-                            ],
-                        )
-                        .filter(
-                          ([, itemData]) =>
-                            !itemData.armourWeight ||
-                            itemFilter.armourWeight[
-                              itemData.armourWeight as keyof ItemFilterArmourWeights
-                            ],
-                        )
-                        .filter(
-                          ([, itemData]) =>
-                            !itemData.weaponSkill ||
-                            itemFilter.weaponSkills[
-                              itemData.weaponSkill as keyof ItemFilterWeaponSkills
-                            ],
-                        )
-                        .map(([itemName, itemData]) => (
-                          <tr key={itemName}>
-                            <td className="pr-1">
-                              {itemData.icon && (
-                                <Image
-                                  src={itemData.icon}
-                                  alt={itemName}
-                                  width={16}
-                                  height={16}
-                                />
-                              )}
-                            </td>
-                            <td className="pl-1">{itemName}</td>
-                            <td className="pl-1">{itemData.enchantPoints}</td>
-                          </tr>
-                        ))}
+                      {itemList.map(([itemName, itemData]) => (
+                        <tr key={itemName}>
+                          <td className="pr-1">
+                            {itemData.icon && (
+                              <Image
+                                src={itemData.icon}
+                                alt={itemName}
+                                width={16}
+                                height={16}
+                              />
+                            )}
+                          </td>
+                          <td className="pl-1">{itemName}</td>
+                          <td className="pl-1">{itemData.enchantPoints}</td>
+                        </tr>
+                      ))}
                     </table>
                   </div>
                 ) : (
