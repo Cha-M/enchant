@@ -1256,6 +1256,47 @@ export default function Home() {
                       </div>
                     ),
                   )}
+                  <div key={"all"} className="flex items-center">
+                    <button
+                      className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                      onMouseDown={(e) => e.preventDefault()}
+                      id={`filter-all`}
+                      onClick={() => {
+                        setItemFilter((prev) => {
+                          const allSelected =
+                            Object.values(prev.slots).every((v) => v) &&
+                            Object.values(prev.armourWeight).every((v) => v) &&
+                            Object.values(prev.weaponSkills).every((v) => v);
+
+                          const newValue = !allSelected;
+
+                          return {
+                            ...prev,
+                            slots: Object.keys(prev.slots).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterSlots,
+                            ),
+                            armourWeight: Object.keys(prev.armourWeight).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterArmourWeights,
+                            ),
+                            weaponSkills: Object.keys(prev.weaponSkills).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterWeaponSkills,
+                            ),
+                          };
+                        });
+                      }}
+                    >
+                      {Object.values(itemFilter.slots).every((v) => v) &&
+                      Object.values(itemFilter.armourWeight).every((v) => v) &&
+                      Object.values(itemFilter.weaponSkills).every((v) => v)
+                        ? "☑"
+                        : "☐"}
+                    </button>
+                    <label htmlFor={`filter-all`}>All</label>
+                  </div>
+                  ,
                 </div>
               </div>
             </div>
