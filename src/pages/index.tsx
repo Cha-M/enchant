@@ -735,9 +735,6 @@ export default function Home() {
                       </button>
                     </td>
                     <td>
-                      {/* Need to fix the totalcost being 0 when there is an effect without a max, it should be invalid */}
-                      {/* Need to fix so it's the table scrollable with the header staying in place and prob the the filter button at the bottom */}
-                      {/* ...and make the table a minwidth */}
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         {effect !== "" ? (
                           <Image
@@ -1014,7 +1011,7 @@ export default function Home() {
               <tr>
                 <td colSpan={8} />
                 <td className="text-[#DFC99F]">Total</td>
-                <td className="pl-1">{totalCost}</td>
+                <td className="pl-1">{totalCost ? totalCost : "-"}</td>
                 <td />
               </tr>
             )}
