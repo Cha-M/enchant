@@ -1,4 +1,5 @@
 export const itemSlotKeyLabelPairs: [string, string][] = [
+  ["weapon", "Weapon"],
   ["helm", "Helm"],
   ["cuirass", "Cuirass"],
   ["greaves", "Greaves"],
@@ -9,13 +10,12 @@ export const itemSlotKeyLabelPairs: [string, string][] = [
   ["leftPauldron", "Left Pauldron"],
   ["rightPauldron", "Right Pauldron"],
   ["amulet", "Amulet"],
-  ["robe", "Robe"],
   ["ring", "Ring"],
+  ["robe", "Robe"],
   ["shirt", "Shirt"],
   ["belt", "Belt"],
   ["pants", "Pants"],
   ["skirt", "Skirt"],
-  ["weapon", "Weapon"],
 ];
 
 export const itemArmourWeightKeyLabelPairs: [string, string][] = [
