@@ -12,9 +12,9 @@ export const itemSlotKeyLabelPairs: [string, string][] = [
   ["robe", "Robe"],
   ["ring", "Ring"],
   ["shirt", "Shirt"],
+  ["belt", "Belt"],
   ["pants", "Pants"],
   ["skirt", "Skirt"],
-  ["belt", "Belt"],
   ["weapon", "Weapon"],
 ];
 
