@@ -1073,7 +1073,7 @@ export default function Home() {
             </button>
           </div>
         )}
-        {isItemsModalOpen && (
+        {isItemsModalOpen && !isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
@@ -1091,7 +1091,7 @@ export default function Home() {
               >
                 Filter
               </button>
-              <div className="overflow-y-auto px-4 pb-3">
+              <div className="px-4 pb-3">
                 {Object.entries(itemList).some(
                   ([, itemData]) => itemData[1].enchantPoints >= totalCost,
                 ) ? (
@@ -1105,33 +1105,37 @@ export default function Home() {
                           <td>Enchant Points</td>
                         </tr>
                       </thead>
-                      {itemList.map(([itemName, itemData]) => (
-                        <tr key={itemName}>
-                          <td className="pr-1">
-                            {itemData.icon && (
-                              <Image
-                                src={itemData.icon}
-                                alt={itemName}
-                                width={16}
-                                height={16}
-                              />
-                            )}
-                          </td>
-                          <td className="pl-1">{itemName}</td>
-                          <td className="pl-1">{itemData.enchantPoints}</td>
-                        </tr>
-                      ))}
+                      <div className="overflow-y-auto">
+                        {itemList.map(([itemName, itemData]) => (
+                          <tr key={itemName}>
+                            <td className="pr-1">
+                              {itemData.icon && (
+                                <Image
+                                  src={itemData.icon}
+                                  alt={itemName}
+                                  width={16}
+                                  height={16}
+                                />
+                              )}
+                            </td>
+                            <td className="pl-1">{itemName}</td>
+                            <td className="pl-1">{itemData.enchantPoints}</td>
+                          </tr>
+                        ))}
+                      </div>
                     </table>
                   </div>
                 ) : (
-                  <div>No selected items have enough points for this enchantment.</div>
+                  <div className="pt-2">
+                    No selected items have enough points for this enchantment.
+                  </div>
                 )}
               </div>
             </div>
           </div>
         )}
         {isFilterModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
