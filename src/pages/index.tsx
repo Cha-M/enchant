@@ -1190,8 +1190,8 @@ export default function Home() {
                     </button>
                     <label htmlFor={`filter-all`}>All</label>
                   </div>
-                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2 mb-1">
-                    Slots
+                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
+                    Slot
                   </h3>
                   {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                     <div key={slotKey} className="flex items-center">
@@ -1219,7 +1219,7 @@ export default function Home() {
                       </label>
                     </div>
                   ))}
-                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2">
+                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
                     Armour Weight
                   </h3>
                   {itemArmourWeightKeyLabelPairs.map(
@@ -1254,8 +1254,8 @@ export default function Home() {
                       </div>
                     ),
                   )}
-                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2">
-                    Weapon Skills
+                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
+                    Weapon Skill
                   </h3>
                   {itemWeaponSkillKeyLabelPairs.map(
                     ([weaponSkillKey, weaponSkillLabel]) => (
