@@ -2,9 +2,9 @@ export const itemSlotKeyLabelPairs: [string, string][] = [
   ["weapon", "Weapon"],
   ["shield", "Shield"],
   ["helm", "Helm"],
+  ["cuirass", "Cuirass"],
   ["leftPauldron", "Left Pauldron"],
   ["rightPauldron", "Right Pauldron"],
-  ["cuirass", "Cuirass"],
   ["leftGauntlet", "Left Gauntlet"],
   ["rightGauntlet", "Right Gauntlet"],
   ["greaves", "Greaves"],
@@ -35,8 +35,8 @@ export const itemWeaponSkillKeyLabelPairs: [string, string][] = [
 
 export interface Item {
   enchantPoints: number;
-  icon?: string; // Will not be optional in future
-  slot?:
+  icon: string; // Will not be optional in future
+  slot:
     | "helm"
     | "cuirass"
     | "greaves"
