@@ -1091,7 +1091,7 @@ export default function Home() {
               >
                 Filter
               </button>
-              <div className="px-4 pb-3">
+              <div className="overflow-y-auto px-4 pb-3">
                 {Object.entries(itemList).some(
                   ([, itemData]) => itemData[1].enchantPoints >= totalCost,
                 ) ? (
@@ -1105,42 +1105,39 @@ export default function Home() {
                           <td>Enchant Points</td>
                         </tr>
                       </thead>
-                      <div className="overflow-y-auto">
-                        {itemList.map(([itemName, itemData]) => (
-                          <tr key={itemName}>
-                            <td className="pr-1">
-                              {itemData.icon && (
-                                <Image
-                                  src={itemData.icon}
-                                  alt={itemName}
-                                  width={16}
-                                  height={16}
-                                />
-                              )}
-                            </td>
-                            <td className="pl-1">{itemName}</td>
-                            <td className="pl-1">{itemData.enchantPoints}</td>
-                          </tr>
-                        ))}
-                      </div>
+                      {itemList.map(([itemName, itemData]) => (
+                        <tr key={itemName}>
+                          <td className="pr-1">
+                            {itemData.icon && (
+                              <Image
+                                src={itemData.icon}
+                                alt={itemName}
+                                width={16}
+                                height={16}
+                              />
+                            )}
+                          </td>
+                          <td className="pl-1">{itemName}</td>
+                          <td className="pl-1">{itemData.enchantPoints}</td>
+                        </tr>
+                      ))}
                     </table>
                   </div>
                 ) : (
-                  <div className="pt-2">
-                    No selected items have enough points for this enchantment.
-                  </div>
+                  <div className="pt-2">No selected items have enough points for this enchantment.</div>
                 )}
               </div>
             </div>
           </div>
         )}
         {isFilterModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
                   className="px-2 py-1"
+                  onMouseDown={(e) => e.preventDefault()}
                   onClick={() => setIsFilterModalOpen(false)}
                 >
                   🗙
@@ -1299,6 +1296,7 @@ export default function Home() {
                   )}
                 </div>
               </div>
+              {/* Need message for when armour with no weight is selected */}
             </div>
           </div>
         )}
