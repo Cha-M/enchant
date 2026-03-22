@@ -1136,7 +1136,7 @@ export default function Home() {
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
-              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
+              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
                   className="px-2 py-1"
@@ -1149,7 +1149,7 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-x-8">
                   <div
                     key={"all"}
-                    className="col-span-2 flex items-center mb-2"
+                    className="col-span-2 flex items-center"
                   >
                     <button
                       className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
@@ -1196,7 +1196,7 @@ export default function Home() {
                   {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                     <div key={slotKey} className="flex items-center">
                       <button
-                        className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                        className="text-xl mt-[2px] mr-1 border-none leading-none"
                         onMouseDown={(e) => e.preventDefault()}
                         id={`filter-slot-${slotKey}`}
                         onClick={() => {
@@ -1226,7 +1226,7 @@ export default function Home() {
                     ([weightKey, weightLabel]) => (
                       <div key={weightKey} className="flex items-center">
                         <button
-                          className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                          className="text-xl mt-[2px] mr-1 border-none leading-none"
                           onMouseDown={(e) => e.preventDefault()}
                           id={`filter-weight-${weightKey}`}
                           onClick={() => {
@@ -1261,7 +1261,7 @@ export default function Home() {
                     ([weaponSkillKey, weaponSkillLabel]) => (
                       <div key={weaponSkillKey} className="flex items-center">
                         <button
-                          className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                          className="text-xl mt-[2px] mr-1 border-none leading-none"
                           onMouseDown={(e) => e.preventDefault()}
                           id={`filter-weapon-skill-${weaponSkillKey}`}
                           onClick={() => {
