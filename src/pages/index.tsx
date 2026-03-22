@@ -1103,8 +1103,32 @@ export default function Home() {
                       <thead>
                         <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
                           <td />
-                          <td>Name</td>
-                          <td>Enchant Points</td>
+                          <td>
+                            <div className="flex justify-between items-center">
+                              Name
+                              <button
+                                className="border-none text-sm"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                }}
+                              >
+                                ▲
+                              </button>
+                            </div>
+                          </td>
+                          <td>
+                            <div className="flex justify-between items-center">
+                              Enchant Points
+                              <button
+                                className="border-none text-sm"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                }}
+                              >
+                                ▲
+                              </button>
+                            </div>
+                          </td>
                         </tr>
                       </thead>
                       {itemList.map(([itemName, itemData]) => (
@@ -1147,10 +1171,7 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto pl-4 pr-3 pb-3">
                 <div className="grid grid-cols-2 gap-x-8">
-                  <div
-                    key={"all"}
-                    className="col-span-2 flex items-center"
-                  >
+                  <div key={"all"} className="col-span-2 flex items-center">
                     <button
                       className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
                       onMouseDown={(e) => e.preventDefault()}
@@ -1190,9 +1211,7 @@ export default function Home() {
                     </button>
                     <label htmlFor={`filter-all`}>All</label>
                   </div>
-                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
-                    Slot
-                  </h3>
+                  <h3 className="col-span-2 text-[#DFC99F] mt-2">Slot</h3>
                   {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                     <div key={slotKey} className="flex items-center">
                       <button
