@@ -35,7 +35,7 @@ export const itemWeaponSkillKeyLabelPairs: [string, string][] = [
 
 export interface Item {
   enchantPoints: number;
-  icon: string; // Will not be optional in future
+  icon: string;
   slot:
     | "helm"
     | "cuirass"
