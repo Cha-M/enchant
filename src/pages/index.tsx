@@ -904,7 +904,6 @@ export default function Home() {
                             duration === null || duration < 1 ? 1 : duration
                           }
                           onChange={(e) => {
-                            //improve and reuse
                             const newDuration =
                               parseInt(e.target.value) > 1440
                                 ? 1440
@@ -1093,9 +1092,8 @@ export default function Home() {
                 Filter
               </button>
               <div className="overflow-y-auto px-4 pb-3">
-                {/* need sorting controls for alphabetical and points */}
-                {Object.entries(items).some(
-                  ([, itemData]) => itemData.enchantPoints >= totalCost,
+                {Object.entries(itemList).some(
+                  ([, itemData]) => itemData[1].enchantPoints >= totalCost,
                 ) ? (
                   <div>
                     {/* <div>{Object.entries(items).length} items in total.</div> */}
@@ -1103,32 +1101,8 @@ export default function Home() {
                       <thead>
                         <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
                           <td />
-                          <td>
-                            <div className="flex justify-between items-center">
-                              Name
-                              <button
-                                className="border-none text-sm"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                }}
-                              >
-                                ▲
-                              </button>
-                            </div>
-                          </td>
-                          <td>
-                            <div className="flex justify-between items-center">
-                              Enchant Points
-                              <button
-                                className="border-none text-sm"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                }}
-                              >
-                                ▲
-                              </button>
-                            </div>
-                          </td>
+                          <td>Name</td>
+                          <td>Enchant Points</td>
                         </tr>
                       </thead>
                       {itemList.map(([itemName, itemData]) => (
@@ -1150,13 +1124,12 @@ export default function Home() {
                     </table>
                   </div>
                 ) : (
-                  <div>No items have enough points for this enchantment.</div>
+                  <div>No selected items have enough points for this enchantment.</div>
                 )}
               </div>
             </div>
           </div>
         )}
-        {/* Not sure if I want two modals */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
