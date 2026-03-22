@@ -1124,7 +1124,24 @@ export default function Home() {
                     </table>
                   </div>
                 ) : (
-                  <div className="pt-2">No selected items have enough points for this enchantment.</div>
+                  <div>
+                    <div className="pt-2">
+                      No selected items have enough points for this enchantment.
+                    </div>
+                    {Object.values(itemFilter.armourWeight).every((v) => !v) &&
+                      (itemFilter.slots.helm ||
+                        itemFilter.slots.cuirass ||
+                        itemFilter.slots.greaves ||
+                        itemFilter.slots.boots ||
+                        itemFilter.slots.shield ||
+                        itemFilter.slots.leftPauldron ||
+                        itemFilter.slots.rightPauldron) && (
+                        <div>
+                          Please select an armor weight if you want to see
+                          armor.
+                        </div>
+                      )}
+                  </div>
                 )}
               </div>
             </div>
