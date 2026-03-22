@@ -1087,9 +1087,9 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <div className="flex align-center">
+              <div className="flex justify-center items-center mb-2">
                 <button
-                  className="px-4 py-2 mb-2 w-fit ml-4"
+                  className="px-4 py-2 w-fit ml-4"
                   onClick={() => setIsFilterModalOpen(true)}
                 >
                   Filter
@@ -1097,7 +1097,7 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Search by name"
-                  className="w-full h-min ml-2"
+                  className="w-full h-min ml-4 mr-4"
                   value={itemFilter.name || ""}
                   onChange={(e) =>
                     setItemFilter((prev) => ({
