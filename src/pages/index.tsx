@@ -1065,7 +1065,6 @@ export default function Home() {
               Sort by cost
             </button>
             <button
-              // disabled={rows.some((row) => row.effect === "" || !row.target)}
               className="px-4 py-2"
               onClick={() => {
                 setIsItemsModalOpen(true);
@@ -1136,7 +1135,7 @@ export default function Home() {
         {/* Not sure if I want two modals */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-51">
-            <div className="bg-stone-800 rounded-lg max-h-[80vh] flex flex-col">
+            <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
@@ -1148,6 +1147,52 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto pl-4 pr-3 pb-3">
                 <div className="grid grid-cols-2 gap-x-8">
+                  <div
+                    key={"all"}
+                    className="col-span-2 flex items-center mb-2"
+                  >
+                    <button
+                      className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
+                      onMouseDown={(e) => e.preventDefault()}
+                      id={`filter-all`}
+                      onClick={() => {
+                        setItemFilter((prev) => {
+                          const allSelected =
+                            Object.values(prev.slots).every((v) => v) &&
+                            Object.values(prev.armourWeight).every((v) => v) &&
+                            Object.values(prev.weaponSkills).every((v) => v);
+
+                          const newValue = !allSelected;
+
+                          return {
+                            ...prev,
+                            slots: Object.keys(prev.slots).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterSlots,
+                            ),
+                            armourWeight: Object.keys(prev.armourWeight).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterArmourWeights,
+                            ),
+                            weaponSkills: Object.keys(prev.weaponSkills).reduce(
+                              (acc, key) => ({ ...acc, [key]: newValue }),
+                              {} as ItemFilterWeaponSkills,
+                            ),
+                          };
+                        });
+                      }}
+                    >
+                      {Object.values(itemFilter.slots).every((v) => v) &&
+                      Object.values(itemFilter.armourWeight).every((v) => v) &&
+                      Object.values(itemFilter.weaponSkills).every((v) => v)
+                        ? "☑"
+                        : "☐"}
+                    </button>
+                    <label htmlFor={`filter-all`}>All</label>
+                  </div>
+                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2 mb-1">
+                    Slots
+                  </h3>
                   {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                     <div key={slotKey} className="flex items-center">
                       <button
@@ -1174,6 +1219,9 @@ export default function Home() {
                       </label>
                     </div>
                   ))}
+                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2">
+                    Armour Weight
+                  </h3>
                   {itemArmourWeightKeyLabelPairs.map(
                     ([weightKey, weightLabel]) => (
                       <div key={weightKey} className="flex items-center">
@@ -1206,6 +1254,9 @@ export default function Home() {
                       </div>
                     ),
                   )}
+                  <h3 className="col-span-2 text-lg text-[#DFC99F] mt-2">
+                    Weapon Skills
+                  </h3>
                   {itemWeaponSkillKeyLabelPairs.map(
                     ([weaponSkillKey, weaponSkillLabel]) => (
                       <div key={weaponSkillKey} className="flex items-center">
@@ -1250,47 +1301,6 @@ export default function Home() {
                       </div>
                     ),
                   )}
-                  <div key={"all"} className="flex items-center">
-                    <button
-                      className="text-xl mt-[2px] mr-1 border-none rounded-none leading-none"
-                      onMouseDown={(e) => e.preventDefault()}
-                      id={`filter-all`}
-                      onClick={() => {
-                        setItemFilter((prev) => {
-                          const allSelected =
-                            Object.values(prev.slots).every((v) => v) &&
-                            Object.values(prev.armourWeight).every((v) => v) &&
-                            Object.values(prev.weaponSkills).every((v) => v);
-
-                          const newValue = !allSelected;
-
-                          return {
-                            ...prev,
-                            slots: Object.keys(prev.slots).reduce(
-                              (acc, key) => ({ ...acc, [key]: newValue }),
-                              {} as ItemFilterSlots,
-                            ),
-                            armourWeight: Object.keys(prev.armourWeight).reduce(
-                              (acc, key) => ({ ...acc, [key]: newValue }),
-                              {} as ItemFilterArmourWeights,
-                            ),
-                            weaponSkills: Object.keys(prev.weaponSkills).reduce(
-                              (acc, key) => ({ ...acc, [key]: newValue }),
-                              {} as ItemFilterWeaponSkills,
-                            ),
-                          };
-                        });
-                      }}
-                    >
-                      {Object.values(itemFilter.slots).every((v) => v) &&
-                      Object.values(itemFilter.armourWeight).every((v) => v) &&
-                      Object.values(itemFilter.weaponSkills).every((v) => v)
-                        ? "☑"
-                        : "☐"}
-                    </button>
-                    <label htmlFor={`filter-all`}>All</label>
-                  </div>
-                  ,
                 </div>
               </div>
             </div>
