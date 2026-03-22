@@ -546,7 +546,13 @@ export default function Home() {
             itemFilter.weaponSkills[
               itemData.weaponSkill as keyof ItemFilterWeaponSkills
             ],
+        )
+        .filter(
+          ([itemName]) =>
+            itemFilter.name === null ||
+            itemName.toLowerCase().includes(itemFilter.name.toLowerCase()),
         ),
+
     [totalCost, itemFilter],
   );
 
@@ -774,7 +780,6 @@ export default function Home() {
                                       !effectDetails?.hasDuration)
                                   ? "Self"
                                   : null,
-                              // this isn't working, constant effect is being read when it isn't meant, for selfonly no duration. does statement after && fix it?
                               cost: null,
                               multiplier: null,
                               compoundedCost: null,
@@ -908,7 +913,6 @@ export default function Home() {
                               parseInt(e.target.value) > 1440
                                 ? 1440
                                 : parseInt(e.target.value);
-                            //fix this
                             handleRowChange(index, {
                               duration:
                                 newDuration === 0 || newDuration === null
@@ -922,7 +926,6 @@ export default function Home() {
                       )}
                     </td>
                     <td className="pl-1">
-                      {/* Fix this, when it becomes null it messes up */}
                       {effects[effect]?.hasArea &&
                       target !== "Constant Effect" &&
                       target !== "Self" ? (
@@ -933,7 +936,6 @@ export default function Home() {
                           max={50}
                           value={area === null ? 0 : area}
                           onChange={(e) => {
-                            // fix this
                             const newArea =
                               parseInt(e.target.value) > 50
                                 ? 50
@@ -1085,12 +1087,26 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <button
-                className="px-4 py-2 mb-2 w-fit ml-4"
-                onClick={() => setIsFilterModalOpen(true)}
-              >
-                Filter
-              </button>
+              <div className="flex align-center">
+                <button
+                  className="px-4 py-2 mb-2 w-fit ml-4"
+                  onClick={() => setIsFilterModalOpen(true)}
+                >
+                  Filter
+                </button>
+                <input
+                  type="text"
+                  placeholder="Search by name"
+                  className="w-full h-min ml-2"
+                  value={itemFilter.name || ""}
+                  onChange={(e) =>
+                    setItemFilter((prev) => ({
+                      ...prev,
+                      name: e.target.value || null,
+                    }))
+                  }
+                />
+              </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {Object.entries(itemList).some(
                   ([, itemData]) => itemData[1].enchantPoints >= totalCost,
