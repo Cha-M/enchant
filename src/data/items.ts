@@ -26,9 +26,9 @@ export const itemArmourWeightKeyLabelPairs: [string, string][] = [
 
 export const itemWeaponSkillKeyLabelPairs: [string, string][] = [
   ["axe", "Axe"],
-  ["blunt", "Blunt"],
   ["shortBlade", "Short Blade"],
   ["longBlade", "Long Blade"],
+  ["blunt", "Blunt"],
   ["marksman", "Marksman"],
   ["spear", "Spear"],
 ];
@@ -57,9 +57,9 @@ export interface Item {
   armourWeight?: "light" | "medium" | "heavy";
   weaponSkill?:
     | "axe"
-    | "blunt"
     | "shortBlade"
     | "longBlade"
+    | "blunt"
     | "marksman"
     | "spear";
 }
