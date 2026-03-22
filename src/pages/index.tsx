@@ -1045,7 +1045,7 @@ export default function Home() {
                   ]),
                 );
               }}
-            >
+              >
               New effect
             </button>
             <button
@@ -1056,12 +1056,12 @@ export default function Home() {
                   recalculateMultipliersAndCosts(
                     prevRows.sort((a, b) =>
                       a.cost !== null && b.cost !== null && a.cost > b.cost
-                        ? 1
-                        : -1,
-                    ),
+                    ? 1
+                    : -1,
                   ),
-                );
-              }}
+                ),
+              );
+            }}
             >
               Sort by cost
             </button>
@@ -1070,11 +1070,12 @@ export default function Home() {
               onClick={() => {
                 setIsItemsModalOpen(true);
               }}
-            >
+              >
               View items
             </button>
           </div>
         )}
+        {/* need absolute position for modal */}
         {isItemsModalOpen && !isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
