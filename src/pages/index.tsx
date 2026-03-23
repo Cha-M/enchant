@@ -379,7 +379,7 @@ export default function Home() {
     }
     
     return calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-    
+
     // return CharacterData.engine === 0
     //   ? rowsCopySorted.reduce((acc, row) => {
     //       // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
@@ -566,7 +566,7 @@ export default function Home() {
     duration,
     area,
   }: RowData): string =>
-    `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" ? ` for ${duration} sec${duration !== 1 ? "s" : ""}` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : ""}`;
+    `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" ? ` for ${duration} sec${duration !== 1 ? "s" : ""}` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : " on Self"}`;
 
   return (
     <div className="min-h-screen pl-35 pt-10">
