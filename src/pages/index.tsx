@@ -1384,12 +1384,12 @@ export default function Home() {
                 {savedEnchantments.map(([name, itemEffects]) => (
                   <div
                     key={name}
-                    className="flex flex-row items-center justify-between mb-2"
+                    className="flex items-center justify-between mb-2"
                   >
                     <span>{name}</span>
                     {itemEffects.map((effectRow, index) => (
                       <div key={index} className="text-sm text-[#DFC99F]">
-                        {`${effectRow.effect} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
+                        {`${effectRow.effect} ${effectRow.max && `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}`} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
                       </div>
                     ))}
                   </div>
