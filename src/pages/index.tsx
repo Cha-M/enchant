@@ -442,6 +442,11 @@ export default function Home() {
     //this means the rows will be different for OpenMW, not just the chance
   }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
+  const rowsIncomplete = useMemo<boolean>(
+    () => rows.some((row) => row.effect === "" || !row.target),
+    [rows],
+  );
+
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
 
@@ -987,10 +992,7 @@ export default function Home() {
                   <div className="flex justify-center mt-6">
                     <button
                       className="px-4 py-2"
-                      disabled={
-                        rows.length >= 8 ||
-                        rows.some((row) => row.effect === "" || !row.target)
-                      }
+                      disabled={rows.length >= 8 || rowsIncomplete}
                       onClick={() => {
                         setRows((prevRows) =>
                           recalculateMultipliersAndCosts([
@@ -1031,10 +1033,7 @@ export default function Home() {
           <div className="flex flex-row space-x-2 ml-12">
             <button
               className="px-4 py-2"
-              disabled={
-                rows.length >= 8 ||
-                rows.some((row) => row.effect === "" || !row.target)
-              }
+              disabled={rows.length >= 8 || rowsIncomplete}
               onClick={() => {
                 setRows((prevRows) =>
                   recalculateMultipliersAndCosts([
@@ -1154,8 +1153,8 @@ export default function Home() {
                             </td>
                             <td className="pl-1">
                               <button
-                                className="border-none"
-                                disabled={rows.some((row) => row.effect === "")}
+                                disabled={rowsIncomplete}
+                                className={`border-none disabled-gold`}
                                 onClick={(e) => {
                                   e.preventDefault();
                                   setSavedEnchantments((prev) => [
@@ -1387,7 +1386,14 @@ export default function Home() {
                     key={name}
                     className="flex items-center justify-between mb-2"
                   >
-                    <span className="text-[#DFC99F]">{name}</span>
+                    <span>{name}</span>
+                    {rows.map(
+                      (row, index) => (
+                        <div key={index} className="text-sm text-[#DFC99F]">
+                          {`${effects[row.effect]} on ${row.target}`}
+                        </div>
+                      )
+                    )}
                   </div>
                 ))}
               </div>
