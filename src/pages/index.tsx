@@ -569,6 +569,8 @@ export default function Home() {
   const [isSavedEnchantmentsModalOpen, setIsSavedEnchantmentsModalOpen] =
     useState<boolean>(false);
 
+  const enchantSound = new Audio("/sound/enchant.wav");
+
   return (
     <div className="min-h-screen pl-35 pt-10">
       <Head>
@@ -1161,6 +1163,7 @@ export default function Home() {
                                     ...prev,
                                     [itemName, rows],
                                   ]);
+                                  enchantSound.play();
                                 }}
                               >
                                 {itemName}
