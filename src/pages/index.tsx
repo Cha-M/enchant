@@ -570,6 +570,16 @@ export default function Home() {
   const [isSavedEnchantmentsModalOpen, setIsSavedEnchantmentsModalOpen] =
     useState<boolean>(false);
 
+  const formatEffectRow = ({
+    effect,
+    target,
+    min,
+    max,
+    duration,
+    area,
+  }: RowData): string =>
+    `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" ? ` for ${duration} sec${duration !== 1 ? "s" : ""}` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : ""}`;
+
   return (
     <div className="min-h-screen pl-35 pt-10">
       <Head>
@@ -1396,8 +1406,7 @@ export default function Home() {
                           `${name}\n${itemEffects[0].target === "Constant Effect" ? "Constant Effect\n" : ""}${itemEffects
                             .map(
                               //remove extra space
-                              (effectRow) =>
-                                `${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""}${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? ` for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`,
+                              (effectRow) => formatEffectRow(effectRow),
                             )
                             .join("\n")}`,
                       )
@@ -1435,7 +1444,9 @@ export default function Home() {
                             width={12}
                             height={12}
                           />
-                          <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""}${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? ` for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                          <span className="ml-2">
+                            {formatEffectRow(effectRow)}
+                          </span>
                         </div>
                       ))}
                     </div>
