@@ -18,6 +18,7 @@ export const targetMultipliers: Record<string, number> = {
 };
 
 export const effects: Record<string, Effect> = {
+  // Add attribute variants
   "Absorb Attribute": {
     skill: "Mysticism",
     baseCost: 2,
