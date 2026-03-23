@@ -1161,7 +1161,11 @@ export default function Home() {
                                     ...prev,
                                     [itemName, rows],
                                   ]);
-                                  new Audio("/sound/enchant.wav").play();
+                                  const enchantSound = new Audio(
+                                    "/sound/enchant.wav",
+                                  );
+                                  enchantSound.volume = 0.5;
+                                  enchantSound.play();
                                 }}
                               >
                                 {itemName}
@@ -1383,7 +1387,10 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
-                  <div key={name} className="flex flex-col items-center mb-2 relative w-full">
+                  <div
+                    key={name}
+                    className="flex flex-col items-center mb-2 relative w-full"
+                  >
                     <div className="flex flex-row items-center">
                       <Image
                         src={items[name].icon}
