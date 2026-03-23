@@ -1031,7 +1031,7 @@ export default function Home() {
         </table>
 
         {rows.length > 0 && (
-          <div className="flex flex-row space-x-2 ml-12">
+          <div className="flex flex-row space-x-2 ml-12 mb-4">
             <button
               className="px-4 py-2"
               disabled={rows.length >= 8 || rowsIncomplete}
