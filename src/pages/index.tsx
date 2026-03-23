@@ -1405,7 +1405,6 @@ export default function Home() {
                         ([name, itemEffects]) =>
                           `${name}\n${itemEffects[0].target === "Constant Effect" ? "Constant Effect\n" : ""}${itemEffects
                             .map(
-                              //remove extra space
                               (effectRow) => formatEffectRow(effectRow),
                             )
                             .join("\n")}`,
