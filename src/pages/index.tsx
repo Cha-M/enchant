@@ -1390,7 +1390,7 @@ export default function Home() {
                 {savedEnchantments.map(([name, itemEffects], index) => (
                   <div key={name} className="flex justify-between">
                     <div className="flex flex-col items-center mb-2 relative w-full">
-                      <div className="flex flex-row items-center">
+                      <div className="flex flex-row items-center pr-4">
                         <Image
                           src={items[name].icon}
                           alt={name}
