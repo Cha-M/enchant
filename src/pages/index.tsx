@@ -1386,10 +1386,10 @@ export default function Home() {
                     key={name}
                     className="flex items-center justify-between mb-2"
                   >
-                    <span>{name}</span>
+                    <span className="text-[#DFC99F]">{name}</span>
                     {itemEffects.map((effectRow, index) => (
-                      <div key={index} className="text-sm text-[#DFC99F]">
-                        {`${effectRow.effect} ${effectRow.max && `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}`} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
+                      <div key={index} className="text-sm">
+                        {`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
                       </div>
                     ))}
                   </div>
