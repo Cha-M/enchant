@@ -1385,7 +1385,7 @@ export default function Home() {
                   🗙
                 </button>
               </div>
-              <div className="flex items-center mb-2">
+              <div className="flex items-center mb-3">
                 <button
                   className="px-4 py-2 ml-4"
                   onMouseDown={(e) => e.preventDefault()}
