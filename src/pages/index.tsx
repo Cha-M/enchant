@@ -1381,7 +1381,7 @@ export default function Home() {
                 </button>
               </div>
               <div className="overflow-y-auto px-4 pb-3">
-                {savedEnchantments.map(([name, itemEffects]) => (
+                {savedEnchantments.map(([name, itemEffects], index) => (
                   <div key={name} className="flex flex-col items-center mb-2">
                     <div className="flex flex-row items-center">
                       <Image
@@ -1407,19 +1407,19 @@ export default function Home() {
                           height={12}
                         />
                         <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} secs` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
-                        <button
-                          onClick={() => {
-                            setSavedEnchantments((prev) => {
-                              const newEnchantments = [...prev];
-                              newEnchantments.splice(index, 1);
-                              return newEnchantments;
-                            });
-                          }}
-                        >
-                          🗙
-                        </button>
                       </div>
                     ))}
+                    <button
+                      onClick={() => {
+                        setSavedEnchantments((prev) => {
+                          const newEnchantments = [...prev];
+                          newEnchantments.splice(index, 1);
+                          return newEnchantments;
+                        });
+                      }}
+                    >
+                      🗙
+                    </button>
                   </div>
                 ))}
               </div>
