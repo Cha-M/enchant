@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { JSX, useCallback, useMemo, useState } from "react";
+import { JSX, useCallback, useEffect, useMemo, useState } from "react";
 import { effects, targetMultipliers } from "@/data/effects";
 import {
   itemArmourWeightKeyLabelPairs,
@@ -543,12 +543,14 @@ export default function Home() {
 
   const [savedEnchantments, setSavedEnchantments] = useState<
     [string, RowData[]][]
-  >(
-    localStorage.getItem("savedEnchantments")
-      ? JSON.parse(localStorage.getItem("savedEnchantments")!)
-      : ([] as [string, RowData[]][]),
-  );
-  //  local storage
+  >([] as [string, RowData[]][]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("savedEnchantments");
+    if (saved) {
+      setSavedEnchantments(JSON.parse(saved));
+    }
+  }, []);
 
   const [isSavedEnchantmentsModalOpen, setIsSavedEnchantmentsModalOpen] =
     useState<boolean>(false);
