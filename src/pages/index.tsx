@@ -6,6 +6,7 @@ import {
   itemSlotKeyLabelPairs,
   itemWeaponSkillKeyLabelPairs,
   items,
+  Item,
 } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
@@ -522,7 +523,7 @@ export default function Home() {
     } as ItemFilterWeaponSkills,
   });
 
-  const itemList = useMemo(
+  const itemList = useMemo<[string, Item][]>(
     () =>
       Object.entries(items)
         .sort()
@@ -555,6 +556,8 @@ export default function Home() {
 
     [totalCost, itemFilter],
   );
+
+  const savedEnchantments = useState<[string, RowData[]][]>([] as [string, RowData[]][]);
 
   return (
     <div className="min-h-screen pl-35 pt-10">
@@ -1045,7 +1048,7 @@ export default function Home() {
                   ]),
                 );
               }}
-              >
+            >
               New effect
             </button>
             <button
@@ -1056,12 +1059,12 @@ export default function Home() {
                   recalculateMultipliersAndCosts(
                     prevRows.sort((a, b) =>
                       a.cost !== null && b.cost !== null && a.cost > b.cost
-                    ? 1
-                    : -1,
+                        ? 1
+                        : -1,
+                    ),
                   ),
-                ),
-              );
-            }}
+                );
+              }}
             >
               Sort by cost
             </button>
@@ -1070,7 +1073,7 @@ export default function Home() {
               onClick={() => {
                 setIsItemsModalOpen(true);
               }}
-              >
+            >
               View items
             </button>
           </div>
@@ -1330,7 +1333,6 @@ export default function Home() {
                   )}
                 </div>
               </div>
-              {/* Need message for when armour with no weight is selected */}
             </div>
           </div>
         )}
