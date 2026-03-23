@@ -1203,6 +1203,7 @@ export default function Home() {
               </div>
             </div>
           )}
+        {/* need absolute position for modal */}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
