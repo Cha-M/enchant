@@ -1416,6 +1416,9 @@ export default function Home() {
                           newEnchantments.splice(index, 1);
                           return newEnchantments;
                         });
+                        if (savedEnchantments.length === 0) {
+                          setIsSavedEnchantmentsModalOpen(false);
+                        }
                       }}
                     >
                       🗙
