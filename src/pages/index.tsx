@@ -1417,7 +1417,7 @@ export default function Home() {
                         <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max ? "s" : ""}`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                       </div>
                     ))}
-                    {/* this should not be absolute it should be in a squarish div */}
+                    {/* this should not be absolute it should be centred in a squarish div with the height of one effect and the heading*/}
                     <button
                       className="absolute top-2 right-0 px-1"
                       onClick={() => {
