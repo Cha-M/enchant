@@ -1388,52 +1388,52 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
-                  <div
-                    key={name}
-                    className="flex flex-col items-center mb-2 relative w-full"
-                  >
-                    <div className="flex flex-row items-center">
-                      <Image
-                        src={items[name].icon}
-                        alt={name}
-                        width={16}
-                        height={16}
-                      />
-                      <span className="text-[#DFC99F] ml-2">{name}</span>
-                    </div>
-                    {itemEffects[0].target === "Constant Effect" && (
-                      <span className="text-sm">Constant Effect</span>
-                    )}
-                    {itemEffects.map((effectRow, index) => (
-                      <div
-                        key={index}
-                        className="text-sm flex flex-row items-center"
-                      >
+                  <div key={name} className="flex justify-between">
+                    <div className="flex flex-col items-center mb-2 relative w-full">
+                      <div className="flex flex-row items-center">
                         <Image
-                          src={effects[effectRow.effect].icon}
-                          alt={effectRow.effect}
-                          width={12}
-                          height={12}
+                          src={items[name].icon}
+                          alt={name}
+                          width={16}
+                          height={16}
                         />
-                        <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max ? "s" : ""}`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                        <span className="text-[#DFC99F] ml-2">{name}</span>
                       </div>
-                    ))}
-                    {/* this should not be absolute it should be centred in a squarish div with the height of one effect and the heading*/}
-                    <button
-                      className="absolute top-2 right-0 px-1"
-                      onClick={() => {
-                        setSavedEnchantments((prev) => {
-                          const newEnchantments = [...prev];
-                          newEnchantments.splice(index, 1);
-                          if (newEnchantments.length === 0) {
-                            setIsSavedEnchantmentsModalOpen(false);
-                          }
-                          return newEnchantments;
-                        });
-                      }}
-                    >
-                      🗙
-                    </button>
+                      {itemEffects[0].target === "Constant Effect" && (
+                        <span className="text-sm">Constant Effect</span>
+                      )}
+                      {itemEffects.map((effectRow, index) => (
+                        <div
+                          key={index}
+                          className="text-sm flex flex-row items-center"
+                        >
+                          <Image
+                            src={effects[effectRow.effect].icon}
+                            alt={effectRow.effect}
+                            width={12}
+                            height={12}
+                          />
+                          <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max ? "s" : ""}`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="h-11 flex items-center justify-center">
+                      <button
+                        className="px-1"
+                        onClick={() => {
+                          setSavedEnchantments((prev) => {
+                            const newEnchantments = [...prev];
+                            newEnchantments.splice(index, 1);
+                            if (newEnchantments.length === 0) {
+                              setIsSavedEnchantmentsModalOpen(false);
+                            }
+                            return newEnchantments;
+                          });
+                        }}
+                      >
+                        🗙
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
