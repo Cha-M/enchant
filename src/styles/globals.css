@@ -29,6 +29,7 @@ button {
   border-color: var(--foreground);
   color: var(--foreground);
   outline: 0px;
+  user-select: none;
 }
 
 button:hover, button:focus {
