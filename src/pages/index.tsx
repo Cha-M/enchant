@@ -1381,15 +1381,15 @@ export default function Home() {
                 </button>
               </div>
               <div className="overflow-y-auto px-4 pb-3">
-                {savedEnchantments.map(([name, rows]) => (
+                {savedEnchantments.map(([name, itemEffects]) => (
                   <div
                     key={name}
-                    className="flex items-center justify-between mb-2"
+                    className="flex flex-row items-center justify-between mb-2"
                   >
                     <span>{name}</span>
-                    {rows.map((row, index) => (
+                    {itemEffects.map((effectRow, index) => (
                       <div key={index} className="text-sm text-[#DFC99F]">
-                        {`${effects[row.effect]} ${row.duration && `for ${row.duration} secs`} on ${row.target}`}
+                        {`${effectRow.effect} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
                       </div>
                     ))}
                   </div>
