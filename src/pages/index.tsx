@@ -1083,7 +1083,6 @@ export default function Home() {
             </button>
           </div>
         )}
-        {/* need absolute position for modal */}
         {isItemsModalOpen &&
           !isFilterModalOpen &&
           !isSavedEnchantmentsModalOpen && (
