@@ -566,7 +566,7 @@ export default function Home() {
     duration,
     area,
   }: RowData): string =>
-    `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" ? ` for ${duration} sec${duration !== 1 ? "s" : ""}` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : " on Self"}`;
+    `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" && duration !== 1 ? ` for ${duration} secs` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : " on Self"}`;
 
   return (
     <div className="min-h-screen pl-35 pt-10">
@@ -1476,4 +1476,3 @@ export default function Home() {
     </div>
   );
 }
-// Issue with no 0 duration possible
