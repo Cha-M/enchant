@@ -557,7 +557,12 @@ export default function Home() {
     [totalCost, itemFilter],
   );
 
-  const [savedEnchantments, setSavedEnchantments] = useState<[string, RowData[]][]>([] as [string, RowData[]][]);
+  const [savedEnchantments, setSavedEnchantments] = useState<
+    [string, RowData[]][]
+  >([] as [string, RowData[]][]);
+
+  const [isSavedEnchantmentsModalOpen, setIsSavedEnchantmentsModalOpen] =
+    useState<boolean>(false);
 
   return (
     <div className="min-h-screen pl-35 pt-10">
@@ -1079,94 +1084,121 @@ export default function Home() {
           </div>
         )}
         {/* need absolute position for modal */}
-        {isItemsModalOpen && !isFilterModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
-              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
-                <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
-                <button
-                  className="px-2 py-1"
-                  onClick={() => setIsItemsModalOpen(false)}
-                >
-                  🗙
-                </button>
-              </div>
-              <div className="flex items-center mb-2">
-                <button
-                  className="px-4 py-2 w-fit ml-4"
-                  onClick={() => setIsFilterModalOpen(true)}
-                >
-                  Filter
-                </button>
-                <input
-                  type="text"
-                  placeholder="Search by name"
-                  className="w-full mx-4"
-                  value={itemFilter.name || ""}
-                  onChange={(e) =>
-                    setItemFilter((prev) => ({
-                      ...prev,
-                      name: e.target.value || null,
-                    }))
-                  }
-                />
-              </div>
-              <div className="overflow-y-auto px-4 pb-3">
-                {Object.entries(itemList).some(
-                  ([, itemData]) => itemData[1].enchantPoints >= totalCost,
-                ) ? (
-                  <div>
-                    {/* <div>{Object.entries(items).length} items in total.</div> */}
-                    <table className="w-full">
-                      <thead>
-                        <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
-                          <td />
-                          <td>Name</td>
-                          <td>Enchant Points</td>
-                        </tr>
-                      </thead>
-                      {itemList.map(([itemName, itemData]) => (
-                        <tr key={itemName}>
-                          <td className="pr-1">
-                            {itemData.icon && (
-                              <Image
-                                src={itemData.icon}
-                                alt={itemName}
-                                width={16}
-                                height={16}
-                              />
-                            )}
-                          </td>
-                          <td className="pl-1">{itemName}</td>
-                          <td className="pl-1">{itemData.enchantPoints}</td>
-                        </tr>
-                      ))}
-                    </table>
-                  </div>
-                ) : (
-                  <div>
-                    <div className="pt-2">
-                      No selected items have enough points for this enchantment.
+        {isItemsModalOpen &&
+          !isFilterModalOpen &&
+          !isSavedEnchantmentsModalOpen && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
+                <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
+                  <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
+                  <button
+                    className="px-2 py-1"
+                    onClick={() => setIsItemsModalOpen(false)}
+                  >
+                    🗙
+                  </button>
+                </div>
+                <div className="flex items-center mb-2">
+                  <button
+                    className="px-4 py-2 w-fit ml-4"
+                    onClick={() => setIsFilterModalOpen(true)}
+                  >
+                    Filter
+                  </button>
+                  {savedEnchantments.length > 0 && (
+                    <button
+                      className="px-4 py-2 w-fit ml-2"
+                      onClick={() => setIsSavedEnchantmentsModalOpen(true)}
+                    >
+                      Saved
+                    </button>
+                  )}
+                  <input
+                    type="text"
+                    placeholder="Search by name"
+                    className="w-full mx-4"
+                    value={itemFilter.name || ""}
+                    onChange={(e) =>
+                      setItemFilter((prev) => ({
+                        ...prev,
+                        name: e.target.value || null,
+                      }))
+                    }
+                  />
+                </div>
+                <div className="overflow-y-auto px-4 pb-3">
+                  {Object.entries(itemList).some(
+                    ([, itemData]) => itemData[1].enchantPoints >= totalCost,
+                  ) ? (
+                    <div>
+                      {/* <div>{Object.entries(items).length} items in total.</div> */}
+                      <table className="w-full">
+                        <thead>
+                          <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
+                            <td />
+                            <td>Name</td>
+                            <td>Enchant Points</td>
+                          </tr>
+                        </thead>
+                        {itemList.map(([itemName, itemData]) => (
+                          <tr key={itemName}>
+                            <td className="pr-1">
+                              {itemData.icon && (
+                                <Image
+                                  src={itemData.icon}
+                                  alt={itemName}
+                                  width={16}
+                                  height={16}
+                                />
+                              )}
+                            </td>
+                            <td className="pl-1">
+                              <button
+                                className="border-none"
+                                disabled={rows.some((row) => row.effect === "")}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setSavedEnchantments((prev) => [
+                                    ...prev,
+                                    [itemName, rows],
+                                  ]);
+                                }}
+                              >
+                                {itemName}
+                              </button>
+                            </td>
+                            <td className="pl-1">{itemData.enchantPoints}</td>
+                          </tr>
+                        ))}
+                      </table>
                     </div>
-                    {Object.values(itemFilter.armourWeight).every((v) => !v) &&
-                      (itemFilter.slots.helm ||
-                        itemFilter.slots.cuirass ||
-                        itemFilter.slots.greaves ||
-                        itemFilter.slots.boots ||
-                        itemFilter.slots.shield ||
-                        itemFilter.slots.leftPauldron ||
-                        itemFilter.slots.rightPauldron) && (
-                        <div>
-                          Please select an armor weight if you want to see
-                          armor.
-                        </div>
-                      )}
-                  </div>
-                )}
+                  ) : (
+                    <div>
+                      <div className="pt-2">
+                        No selected items have enough points for this
+                        enchantment.
+                      </div>
+                      {Object.values(itemFilter.armourWeight).every(
+                        (v) => !v,
+                      ) &&
+                        (itemFilter.slots.helm ||
+                          itemFilter.slots.cuirass ||
+                          itemFilter.slots.greaves ||
+                          itemFilter.slots.boots ||
+                          itemFilter.slots.shield ||
+                          itemFilter.slots.leftPauldron ||
+                          itemFilter.slots.rightPauldron) && (
+                          <div>
+                            Please select an armor weight if you want to see
+                            armor.
+                          </div>
+                        )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
         {isFilterModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
@@ -1332,6 +1364,32 @@ export default function Home() {
                     ),
                   )}
                 </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {isSavedEnchantmentsModalOpen && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
+            <div className="bg-stone-800 rounded-lg max-h-[80vh] flex flex-col">
+              <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
+                <h2 className="text-xl text-[#DFC99F]">Saved Enchantments</h2>
+                <button
+                  className="px-2 py-1"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => setIsSavedEnchantmentsModalOpen(false)}
+                >
+                  🗙
+                </button>
+              </div>
+              <div className="overflow-y-auto px-4 pb-3">
+                {savedEnchantments.map(([name, rows]) => (
+                  <div
+                    key={name}
+                    className="flex items-center justify-between mb-2"
+                  >
+                    <span className="text-[#DFC99F]">{name}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
