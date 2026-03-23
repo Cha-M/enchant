@@ -1056,7 +1056,7 @@ export const effects: Record<string, Effect> = {
   //   affectsAttribute: true,
   //   icon: "/icons/effects/Restore_Attribute.jpg",
   // },
-  "Restore Attribute": {
+  "Restore Strength": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1065,7 +1065,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Intelligence": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1074,7 +1074,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Willpower": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1083,7 +1083,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Agility": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1092,7 +1092,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Speed": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1101,7 +1101,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Endurance": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1110,7 +1110,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Personality": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
@@ -1119,7 +1119,7 @@ export const effects: Record<string, Effect> = {
     affectsAttribute: true,
     icon: "/icons/effects/Restore_Attribute.jpg",
   },
-  "Restore Attribute": {
+  "Restore Luck": {
     skill: "Restoration",
     baseCost: 1,
     hasMagnitude: true,
