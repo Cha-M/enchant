@@ -1125,7 +1125,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Search by name"
-                    className="w-full mx-4 searchbar"
+                    className="w-full mx-4 searchbar pl-1"
                     value={itemFilter.name || ""}
                     onChange={(e) =>
                       setItemFilter((prev) => ({
@@ -1404,9 +1404,7 @@ export default function Home() {
                       .map(
                         ([name, itemEffects]) =>
                           `${name}\n${itemEffects[0].target === "Constant Effect" ? "Constant Effect\n" : ""}${itemEffects
-                            .map(
-                              (effectRow) => formatEffectRow(effectRow),
-                            )
+                            .map((effectRow) => formatEffectRow(effectRow))
                             .join("\n")}`,
                       )
                       .join("\n\n");
