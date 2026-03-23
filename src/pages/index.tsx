@@ -1413,7 +1413,7 @@ export default function Home() {
                             width={12}
                             height={12}
                           />
-                          <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max ? "s" : ""}`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                          <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max ? "s" : ""}`}` : ""} ${effectRow.duration !== null && effectRow.target !== "Constant Effect"? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                         </div>
                       ))}
                     </div>
