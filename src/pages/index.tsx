@@ -1099,14 +1099,14 @@ export default function Home() {
                 </div>
                 <div className="flex items-center mb-2">
                   <button
-                    className="px-4 py-2 w-fit ml-4"
+                    className="px-4 py-2 ml-4"
                     onClick={() => setIsFilterModalOpen(true)}
                   >
                     Filter
                   </button>
                   {savedEnchantments.length > 0 && (
                     <button
-                      className="px-4 py-2 w-fit ml-2"
+                      className="px-4 py-2 ml-2"
                       onClick={() => setIsSavedEnchantmentsModalOpen(true)}
                     >
                       Saved
@@ -1386,6 +1386,27 @@ export default function Home() {
                   🗙
                 </button>
               </div>
+              <div className="flex items-center mb-2">
+                <button
+                  className="px-4 py-2 ml-4"
+                  onMouseDown={(e) => e.preventDefault()}
+                  onClick={() => {
+                    const enchantmentsText = savedEnchantments
+                      .map(
+                        ([name, itemEffects]) =>
+                          `${name}\n${itemEffects
+                            .map(
+                              (effectRow) => `${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""} ${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`,
+                            )
+                            .join("\n")}`,
+                      )
+                      .join("\n\n");
+                    navigator.clipboard.writeText(enchantmentsText);
+                  }}
+                >
+                  Copy text
+                </button>
+              </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
                   <div key={name} className="flex justify-between">
@@ -1413,7 +1434,6 @@ export default function Home() {
                             width={12}
                             height={12}
                           />
-                          {/* pts format wrong number, says pts always */}
                           <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""} ${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                         </div>
                       ))}
