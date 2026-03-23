@@ -1382,7 +1382,7 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
-                  <div key={name} className="flex flex-col items-center mb-2">
+                  <div key={name} className="flex flex-col items-center mb-2 relative w-full">
                     <div className="flex flex-row items-center">
                       <Image
                         src={items[name].icon}
@@ -1410,15 +1410,16 @@ export default function Home() {
                       </div>
                     ))}
                     <button
+                      className="absolute top-2 right-0 px-1"
                       onClick={() => {
                         setSavedEnchantments((prev) => {
                           const newEnchantments = [...prev];
                           newEnchantments.splice(index, 1);
+                          if (newEnchantments.length === 0) {
+                            setIsSavedEnchantmentsModalOpen(false);
+                          }
                           return newEnchantments;
                         });
-                        if (savedEnchantments.length === 0) {
-                          setIsSavedEnchantmentsModalOpen(false);
-                        }
                       }}
                     >
                       🗙
