@@ -1407,6 +1407,17 @@ export default function Home() {
                           height={12}
                         />
                         <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} secs` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                        <button
+                          onClick={() => {
+                            setSavedEnchantments((prev) => {
+                              const newEnchantments = [...prev];
+                              newEnchantments.splice(index, 1);
+                              return newEnchantments;
+                            });
+                          }}
+                        >
+                          🗙
+                        </button>
                       </div>
                     ))}
                   </div>
