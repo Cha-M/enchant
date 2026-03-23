@@ -557,7 +557,7 @@ export default function Home() {
     [totalCost, itemFilter],
   );
 
-  const savedEnchantments = useState<[string, RowData[]][]>([] as [string, RowData[]][]);
+  const [savedEnchantments, setSavedEnchantments] = useState<[string, RowData[]][]>([] as [string, RowData[]][]);
 
   return (
     <div className="min-h-screen pl-35 pt-10">
