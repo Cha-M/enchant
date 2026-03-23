@@ -1411,7 +1411,7 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
-                  <div key={name} className="flex justify-between">
+                  <div key={`${name}-${index}`} className="flex justify-between">
                     <div className="flex flex-col items-center mb-2 relative w-full">
                       <div className="flex flex-row items-center pr-4">
                         <Image
@@ -1447,20 +1447,16 @@ export default function Home() {
                         className="px-1"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => {
-                          const newSavedEnchantments = [...savedEnchantments];
-                          newSavedEnchantments.splice(index, 1);
+                          const newEnchantments = [...savedEnchantments];
+                          newEnchantments.splice(index, 1);
                           localStorage.setItem(
                             "savedEnchantments",
-                            JSON.stringify(newSavedEnchantments),
+                            JSON.stringify(newEnchantments),
                           );
-                          setSavedEnchantments((prev) => {
-                            const newEnchantments = [...prev];
-                            newEnchantments.splice(index, 1);
-                            if (newEnchantments.length === 0) {
-                              setIsSavedEnchantmentsModalOpen(false);
-                            }
-                            return newEnchantments;
-                          });
+                          setSavedEnchantments(newEnchantments);
+                          if (newEnchantments.length === 0) {
+                            setIsSavedEnchantmentsModalOpen(false);
+                          }
                         }}
                       >
                         🗙
