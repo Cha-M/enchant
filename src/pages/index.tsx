@@ -373,11 +373,11 @@ export default function Home() {
     const hasConstantEffect = rows.some(
       (row) => row.target === "Constant Effect",
     );
-    
+
     if (totalCost === 0) {
       return null;
     }
-    
+
     return calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
 
     // return CharacterData.engine === 0
@@ -1476,3 +1476,4 @@ export default function Home() {
     </div>
   );
 }
+// Issue with no 0 duration possible
