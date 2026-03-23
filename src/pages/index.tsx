@@ -1390,7 +1390,7 @@ export default function Home() {
                         width={16}
                         height={16}
                       />
-                      <span className="text-[#DFC99F] ml-1">{name}</span>
+                      <span className="text-[#DFC99F] ml-2">{name}</span>
                     </div>
                     {itemEffects[0].target === "Constant Effect" && (
                       <span className="text-sm">Constant Effect</span>
@@ -1406,7 +1406,7 @@ export default function Home() {
                           width={12}
                           height={12}
                         />
-                        <span className="ml-1">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                        <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                       </div>
                     ))}
                   </div>
