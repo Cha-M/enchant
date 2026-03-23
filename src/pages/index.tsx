@@ -1394,9 +1394,10 @@ export default function Home() {
                     const enchantmentsText = savedEnchantments
                       .map(
                         ([name, itemEffects]) =>
-                          `${name}\n${itemEffects
+                          `${name}\n${itemEffects[0].target === "Constant Effect" ? "Constant Effect\n" : ""}${itemEffects
                             .map(
-                              (effectRow) => `${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""} ${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`,
+                              (effectRow) =>
+                                `${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}` : `${effectRow.max} pt${effectRow.max !== 1 ? "s" : ""}`}` : ""} ${effectRow.duration !== null && effectRow.target !== "Constant Effect" ? `for ${effectRow.duration} sec${effectRow.duration !== 1 ? "s" : ""}` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`,
                             )
                             .join("\n")}`,
                       )
