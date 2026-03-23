@@ -1155,8 +1155,8 @@ export default function Home() {
                               <button
                                 disabled={rowsIncomplete}
                                 className={`border-none disabled-gold`}
-                                onClick={(e) => {
-                                  e.preventDefault();
+                                onMouseDown={(e) => e.preventDefault()}
+                                onClick={() => {
                                   setSavedEnchantments((prev) => [
                                     ...prev,
                                     [itemName, rows],
