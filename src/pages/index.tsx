@@ -1390,7 +1390,7 @@ export default function Home() {
                     {rows.map(
                       (row, index) => (
                         <div key={index} className="text-sm text-[#DFC99F]">
-                          {`${effects[row.effect]} on ${row.target}`}
+                          {`${effects[row.effect]} for ${row.duration} secs on ${row.target}`}
                         </div>
                       )
                     )}
