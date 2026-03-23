@@ -1087,7 +1087,7 @@ export default function Home() {
         {isItemsModalOpen &&
           !isFilterModalOpen &&
           !isSavedEnchantmentsModalOpen && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-50 pt-20">
               <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
                 <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                   <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
@@ -1206,7 +1206,7 @@ export default function Home() {
           )}
         {/* need absolute position for modal */}
         {isFilterModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
+          <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-20">
             <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
@@ -1375,7 +1375,7 @@ export default function Home() {
           </div>
         )}
         {isSavedEnchantmentsModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
+          <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-20">
             <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[25vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                 <h2 className="text-xl text-[#DFC99F]">Saved Enchantments</h2>
