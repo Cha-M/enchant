@@ -41,7 +41,6 @@ export default function Home() {
   });
 
   const [rows, setRows] = useState<RowData[]>([] as RowData[]);
-  // const [newEffect, setNewEffect] = useState<RowData>({} as RowData);
 
   const calculateRowCost = useCallback((row: RowData): number | null => {
     const effectDetails = effects[row.effect];
@@ -118,7 +117,6 @@ export default function Home() {
           ? targetMultipliers[row.target!] * nonConstantEffectCost
           : 1;
 
-    // finding that small (sub 1) enchantments are not multiplied by position. but they have a mimimum of 1 after multiplied... but this isn't true? idk
     // const newCost =
     //   row.target === "Constant Effect"
     //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
@@ -138,24 +136,13 @@ export default function Home() {
         const newCost = calculateRowCost(row);
 
         const newMultiplier = currentRows.length - index;
-        const newCompoundedCost =
-          //newCost !== null ? Math.floor(newCost) * newMultiplier : null;
-          //are these really floored?
-          //at some point...
-          //need to check whether it is floored differently cos with 84/55 have an issue it being 22 and not 21
 
-          //could try rounding? idk
-          //maybe it is floored "after" in the total cost?
+        const newCompoundedCost =
           newCost !== null
             ? newCost * newMultiplier >= 1
               ? newCost * newMultiplier
               : 1
             : null;
-        // newCost !== null
-        //   ? Math.floor(newCost * newMultiplier) >= 1
-        //     ? Math.floor(newCost * newMultiplier)
-        //     : 1
-        //   : null;
         return {
           ...row,
           cost: newCost,
@@ -330,13 +317,6 @@ export default function Home() {
 
   const totalCost = useMemo<number>(
     () => Math.floor(rows.reduce((sum, row) => sum + row.compoundedCost!, 0)),
-    // I don't think this is a ceiling because you can go above it, eg daedric dai-katana has 21 points. it's like any fraction of what you add gets dropped. or the multiplication by base cost makes it too high?
-    // or it could be rounded-need check .49 and .50
-    // () => rows.reduce((sum, item) => sum + item.compoundedCost!, 0)).toFixed(2),
-    // looking at openmw there is a floor on the costs involved
-
-    //floor here instead?
-    //check source
     [rows],
   );
 
@@ -345,7 +325,6 @@ export default function Home() {
     totalCost: number,
     hasConstantEffect: boolean,
   ) =>
-    // Math.floor(
     Math.round(
       Math.min(
         100,
@@ -564,7 +543,11 @@ export default function Home() {
 
   const [savedEnchantments, setSavedEnchantments] = useState<
     [string, RowData[]][]
-  >([] as [string, RowData[]][]);
+  >(
+    localStorage.getItem("savedEnchantments")
+      ? JSON.parse(localStorage.getItem("savedEnchantments")!)
+      : ([] as [string, RowData[]][]),
+  );
   //  local storage
 
   const [isSavedEnchantmentsModalOpen, setIsSavedEnchantmentsModalOpen] =
@@ -1167,6 +1150,13 @@ export default function Home() {
                                 className={`border-none disabled-gold`}
                                 onMouseDown={(e) => e.preventDefault()}
                                 onClick={() => {
+                                  localStorage.setItem(
+                                    "savedEnchantments",
+                                    JSON.stringify([
+                                      ...savedEnchantments,
+                                      [itemName, rows],
+                                    ]),
+                                  );
                                   setSavedEnchantments((prev) => [
                                     ...prev,
                                     [itemName, rows],
@@ -1452,6 +1442,12 @@ export default function Home() {
                         className="px-1"
                         onMouseDown={(e) => e.preventDefault()}
                         onClick={() => {
+                          const newSavedEnchantments = [...savedEnchantments];
+                          newSavedEnchantments.splice(index, 1);
+                          localStorage.setItem(
+                            "savedEnchantments",
+                            JSON.stringify(newSavedEnchantments),
+                          );
                           setSavedEnchantments((prev) => {
                             const newEnchantments = [...prev];
                             newEnchantments.splice(index, 1);
