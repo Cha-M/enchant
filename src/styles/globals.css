@@ -61,6 +61,24 @@ select:hover, input:hover {
   outline-offset: 2px;
 }
 
+.searchbar {
+  outline: 1px solid #caa560;
+  border-radius: 1px;
+  outline-offset: 2px;
+}
+
+.searchbar:hover, .searchbar:hover {
+  outline: 1px solid #dfc99f;
+  border-radius: 1px;
+  outline-offset: 2px;
+}
+
+.searchbar:focus, .searchbar:focus {
+  outline: 1px solid #dfc99f;
+  border-radius: 1px;
+  outline-offset: 2px;
+}
+
 option {
   background-color: var(--background);
 }

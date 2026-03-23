@@ -1115,7 +1115,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Search by name"
-                    className="w-full mx-4"
+                    className="w-full mx-4 searchbar"
                     value={itemFilter.name || ""}
                     onChange={(e) =>
                       setItemFilter((prev) => ({
