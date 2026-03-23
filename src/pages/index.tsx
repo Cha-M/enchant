@@ -1387,13 +1387,11 @@ export default function Home() {
                     className="flex items-center justify-between mb-2"
                   >
                     <span>{name}</span>
-                    {rows.map(
-                      (row, index) => (
-                        <div key={index} className="text-sm text-[#DFC99F]">
-                          {`${effects[row.effect]} for ${row.duration} secs on ${row.target}`}
-                        </div>
-                      )
-                    )}
+                    {rows.map((row, index) => (
+                      <div key={index} className="text-sm text-[#DFC99F]">
+                        {`${effects[row.effect]} ${row.duration && `for ${row.duration} secs`} on ${row.target}`}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
