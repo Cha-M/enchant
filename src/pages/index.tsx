@@ -1369,7 +1369,7 @@ export default function Home() {
         )}
         {isSavedEnchantmentsModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]">
-            <div className="bg-stone-800 rounded-lg max-h-[80vh] flex flex-col">
+            <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[25vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Saved Enchantments</h2>
                 <button
@@ -1406,7 +1406,7 @@ export default function Home() {
                           width={12}
                           height={12}
                         />
-                        <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
+                        <span className="ml-2">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration !== null ? `for ${effectRow.duration} secs` : ""}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                       </div>
                     ))}
                   </div>
