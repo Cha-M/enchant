@@ -366,60 +366,63 @@ export default function Home() {
     }
     // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
     const totalCost = rows.reduce((sum, row) => sum + row.compoundedCost!, 0);
-    const rowsCopySorted = recalculateMultipliersAndCosts(
-      [...rows].sort((a, b) => a.cost! - b.cost!),
-    );
+    // const rowsCopySorted = recalculateMultipliersAndCosts(
+    //   [...rows].sort((a, b) => a.cost! - b.cost!),
+    // );
 
     const hasConstantEffect = rows.some(
       (row) => row.target === "Constant Effect",
     );
-
+    
     if (totalCost === 0) {
       return null;
     }
-
-    return CharacterData.engine === 0
-      ? rowsCopySorted.reduce((acc, row) => {
-          // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
-          // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
-          // I don't know about this.
-          return Math.round(
-            (acc *
-              //calculateEffectChanceUnbounded can have chance over 100 for individual effects
-              //               1/269 to see whether the over 100% affects
-              // Got one failure so looking like not being multiplied by easier than 100%
-              calculateEffectChance(
-                CharacterData,
-                // original doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
-                // totalCost,
-                row.compoundedCost!,
-                // totalCostWithoutMultiplier,
-                // row.cost!,
-                // rows.reduce((sum, r) => sum + r.cost!, 0),// possible? 25% it says
-                hasConstantEffect,
-              )) /
-              100,
-          );
-        }, 100)
-      : CharacterData.engine === 2
-        ? rows.reduce((acc, row) => {
-            // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
-            // I don't know about this.
-            // UESP
-            return Math.round(
-              (acc *
-                calculateEffectChance(
-                  CharacterData,
-                  row.cost!,
-                  hasConstantEffect,
-                )) /
-                100,
-            );
-          }, 100)
-        : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
+    
+    return calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
+    
+    // return CharacterData.engine === 0
+    //   ? rowsCopySorted.reduce((acc, row) => {
+    //       // nb 1 and 150 duration bound seems to have same probability as 150 and 1 duration
+    //       // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+    //       // I don't know about this.
+    //       return Math.round(
+    //         (acc *
+    //           //calculateEffectChanceUnbounded can have chance over 100 for individual effects
+    //           //               1/269 to see whether the over 100% affects
+    //           // Got one failure so looking like not being multiplied by easier than 100%
+    //           calculateEffectChance(
+    //             CharacterData,
+    //             // original doesn't look right because the cost of the last enchantment effect affects the probability when it is under 16 and not multiplied
+    //             // totalCost,
+    //             row.compoundedCost!,
+    //             // totalCostWithoutMultiplier,
+    //             // row.cost!,
+    //             // rows.reduce((sum, r) => sum + r.cost!, 0),// possible? 25% it says
+    //             hasConstantEffect,
+    //           )) /
+    //           100,
+    //       );
+    //     }, 100)
+    //   : CharacterData.engine === 2
+    //     ? rows.reduce((acc, row) => {
+    //         // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
+    //         // I don't know about this.
+    //         // UESP
+    //         return Math.round(
+    //           (acc *
+    //             calculateEffectChance(
+    //               CharacterData,
+    //               row.cost!,
+    //               hasConstantEffect,
+    //             )) /
+    //             100,
+    //         );
+    //       }, 100)
+    //     : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
     //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
     //this means the rows will be different for OpenMW, not just the chance
-  }, [CharacterData, recalculateMultipliersAndCosts, rows]);
+  }, [CharacterData, rows]);
+  // }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   const rowsIncomplete = useMemo<boolean>(
     () => rows.some((row) => row.effect === "" || !row.target),
