@@ -1382,14 +1382,31 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects]) => (
-                  <div
-                    key={name}
-                    className="flex items-center justify-between mb-2"
-                  >
-                    <span className="text-[#DFC99F]">{name}</span>
+                  <div key={name} className="flex flex-col items-center mb-2">
+                    <div className="flex flex-row items-center">
+                      <Image
+                        src={items[name].icon}
+                        alt={name}
+                        width={16}
+                        height={16}
+                      />
+                      <span className="text-[#DFC99F] ml-1">{name}</span>
+                    </div>
+                    {itemEffects[0].target === "Constant Effect" && (
+                      <span className="text-sm">Constant Effect</span>
+                    )}
                     {itemEffects.map((effectRow, index) => (
-                      <div key={index} className="text-sm">
-                        {`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`} on ${effectRow.target}`}
+                      <div
+                        key={index}
+                        className="text-sm flex flex-row items-center"
+                      >
+                        <Image
+                          src={effects[effectRow.effect].icon}
+                          alt={effectRow.effect}
+                          width={12}
+                          height={12}
+                        />
+                        <span className="ml-1">{`${effectRow.effect} ${effectRow.max !== null ? `${effectRow.min !== effectRow.max ? `${effectRow.min} to ${effectRow.max} pts` : `${effectRow.max} pts`}` : ""} ${effectRow.duration && `for ${effectRow.duration} secs`}${effectRow.area !== null && effectRow.area > 0 ? ` in ${effectRow.area} ft` : ""}${effectRow.target !== "Constant Effect" ? ` on ${effectRow.target}` : ""}`}</span>
                       </div>
                     ))}
                   </div>
