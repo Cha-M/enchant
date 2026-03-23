@@ -1443,6 +1443,7 @@ export default function Home() {
                     <div className="h-11 flex items-center justify-center">
                       <button
                         className="px-1"
+                        onMouseDown={(e) => e.preventDefault()}
                         onClick={() => {
                           setSavedEnchantments((prev) => {
                             const newEnchantments = [...prev];
