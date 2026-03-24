@@ -1481,7 +1481,7 @@ export default function Home() {
           </div>
         )}
       </main>
-      <div className="text-sm absolute bottom-4 left-1/2 -translate-x-1/2 w-200 text-center px-4">
+      <div className="text-sm absolute bottom-4 left-1/2 -translate-x-1/2 w-200 text-center px-4 text-balance">
         The Elder Scrolls III: Morrowind © 2002 Bethesda Softworks LLC, a ZeniMax Media company. Morrowind and all related assets are the property of their respective owners. This site is a fan project and is not affiliated with Bethesda Softworks.
       </div>
     </div>
