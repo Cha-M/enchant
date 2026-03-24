@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { JSX, useCallback, useEffect, useMemo, useState } from "react";
-import { effects, targetMultipliers } from "@/data/effects";
+import { effects, Effect, targetMultipliers } from "@/data/effects";
 import {
   itemArmourWeightKeyLabelPairs,
   itemSlotKeyLabelPairs,
@@ -10,6 +10,13 @@ import {
 } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
+
+const sortedEffects : Record<string, Effect> = Object.keys(effects)
+        .sort((a, b) => a.localeCompare(b))
+        .reduce((sortedObj: Record<string, Effect>, key) => {
+            sortedObj[key] = effects[key];
+            return sortedObj;
+        }, {} as Record<string, Effect>);
 
 interface RowData {
   effect: string;
@@ -264,7 +271,9 @@ export default function Home() {
         (row, index) => index !== rowIndex && row.target === "Constant Effect",
       );
 
-      return Object.keys(effects)
+      console.log(JSON.stringify(sortedEffects));
+
+      return Object.keys(sortedEffects)
         .filter((effectName) => {
           const effectInOtherRows = rows.some(
             (row, index) =>
