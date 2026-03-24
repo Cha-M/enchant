@@ -683,7 +683,19 @@ export default function Home() {
               </td>
             </tr> */}
             <tr>
-              <td className="text-[#DFC99F]">Success chance</td>
+              <td className="text-[#DFC99F]">
+                <div className="flex items-center">
+                  Success chance
+                  <div className="relative group">
+                    <span className="cursor-help flex items-center justify-center text-xs pl-1 pb-1">
+                      ?
+                    </span>
+                    <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-stone-800 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-[#CAA560] text-[#CAA560] text-center">
+                      Uses the OpenMW formula because the vanilla calculation is bugged.
+                    </div>
+                  </div>
+                </div>
+              </td>
               <td className="pl-1">
                 {successChance === null ? "-" : `${successChance}%`}
               </td>
