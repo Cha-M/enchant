@@ -1219,7 +1219,7 @@ export default function Home() {
           )}
         {isFilterModalOpen && (
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
-            <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
+            <div className="bg-stone-800 rounded-lg flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
