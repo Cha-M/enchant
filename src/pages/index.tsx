@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { JSX, useCallback, useEffect, useMemo, useState } from "react";
-import { effects, Effect, targetMultipliers } from "@/data/effects";
+import { effects, targetMultipliers } from "@/data/effects";
 import {
   itemArmourWeightKeyLabelPairs,
   itemSlotKeyLabelPairs,
@@ -10,13 +10,7 @@ import {
 } from "@/data/items";
 // import next from "next";
 import Head from "next/head";
-
-const sortedEffects : Record<string, Effect> = Object.keys(effects)
-        .sort((a, b) => a.localeCompare(b))
-        .reduce((sortedObj: Record<string, Effect>, key) => {
-            sortedObj[key] = effects[key];
-            return sortedObj;
-        }, {} as Record<string, Effect>);
+import { useRouter } from "next/router";
 
 interface RowData {
   effect: string;
@@ -39,6 +33,7 @@ interface CharacterData {
 }
 
 export default function Home() {
+  const router = useRouter();
   const [CharacterData, setCharacterData] = useState<CharacterData>({
     enchant: 100,
     intelligence: 100,
@@ -271,9 +266,7 @@ export default function Home() {
         (row, index) => index !== rowIndex && row.target === "Constant Effect",
       );
 
-      console.log(JSON.stringify(sortedEffects));
-
-      return Object.keys(sortedEffects)
+      return Object.keys(effects)
         .filter((effectName) => {
           const effectInOtherRows = rows.some(
             (row, index) =>
@@ -1176,7 +1169,7 @@ export default function Home() {
                                     [itemName, rows],
                                   ]);
                                   const enchantSound = new Audio(
-                                    "/sound/enchant.wav",
+                                    `${router.basePath}/sound/enchant.wav`,
                                   );
                                   enchantSound.volume = 0.5;
                                   enchantSound.play();
