@@ -18,6 +18,7 @@ export const targetMultipliers: Record<string, number> = {
 };
 
 export const effects: Record<string, Effect> = {
+  // Need alphabetising and I do not trust Gemini
   // "Absorb Attribute": {
   //   skill: "Mysticism",
   //   baseCost: 2,
