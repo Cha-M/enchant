@@ -1202,6 +1202,15 @@ export default function Home() {
                             armor.
                           </div>
                         )}
+                      {Object.values(itemFilter.weaponSkills).every(
+                        (v) => !v,
+                      ) &&
+                        itemFilter.slots.weapon && (
+                          <div>
+                            Please select a weapon skill if you want to see
+                            weapons.
+                          </div>
+                        )}
                     </div>
                   )}
                 </div>
@@ -1411,7 +1420,10 @@ export default function Home() {
               </div>
               <div className="overflow-y-auto px-4 pb-3">
                 {savedEnchantments.map(([name, itemEffects], index) => (
-                  <div key={`${name}-${index}`} className="flex justify-between">
+                  <div
+                    key={`${name}-${index}`}
+                    className="flex justify-between"
+                  >
                     <div className="flex flex-col items-center mb-2 relative w-full">
                       <div className="flex flex-row items-center pr-4">
                         <Image
