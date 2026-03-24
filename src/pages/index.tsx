@@ -569,7 +569,7 @@ export default function Home() {
     `${effect}${max !== null ? `${min !== max ? ` ${min} to ${max} pt${max !== 1 ? "s" : ""}` : ` ${max} pt${max !== 1 ? "s" : ""}`}` : ""}${duration !== null && target !== "Constant Effect" && duration !== 1 ? ` for ${duration} secs` : ""}${area !== null && area > 0 ? ` in ${area} ft` : ""}${target !== "Constant Effect" ? ` on ${target}` : " on Self"}`;
 
   return (
-    <div className="min-h-screen pl-35 pt-10">
+    <div className="min-h-screen pl-35 pt-10 relative pb-16">
       <Head>
         <title>Morrowind Enchantment Explorer</title>
       </Head>
@@ -1481,6 +1481,9 @@ export default function Home() {
           </div>
         )}
       </main>
+      <div className="text-sm absolute bottom-4 left-1/2 -translate-x-1/2 w-200 text-center px-4">
+        The Elder Scrolls III: Morrowind © 2002 Bethesda Softworks LLC, a ZeniMax Media company. Morrowind and all related assets are the property of their respective owners. This site is a fan project and is not affiliated with Bethesda Softworks.
+      </div>
     </div>
   );
 }
