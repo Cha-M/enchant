@@ -288,7 +288,7 @@ export default function Home() {
           }
 
           return true;
-        })
+        }).sort()
         .map((effectName) => (
           <option key={effectName} value={effectName}>
             {effectName}
