@@ -758,7 +758,7 @@ export default function Home() {
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         {effect !== "" ? (
                           <Image
-                            src={`${router.basePath}${effects[effect].icon}`}
+                            src={effects[effect].icon}
                             alt={effect}
                             width={16}
                             height={16}
@@ -1143,7 +1143,7 @@ export default function Home() {
                           <tr key={itemName}>
                             <td className="pr-1">
                               <Image
-                                src={`${router.basePath}${itemData.icon}`}
+                                src={itemData.icon}
                                 alt={itemName}
                                 width={16}
                                 height={16}
@@ -1219,7 +1219,7 @@ export default function Home() {
           )}
         {isFilterModalOpen && (
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
-            <div className="bg-stone-800 rounded-lg max-h-[90vh] flex flex-col">
+            <div className="bg-stone-800 rounded-lg flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
                 <button
@@ -1427,7 +1427,7 @@ export default function Home() {
                     <div className="flex flex-col items-center mb-2 relative w-full">
                       <div className="flex flex-row items-center pr-4">
                         <Image
-                          src={`${router.basePath}${items[name].icon}`}
+                          src={items[name].icon}
                           alt={name}
                           width={16}
                           height={16}
@@ -1443,7 +1443,7 @@ export default function Home() {
                           className="text-sm flex flex-row items-center"
                         >
                           <Image
-                            src={`${router.basePath}${effects[effectRow.effect].icon}`}
+                            src={effects[effectRow.effect].icon}
                             alt={effectRow.effect}
                             width={12}
                             height={12}
