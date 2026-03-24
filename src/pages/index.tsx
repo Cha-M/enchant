@@ -758,7 +758,7 @@ export default function Home() {
                       <div className="flex items-center space-x-2 mr-4 ml-1">
                         {effect !== "" ? (
                           <Image
-                            src={effects[effect].icon}
+                            src={`${router.basePath}${effects[effect].icon}`}
                             alt={effect}
                             width={16}
                             height={16}
@@ -1142,14 +1142,12 @@ export default function Home() {
                         {itemList.map(([itemName, itemData]) => (
                           <tr key={itemName}>
                             <td className="pr-1">
-                              {itemData.icon && (
-                                <Image
-                                  src={itemData.icon}
-                                  alt={itemName}
-                                  width={16}
-                                  height={16}
-                                />
-                              )}
+                              <Image
+                                src={`${router.basePath}${itemData.icon}`}
+                                alt={itemName}
+                                width={16}
+                                height={16}
+                              />
                             </td>
                             <td className="pl-1">
                               <button
@@ -1429,7 +1427,7 @@ export default function Home() {
                     <div className="flex flex-col items-center mb-2 relative w-full">
                       <div className="flex flex-row items-center pr-4">
                         <Image
-                          src={items[name].icon}
+                          src={`${router.basePath}${items[name].icon}`}
                           alt={name}
                           width={16}
                           height={16}
@@ -1445,7 +1443,7 @@ export default function Home() {
                           className="text-sm flex flex-row items-center"
                         >
                           <Image
-                            src={effects[effectRow.effect].icon}
+                            src={`${router.basePath}${effects[effectRow.effect].icon}`}
                             alt={effectRow.effect}
                             width={12}
                             height={12}
@@ -1484,7 +1482,10 @@ export default function Home() {
         )}
       </main>
       <div className="text-sm absolute bottom-4 left-1/2 -translate-x-1/2 w-200 text-center px-4 text-balance">
-        The Elder Scrolls III: Morrowind © 2002 Bethesda Softworks LLC, a ZeniMax Media company. Morrowind and all related assets are the property of their respective owners. This site is a fan project and is not affiliated with Bethesda Softworks.
+        The Elder Scrolls III: Morrowind © 2002 Bethesda Softworks LLC, a
+        ZeniMax Media company. Morrowind and all related assets are the property
+        of their respective owners. This site is a fan project and is not
+        affiliated with Bethesda Softworks.
       </div>
     </div>
   );
