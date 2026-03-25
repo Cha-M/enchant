@@ -12,23 +12,40 @@ import {
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics, logEvent } from "firebase/analytics";
+import { logEvent } from "firebase/analytics";
+import { useAnalytics } from "@/firebase/AnalyticsContext";
+
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics, logEvent, isSupported } from "firebase/analytics";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDOckgy5ZaBWwS3BNt3agav4mamIk6SQzc",
-  authDomain: "morrowind-enchantment-explorer.firebaseapp.com",
-  projectId: "morrowind-enchantment-explorer",
-  storageBucket: "morrowind-enchantment-explorer.firebasestorage.app",
-  messagingSenderId: "960775215373",
-  appId: "1:960775215373:web:fb4432343c2482d6de3844",
-  measurementId: "G-SRESEVS3G4",
-};
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDOckgy5ZaBWwS3BNt3agav4mamIk6SQzc",
+//   authDomain: "morrowind-enchantment-explorer.firebaseapp.com",
+//   projectId: "morrowind-enchantment-explorer",
+//   storageBucket: "morrowind-enchantment-explorer.firebasestorage.app",
+//   messagingSenderId: "960775215373",
+//   appId: "1:960775215373:web:fb4432343c2482d6de3844",
+//   measurementId: "G-SRESEVS3G4",
+// };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const app = initializeApp(firebaseConfig);
+// // Conditionally initialize and use Analytics
+// async function initializeAnalytics() {
+//   if (await isSupported()) {
+//     const analytics = getAnalytics(app);
+//     // You can now safely use the 'analytics' object here,
+//     // e.g., to log events or set user IDs.
+//     // console.log("Firebase Analytics initialized successfully.");
+//   } else {
+//     // console.log("Firebase Analytics is not supported in this environment.");
+//   }
+// }
+
+// initializeAnalytics();
+
+// const analytics = getAnalytics(app);
 
 interface RowData {
   effect: string;
@@ -50,7 +67,61 @@ interface CharacterData {
   engine: 0 | 1 | 2;
 }
 
+interface ItemFilterSlots {
+  helm: boolean;
+  cuirass: boolean;
+  greaves: boolean;
+  boots: boolean;
+  shield: boolean;
+  leftGauntlet: boolean;
+  rightGauntlet: boolean;
+  leftPauldron: boolean;
+  rightPauldron: boolean;
+  amulet: boolean;
+  ring: boolean;
+  robe: boolean;
+  shirt: boolean;
+  pants: boolean;
+  skirt: boolean;
+  weapon: boolean;
+  belt: boolean;
+}
+
+interface ItemFilterArmourWeights {
+  light: boolean;
+  medium: boolean;
+  heavy: boolean;
+}
+
+interface ItemFilterWeaponSkills {
+  axe: boolean;
+  blunt: boolean;
+  shortBlade: boolean;
+  longBlade: boolean;
+  marksman: boolean;
+  spear: boolean;
+}
+
+interface ItemFilter {
+  name: string | null;
+  slots: ItemFilterSlots;
+  weaponSkills: ItemFilterWeaponSkills;
+  armourWeight: ItemFilterArmourWeights;
+}
+
 export default function Home() {
+  const analytics = useAnalytics();
+
+  const handlePageLoad = () => {
+    if (analytics) {
+      logEvent(analytics, "page_view");
+    }
+  };
+
+  useEffect(() => {
+    handlePageLoad();
+  }, [analytics]);
+
   const router = useRouter();
   const [CharacterData, setCharacterData] = useState<CharacterData>({
     enchant: 100,
@@ -452,48 +523,6 @@ export default function Home() {
 
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
-
-  interface ItemFilterSlots {
-    helm: boolean;
-    cuirass: boolean;
-    greaves: boolean;
-    boots: boolean;
-    shield: boolean;
-    leftGauntlet: boolean;
-    rightGauntlet: boolean;
-    leftPauldron: boolean;
-    rightPauldron: boolean;
-    amulet: boolean;
-    ring: boolean;
-    robe: boolean;
-    shirt: boolean;
-    pants: boolean;
-    skirt: boolean;
-    weapon: boolean;
-    belt: boolean;
-  }
-
-  interface ItemFilterArmourWeights {
-    light: boolean;
-    medium: boolean;
-    heavy: boolean;
-  }
-
-  interface ItemFilterWeaponSkills {
-    axe: boolean;
-    blunt: boolean;
-    shortBlade: boolean;
-    longBlade: boolean;
-    marksman: boolean;
-    spear: boolean;
-  }
-
-  interface ItemFilter {
-    name: string | null;
-    slots: ItemFilterSlots;
-    weaponSkills: ItemFilterWeaponSkills;
-    armourWeight: ItemFilterArmourWeights;
-  }
 
   const [itemFilter, setItemFilter] = useState<ItemFilter>({
     name: null,
@@ -1043,9 +1072,10 @@ export default function Home() {
                             } as RowData,
                           ]),
                         );
-                        logEvent(analytics, "new_effect", {
-                          button: "initial",
-                        });
+                        if (analytics)
+                          logEvent(analytics, "new_effect", {
+                            button: "initial",
+                          });
                       }}
                     >
                       New effect
@@ -1087,7 +1117,8 @@ export default function Home() {
                     } as RowData,
                   ]),
                 );
-                logEvent(analytics, "new_effect", { button: "subsequent" });
+                if (analytics)
+                  logEvent(analytics, "new_effect", { button: "subsequent" });
               }}
             >
               New effect
@@ -1105,7 +1136,7 @@ export default function Home() {
                     ),
                   ),
                 );
-                logEvent(analytics, "sort_by_cost");
+                if (analytics) logEvent(analytics, "sort_by_cost");
               }}
             >
               Sort by cost
