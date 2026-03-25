@@ -119,6 +119,7 @@ export default function Home() {
   }, [analytics]);
 
   const router = useRouter();
+
   const [CharacterData, setCharacterData] = useState<CharacterData>({
     enchant: 100,
     intelligence: 100,
@@ -230,6 +231,7 @@ export default function Home() {
               ? newCost * newMultiplier
               : 1
             : null;
+
         return {
           ...row,
           cost: newCost,
@@ -260,45 +262,6 @@ export default function Home() {
     },
     [recalculateMultipliersAndCosts],
   );
-
-  // const possibleTargets = useMemo<JSX.Element[]>(() => {
-  //   if (!newEffect.effect) {
-  //     return [];
-  //   }
-  //   const hasTouch = rows.some((row) => row.target === "Touch");
-  //   const hasTarget = rows.some((row) => row.target === "Target");
-  //   const hasSelf = rows.some((row) => row.target === "Self");
-  //   const hasConstantEffect = rows.some(
-  //     (row) => row.target === "Constant Effect",
-  //   );
-  //   const isSelfOnly = effects[newEffect.effect]?.isSelfOnly;
-  //   const isSelfNever = effects[newEffect.effect]?.isSelfNever;
-  //   const hasDuration = effects[newEffect.effect]?.hasDuration;
-  //   //this needs to be fixed for not using newEffect, eg
-
-  //   return [
-  //     !hasConstantEffect && !isSelfOnly ? (
-  //       <option key="TouchOption" value="Touch">
-  //         Touch
-  //       </option>
-  //     ) : null,
-  //     !hasConstantEffect && !isSelfOnly ? (
-  //       <option key="TargetOption" value="Target">
-  //         Target
-  //       </option>
-  //     ) : null,
-  //     !hasConstantEffect && !isSelfNever ? (
-  //       <option key="SelfOption" value="Self">
-  //         Self
-  //       </option>
-  //     ) : null,
-  //     hasDuration && !hasTouch && !hasTarget && !hasSelf && !isSelfNever ? (
-  //       <option key="ConstantEffectOption" value="Constant Effect">
-  //         Constant Effect
-  //       </option>
-  //     ) : null,
-  //   ].filter((option) => option !== null) as JSX.Element[];
-  // }, [rows, newEffect.effect]);
 
   const getPossibleTargets = (rowIndex: number): JSX.Element[] => {
     if (!rows[rowIndex].effect) {
@@ -507,10 +470,8 @@ export default function Home() {
     //         );
     //       }, 100)
     //     : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-    //OpenMW is off now by 6%? probably because of the different way the 1 point is handled. if it is 1 multiplied by 3 we get 84%
-    //this means the rows will be different for OpenMW, not just the chance
+
   }, [CharacterData, rows]);
-  // }, [CharacterData, recalculateMultipliersAndCosts, rows]);
 
   const rowsIncomplete = useMemo<boolean>(
     () => rows.some((row) => row.effect === "" || !row.target),
