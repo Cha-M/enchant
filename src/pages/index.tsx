@@ -23,7 +23,7 @@ const firebaseConfig = {
   storageBucket: "morrowind-enchantment-explorer.firebasestorage.app",
   messagingSenderId: "960775215373",
   appId: "1:960775215373:web:fb4432343c2482d6de3844",
-  measurementId: "G-SRESEVS3G4"
+  measurementId: "G-SRESEVS3G4",
 };
 
 // Initialize Firebase
@@ -1043,6 +1043,9 @@ export default function Home() {
                             } as RowData,
                           ]),
                         );
+                        logEvent(analytics, "new_effect", {
+                          button: "initial",
+                        });
                       }}
                     >
                       New effect
@@ -1084,6 +1087,7 @@ export default function Home() {
                     } as RowData,
                   ]),
                 );
+                logEvent(analytics, "new_effect", { button: "subsequent" });
               }}
             >
               New effect
@@ -1101,6 +1105,7 @@ export default function Home() {
                     ),
                   ),
                 );
+                logEvent(analytics, "sort_by_cost");
               }}
             >
               Sort by cost
@@ -1109,6 +1114,7 @@ export default function Home() {
               className="px-4 py-2"
               onClick={() => {
                 setIsItemsModalOpen(true);
+                logEvent(analytics, "view_items");
               }}
             >
               View items
@@ -1132,14 +1138,20 @@ export default function Home() {
                 <div className="flex items-center mb-2">
                   <button
                     className="px-4 py-2 ml-4"
-                    onClick={() => setIsFilterModalOpen(true)}
+                    onClick={() => {
+                      setIsFilterModalOpen(true);
+                      logEvent(analytics, "view_filters");
+                    }}
                   >
                     Filter
                   </button>
                   {savedEnchantments.length > 0 && (
                     <button
                       className="px-4 py-2 ml-2"
-                      onClick={() => setIsSavedEnchantmentsModalOpen(true)}
+                      onClick={() => {
+                        setIsSavedEnchantmentsModalOpen(true);
+                        logEvent(analytics, "view_saved_enchantments");
+                      }}
                     >
                       Saved
                     </button>
@@ -1203,6 +1215,10 @@ export default function Home() {
                                   );
                                   enchantSound.volume = 0.5;
                                   enchantSound.play();
+                                  logEvent(analytics, "save_enchantment", {
+                                    item: itemName,
+                                    enchantment: rows,
+                                  });
                                 }}
                               >
                                 {itemName}
@@ -1294,6 +1310,7 @@ export default function Home() {
                             ),
                           };
                         });
+                        logEvent(analytics, "filter", { filterType: "all" });
                       }}
                     >
                       {Object.values(itemFilter.slots).every((v) => v) &&
@@ -1320,6 +1337,10 @@ export default function Home() {
                                 !prev.slots[slotKey as keyof ItemFilterSlots],
                             },
                           }));
+                          logEvent(analytics, "filter", {
+                            filterType: "slot",
+                            slot: slotKey,
+                          });
                         }}
                       >
                         {itemFilter.slots[slotKey as keyof ItemFilterSlots]
@@ -1352,6 +1373,10 @@ export default function Home() {
                                   ],
                               },
                             }));
+                            logEvent(analytics, "filter", {
+                              filterType: "armourWeight",
+                              armourWeight: weightKey,
+                            });
                           }}
                         >
                           {itemFilter.armourWeight[
@@ -1397,6 +1422,10 @@ export default function Home() {
                                     : prev.slots.weapon,
                               },
                             }));
+                            logEvent(analytics, "filter", {
+                              filterType: "weaponSkill",
+                              weaponSkill: weaponSkillKey,
+                            });
                           }}
                         >
                           {itemFilter.weaponSkills[
@@ -1445,6 +1474,9 @@ export default function Home() {
                       )
                       .join("\n\n");
                     navigator.clipboard.writeText(enchantmentsText);
+                    logEvent(analytics, "copy_enchantment_text", {
+                      text: enchantmentsText,
+                    });
                   }}
                 >
                   Copy text
@@ -1501,6 +1533,10 @@ export default function Home() {
                           if (newEnchantments.length === 0) {
                             setIsSavedEnchantmentsModalOpen(false);
                           }
+                          logEvent(analytics, "delete_enchantment", {
+                            item: name,
+                            enchantment: itemEffects,
+                          });
                         }}
                       >
                         🗙
