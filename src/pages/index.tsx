@@ -197,18 +197,17 @@ export default function Home() {
       row.target !== "Constant Effect"
         ? (min + max) * baseCost * 0.025 * duration + area * baseCost * 0.025
         : 0;
-    const newCost =
-      row.target === "Constant Effect"
-        ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-        : nonConstantEffectCost > 1
-          ? targetMultipliers[row.target!] * nonConstantEffectCost
-          : 1;
-
     // const newCost =
     //   row.target === "Constant Effect"
     //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-    //     : targetMultipliers[row.target!] * nonConstantEffectCost;
-    //??
+    //     : nonConstantEffectCost > 1
+    //       ? targetMultipliers[row.target!] * nonConstantEffectCost
+    //       : 1;
+    // this was used but think wrong
+    const newCost =
+      row.target === "Constant Effect"
+        ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
+        : targetMultipliers[row.target!] * nonConstantEffectCost;
     return newCost;
   }, []);
 
