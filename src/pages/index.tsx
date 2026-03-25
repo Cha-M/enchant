@@ -1039,9 +1039,12 @@ export default function Home() {
                     <td>
                       <button
                         onMouseDown={(e) => e.preventDefault()}
-                        onClick={() => {handleRemoveRow(index); if (analytics) {
-                          logEvent(analytics, "remove_effect");
-                        }}}
+                        onClick={() => {
+                          handleRemoveRow(index);
+                          if (analytics) {
+                            logEvent(analytics, "delete_effect");
+                          }
+                        }}
                         className="px-2 py-1 my-1"
                       >
                         🗙
