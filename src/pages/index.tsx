@@ -144,13 +144,6 @@ export default function Home() {
     }
     const baseCost = effectDetails.baseCost;
 
-    // const min = effectDetails.hasMagnitude ? row.min ?? 0 : 1;
-    // const max = effectDetails.hasMagnitude ? row.max ?? 0 : 1;
-
-    // const min = effectDetails.hasMagnitude ? row.min ?? 0 : 1;
-    // const max = effectDetails.hasMagnitude ? row.max ?? 0 : 1;
-    // const duration = effectDetails.hasDuration ? row.duration ?? 1 : 1;
-    // const area = effectDetails.hasArea ? row.area ?? 0 : 0;
     const min = effectDetails.hasMagnitude
       ? row.min === null || row.min < 1
         ? 1
@@ -162,15 +155,11 @@ export default function Home() {
         : row.max
       : 1;
     const duration = effectDetails.hasDuration
-      ? row.duration === null || row.duration < 1
+      ? row.duration === null
         ? 0
         : row.duration
       : 0;
-    const area = effectDetails.hasArea
-      ? row.area === null || row.area < 1
-        ? 1
-        : row.area
-      : 1;
+    const area = effectDetails.hasArea ? (row.area === null ? 0 : row.area) : 0;
 
     /*
      * Vanilla enchant cost formula:
@@ -470,7 +459,6 @@ export default function Home() {
     //         );
     //       }, 100)
     //     : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-
   }, [CharacterData, rows]);
 
   const rowsIncomplete = useMemo<boolean>(
