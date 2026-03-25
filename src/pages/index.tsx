@@ -1039,7 +1039,9 @@ export default function Home() {
                     <td>
                       <button
                         onMouseDown={(e) => e.preventDefault()}
-                        onClick={() => handleRemoveRow(index)}
+                        onClick={() => {handleRemoveRow(index); if (analytics) {
+                          logEvent(analytics, "remove_effect");
+                        }}}
                         className="px-2 py-1 my-1"
                       >
                         🗙
@@ -1072,10 +1074,11 @@ export default function Home() {
                             } as RowData,
                           ]),
                         );
-                        if (analytics)
+                        if (analytics) {
                           logEvent(analytics, "new_effect", {
                             button: "initial",
                           });
+                        }
                       }}
                     >
                       New effect
@@ -1117,8 +1120,9 @@ export default function Home() {
                     } as RowData,
                   ]),
                 );
-                if (analytics)
+                if (analytics) {
                   logEvent(analytics, "new_effect", { button: "subsequent" });
+                }
               }}
             >
               New effect
@@ -1136,7 +1140,9 @@ export default function Home() {
                     ),
                   ),
                 );
-                if (analytics) logEvent(analytics, "sort_by_cost");
+                if (analytics) {
+                  logEvent(analytics, "sort_by_cost");
+                }
               }}
             >
               Sort by cost
@@ -1173,7 +1179,9 @@ export default function Home() {
                     className="px-4 py-2 ml-4"
                     onClick={() => {
                       setIsFilterModalOpen(true);
-                      if (analytics) logEvent(analytics, "view_filters");
+                      if (analytics) {
+                        logEvent(analytics, "view_filters");
+                      }
                     }}
                   >
                     Filter
@@ -1183,8 +1191,9 @@ export default function Home() {
                       className="px-4 py-2 ml-2"
                       onClick={() => {
                         setIsSavedEnchantmentsModalOpen(true);
-                        if (analytics)
+                        if (analytics) {
                           logEvent(analytics, "view_saved_enchantments");
+                        }
                       }}
                     >
                       Saved
@@ -1249,11 +1258,12 @@ export default function Home() {
                                   );
                                   enchantSound.volume = 0.5;
                                   enchantSound.play();
-                                  if (analytics)
+                                  if (analytics) {
                                     logEvent(analytics, "save_enchantment", {
                                       item: itemName,
                                       enchantment: rows,
                                     });
+                                  }
                                 }}
                               >
                                 {itemName}
@@ -1345,8 +1355,9 @@ export default function Home() {
                             ),
                           };
                         });
-                        if (analytics)
+                        if (analytics) {
                           logEvent(analytics, "filter", { filterType: "all" });
+                        }
                       }}
                     >
                       {Object.values(itemFilter.slots).every((v) => v) &&
@@ -1373,11 +1384,12 @@ export default function Home() {
                                 !prev.slots[slotKey as keyof ItemFilterSlots],
                             },
                           }));
-                          if (analytics)
+                          if (analytics) {
                             logEvent(analytics, "filter", {
                               filterType: "slot",
                               slot: slotKey,
                             });
+                          }
                         }}
                       >
                         {itemFilter.slots[slotKey as keyof ItemFilterSlots]
@@ -1410,11 +1422,12 @@ export default function Home() {
                                   ],
                               },
                             }));
-                            if (analytics)
+                            if (analytics) {
                               logEvent(analytics, "filter", {
                                 filterType: "armourWeight",
                                 armourWeight: weightKey,
                               });
+                            }
                           }}
                         >
                           {itemFilter.armourWeight[
@@ -1460,11 +1473,12 @@ export default function Home() {
                                     : prev.slots.weapon,
                               },
                             }));
-                            if (analytics)
+                            if (analytics) {
                               logEvent(analytics, "filter", {
                                 filterType: "weaponSkill",
                                 weaponSkill: weaponSkillKey,
                               });
+                            }
                           }}
                         >
                           {itemFilter.weaponSkills[
@@ -1513,10 +1527,11 @@ export default function Home() {
                       )
                       .join("\n\n");
                     navigator.clipboard.writeText(enchantmentsText);
-                    if (analytics)
+                    if (analytics) {
                       logEvent(analytics, "copy_enchantment_text", {
                         text: enchantmentsText,
                       });
+                    }
                   }}
                 >
                   Copy text
@@ -1573,11 +1588,12 @@ export default function Home() {
                           if (newEnchantments.length === 0) {
                             setIsSavedEnchantmentsModalOpen(false);
                           }
-                          if (analytics)
+                          if (analytics) {
                             logEvent(analytics, "delete_enchantment", {
                               item: name,
                               enchantment: itemEffects,
                             });
+                          }
                         }}
                       >
                         🗙
