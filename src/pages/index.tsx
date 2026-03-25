@@ -12,6 +12,24 @@ import {
 import Head from "next/head";
 import { useRouter } from "next/router";
 
+import { initializeApp } from "firebase/app";
+import { getAnalytics, logEvent } from "firebase/analytics";
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDOckgy5ZaBWwS3BNt3agav4mamIk6SQzc",
+  authDomain: "morrowind-enchantment-explorer.firebaseapp.com",
+  projectId: "morrowind-enchantment-explorer",
+  storageBucket: "morrowind-enchantment-explorer.firebasestorage.app",
+  messagingSenderId: "960775215373",
+  appId: "1:960775215373:web:fb4432343c2482d6de3844",
+  measurementId: "G-SRESEVS3G4"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 interface RowData {
   effect: string;
   min: number | null;
@@ -288,7 +306,8 @@ export default function Home() {
           }
 
           return true;
-        }).sort()
+        })
+        .sort()
         .map((effectName) => (
           <option key={effectName} value={effectName}>
             {effectName}
@@ -691,7 +710,8 @@ export default function Home() {
                       ?
                     </span>
                     <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-stone-800 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-[#CAA560] text-[#CAA560] text-center">
-                      Uses the OpenMW formula because the vanilla calculation is bugged.
+                      Uses the OpenMW formula because the vanilla calculation is
+                      bugged.
                     </div>
                   </div>
                 </div>
