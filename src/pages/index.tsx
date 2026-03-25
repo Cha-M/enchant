@@ -1145,7 +1145,9 @@ export default function Home() {
               className="px-4 py-2"
               onClick={() => {
                 setIsItemsModalOpen(true);
-                logEvent(analytics, "view_items");
+                if (analytics) {
+                  logEvent(analytics, "view_items");
+                }
               }}
             >
               View items
@@ -1171,7 +1173,7 @@ export default function Home() {
                     className="px-4 py-2 ml-4"
                     onClick={() => {
                       setIsFilterModalOpen(true);
-                      logEvent(analytics, "view_filters");
+                      if (analytics) logEvent(analytics, "view_filters");
                     }}
                   >
                     Filter
@@ -1181,7 +1183,8 @@ export default function Home() {
                       className="px-4 py-2 ml-2"
                       onClick={() => {
                         setIsSavedEnchantmentsModalOpen(true);
-                        logEvent(analytics, "view_saved_enchantments");
+                        if (analytics)
+                          logEvent(analytics, "view_saved_enchantments");
                       }}
                     >
                       Saved
@@ -1246,10 +1249,11 @@ export default function Home() {
                                   );
                                   enchantSound.volume = 0.5;
                                   enchantSound.play();
-                                  logEvent(analytics, "save_enchantment", {
-                                    item: itemName,
-                                    enchantment: rows,
-                                  });
+                                  if (analytics)
+                                    logEvent(analytics, "save_enchantment", {
+                                      item: itemName,
+                                      enchantment: rows,
+                                    });
                                 }}
                               >
                                 {itemName}
@@ -1341,7 +1345,8 @@ export default function Home() {
                             ),
                           };
                         });
-                        logEvent(analytics, "filter", { filterType: "all" });
+                        if (analytics)
+                          logEvent(analytics, "filter", { filterType: "all" });
                       }}
                     >
                       {Object.values(itemFilter.slots).every((v) => v) &&
@@ -1368,10 +1373,11 @@ export default function Home() {
                                 !prev.slots[slotKey as keyof ItemFilterSlots],
                             },
                           }));
-                          logEvent(analytics, "filter", {
-                            filterType: "slot",
-                            slot: slotKey,
-                          });
+                          if (analytics)
+                            logEvent(analytics, "filter", {
+                              filterType: "slot",
+                              slot: slotKey,
+                            });
                         }}
                       >
                         {itemFilter.slots[slotKey as keyof ItemFilterSlots]
@@ -1404,10 +1410,11 @@ export default function Home() {
                                   ],
                               },
                             }));
-                            logEvent(analytics, "filter", {
-                              filterType: "armourWeight",
-                              armourWeight: weightKey,
-                            });
+                            if (analytics)
+                              logEvent(analytics, "filter", {
+                                filterType: "armourWeight",
+                                armourWeight: weightKey,
+                              });
                           }}
                         >
                           {itemFilter.armourWeight[
@@ -1453,10 +1460,11 @@ export default function Home() {
                                     : prev.slots.weapon,
                               },
                             }));
-                            logEvent(analytics, "filter", {
-                              filterType: "weaponSkill",
-                              weaponSkill: weaponSkillKey,
-                            });
+                            if (analytics)
+                              logEvent(analytics, "filter", {
+                                filterType: "weaponSkill",
+                                weaponSkill: weaponSkillKey,
+                              });
                           }}
                         >
                           {itemFilter.weaponSkills[
@@ -1505,9 +1513,10 @@ export default function Home() {
                       )
                       .join("\n\n");
                     navigator.clipboard.writeText(enchantmentsText);
-                    logEvent(analytics, "copy_enchantment_text", {
-                      text: enchantmentsText,
-                    });
+                    if (analytics)
+                      logEvent(analytics, "copy_enchantment_text", {
+                        text: enchantmentsText,
+                      });
                   }}
                 >
                   Copy text
@@ -1564,10 +1573,11 @@ export default function Home() {
                           if (newEnchantments.length === 0) {
                             setIsSavedEnchantmentsModalOpen(false);
                           }
-                          logEvent(analytics, "delete_enchantment", {
-                            item: name,
-                            enchantment: itemEffects,
-                          });
+                          if (analytics)
+                            logEvent(analytics, "delete_enchantment", {
+                              item: name,
+                              enchantment: itemEffects,
+                            });
                         }}
                       >
                         🗙
