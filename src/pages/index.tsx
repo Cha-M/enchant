@@ -208,6 +208,7 @@ export default function Home() {
       row.target === "Constant Effect"
         ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
         : targetMultipliers[row.target!] * nonConstantEffectCost;
+
     return newCost;
   }, []);
 
