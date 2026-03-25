@@ -112,14 +112,10 @@ interface ItemFilter {
 export default function Home() {
   const analytics = useAnalytics();
 
-  const handlePageLoad = () => {
+  useEffect(() => {
     if (analytics) {
       logEvent(analytics, "page_view");
     }
-  };
-
-  useEffect(() => {
-    handlePageLoad();
   }, [analytics]);
 
   const router = useRouter();
