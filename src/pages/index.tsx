@@ -154,12 +154,13 @@ export default function Home() {
         ? 1
         : row.max
       : 1;
+    // this may be wrong
     const duration = effectDetails.hasDuration
       ? row.duration === null
-        ? 0
+        ? 1
         : row.duration
-      : 0;
-    const area = effectDetails.hasArea ? (row.area === null ? 0 : row.area) : 0;
+      : 1;
+    const area = effectDetails.hasArea ? (row.area === null ? 1 : row.area) : 1;
 
     /*
      * Vanilla enchant cost formula:
