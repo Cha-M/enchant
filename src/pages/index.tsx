@@ -462,7 +462,7 @@ export default function Home() {
   }, [CharacterData, rows]);
 
   const rowsIncomplete = useMemo<boolean>(
-    () => rows.some((row) => row.effect === "" || !row.target),
+    () => rows.some((row) => row.effect === "" || !row.target || row.cost === null),
     [rows],
   );
 
