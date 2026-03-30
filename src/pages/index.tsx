@@ -397,11 +397,18 @@ export default function Home() {
   //   );
   // // );
 
+  const rowsIncomplete = useMemo<boolean>(
+    () =>
+      rows.some((row) => row.effect === "" || !row.target || row.cost === null),
+    [rows],
+  );
+  
   const successChance = useMemo<number | null>(() => {
     if (
       Number.isNaN(CharacterData.enchant) ||
       Number.isNaN(CharacterData.intelligence) ||
-      Number.isNaN(CharacterData.luck)
+      Number.isNaN(CharacterData.luck) ||
+      rowsIncomplete
     ) {
       return null;
     }
@@ -460,12 +467,9 @@ export default function Home() {
     //         );
     //       }, 100)
     //     : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
-  }, [CharacterData, rows]);
+  }, [CharacterData, rows, rowsIncomplete]);
 
-  const rowsIncomplete = useMemo<boolean>(
-    () => rows.some((row) => row.effect === "" || !row.target || row.cost === null),
-    [rows],
-  );
+  
 
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
