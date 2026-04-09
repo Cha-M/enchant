@@ -145,12 +145,12 @@ export default function Home() {
     const baseCost = effectDetails.baseCost;
 
     const min = effectDetails.hasMagnitude
-      ? row.min === null || row.min < 1
+      ? row.min === null || row.min === 0
         ? 1
         : row.min
       : 1;
     const max = effectDetails.hasMagnitude
-      ? row.max === null || row.max < 1
+      ? row.max === null || row.max === 0
         ? 1
         : row.max
       : 1;
@@ -160,7 +160,11 @@ export default function Home() {
         ? 1
         : row.duration
       : 1;
-    const area = effectDetails.hasArea ? (row.area === null ? 1 : row.area) : 1;
+    const area = effectDetails.hasArea
+      ? row.area === null || row.area === 0
+        ? 1
+        : row.area
+      : 1;
 
     /*
      * Vanilla enchant cost formula:
@@ -402,7 +406,7 @@ export default function Home() {
       rows.some((row) => row.effect === "" || !row.target || row.cost === null),
     [rows],
   );
-  
+
   const successChance = useMemo<number | null>(() => {
     if (
       Number.isNaN(CharacterData.enchant) ||
@@ -468,8 +472,6 @@ export default function Home() {
     //       }, 100)
     //     : calculateEffectChance(CharacterData, totalCost, hasConstantEffect);
   }, [CharacterData, rows, rowsIncomplete]);
-
-  
 
   const [isItemsModalOpen, setIsItemsModalOpen] = useState<boolean>(false);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState<boolean>(false);
