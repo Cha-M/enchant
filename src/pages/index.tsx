@@ -154,7 +154,6 @@ export default function Home() {
         ? 1
         : row.max
       : 1;
-    // this may be wrong
     const duration = effectDetails.hasDuration
       ? row.duration === null
         ? 1
