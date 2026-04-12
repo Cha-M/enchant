@@ -15,38 +15,6 @@ import { useRouter } from "next/router";
 import { logEvent } from "firebase/analytics";
 import { useAnalytics } from "@/firebase/AnalyticsContext";
 
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics, logEvent, isSupported } from "firebase/analytics";
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDOckgy5ZaBWwS3BNt3agav4mamIk6SQzc",
-//   authDomain: "morrowind-enchantment-explorer.firebaseapp.com",
-//   projectId: "morrowind-enchantment-explorer",
-//   storageBucket: "morrowind-enchantment-explorer.firebasestorage.app",
-//   messagingSenderId: "960775215373",
-//   appId: "1:960775215373:web:fb4432343c2482d6de3844",
-//   measurementId: "G-SRESEVS3G4",
-// };
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// // Conditionally initialize and use Analytics
-// async function initializeAnalytics() {
-//   if (await isSupported()) {
-//     const analytics = getAnalytics(app);
-//     // You can now safely use the 'analytics' object here,
-//     // e.g., to log events or set user IDs.
-//     // console.log("Firebase Analytics initialized successfully.");
-//   } else {
-//     // console.log("Firebase Analytics is not supported in this environment.");
-//   }
-// }
-
-// initializeAnalytics();
-
-// const analytics = getAnalytics(app);
-
 interface RowData {
   effect: string;
   min: number | null;
@@ -126,7 +94,7 @@ export default function Home() {
     luck: 100,
     fatigueTerm: 1,
     engine: 1,
-  });
+  } as CharacterData);
 
   const [rows, setRows] = useState<RowData[]>([] as RowData[]);
 
@@ -176,7 +144,7 @@ export default function Home() {
      *
      *  Note: Minimal value inside formula for 'min' and 'max' is 1. So in vanilla:
      *        (0 + 0) == (1 + 0) == (1 + 1) => 2 or (2 + 0) == (1 + 2) => 3
-     *
+     *  My note: this is also the case for duration and area. Tested with Cure Paralyzation
      *  Formula on UESPWiki is not entirely correct.
      */
 
