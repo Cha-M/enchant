@@ -163,6 +163,8 @@ export default function Home() {
     //       : 1;
     // this was used but think wrong
 
+    // question of whether this is compounded before or after reaching a minimum of one
+
     const newCost =
       row.target === "Constant Effect"
         ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
@@ -383,9 +385,6 @@ export default function Home() {
     }
     // %Success = (0.75 + %Fatigue/2) × (1-0.5×"Effect is constant") × (Enchant + Intelligence/5 + Luck/10 - 3×"Enchantment points")
     const totalCost = rows.reduce((sum, row) => sum + row.compoundedCost!, 0);
-    // const rowsCopySorted = recalculateMultipliersAndCosts(
-    //   [...rows].sort((a, b) => a.cost! - b.cost!),
-    // );
 
     const hasConstantEffect = rows.some(
       (row) => row.target === "Constant Effect",
@@ -898,7 +897,7 @@ export default function Home() {
                           min={1}
                           max={1440}
                           value={
-                            duration === null || duration < 1 ? 1 : duration
+                            duration === null || duration === 0 ? 1 : duration
                           }
                           onChange={(e) => {
                             const newDuration =
