@@ -3,6 +3,7 @@
 :root {
   --background: oklch(26.8% 0.007 34.298);
   --foreground: #caa560;
+  --highlight: #dfc99f;
 }
 /* 
 @theme inline {
@@ -33,8 +34,8 @@ button {
 }
 
 button:hover, button:focus {
-  border-color: #dfc99f;
-  color: #dfc99f;
+  border-color: var(--highlight);
+  color: var(--highlight);
 }
 
 button:disabled {
@@ -43,7 +44,7 @@ button:disabled {
 }
 
 .disabled-gold:disabled {
-  color: #caa560;
+  color: var(--foreground);
 }
 
 input, select {
@@ -51,31 +52,31 @@ input, select {
 }
 
 select:focus, input:focus {
-  outline: 1px solid #dfc99f;
+  outline: 1px solid var(--highlight);
   border-radius: 1px;
   outline-offset: 2px;
 }
 
 select:hover, input:hover {
-  outline: 1px solid #dfc99f;
+  outline: 1px solid var(--highlight);
   border-radius: 1px;
   outline-offset: 2px;
 }
 
 .searchbar {
-  outline: 1px solid #caa560;
+  outline: 1px solid var(--highlight);
   border-radius: 1px;
   outline-offset: 2px;
 }
 
 .searchbar:hover, .searchbar:hover {
-  outline: 1px solid #dfc99f;
+  outline: 1px solid var(--highlight);
   border-radius: 1px;
   outline-offset: 2px;
 }
 
 .searchbar:focus, .searchbar:focus {
-  outline: 1px solid #dfc99f;
+  outline: 1px solid var(--highlight);
   border-radius: 1px;
   outline-offset: 2px;
 }

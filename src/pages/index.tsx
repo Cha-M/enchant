@@ -540,13 +540,13 @@ export default function Home() {
         <title>Morrowind Enchantment Explorer</title>
       </Head>
       <main className="flex flex-col row-start-2 sm:items-start space-y-3">
-        <h1 className="text-2xl text-[#DFC99F] mb-4 ml-12">
+        <h1 className="text-2xl text-(--highlight) mb-4 ml-12">
           Morrowind Enchantment Explorer
         </h1>
         <table className="ml-12">
           <tbody>
             <tr>
-              <td className="text-[#DFC99F] w-30">Enchant</td>
+              <td className="text-(--highlight) w-30">Enchant</td>
               <td className="pl-1 w-[92px]">
                 <input
                   type="number"
@@ -563,7 +563,7 @@ export default function Home() {
               </td>
             </tr>
             <tr>
-              <td className="text-[#DFC99F]">Intelligence</td>
+              <td className="text-(--highlight)">Intelligence</td>
               <td className="pl-1">
                 <input
                   type="number"
@@ -580,7 +580,7 @@ export default function Home() {
               </td>
             </tr>
             <tr>
-              <td className="text-[#DFC99F]">Luck</td>
+              <td className="text-(--highlight)">Luck</td>
               <td className="pl-1">
                 <input
                   type="number"
@@ -597,7 +597,7 @@ export default function Home() {
               </td>
             </tr>
             <tr>
-              <td className="text-[#DFC99F]">Fatigue</td>
+              <td className="text-(--highlight)">Fatigue</td>
               <td>
                 <select
                   className="w-full"
@@ -615,7 +615,7 @@ export default function Home() {
               </td>
             </tr>
             {/* <tr>
-              <td className="text-[#DFC99F]">Engine</td>
+              <td className="text-(--highlight)">Engine</td>
               <td>
                 <select
                   className="w-full"
@@ -647,7 +647,7 @@ export default function Home() {
               </td>
             </tr> */}
             <tr>
-              <td className="text-[#DFC99F]">
+              <td className="text-(--highlight)">
                 <div className="flex items-center">
                   Success chance
                   <div className="relative group">
@@ -669,7 +669,7 @@ export default function Home() {
         </table>
         <table className="ml-[24px]">
           <thead>
-            <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F]">
+            <tr className="[&>*]:text-left [&>*]:pr-2 text-(--highlight)">
               <td className="w-6" />
               <td className="w-65">Effect</td>
               <td className="w-33">Target</td>
@@ -1009,7 +1009,7 @@ export default function Home() {
             {rows.length > 0 && (
               <tr>
                 <td colSpan={8} />
-                <td className="text-[#DFC99F]">Total</td>
+                <td className="text-(--highlight)">Total</td>
                 <td className="pl-1">{totalCost ? totalCost : "-"}</td>
                 <td />
               </tr>
@@ -1085,7 +1085,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-50 pt-12">
               <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
                 <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
-                  <h2 className="text-xl text-[#DFC99F]">Suitable Items</h2>
+                  <h2 className="text-xl text-(--highlight)">Suitable Items</h2>
                   <button
                     className="px-2 py-1"
                     onClick={() => setIsItemsModalOpen(false)}
@@ -1139,7 +1139,7 @@ export default function Home() {
                       {/* <div>{Object.entries(items).length} items in total.</div> */}
                       <table className="w-full">
                         <thead>
-                          <tr className="[&>*]:text-left [&>*]:pr-2 text-[#DFC99F] sticky top-0 bg-stone-800">
+                          <tr className="[&>*]:text-left [&>*]:pr-2 text-(--highlight) sticky top-0 bg-stone-800">
                             <td />
                             <td>Name</td>
                             <td>Enchant Points</td>
@@ -1233,7 +1233,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
             <div className="bg-stone-800 rounded-lg flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
-                <h2 className="text-xl text-[#DFC99F]">Filter Items</h2>
+                <h2 className="text-xl text-(--highlight)">Filter Items</h2>
                 <button
                   className="px-2 py-1"
                   onMouseDown={(e) => e.preventDefault()}
@@ -1287,7 +1287,7 @@ export default function Home() {
                     </button>
                     <label htmlFor={`filter-all`}>All</label>
                   </div>
-                  <h3 className="col-span-2 text-[#DFC99F] mt-2">Slot</h3>
+                  <h3 className="col-span-2 text-(--highlight) mt-2">Slot</h3>
                   {itemSlotKeyLabelPairs.map(([slotKey, slotLabel]) => (
                     <div key={slotKey} className="flex items-center">
                       <button
@@ -1320,7 +1320,7 @@ export default function Home() {
                       </label>
                     </div>
                   ))}
-                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
+                  <h3 className="col-span-2 text-(--highlight) mt-2">
                     Armour Weight
                   </h3>
                   {itemArmourWeightKeyLabelPairs.map(
@@ -1361,7 +1361,7 @@ export default function Home() {
                       </div>
                     ),
                   )}
-                  <h3 className="col-span-2 text-[#DFC99F] mt-2">
+                  <h3 className="col-span-2 text-(--highlight) mt-2">
                     Weapon Skill
                   </h3>
                   {itemWeaponSkillKeyLabelPairs.map(
@@ -1423,7 +1423,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
             <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
-                <h2 className="text-xl text-[#DFC99F]">Saved Enchantments</h2>
+                <h2 className="text-xl text-(--highlight)">Saved Enchantments</h2>
                 <button
                   className="px-2 py-1"
                   onMouseDown={(e) => e.preventDefault()}
@@ -1470,7 +1470,7 @@ export default function Home() {
                           width={16}
                           height={16}
                         />
-                        <span className="text-[#DFC99F] ml-2">{name}</span>
+                        <span className="text-(--highlight) ml-2">{name}</span>
                       </div>
                       {itemEffects[0].target === "Constant Effect" && (
                         <span className="text-sm">Constant Effect</span>
