@@ -654,7 +654,7 @@ export default function Home() {
                     <span className="cursor-help flex items-center justify-center text-xs pl-1 pb-1">
                       ?
                     </span>
-                    <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-stone-800 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-[#CAA560] text-[#CAA560] text-center">
+                    <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-stone-800 text-xs rounded-[4px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-(--foreground) text-(--foreground) text-center">
                       Uses the OpenMW formula because the vanilla calculation is
                       bugged.
                     </div>
