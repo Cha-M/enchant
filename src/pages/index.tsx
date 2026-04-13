@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 
 import { logEvent } from "firebase/analytics";
 import { useAnalytics } from "@/firebase/AnalyticsContext";
+import { init } from "next/dist/compiled/webpack/webpack";
 
 interface RowData {
   effect: string;
@@ -476,11 +477,17 @@ export default function Home() {
     } as ItemFilterWeaponSkills,
   });
 
-  const itemList = useMemo<[string, Item][]>(
+  const initialSortedItemList = useMemo<[string, Item][]>(
     () =>
       Object.entries(items)
         .sort()
-        .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints)
+        .sort(([, a], [, b]) => b.enchantPoints - a.enchantPoints),
+    [],
+  );
+
+  const itemList = useMemo<[string, Item][]>(
+    () =>
+      initialSortedItemList
         .filter(([, itemData]) => itemData.enchantPoints >= totalCost)
         .filter(
           ([, itemData]) =>
@@ -1423,7 +1430,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
             <div className="bg-(--background) rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
-                <h2 className="text-xl text-(--highlight)">Saved Enchantments</h2>
+                <h2 className="text-xl text-(--highlight)">
+                  Saved Enchantments
+                </h2>
                 <button
                   className="px-2 py-1"
                   onMouseDown={(e) => e.preventDefault()}
