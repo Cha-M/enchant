@@ -46,9 +46,9 @@ export const AnalyticsProvider: React.FC<AnalyticsProviderProps> = ({ children }
       if (firebaseApp && await isSupported()) {
         const analytics = getAnalytics(firebaseApp);
         setAnalyticsInstance(analytics);
-        console.log("Firebase Analytics initialized successfully.");
+//        console.log("Firebase Analytics initialized successfully.");
       } else if (firebaseApp) {
-        console.log("Firebase Analytics is not supported in this environment.");
+//        console.log("Firebase Analytics is not supported in this environment.");
       }
     };
 
