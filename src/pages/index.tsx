@@ -654,7 +654,7 @@ export default function Home() {
                     <span className="cursor-help flex items-center justify-center text-xs pl-1 pb-1">
                       ?
                     </span>
-                    <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-stone-800 text-xs rounded-[4px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-(--foreground) text-(--foreground) text-center">
+                    <div className="absolute w-40 text-balance bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-(--background) text-xs rounded-[4px] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 border border-(--foreground) text-(--foreground) text-center">
                       Uses the OpenMW formula because the vanilla calculation is
                       bugged.
                     </div>
@@ -778,7 +778,7 @@ export default function Home() {
                           }}
                         >
                           <option
-                            className="bg-stone-800 text-stone-600"
+                            className="bg-(--background)"
                             value=""
                             disabled
                           >
@@ -819,7 +819,7 @@ export default function Home() {
                           }}
                         >
                           <option
-                            className="bg-stone-800 text-stone-600"
+                            className="bg-(--background)"
                             value=""
                             disabled
                           >
@@ -1083,7 +1083,7 @@ export default function Home() {
           !isFilterModalOpen &&
           !isSavedEnchantmentsModalOpen && (
             <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-50 pt-12">
-              <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
+              <div className="bg-(--background) rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
                 <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                   <h2 className="text-xl text-(--highlight)">Suitable Items</h2>
                   <button
@@ -1139,7 +1139,7 @@ export default function Home() {
                       {/* <div>{Object.entries(items).length} items in total.</div> */}
                       <table className="w-full">
                         <thead>
-                          <tr className="[&>*]:text-left [&>*]:pr-2 text-(--highlight) sticky top-0 bg-stone-800">
+                          <tr className="[&>*]:text-left [&>*]:pr-2 text-(--highlight) sticky top-0 bg-(--background)">
                             <td />
                             <td>Name</td>
                             <td>Enchant Points</td>
@@ -1231,7 +1231,7 @@ export default function Home() {
           )}
         {isFilterModalOpen && (
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
-            <div className="bg-stone-800 rounded-lg flex flex-col">
+            <div className="bg-(--background) rounded-lg flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-1">
                 <h2 className="text-xl text-(--highlight)">Filter Items</h2>
                 <button
@@ -1421,7 +1421,7 @@ export default function Home() {
         )}
         {isSavedEnchantmentsModalOpen && (
           <div className="absolute inset-0 bg-black/50 flex items-start justify-center z-[60] pt-12">
-            <div className="bg-stone-800 rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
+            <div className="bg-(--background) rounded-lg max-h-[80vh] min-w-[33vw] flex flex-col">
               <div className="flex justify-between items-start pt-3 pl-4 pr-3 pb-2">
                 <h2 className="text-xl text-(--highlight)">Saved Enchantments</h2>
                 <button
