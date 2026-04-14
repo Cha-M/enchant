@@ -514,7 +514,7 @@ export default function Home() {
             itemName.toLowerCase().includes(itemFilter.name.toLowerCase()),
         ),
 
-    [totalCost, itemFilter],
+    [totalCost, itemFilter, initialSortedItemList],
   );
 
   const [savedEnchantments, setSavedEnchantments] = useState<
