@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 import { logEvent } from "firebase/analytics";
 import { useAnalytics } from "@/firebase/AnalyticsContext";
-import { init } from "next/dist/compiled/webpack/webpack";
+// import { init } from "next/dist/compiled/webpack/webpack";
 
 interface RowData {
   effect: string;
