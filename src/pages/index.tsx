@@ -156,14 +156,6 @@ export default function Home() {
     //       baseCost *
     //       (((min + max) * duration + area) / 40);
 
-    // const newCost =
-    //   row.target === "Constant Effect"
-    //     ? (min + max) * baseCost * 2.5 + area * baseCost * 0.025
-    //     : nonConstantEffectCost > 1
-    //       ? targetMultipliers[row.target!] * nonConstantEffectCost
-    //       : 1;
-    // this was used but think wrong
-
     // question of whether this is compounded before or after reaching a minimum of one
 
     const newCost =
